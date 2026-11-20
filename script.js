@@ -22,6 +22,8 @@
       'family_prog': 'Family Programs',
       'get_involved': 'Get Involved',
       'give': 'Give',
+      'giving': 'Giving',
+      'giving_impact': 'Giving & Impact Tiers',
       'volunteer': 'Volunteer',
       'partner': 'Partner',
       'stories_impact': 'Stories & Impact',
@@ -458,7 +460,7 @@
         // Success!
         if (feedback) {
           feedback.className = 'newsletter-feedback success';
-          feedback.textContent = '🎉 Thank you for subscribing to Kandelia news! Check your inbox soon.';
+          feedback.textContent = 'Thank you for subscribing to Kandelia news! Check your inbox soon.';
         }
         if (emailInput) emailInput.value = '';
       });
@@ -503,7 +505,7 @@
       mobileBtn.addEventListener('click', () => {
         const isOpen = mobileDrawer.classList.toggle('open');
         mobileBtn.setAttribute('aria-expanded', isOpen);
-        mobileBtn.innerHTML = isOpen ? '✕ Close' : 'Menu ☰';
+        mobileBtn.innerHTML = isOpen ? '<svg class="icon close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close' : 'Menu <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
       });
 
       // Close drawer on link click
@@ -511,7 +513,7 @@
         link.addEventListener('click', () => {
           mobileDrawer.classList.remove('open');
           mobileBtn.setAttribute('aria-expanded', 'false');
-          mobileBtn.innerHTML = 'Menu ☰';
+          mobileBtn.innerHTML = 'Menu <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
         });
       });
     }
@@ -532,6 +534,46 @@
     }
   }
 
+
+  // =========================================================================
+  // 6. Interactive Donation FAQ Accordion
+  // =========================================================================
+  function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (!faqItems.length) return;
+
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (!questionBtn || !answer) return;
+
+      questionBtn.addEventListener('click', () => {
+        const isExpanded = questionBtn.getAttribute('aria-expanded') === 'true';
+
+        // Close all other accordion items for clean accordion UX
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            const otherBtn = otherItem.querySelector('.faq-question');
+            const otherAns = otherItem.querySelector('.faq-answer');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherAns) otherAns.style.maxHeight = null;
+          }
+        });
+
+        if (isExpanded) {
+          questionBtn.setAttribute('aria-expanded', 'false');
+          item.classList.remove('active');
+          answer.style.maxHeight = null;
+        } else {
+          questionBtn.setAttribute('aria-expanded', 'true');
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
   // =========================================================================
   // Initialize Everything on DOMContentLoaded
   // =========================================================================
@@ -542,6 +584,7 @@
     initModals();
     initCaptcha();
     initTabs();
+    initFaqAccordion();
     console.log("Kandelia Redesign 2026 initialized successfully!");
   });
 

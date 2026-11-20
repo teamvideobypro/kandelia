@@ -21,6 +21,7 @@ extract_images.py
 original_*
 extracted_font.css
 heart_preview.svg
+build_brand_update.py
 
 # Python bytecode & cache
 __pycache__/
