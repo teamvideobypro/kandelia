@@ -4174,9 +4174,9 @@ p {
 
 .giving-hero {
   padding: 80px 0 60px;
-  background-color: #FAF8F5;
-  background-image: radial-gradient(circle at 15% 25%, rgba(151, 215, 0, 0.08) 0%, transparent 45%),
-                    radial-gradient(circle at 85% 75%, rgba(30, 34, 170, 0.07) 0%, transparent 45%);
+  background-color: #F0FAF9 !important; /* Soft 8% tint of brand Turquoise #2AD2C9 */
+  background-image: radial-gradient(circle at 15% 25%, rgba(42, 210, 201, 0.12) 0%, transparent 45%),
+                    radial-gradient(circle at 85% 75%, rgba(31, 34, 170, 0.08) 0%, transparent 45%) !important;
   text-align: center;
 }
 
@@ -4352,7 +4352,7 @@ p {
 /* Kindful Primary CTA Banner */
 .section-kindful-cta {
   padding: 40px 0;
-  background-color: #FAF8F5;
+  background-color: #FFFFFF !important;
 }
 
 .kindful-cta-card {
@@ -4433,8 +4433,9 @@ p {
 /* Ways to Give Section */
 .section-ways-to-give {
   padding: 80px 0 90px;
-  background-color: #FFFFFF;
-  border-top: 1px solid rgba(30, 34, 170, 0.08);
+  background-color: #F0F2FA !important; /* Soft 8% tint of brand Blue #1F22AA */
+  border-top: 1px solid rgba(31, 34, 170, 0.10) !important;
+  border-bottom: 1px solid rgba(31, 34, 170, 0.10) !important;
 }
 
 .ways-to-give-grid {
@@ -4445,11 +4446,12 @@ p {
 }
 
 .way-card {
-  background: #FAF8F5;
-  border-radius: 20px;
-  padding: 28px 24px;
-  border: 1px solid rgba(30, 34, 170, 0.08);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  background: #FFFFFF !important; /* Pure white card to replace beige */
+  border-radius: 20px !important;
+  padding: 28px 24px !important;
+  border: 1px solid rgba(42, 210, 201, 0.25) !important;
+  transition: transform var(--transition-base), box-shadow var(--transition-base) !important;
+  box-shadow: 0 4px 14px rgba(31, 34, 170, 0.04) !important;
 }
 
 .way-card:hover {
@@ -4488,8 +4490,8 @@ p {
 /* Interactive Donation FAQ Section */
 .section-donation-faq {
   padding: 80px 0 100px;
-  background-color: #FAF8F5;
-  border-top: 1px solid rgba(42, 210, 201, 0.15);
+  background-color: #FFFFFF !important; /* Pure white background to replace beige */
+  border-top: 1px solid rgba(42, 210, 201, 0.15) !important;
 }
 
 .faq-wrapper {
@@ -4947,3 +4949,5 @@ h5, h6, .subhead {
 .client-review-flag {
   display: none !important;
 }
+
+.offline-giving-card { display: none !important; }

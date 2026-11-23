@@ -4185,9 +4185,9 @@ p {
 
 .giving-hero {
   padding: 80px 0 60px;
-  background-color: #FAF8F5;
-  background-image: radial-gradient(circle at 15% 25%, rgba(151, 215, 0, 0.08) 0%, transparent 45%),
-                    radial-gradient(circle at 85% 75%, rgba(30, 34, 170, 0.07) 0%, transparent 45%);
+  background-color: #F0FAF9 !important; /* Soft 8% tint of brand Turquoise #2AD2C9 */
+  background-image: radial-gradient(circle at 15% 25%, rgba(42, 210, 201, 0.12) 0%, transparent 45%),
+                    radial-gradient(circle at 85% 75%, rgba(31, 34, 170, 0.08) 0%, transparent 45%) !important;
   text-align: center;
 }
 
@@ -4363,7 +4363,7 @@ p {
 /* Kindful Primary CTA Banner */
 .section-kindful-cta {
   padding: 40px 0;
-  background-color: #FAF8F5;
+  background-color: #FFFFFF !important; /* Pure white background */
 }
 
 .kindful-cta-card {
@@ -4444,8 +4444,9 @@ p {
 /* Ways to Give Section */
 .section-ways-to-give {
   padding: 80px 0 90px;
-  background-color: #FFFFFF;
-  border-top: 1px solid rgba(30, 34, 170, 0.08);
+  background-color: #F0F2FA !important; /* Soft 8% tint of brand Blue #1F22AA */
+  border-top: 1px solid rgba(31, 34, 170, 0.10) !important;
+  border-bottom: 1px solid rgba(31, 34, 170, 0.10) !important;
 }
 
 .ways-to-give-grid {
@@ -4456,11 +4457,12 @@ p {
 }
 
 .way-card {
-  background: #FAF8F5;
-  border-radius: 20px;
-  padding: 28px 24px;
-  border: 1px solid rgba(30, 34, 170, 0.08);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  background: #FFFFFF !important; /* Pure white card to replace beige */
+  border-radius: 20px !important;
+  padding: 28px 24px !important;
+  border: 1px solid rgba(42, 210, 201, 0.25) !important;
+  transition: transform var(--transition-base), box-shadow var(--transition-base) !important;
+  box-shadow: 0 4px 14px rgba(31, 34, 170, 0.04) !important;
 }
 
 .way-card:hover {
@@ -4499,8 +4501,8 @@ p {
 /* Interactive Donation FAQ Section */
 .section-donation-faq {
   padding: 80px 0 100px;
-  background-color: #FAF8F5;
-  border-top: 1px solid rgba(42, 210, 201, 0.15);
+  background-color: #FFFFFF !important; /* Pure white background to replace beige */
+  border-top: 1px solid rgba(42, 210, 201, 0.15) !important;
 }
 
 .faq-wrapper {
@@ -4928,6 +4930,12 @@ h5, h6, .subhead {
   vertical-align: middle;
 }
 
+
+/* Internal Note Removal */
+.offline-giving-card {
+  display: none !important;
+}
+
 </style>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -5239,7 +5247,7 @@ h5, h6, .subhead {
         </div>
 
         <!-- Custom Gift Callout Box -->
-        <div style="background:#FFFFFF; border-radius:24px; padding:32px 36px; margin-top:32px; border:1.5px solid rgba(42,210,201,0.3); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; box-shadow:0 6px 20px rgba(42,210,201,0.06);">
+        <div style="background:#FFFFFF; border:1.5px solid rgba(42,210,201,0.35); box-shadow:0 6px 20px rgba(42,210,201,0.08); border-radius:24px; padding:32px 36px; margin-top:32px; border:1.5px solid rgba(42,210,201,0.3); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; box-shadow:0 6px 20px rgba(42,210,201,0.06);">
           <div>
             <span class="badge badge-green" style="margin-bottom:8px;">Custom Contribution</span>
             <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:6px;">Choose Your Own Gift Amount</h3>
@@ -5301,10 +5309,12 @@ h5, h6, .subhead {
 
         <div class="ways-to-give-grid">
 
-          <!-- Option 1: Monthly Sustaining -->
+          <!-- Option 1: Monthly Sustaining (Clean Line Heart ) -->
           <div class="way-card">
-            <div class="way-icon-bubble" style="background:#FDECEF; color:var(--coral);">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <div class="way-icon-bubble" style="background:#FEECEE; color:#F4364C;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F4364C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:26px; height:26px;" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
             </div>
             <h3 class="way-title">Monthly Sustaining Giving</h3>
             <p class="way-desc">
@@ -5312,10 +5322,16 @@ h5, h6, .subhead {
             </p>
           </div>
 
-          <!-- Option 2: Employer Gift Matching -->
+          <!-- Option 2: Employer Gift Matching (Clean Line Gift Box ) -->
           <div class="way-card">
-            <div class="way-icon-bubble" style="background:#F1FBD7; color:#2A6615;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <div class="way-icon-bubble" style="background:#F4FBE8; color:#97D700;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2A6615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:26px; height:26px;" aria-hidden="true">
+                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                <rect x="2" y="7" width="20" height="5"></rect>
+                <line x1="12" y1="22" x2="12" y2="7"></line>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+              </svg>
             </div>
             <h3 class="way-title">Employer Matching Gifts</h3>
             <p class="way-desc">
@@ -5323,25 +5339,37 @@ h5, h6, .subhead {
             </p>
           </div>
 
-          <!-- Option 3: DAFs & Appreciated Stock -->
+          <!-- Option 3: DAFs & Appreciated Stock (Clean Line Bank / Landmark ) -->
           <div class="way-card">
-            <div class="way-icon-bubble" style="background:#D5F7F5; color:#169690;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <div class="way-icon-bubble" style="background:#E6FAF9; color:#2AD2C9;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#14857F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:26px; height:26px;" aria-hidden="true">
+                <line x1="3" y1="21" x2="21" y2="21"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <polyline points="5 6 12 3 19 6"></polyline>
+                <line x1="4" y1="10" x2="4" y2="21"></line>
+                <line x1="20" y1="10" x2="20" y2="21"></line>
+                <line x1="8" y1="14" x2="8" y2="17"></line>
+                <line x1="12" y1="14" x2="12" y2="17"></line>
+                <line x1="16" y1="14" x2="16" y2="17"></line>
+              </svg>
             </div>
-            <h3 class="way-title">Donor-Advised Funds (DAF) & Stock</h3>
+            <h3 class="way-title">Donor-Advised Funds (DAF) & Wire</h3>
             <p class="way-desc">
-              Recommend a grant from your DAF (Seattle Foundation, Fidelity, Schwab, Vanguard) or donate appreciated stock to receive optimal tax benefits while uplifting our communities.
+              Recommend a grant from your DAF (Seattle Foundation, Fidelity, Schwab, Vanguard) or make direct institutional wire transfers to receive optimal tax benefits while uplifting our communities.
             </p>
           </div>
 
-          <!-- Option 4: Corporate & In-Kind Sponsorship -->
+          <!-- Option 4: Stock, Endowments & Sponsorship (Clean Line Trending Chart ) -->
           <div class="way-card">
-            <div class="way-icon-bubble" style="background:#E5E7FA; color:var(--blue);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="12 6 12 12 16 14"></polygon></svg>
+            <div class="way-icon-bubble" style="background:#ECEEFF; color:#1F22AA;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1F22AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:26px; height:26px;" aria-hidden="true">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
             </div>
-            <h3 class="way-title">Gala & Event Sponsorship</h3>
+            <h3 class="way-title">Appreciated Stock & Endowments</h3>
             <p class="way-desc">
-              Sponsor our landmark 50th Anniversary Celebration in May 2027 at the Seattle Center Pavilion. Elevate your organization’s commitment to equity and community leadership.
+              Donate appreciated securities or sponsor our landmark 50th Anniversary Celebration in May 2027. Elevate long-term equity, leadership pathways, and organizational stability.
             </p>
           </div>
 
@@ -5456,19 +5484,7 @@ h5, h6, .subhead {
           </div>
 
         </div>
-
-        <!-- Offline Giving Card (from Brand Guide Page 14) -->
-        <div class="offline-giving-card">
-          <div class="offline-giving-icon">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px; height:24px;" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          </div>
-          <div class="offline-giving-text">
-            <h4>Mail-In Gifts & Offline Pledge Inquiries</h4>
-            <p>
-              Prefer to send a check or need assistance with wire transfers? Mail to: <strong>Kandelia, 3829B S. Edmunds St. Box 9, Seattle, WA 98118</strong> • Phone: <strong>206.760.1573</strong> • Email: <strong>info@kandelia.org</strong>. All contributions are 100% tax-deductible.
-            </p>
-          </div>
-        </div>
+      </div>
 
       </div>
     </section>
