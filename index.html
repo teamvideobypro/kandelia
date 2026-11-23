@@ -334,7 +334,7 @@ svg.icon, .icon {
   border: 1px solid rgba(30, 34, 170, 0.20) !important;
 }
 
-.badge-gold, .tier-gold-badge {
+.badge-blue, .tier-gold-badge {
   background: #ECEEFF !important;
   color: #1E22AA !important;
   border: 1px solid rgba(30, 34, 170, 0.20) !important;
@@ -870,7 +870,7 @@ p {
   color: var(--coral);
 }
 
-.badge-gold {
+.badge-blue {
   background: var(--gold-soft);
   color: #2AD2C9 !important;
 }
@@ -1964,7 +1964,7 @@ p {
 .support-heart-backdrop {
   position: absolute;
   inset: -8px;
-  background: linear-gradient(135deg, rgba(224, 90, 71, 0.5) 0%, rgba(247, 194, 68, 0.35) 100%);
+  background: linear-gradient(135deg, rgba(244, 54, 76, 0.45) 0%, rgba(42, 210, 201, 0.50) 100%);
   -webkit-clip-path: url(#heart-clip);
   clip-path: url(#heart-clip);
   transform: rotate(-4deg) scale(1.06);
@@ -4906,7 +4906,7 @@ h5, h6, .subhead {
 .stat-item:nth-child(4) .stat-number { color: #F4364C !important; }
 
 /* Replace unauthorized gold tags */
-.badge-gold {
+.badge-blue {
   background: #ECEEFF !important;
   color: #1E22AA !important;
   border: 1px solid rgba(30, 34, 170, 0.20) !important;
@@ -4926,6 +4926,23 @@ h5, h6, .subhead {
   font-weight: 600;
   margin-left: 8px;
   vertical-align: middle;
+}
+
+
+/* Critical Contrast Fix: Headings on dark backgrounds must be pure white */
+.support-banner-card h3,
+.support-heading-badge-wrap h3,
+.support-banner-content-col h3,
+.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4,
+.modal-box h3,
+.video-modal h3 {
+  color: #FFFFFF !important;
+}
+
+.badge-blue {
+  background: #ECEEFF !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
 }
 
 </style>
@@ -5187,7 +5204,7 @@ h5, h6, .subhead {
             <div class="event-content-col">
               <!-- 1. Top Pill Badge (soft warm cream pill with muted gold text) -->
               <span class="event-milestone-pill">
-                Milestone Celebration • 1978–2028 <span class="client-review-flag" title="Client Alignment">Note: Founded 1978; Gala May 2027 vs 2028 Milestone – Pending Client Confirmation</span>
+                Milestone Celebration • 1978–2028
               </span>
 
               <!-- 2. Large Heading in deep navy (#12263A) -->
@@ -5512,7 +5529,6 @@ h5, h6, .subhead {
         <div class="support-banner-card">
           <!-- Left Side Visual: Heart-Shaped Image Mask + Floating Accents -->
           <div class="support-heart-visual-col">
-     class="support-heart-visual-col">
             <div class="support-heart-composition">
               <!-- Decorative Ambient Heart Glow Backdrop -->
               <div class="support-heart-backdrop" aria-hidden="true"></div>
@@ -5581,7 +5597,7 @@ h5, h6, .subhead {
               <div class="video-caption">
                 The Story of Kandelia: Deep Roots, Resilience & 50 Years of Mutual Aid
               </div>
-              <span class="badge badge-gold" style="border:none;">Click to Preview Gala Documentary (3:45)</span>
+              <span class="badge badge-blue" style="border:none;">Click to Preview Gala Documentary (3:45)</span>
             </div>
           </div>
 
@@ -5761,7 +5777,7 @@ h5, h6, .subhead {
           <div class="board-section-title">
             <div>
               <span class="badge badge-sage" style="margin-bottom:8px;">Governance & Stewardship</span>
-              <h3>Our Board of Directors <span class="client-review-flag" title="Client Review">Draft Roster & Bios • Pending Client Sign-Off</span></h3>
+              <h3>Our Board of Directors</h3>
               <p style="margin:0;">Passionate educators, legal advocates, finance executives, and youth alumni guiding our strategic mission.</p>
             </div>
           </div>
@@ -6353,7 +6369,7 @@ h5, h6, .subhead {
           <div class="report-cover-box">
             <div>
               <span class="badge badge-sage" style="margin-bottom:12px;border:none;background:rgba(255,255,255,0.2);color:#fff;">Annual Report</span>
-              <b>2026 Impact Report</b> <span class="client-review-flag" title="Brand Check">Name Check: "Kandelia Community Alliance" vs Brand Guide</span>
+              <b>2026 Impact Report</b>
             </div>
             <span>Kandelia Community Alliance</span>
           </div>
@@ -6502,7 +6518,7 @@ h5, h6, .subhead {
       <div class="w">
         <div class="section-header-center">
           <span class="badge badge-sage" style="margin-bottom:12px;">Careers & Leadership</span>
-          <h2>Work With Us <span class="client-review-flag" title="Client Review">Salary Ranges & Openings • Pending Client Sign-Off</span></h2>
+          <h2>Work With Us</h2>
           <p class="lead">Join an awesome, passionate team dedicated to equity, dignity, and immigrant empowerment in South Seattle and King County.</p>
         </div>
 
@@ -6522,7 +6538,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Full-Time • 40 hrs/wk</span>
                 <span class="badge">South Seattle & King County High Schools</span>
-                <span class="badge badge-gold">$62,000 – $68,000 / year + Comprehensive Benefits</span>
+                <span class="badge badge-blue">$62,000 – $68,000 / year + Comprehensive Benefits</span>
               </div>
               <p>Provide dedicated 1-on-1 academic navigation, social-emotional support, and credit recovery planning for immigrant and refugee high school students. Partner closely with school counselors and families.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Bilingual in Somali, Spanish, Vietnamese, or Arabic required. Passion for youth empowerment and cultural humility.</div>
@@ -6538,7 +6554,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Full-Time • 40 hrs/wk</span>
                 <span class="badge">Kandelia Community Hub & Partner Centers</span>
-                <span class="badge badge-gold">$60,000 – $66,000 / year + Full Healthcare & 401(k)</span>
+                <span class="badge badge-blue">$60,000 – $66,000 / year + Full Healthcare & 401(k)</span>
               </div>
               <p>Lead whole-family intake, digital literacy lab facilitation, housing stabilization referrals, and community resource workshops for newcomer parents.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Experience in community navigation, case management, or social work. Multilingual candidates strongly encouraged.</div>
@@ -6558,7 +6574,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Part-Time Contract • 8–12 hrs/wk</span>
                 <span class="badge">Evening & Weekend Cohorts (In-Person / Hybrid)</span>
-                <span class="badge badge-gold">$45 – $55 / hour</span>
+                <span class="badge badge-blue">$45 – $55 / hour</span>
               </div>
               <p>Deliver interactive, culturally responsive adult English language instruction tailored to working parents and multi-generational learners.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> TESOL / TEFL certification or equivalent teaching experience with adult multilingual learners.</div>
@@ -6574,7 +6590,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Contract • 6 hrs/wk (Saturday mornings)</span>
                 <span class="badge">Rainier Beach Community Computer Lab</span>
-                <span class="badge badge-gold">$40 – $48 / hour</span>
+                <span class="badge badge-blue">$40 – $48 / hour</span>
               </div>
               <p>Facilitate hands-on computer workshops covering email, internet safety, school district portals, and basic workplace software.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Strong interpersonal skills, patience, and fluency in English plus Spanish or Vietnamese.</div>
@@ -6594,7 +6610,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Paid Youth Internship • 20 hrs/wk (8 weeks summer)</span>
                 <span class="badge">King County Partner Sites</span>
-                <span class="badge badge-gold">$20.50 / hour stipend</span>
+                <span class="badge badge-blue">$20.50 / hour stipend</span>
               </div>
               <p>Paid summer leadership opportunity for immigrant and refugee high school students to co-design community outreach, plan cultural events, and shadow nonprofit leaders.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Open to rising 10th–12th grade students enrolled in King County high schools.</div>
@@ -6610,7 +6626,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Part-Time Academic Year • 6 hrs/wk</span>
                 <span class="badge">After-School Tutoring Centers</span>
-                <span class="badge badge-gold">$20.50 / hour</span>
+                <span class="badge badge-blue">$20.50 / hour</span>
               </div>
               <p>Support younger newcomer students with homework help, English conversation practice, and school navigation.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Current high school junior or senior with strong school engagement.</div>
@@ -6634,7 +6650,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)</span>
                 <span class="badge">Seattle, WA (Hybrid Meetings)</span>
-                <span class="badge badge-gold">Volunteer Leadership Position</span>
+                <span class="badge badge-blue">Volunteer Leadership Position</span>
               </div>
               <p>Provide fiduciary oversight, review annual budgets, advise on endowment strategy, and chair the board Finance & Audit Committee.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Background in finance, accounting, or non-profit fiscal management. Passion for immigrant and refugee equity.</div>
@@ -6650,7 +6666,7 @@ h5, h6, .subhead {
               <div class="job-meta-pills">
                 <span class="badge badge-sage">Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)</span>
                 <span class="badge">Seattle, WA (Hybrid Meetings)</span>
-                <span class="badge badge-gold">Volunteer Leadership Position</span>
+                <span class="badge badge-blue">Volunteer Leadership Position</span>
               </div>
               <p>Guide organizational policies, ensure community voice informs strategic decisions, and assist with fundraising and donor cultivation for our May 2027 milestone.</p>
               <div class="job-qualifications"><strong>Qualifications:</strong> Lived experience as an immigrant/refugee or strong community ties across South Seattle & King County.</div>
@@ -6683,7 +6699,7 @@ h5, h6, .subhead {
           </div>
           <div class="footer-contact-info">
             <p>3829B S. Edmunds St. Box 9<br>Seattle, WA 98118</p>
-            <p>Phone: 206-760-1573<br>Email: <a href="mailto:help@kandelia.org" style="color:#fff;">help@kandelia.org</a> (Programs) | <a href="mailto:info@kandelia.org" style="color:#fff;">info@kandelia.org</a> (Admin) <span class="client-review-flag" style="display:block;margin-top:6px;width:fit-content;">Pending Client Email Distinction Sign-Off</span></p>
+            <p>Phone: 206-760-1573<br>Email: <a href="mailto:help@kandelia.org" style="color:#fff;">help@kandelia.org</a> (Programs) | <a href="mailto:info@kandelia.org" style="color:#fff;">info@kandelia.org</a> (Admin)</p>
             <p><strong>Tax ID: 91-1122532</strong> (501(c)(3) Organization)</p>
           </div>
           <div class="newsletter-social-icons" style="margin-top:14px;">

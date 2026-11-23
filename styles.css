@@ -1326,9 +1326,9 @@ p {
 .event-milestone-pill {
   display: inline-flex;
   align-items: center;
-  background: #FEF3C7;
-  color: #92400E;
-  border: 1px solid #FDE68A;
+  background: #ECEEFF !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
   font-size: 0.85rem;
   font-weight: 700;
   padding: 6px 16px;
@@ -1953,7 +1953,7 @@ p {
 .support-heart-backdrop {
   position: absolute;
   inset: -8px;
-  background: linear-gradient(135deg, rgba(224, 90, 71, 0.5) 0%, rgba(247, 194, 68, 0.35) 100%);
+  background: linear-gradient(135deg, rgba(244, 54, 76, 0.45) 0%, rgba(42, 210, 201, 0.50) 100%);
   -webkit-clip-path: url(#heart-clip);
   clip-path: url(#heart-clip);
   transform: rotate(-4deg) scale(1.06);
@@ -4915,4 +4915,35 @@ h5, h6, .subhead {
   font-weight: 600;
   margin-left: 8px;
   vertical-align: middle;
+}
+
+
+/* ==========================================================================
+   FINAL QC FIXES: CONTRAST, BADGES & FONT REFINEMENTS
+   ========================================================================== */
+
+/* Critical Contrast Fix: Headings on dark backgrounds must be pure white */
+.support-banner-card h3,
+.support-heading-badge-wrap h3,
+.support-banner-content-col h3,
+.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4,
+.modal-box h3,
+.video-modal h3 {
+  color: #FFFFFF !important;
+}
+
+.badge-blue {
+  background: #ECEEFF !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
+}
+
+.badge-gold {
+  background: #ECEEFF !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
+}
+
+.client-review-flag {
+  display: none !important;
 }
