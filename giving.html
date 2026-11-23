@@ -9,7 +9,72 @@
 
   <!-- SVG Icon Normalization & Official Kandelia Brand Guide Styling -->
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+/* ==========================================================================
+   OFFICIAL KANDELIA BRAND GUIDE TYPOGRAPHY & COLOR SYSTEM
+   Extracted directly from Kandelia Brand Guide PDF
+   Typography: Campton (Book 400, Medium 500, Bold 700) | Secondary: Arial
+   Palette: Pantone 2736C (#1E22AA), Pantone 375C (#97D700),
+            Pantone 1787C (#F4364C), Pantone 3252C (#2AD2C9),
+            Pantone 7421C (#651D32), Black 70% (#4D4D4D),
+            Pantone 9080 40% (#E5E1D8), White (#FFFFFF)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Campton';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/fonts/CamptonLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Campton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/CamptonBook.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Campton';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/CamptonBookItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Campton';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/CamptonMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Campton';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/CamptonMediumItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Campton';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/fonts/CamptonSemiBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Campton';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/CamptonBold.otf') format('opentype');
+}
+
 
 /* ==========================================================================
    GLOBAL SVG ICON NORMALIZATION
@@ -42,29 +107,11 @@ svg.icon,
             Pantone 9080 40% (#E5E1D8), White (#FFFFFF)
    ========================================================================== */
 
-@font-face {
-  font-family: 'Campton';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Campton Book'), local('Campton-Book'), local('Campton');
-}
 
-@font-face {
-  font-family: 'Campton';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Campton Medium'), local('Campton-Medium');
-}
 
-@font-face {
-  font-family: 'Campton';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Campton Bold'), local('Campton-Bold');
-}
+
+
+
 
 :root {
   /* Official Brand Palette (Kandelia Brand Guide - Page 9) */
@@ -77,8 +124,8 @@ svg.icon,
   --bg-sand: #E5E1D8;           /* PANTONE 9080 40% (C9 M8 Y11 K0, R229 G225 B219) */
   --white: #FFFFFF;
 
-  /* Typography (Brand Guide - Page 10) */
-  --font-brand: 'Campton', 'Plus Jakarta Sans', Arial, sans-serif;
+  /* Typography (Brand Guide - Page 10) - Campton Primary, Arial Secondary */
+  --font-brand: 'Campton', Arial, sans-serif;
   --font-fallback: Arial, sans-serif;
 
   /* Core Layout Hierarchy */
@@ -94,35 +141,36 @@ svg.icon,
 
   /* Primary Brand Buttons & Action Accents */
   --coral-hover: #D9233A;
-  --coral-soft: #FDECEF;
+  --coral-soft: #FEECEE;
   --coral-tint: #FEF3F5;
 
   /* Primary Brand Green (Pantone 375C) */
   --green-dark: #2A6615;
-  --green-soft: #F1FBD7;
+  --green-soft: #F2FBE5;
   --green-tint: #F6FDEB;
 
   /* Secondary Brand Accents (Pantone 3252C Teal & Pantone 7421C Wine) */
   --teal-dark: #169690;
-  --teal-soft: #D5F7F5;
+  --teal-soft: #E6FAF9;
   --teal-tint: #F0FAF9;
 
   --wine-dark: #4D1224;
   --wine-soft: #F6DCE2;
   --wine-tint: #FAF0F3;
 
-  --blue-soft: #E5E7FA;
+  --blue-soft: #ECEEFF;
   --blue-tint: #F0F2FA;
 
-  --gold: #D99B26;
-  --gold-soft: #FEF7EA;
+  /* Soft brand tint replacing non-brand yellow/gold tags */
+  --gold: #2AD2C9;
+  --gold-soft: #E6FAF9;
 
   /* Warm Neutral Layout Foundations */
   --bg-cream: #FAF8F5;
   --bg-sand-light: #F7F4EE;
   --bg-white: #FFFFFF;
-  --bg-sage-tint: #F1FBD7;
-  --bg-sky-tint: #EDFBFB;
+  --bg-sage-tint: #F2FBE5;
+  --bg-sky-tint: #F0FAF9;
   --bg-tint-warm: #FAF8F5;
 
   /* Subtle Tinted Borders & Dividers */
@@ -1586,24 +1634,8 @@ p {
   display: block;
 }
 
-.floating-heart-mini-icon {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  background: var(--bg-white);
-  border-radius: var(--radius-pill);
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  color: var(--coral);
-}
-.floating-heart-mini-icon svg {
-  width: 14px;
-  height: 14px;
-}
+
+
 
 .floating-heart-badge.badge-top-right {
   top: -12px;
@@ -1664,17 +1696,7 @@ p {
   line-height: 1.2;
 }
 
-.support-heart-icon-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: rgba(224, 90, 71, 0.2);
-  border: 1px solid rgba(224, 90, 71, 0.45);
-  border-radius: var(--radius-pill);
-  box-shadow: 0 4px 12px rgba(224, 90, 71, 0.2);
-}
+
 
 .support-banner-lead {
   color: rgba(255, 255, 255, 0.92);
@@ -4336,6 +4358,228 @@ p {
 .impact-tier-card:nth-child(5) { background: #FEF1F3 !important; border-color: rgba(244, 54, 76, 0.35) !important; }
 .impact-tier-card:nth-child(6) { background: #FEF9EE !important; border-color: rgba(217, 155, 38, 0.30) !important; }
 
+
+
+/* ==========================================================================
+   QC REFINEMENTS: TYPOGRAPHY, LIGHTER HEADINGS & BUG FIXES
+   ========================================================================== */
+body {
+  font-family: var(--font-brand) !important;
+  font-weight: 400 !important;
+  color: var(--text-body) !important;
+  background-color: var(--bg-cream) !important;
+  line-height: 1.6 !important;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-brand) !important;
+  font-weight: 500 !important; /* Lighter Book/Medium feel per Brand Guide */
+  color: var(--navy) !important;
+  letter-spacing: -0.015em !important;
+}
+
+h4 {
+  font-family: var(--font-brand) !important;
+  font-weight: 600 !important;
+  color: var(--navy) !important;
+}
+
+h5, h6, .subhead {
+  font-family: var(--font-brand) !important;
+  font-weight: 700 !important; /* Bold for subheads per Brand Guide */
+  color: var(--navy) !important;
+}
+
+/* QC Bug 1: Eligibility Box bulletproof styling */
+.eligibility-box {
+  background: var(--bg-white) !important;
+  border-radius: 20px !important;
+  padding: 24px 28px !important;
+  margin-top: 24px !important;
+  border: 1px solid var(--border-light) !important;
+  margin-bottom: 24px !important;
+}
+
+.eligibility-box b {
+  display: block !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--navy) !important;
+  margin-bottom: 10px !important;
+}
+
+.eligibility-box ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  padding-left: 22px !important;
+  margin: 10px 0 14px 0 !important;
+  color: var(--text-body) !important;
+}
+
+.eligibility-box li {
+  display: list-item !important;
+  position: static !important;
+  line-height: 1.6 !important;
+  margin-bottom: 8px !important;
+  padding: 0 !important;
+  color: var(--text-body) !important;
+}
+
+/* QC Bug 2: Timeline Milestone badge sizing (no clipping for 2000s) */
+.timeline-shape-badge {
+  width: 76px !important;
+  height: 64px !important;
+  min-width: 76px !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 14px !important;
+  color: var(--navy) !important;
+  padding: 0 4px !important;
+  transition: transform var(--transition-fast) !important;
+}
+
+/* QC Bug 6: Board of Directors grid vertical row gap */
+.board-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  row-gap: 36px !important;
+  column-gap: 28px !important;
+  margin-bottom: 48px !important;
+}
+
+@media (max-width: 1024px) {
+  .board-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    row-gap: 32px !important;
+    column-gap: 24px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .board-grid {
+    grid-template-columns: 1fr !important;
+    row-gap: 24px !important;
+  }
+}
+
+/* QC Bug 7: Eliminate empty beige band before Get Support */
+.section-about {
+  padding: 70px 0 35px !important;
+  background-color: var(--bg-cream) !important;
+}
+
+.section-get-support {
+  padding: 45px 0 75px !important;
+  background-color: #F0F2FA !important;
+  border-bottom: 1px solid rgba(30, 34, 170, 0.12) !important;
+}
+
+/* QC Bug 8: Work With Us Cards - Qualifications full visibility */
+.job-card {
+  align-items: flex-start !important;
+  padding: 32px !important;
+}
+
+.job-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.job-info p {
+  line-height: 1.6 !important;
+  margin-bottom: 10px !important;
+}
+
+.job-qualifications {
+  font-size: 0.94rem !important;
+  color: var(--text-dark) !important;
+  background: var(--blue-tint) !important;
+  border-left: 3px solid var(--blue) !important;
+  padding: 8px 12px !important;
+  border-radius: 0 8px 8px 0 !important;
+  margin-top: 10px !important;
+  line-height: 1.55 !important;
+}
+
+/* Footer Logo Clear Space (Brand Guide p.7 - min 24px clear margin) */
+.footer-logo-wrap {
+  background: var(--bg-white) !important;
+  padding: 24px 32px !important;
+  border-radius: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06) !important;
+}
+
+.footer-logo-wrap img {
+  height: 42px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+/* Section Background Tints (8-15% brand colors) */
+.section-who-we-help {
+  background-color: #F0FAF9 !important; /* Soft Turquoise 8% */
+  border-bottom: 1px solid rgba(42, 210, 201, 0.22) !important;
+}
+
+.section-testimonials {
+  background-color: #F4FBE8 !important; /* Soft Green 8% */
+  border-bottom: 1px solid rgba(151, 215, 0, 0.25) !important;
+}
+
+/* 50th Anniversary event styling */
+.event-hero-image-wrap {
+  border: 2px dashed #2AD2C9 !important;
+  background: #E6FAF9 !important;
+  border-radius: 28px !important;
+}
+
+.event-milestone-tag {
+  background: #F0F2FA !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.18) !important;
+}
+
+/* Brand Stat Numbers in Official Colors */
+.stat-number {
+  font-family: var(--font-brand) !important;
+  font-weight: 700 !important;
+}
+
+.stat-item:nth-child(1) .stat-number { color: #1E22AA !important; }
+.stat-item:nth-child(2) .stat-number { color: #97D700 !important; }
+.stat-item:nth-child(3) .stat-number { color: #2AD2C9 !important; }
+.stat-item:nth-child(4) .stat-number { color: #F4364C !important; }
+
+/* Replace unauthorized gold tags */
+.badge-gold {
+  background: #ECEEFF !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
+}
+
+/* Client Confirmation Flag Callout */
+.client-review-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #FFF8E6;
+  color: #875900;
+  border: 1px dashed #D4A359;
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 </style>
 </head>
 <body>
@@ -4432,9 +4676,7 @@ p {
 
       <!-- Primary Donate Button (Kindful Gateway) -->
       <!-- KINDFUL DONATION URL: Replace below href with custom campaign embed link if needed -->
-      <a class="btn btn-coral" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener" data-i18n="donate">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Donate
-      </a>
+      <a class="btn btn-coral" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Donate</a>
 
       <button class="mobile-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-navigation-drawer">
         Menu <svg class="icon menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
