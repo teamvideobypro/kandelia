@@ -16,7 +16,7 @@
    Palette: Pantone 2736C (#1E22AA), Pantone 375C (#97D700),
             Pantone 1787C (#F4364C), Pantone 3252C (#2AD2C9),
             Pantone 7421C (#651D32), Black 70% (#4D4D4D),
-            Pantone 9080 40% (#E5E1D8), White (#FFFFFF)
+            White (#FFFFFF)
    ========================================================================== */
 
 @font-face {
@@ -75,66 +75,27 @@
   src: url('assets/fonts/CamptonBold.otf') format('opentype');
 }
 
-
-/* ==========================================================================
-   GLOBAL SVG ICON NORMALIZATION
-   Guarantees all icons have consistent, polite, non-oversized dimensions
-   ========================================================================== */
-svg.icon,
-.icon {
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  min-height: 18px;
-  max-width: 18px;
-  max-height: 18px;
-  flex-shrink: 0;
-  display: inline-block;
-  vertical-align: middle;
-}
-/* ==========================================================================
-   Kandelia 2026 Redesign - Design System & Modern CSS Architecture
-   Reverse-Engineered & Architected for Accessibility, Warmth, and Community
-   ========================================================================== */
-
-/* ==========================================================================
-   OFFICIAL KANDELIA BRAND GUIDE TYPOGRAPHY & COLOR SYSTEM
-   Extracted directly from Kandelia Brand Guide PDF
-   Typography: Campton (Book 400, Medium 500, Bold 700) | Secondary: Arial
-   Palette: Pantone 2736C (#1E22AA), Pantone 375C (#97D700),
-            Pantone 1787C (#F4364C), Pantone 3252C (#2AD2C9),
-            Pantone 7421C (#651D32), Black 70% (#4D4D4D),
-            Pantone 9080 40% (#E5E1D8), White (#FFFFFF)
-   ========================================================================== */
-
-
-
-
-
-
-
 :root {
   /* Official Brand Palette (Kandelia Brand Guide - Page 9) */
-  --blue: #1E22AA;              /* PANTONE 2736C (C97 M95 Y0 K0, R30 G34 B170) */
-  --green: #97D700;             /* PANTONE 375C (C46 M0 Y90 K0, R151 G215 B0) */
-  --coral: #F4364C;             /* PANTONE 1787C (C0 M82 Y53 K0, R244 G54 B76) */
-  --teal: #2AD2C9;              /* PANTONE 3252C (C49 M0 Y23 K0, R42 G210 B201) */
-  --wine: #651D32;              /* PANTONE 7421C (C18 M100 Y45 K67, R101 G29 B50) */
-  --text-dark: #4D4D4D;         /* BLACK 70% (C0 M0 Y0 K70, R77 G77 B77) */
-  --bg-sand: #E5E1D8;           /* PANTONE 9080 40% (C9 M8 Y11 K0, R229 G225 B219) */
+  --blue: #1E22AA;              /* PANTONE 2736C */
+  --green: #97D700;             /* PANTONE 375C */
+  --coral: #F4364C;             /* PANTONE 1787C */
+  --teal: #2AD2C9;              /* PANTONE 3252C */
+  --wine: #651D32;              /* PANTONE 7421C */
+  --text-dark: #4D4D4D;         /* BLACK 70% */
   --white: #FFFFFF;
 
-  /* Typography (Brand Guide - Page 10) - Campton Primary, Arial Secondary */
+  /* Typography (Brand Guide - Page 10) */
   --font-brand: 'Campton', Arial, sans-serif;
   --font-fallback: Arial, sans-serif;
 
   /* Core Layout Hierarchy */
-  --navy: #1E22AA;              /* Primary brand blue for titles & headings */
+  --navy: #1E22AA;
   --navy-dark: #12157A;
   --navy-light: #2E33C4;
   --charcoal: #1E293B;
-  --text-main: #1E22AA;         /* Primary brand headings */
-  --text-body: #4D4D4D;         /* 70% Black for body text */
+  --text-main: #1E22AA;
+  --text-body: #4D4D4D;
   --text-muted: #5C5C5C;
   --text-subtle: #737373;
   --text-inverse: #FFFFFF;
@@ -161,17 +122,18 @@ svg.icon,
   --blue-soft: #ECEEFF;
   --blue-tint: #F0F2FA;
 
-  /* Soft brand tint replacing non-brand yellow/gold tags */
+  /* Soft brand tint replacing non-brand yellow/gold */
   --gold: #2AD2C9;
   --gold-soft: #E6FAF9;
 
-  /* Warm Neutral Layout Foundations */
-  --bg-cream: #FAF8F5;
-  --bg-sand-light: #F7F4EE;
+  /* Brand Tints Replacing Beige/Cream */
+  --bg-cream: #FFFFFF;
+  --bg-sand-light: #F0FAF9;
+  --bg-sand: #ECEEFF;
   --bg-white: #FFFFFF;
   --bg-sage-tint: #F2FBE5;
   --bg-sky-tint: #F0FAF9;
-  --bg-tint-warm: #FAF8F5;
+  --bg-tint-warm: #FFFFFF;
 
   /* Subtle Tinted Borders & Dividers */
   --border-light: rgba(30, 34, 170, 0.08);
@@ -212,6 +174,439 @@ svg.icon,
   --transition-base: 250ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* ==========================================================================
+   STRICT TYPOGRAPHY & FONT WEIGHTS OVERHAUL (Lighter, Cleaner Aesthetic)
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-brand);
+}
+
+body {
+  font-family: var(--font-brand) !important;
+  font-weight: 400 !important;
+  color: var(--text-body) !important;
+  background-color: #FFFFFF !important;
+  line-height: 1.6 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Drop heavy/ultra-bold weights. Set headlines to Book/Medium (400/500) */
+h1, h2, h3,
+.hero-title,
+.event-title,
+.section-header-center h2,
+.section-header-center h3 {
+  font-family: var(--font-brand) !important;
+  font-weight: 500 !important; /* Campton Medium */
+  color: var(--navy) !important;
+  letter-spacing: -0.015em !important;
+}
+
+/* Subheads to Bold (700) only */
+h4, h5, h6,
+.subhead,
+.board-role,
+.staff-role,
+.impact-stat-label,
+b, strong {
+  font-family: var(--font-brand) !important;
+  font-weight: 700 !important;
+  color: var(--navy);
+}
+
+/* Body text, paragraphs, lists to Book (400) */
+p, li, .hero-lead, .event-desc, .lead, .details-content {
+  font-family: var(--font-brand) !important;
+  font-weight: 400 !important;
+  color: var(--text-body);
+}
+
+/* Buttons and Badges - Clean and legible */
+.btn, .badge, .event-meta-pill, .event-ticket-btn, .event-sponsor-btn {
+  font-family: var(--font-brand) !important;
+  font-weight: 600 !important;
+}
+
+/* Drop all 800 weights */
+* {
+  font-weight: inherit;
+}
+
+/* Global SVG line icons normalization */
+svg.icon, .icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   SECTION BACKGROUND TINTS (No Default Beige/Cream - 8-15% Brand Tints)
+   ========================================================================== */
+.section-hero {
+  background-color: #F0FAF9 !important; /* Soft Turquoise 9% */
+  background-image: radial-gradient(circle at 10% 20%, rgba(151, 215, 0, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(42, 210, 201, 0.09) 0%, transparent 40%) !important;
+  padding: 60px 0 80px;
+  position: relative;
+}
+
+.section-event-hero {
+  background-color: #F0F2FA !important; /* Soft Blue 6% */
+  border-top: 1px solid rgba(30, 34, 170, 0.08) !important;
+  border-bottom: 1px solid rgba(30, 34, 170, 0.08) !important;
+}
+
+.section-who-we-help {
+  background-color: #F0FAF9 !important; /* Soft Mint/Turquoise 8% */
+  border-bottom: 1px solid rgba(42, 210, 201, 0.22) !important;
+}
+
+.section-impact {
+  background-color: #FFFFFF !important; /* Clean White */
+  border-bottom: 1px solid rgba(151, 215, 0, 0.25) !important;
+}
+
+.section-testimonials {
+  background-color: #F4FBE8 !important; /* Soft Green 8% */
+  border-bottom: 1px solid rgba(151, 215, 0, 0.22) !important;
+}
+
+.section-support-banner {
+  background-color: #FFFFFF !important;
+  padding: 30px 0 40px !important;
+}
+
+.support-banner-card {
+  background: linear-gradient(135deg, #1E22AA 0%, #161A8A 100%) !important;
+  border: 1px solid rgba(42, 210, 201, 0.3) !important;
+}
+
+.section-about {
+  background-color: #F0F2FA !important; /* Soft Blue 6% */
+  padding: 65px 0 35px !important;
+}
+
+.section-get-support {
+  background-color: #F0FAF9 !important; /* Soft Turquoise 8% */
+  border-bottom: 1px solid rgba(42, 210, 201, 0.18) !important;
+  padding: 45px 0 75px !important;
+}
+
+.section-get-involved {
+  background-color: #F4FBE8 !important; /* Soft Green 8% */
+  padding: 70px 0 80px !important;
+}
+
+.section-stories {
+  background-color: #FFFFFF !important; /* Clean White */
+  padding: 80px 0 90px !important;
+}
+
+.section-careers {
+  background-color: #F0FAF9 !important; /* Soft Turquoise 8% */
+  padding: 80px 0 90px !important;
+}
+
+.site-footer {
+  background-color: #1E22AA !important; /* Official Navy */
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   COLOR SCRUBBING & BRAND ACCENTS
+   ========================================================================== */
+
+/* Scrub Yellow/Gold Tags */
+.event-milestone-pill {
+  background: #ECEEFF !important; /* Soft brand blue */
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
+}
+
+.badge-gold, .tier-gold-badge {
+  background: #ECEEFF !important;
+  color: #1E22AA !important;
+  border: 1px solid rgba(30, 34, 170, 0.20) !important;
+}
+
+.badge-sage {
+  background: #F2FBE5 !important;
+  color: #2A6615 !important;
+  border: 1px solid rgba(151, 215, 0, 0.30) !important;
+}
+
+.badge-coral {
+  background: #FEECEE !important;
+  color: #F4364C !important;
+  border: 1px solid rgba(244, 54, 76, 0.25) !important;
+}
+
+/* Event section image backing */
+.event-image-backing {
+  background: #E6FAF9 !important;
+  border: 2px dashed #2AD2C9 !important;
+  border-radius: 28px !important;
+}
+
+.event-hero-image-wrap {
+  border: 2px dashed #2AD2C9 !important;
+  background: #E6FAF9 !important;
+  border-radius: 28px !important;
+}
+
+/* Stat Numbers - Official Brand Colors Only */
+.stat-number, .impact-stat-number {
+  font-family: var(--font-brand) !important;
+  font-weight: 700 !important;
+}
+
+.impact-badge-card:nth-child(1) .impact-stat-number { color: #1E22AA !important; }
+.impact-badge-card:nth-child(2) .impact-stat-number { color: #97D700 !important; }
+.impact-badge-card:nth-child(3) .impact-stat-number { color: #2AD2C9 !important; }
+.impact-badge-card:nth-child(4) .impact-stat-number { color: #F4364C !important; }
+
+.stat-item:nth-child(1) .stat-number { color: #1E22AA !important; }
+.stat-item:nth-child(2) .stat-number { color: #97D700 !important; }
+.stat-item:nth-child(3) .stat-number { color: #2AD2C9 !important; }
+.stat-item:nth-child(4) .stat-number { color: #F4364C !important; }
+
+/* Stat card backgrounds */
+.stat-card:nth-child(1) { background: #ECEEFF !important; border: 1.5px solid rgba(30, 34, 170, 0.16) !important; }
+.stat-card:nth-child(2) { background: #F0FAF9 !important; border: 1.5px solid rgba(42, 210, 201, 0.24) !important; }
+.stat-card:nth-child(3) { background: #F4FBE8 !important; border: 1.5px solid rgba(151, 215, 0, 0.24) !important; }
+.stat-card:nth-child(4) { background: #FEF3F5 !important; border: 1.5px solid rgba(244, 54, 76, 0.18) !important; }
+
+/* Board Card Avatar Tints */
+.board-card:nth-child(1) .board-avatar { background: #ECEEFF !important; color: #1E22AA !important; }
+.board-card:nth-child(2) .board-avatar { background: #E6FAF9 !important; color: #14857F !important; }
+.board-card:nth-child(3) .board-avatar { background: #F2FBE5 !important; color: #466B00 !important; }
+.board-card:nth-child(4) .board-avatar { background: #FEECEE !important; color: #B81B2D !important; }
+.board-card:nth-child(5) .board-avatar { background: #ECEEFF !important; color: #1E22AA !important; }
+.board-card:nth-child(6) .board-avatar { background: #E6FAF9 !important; color: #14857F !important; }
+
+/* ==========================================================================
+   CRITICAL BUG FIXES & LAYOUT CORRECTIONS
+   ========================================================================== */
+
+/* Bug 1: Eligibility Box Clean Rendering */
+.eligibility-box {
+  background: #FFFFFF !important;
+  border-radius: 20px !important;
+  padding: 24px 28px !important;
+  margin-top: 24px !important;
+  border: 1px solid var(--border-light) !important;
+  margin-bottom: 24px !important;
+}
+
+.eligibility-box b {
+  display: block !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--navy) !important;
+  margin-bottom: 10px !important;
+}
+
+.eligibility-box ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  padding-left: 22px !important;
+  margin: 10px 0 14px 0 !important;
+}
+
+.eligibility-box li {
+  display: list-item !important;
+  position: static !important;
+  line-height: 1.6 !important;
+  margin-bottom: 8px !important;
+  padding: 0 !important;
+  color: var(--text-body) !important;
+}
+
+/* Bug 2: Milestones Timeline Badge (No clipping for 2000s) */
+.timeline-shape-badge {
+  width: 76px !important;
+  height: 64px !important;
+  min-width: 76px !important;
+  display: grid !important;
+  place-items: center !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 14px !important;
+  color: var(--navy) !important;
+  padding: 0 4px !important;
+  transition: transform var(--transition-fast) !important;
+}
+
+/* Bug 6: Board of Directors Vertical Gap */
+.board-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  row-gap: 36px !important;
+  column-gap: 28px !important;
+  margin-bottom: 48px !important;
+}
+
+@media (max-width: 1024px) {
+  .board-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    row-gap: 32px !important;
+    column-gap: 24px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .board-grid {
+    grid-template-columns: 1fr !important;
+    row-gap: 24px !important;
+  }
+}
+
+/* Bug 7: Eliminate empty beige band before Get Support */
+.section-about {
+  padding: 65px 0 30px !important;
+}
+
+.section-get-support {
+  padding: 40px 0 75px !important;
+}
+
+/* Bug 8: Work With Us Cards - Qualifications full visibility */
+.job-card {
+  align-items: flex-start !important;
+  padding: 32px !important;
+}
+
+.job-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.job-info p {
+  line-height: 1.6 !important;
+  margin-bottom: 10px !important;
+}
+
+.job-qualifications {
+  font-size: 0.94rem !important;
+  color: var(--text-dark) !important;
+  background: var(--blue-tint) !important;
+  border-left: 3px solid var(--blue) !important;
+  padding: 8px 14px !important;
+  border-radius: 0 8px 8px 0 !important;
+  margin-top: 10px !important;
+  line-height: 1.55 !important;
+}
+
+/* Footer Logo Clear Space (Brand Guide p.7 - min 24px clear margin) */
+.footer-logo-wrap {
+  background: #FFFFFF !important;
+  padding: 24px 32px !important;
+  border-radius: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06) !important;
+}
+
+.footer-logo-wrap img {
+  height: 42px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+/* Client Confirmation Flag Callout */
+.client-review-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #FFF8E6;
+  color: #875900;
+  border: 1px dashed #D4A359;
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+
+/* ==========================================================================
+   OFFICIAL KANDELIA BRAND GUIDE TYPOGRAPHY & COLOR SYSTEM
+   Extracted directly from Kandelia Brand Guide PDF
+   Typography: Campton (Book 400, Medium 500, Bold 700) | Secondary: Arial
+   Palette: Pantone 2736C (#1E22AA), Pantone 375C (#97D700),
+            Pantone 1787C (#F4364C), Pantone 3252C (#2AD2C9),
+            Pantone 7421C (#651D32), Black 70% (#4D4D4D),
+            Pantone 9080 40% (#E5E1D8), White (#FFFFFF)
+   ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   GLOBAL SVG ICON NORMALIZATION
+   Guarantees all icons have consistent, polite, non-oversized dimensions
+   ========================================================================== */
+svg.icon,
+.icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* ==========================================================================
+   Kandelia 2026 Redesign - Design System & Modern CSS Architecture
+   Reverse-Engineered & Architected for Accessibility, Warmth, and Community
+   ========================================================================== */
+
+/* ==========================================================================
+   OFFICIAL KANDELIA BRAND GUIDE TYPOGRAPHY & COLOR SYSTEM
+   Extracted directly from Kandelia Brand Guide PDF
+   Typography: Campton (Book 400, Medium 500, Bold 700) | Secondary: Arial
+   Palette: Pantone 2736C (#1E22AA), Pantone 375C (#97D700),
+            Pantone 1787C (#F4364C), Pantone 3252C (#2AD2C9),
+            Pantone 7421C (#651D32), Black 70% (#4D4D4D),
+            Pantone 9080 40% (#E5E1D8), White (#FFFFFF)
+   ========================================================================== */
+
+
+
+
+
+
+
+
 
 /* ==========================================================================
    Base Styles & Reset
@@ -477,7 +872,7 @@ p {
 
 .badge-gold {
   background: var(--gold-soft);
-  color: #925C05;
+  color: #2AD2C9 !important;
 }
 
 /* ==========================================================================
@@ -815,7 +1210,7 @@ p {
   align-items: center;
 }
 
-/* Hero Media with Organic Arch/Pill mask & Overlapping Card */
+/* Hero Media Composition */
 .hero-media-wrapper {
   position: relative;
   display: flex;
@@ -957,7 +1352,7 @@ p {
 .event-title {
   color: #12263A;
   font-size: clamp(28px, 2.8vw, 38px);
-  font-weight: 800;
+  font-weight: 500 !important;
   line-height: 1.22;
   margin: 0 0 16px 0;
 }
@@ -965,7 +1360,7 @@ p {
 /* 1.3 Description Paragraph */
 .event-desc {
   font-size: 1.05rem;
-  color: #4A5568;
+  color: var(--text-body) !important;
   line-height: 1.6;
   margin: 0 0 22px 0;
   max-width: 580px;
@@ -1371,9 +1766,9 @@ p {
   display: inline-block;
 }
 
-.impact-badge-card:nth-child(1) .impact-stat-number { color: #1E3A59; }
-.impact-badge-card:nth-child(2) .impact-stat-number { color: #2A6615; }
-.impact-badge-card:nth-child(3) .impact-stat-number { color: #925C05; }
+.impact-badge-card:nth-child(1) .impact-stat-number { color: #1E22AA !important; }
+.impact-badge-card:nth-child(2) .impact-stat-number { color: #97D700 !important; }
+.impact-badge-card:nth-child(3) .impact-stat-number { color: #2AD2C9 !important; }
 .impact-badge-card:nth-child(4) .impact-stat-number { color: var(--coral); }
 
 .impact-stat-label {
@@ -1607,71 +2002,26 @@ p {
 }
 
 /* Floating Heart-Shaped Photo Badges */
-.floating-heart-badge {
-  position: absolute;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28));
-  transition: transform var(--transition-base);
-}
-
-.floating-heart-badge-img {
-  width: 66px;
-  height: 66px;
-  -webkit-clip-path: url(#heart-clip);
-  clip-path: url(#heart-clip);
-  background: var(--bg-white);
-  padding: 3px;
-  overflow: hidden;
-}
-
-.floating-heart-badge-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 
 
 
-.floating-heart-badge.badge-top-right {
-  top: -12px;
-  right: -14px;
-  animation: floatHeart1 4.5s ease-in-out infinite;
-}
 
-.floating-heart-badge.badge-bottom-left {
-  bottom: -10px;
-  left: -14px;
-  animation: floatHeart2 5s ease-in-out infinite -2s;
-}
 
-.floating-heart-pill.badge-bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: -16px;
-  z-index: 3;
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--navy);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
-  white-space: nowrap;
-  animation: floatHeart1 6s ease-in-out infinite -3s;
-}
 
-@keyframes floatHeart1 {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
+
+
+
+
+
+
+
+
+
   50% { transform: translateY(-6px) rotate(3deg); }
 }
 
-@keyframes floatHeart2 {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
+
   50% { transform: translateY(-5px) rotate(-3deg); }
 }
 
@@ -1748,9 +2098,7 @@ p {
     align-items: center;
   }
 
-  .floating-heart-pill.badge-bottom-right {
-    right: 0;
-  }
+  
 }
 
 /* ==========================================================================
@@ -3184,7 +3532,7 @@ p {
 
 /* ==========================================================================
    Playful & Organic Image Shapes Architecture (Client Enhancement)
-   Flower, Rounded Hexagon, Soft Pentagon, Organic Asymmetrical Shapes
+   Organic Brand Visual Shapes
    ========================================================================== */
 
 /* 1. Global Shape Filter Shadow Wrappers */
@@ -3456,7 +3804,7 @@ p {
 
 .badge-shape-flower {
   background: var(--gold-soft);
-  color: #925C05;
+  color: #2AD2C9 !important;
   -webkit-clip-path: url(#shape-flower-8);
   clip-path: url(#shape-flower-8);
 }
@@ -3975,12 +4323,12 @@ p {
   margin-bottom: 12px;
 }
 
-.tier-green-badge { background: #F1FBD7; color: #2A6615; }
+.tier-green-badge { background: #F1FBD7; color: #97D700 !important; }
 .tier-teal-badge { background: #D5F7F5; color: #169690; }
 .tier-blue-badge { background: #E5E7FA; color: #1E22AA; }
 .tier-wine-badge { background: #F6DCE2; color: #651D32; }
 .tier-coral-badge { background: #FDECEF; color: #D9233A; }
-.tier-gold-badge { background: #FEF7EA; color: #925C05; }
+.tier-gold-badge { background: #ECEEFF; color: #2AD2C9 !important; }
 
 .impact-tier-title {
   font-size: 1.25rem;
@@ -4581,6 +4929,7 @@ h5, h6, .subhead {
 }
 
 </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Accessibility Skip Link -->
