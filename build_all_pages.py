@@ -490,17 +490,15 @@ home_html += f'''
             </div>
           </div>
 
-          <!-- Vehicle Donation Card with SVG Icon -->
+          <!-- Vehicle Donation Card with Cover Photo -->
           <div class="way-photo-card" style="border:1.5px solid rgba(42,210,201,0.35);">
-            <div class="way-photo-body" style="padding-top:28px;">
-              <div style="color:var(--teal); margin-bottom:14px;">
-                {ICON_CAR}
-              </div>
-              <span class="badge badge-blue" style="width:fit-content; margin-bottom:6px;">Vehicle Donation</span>
+            <div class="way-photo-wrap">
+              <img src="assets/vehicle_donation.jpg" alt="Charity vehicle donation supporting Kandelia programs" loading="lazy">
+            </div>
+            <div class="way-photo-body">
+              <span class="badge badge-blue" style="width:fit-content; margin-bottom:6px;">Turn Wheels into Impact</span>
               <h3>Donate Your Vehicle (CARS)</h3>
-              <p style="font-size:0.92rem; line-height:1.55;">
-                The proceeds from your vehicle will directly benefit Kandelia's programs. Both Kandelia and CARS are 501(c)(3) nonprofit organizations, and donations through this program are tax deductible. Click the link below to fuel brighter futures!
-              </p>
+              <p>The proceeds from your vehicle directly benefit Kandelia's programs. Both Kandelia and CARS are 501(c)(3) nonprofits, making donations fully tax-deductible.</p>
               <div class="way-photo-action">
                 <a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-sm">
                   CARS Donation →
@@ -1041,12 +1039,12 @@ ways_html += f'''
             </div>
           </div>
 
-          <!-- 3. Monthly Sustaining Giving (Clean SVG Line Heart) -->
-          <div class="way-photo-card">
-            <div class="way-photo-body" style="padding-top:28px;">
-              <div style="color:var(--coral); margin-bottom:14px;">
-                {ICON_HEART}
-              </div>
+          <!-- 3. Monthly Sustaining Giving (With community photo) -->
+          <div class="way-photo-card" id="monthly-giving">
+            <div class="way-photo-wrap">
+              <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students celebrating community roots" loading="lazy">
+            </div>
+            <div class="way-photo-body">
               <span class="badge badge-coral" style="width:fit-content;">Recurring Impact</span>
               <h3>Flourishing Circle (Monthly Giving)</h3>
               <p>Predictable monthly contributions create dependable funding that keeps classrooms staffed, tutoring active, and emergency funds open 365 days a year.</p>
@@ -1056,12 +1054,12 @@ ways_html += f'''
             </div>
           </div>
 
-          <!-- 4. Employer Gift Matching (Clean SVG Line Gift Box) -->
-          <div class="way-photo-card">
-            <div class="way-photo-body" style="padding-top:28px;">
-              <div style="color:#2A6615; margin-bottom:14px;">
-                {ICON_GIFT}
-              </div>
+          <!-- 4. Employer Gift Matching (With corporate partnership photo) -->
+          <div class="way-photo-card" id="employer-matching">
+            <div class="way-photo-wrap">
+              <img src="assets/image_9.jpeg" alt="Community and corporate partners collaborating in a workshop" loading="lazy">
+            </div>
+            <div class="way-photo-body">
               <span class="badge badge-green" style="width:fit-content;">Corporate Match</span>
               <h3>Employer Matching Gifts</h3>
               <p>Double your impact! Major employers (Microsoft, Boeing, Starbucks, Google, Gates Foundation) match charitable gifts 1:1. Request a match through your company portal.</p>
@@ -1071,12 +1069,12 @@ ways_html += f'''
             </div>
           </div>
 
-          <!-- 5. DAFs & Appreciated Stock (Clean SVG Line Bank) -->
-          <div class="way-photo-card">
-            <div class="way-photo-body" style="padding-top:28px;">
-              <div style="color:#14857F; margin-bottom:14px;">
-                {ICON_BANK}
-              </div>
+          <!-- 5. DAFs & Appreciated Stock (With Seattle skyline photo) -->
+          <div class="way-photo-card" id="daf-giving">
+            <div class="way-photo-wrap">
+              <img src="assets/image_2.jpeg" alt="Youth looking out towards the Seattle skyline from the water" loading="lazy">
+            </div>
+            <div class="way-photo-body">
               <span class="badge badge-teal" style="width:fit-content;">Tax-Advantaged</span>
               <h3>Donor-Advised Funds & Stock</h3>
               <p>Recommend a grant from your DAF (Seattle Foundation, Fidelity, Schwab, Vanguard) or make direct institutional wire transfers to maximize your philanthropic legacy.</p>
@@ -1086,19 +1084,17 @@ ways_html += f'''
             </div>
           </div>
 
-          <!-- 6. Dedicated Vehicle Donation Card (Clean SVG Car Icon + Official CARS Copy) -->
-          <div class="way-photo-card" style="border:2px solid rgba(42,210,201,0.40); box-shadow:0 8px 24px rgba(42,210,201,0.10);">
-            <div class="way-photo-body" style="padding-top:28px;">
-              <div style="color:var(--teal); margin-bottom:14px;">
-                {ICON_CAR}
-              </div>
+          <!-- 6. Dedicated Vehicle Donation Card (With vehicle photo + Official CARS Copy) -->
+          <div class="way-photo-card" id="vehicle-donation" style="border:2px solid rgba(42,210,201,0.40); box-shadow:0 8px 24px rgba(42,210,201,0.10);">
+            <div class="way-photo-wrap">
+              <img src="assets/vehicle_donation.jpg" alt="Charity vehicle donation supporting Kandelia" loading="lazy">
+            </div>
+            <div class="way-photo-body">
               <span class="badge badge-blue" style="width:fit-content;">Turn Wheels into Impact</span>
               <h3>Vehicle Donation Program (CARS)</h3>
-              <p style="font-size:0.95rem; line-height:1.6; color:var(--text-body);">
-                The proceeds from your vehicle will directly benefit Kandelia's programs. Both Kandelia and CARS are 501(c)(3) nonprofit organizations, and donations through this program are tax deductible. Click the link below to fuel brighter futures!
-              </p>
+              <p>The proceeds from your vehicle will directly benefit Kandelia's programs. Both Kandelia and CARS are 501(c)(3) nonprofit organizations, and donations through this program are tax deductible. Click the link below to fuel brighter futures!</p>
               <div class="way-photo-action">
-                <a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral">
+                <a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-sm">
                   CARS Donation →
                 </a>
               </div>
@@ -1429,14 +1425,15 @@ giving_html += f'''
             <div class="way-icon-bubble" style="background:#ECEEFF; color:var(--teal); width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
               {ICON_CAR}
             </div>
-            <span class="badge badge-blue" style="width:fit-content; margin-bottom:8px;">Vehicle Donation</span>
             <h3 class="way-title" style="font-size:1.2rem; color:var(--navy); margin-bottom:10px;">Vehicle Donation Program</h3>
             <p class="way-desc" style="font-size:0.95rem; color:var(--text-body); line-height:1.6; margin-bottom:16px;">
               The proceeds from your vehicle will directly benefit Kandelia's programs. Both Kandelia and CARS are 501(c)(3) nonprofit organizations, and donations through this program are tax deductible. Click the link below to fuel brighter futures!
             </p>
-            <a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-sm">
-              CARS Donation →
-            </a>
+            <div style="margin-top:auto;">
+              <a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-sm">
+                CARS Donation →
+              </a>
+            </div>
           </div>
         </div>
       </div>
