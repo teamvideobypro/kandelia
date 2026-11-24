@@ -411,34 +411,34 @@
     const captchaBox = document.getElementById('human-captcha-box');
     const feedback = document.getElementById('newsletter-feedback-msg');
     const form = document.getElementById('newsletter-signup-form');
-    let isHuman = false;
+    let isHuman = !captchaBox;
 
-    if (!captchaBox) return;
+    if (captchaBox) {
+      captchaBox.addEventListener('click', () => {
+        if (isHuman) return;
 
-    captchaBox.addEventListener('click', () => {
-      if (isHuman) return;
-
-      captchaBox.classList.add('verifying');
-      setTimeout(() => {
-        captchaBox.classList.remove('verifying');
-        captchaBox.classList.add('verified');
-        captchaBox.innerHTML = `
-          <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:3.5;" viewBox="0 0 24 24">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        `;
-        isHuman = true;
-        if (feedback) {
-          feedback.className = 'newsletter-feedback';
-          feedback.textContent = '';
-        }
-      }, 500);
-    });
+        captchaBox.classList.add('verifying');
+        setTimeout(() => {
+          captchaBox.classList.remove('verifying');
+          captchaBox.classList.add('verified');
+          captchaBox.innerHTML = `
+            <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:3.5;" viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          `;
+          isHuman = true;
+          if (feedback) {
+            feedback.className = 'newsletter-feedback';
+            feedback.textContent = '';
+          }
+        }, 500);
+      });
+    }
 
     if (form) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const emailInput = document.getElementById('newsletter-email-input');
+        const emailInput = document.getElementById('newsletter-email') || document.getElementById('newsletter-email-input');
         const email = emailInput ? emailInput.value.trim() : '';
 
         if (!email || !email.includes('@')) {
@@ -460,9 +460,9 @@
         // Success!
         if (feedback) {
           feedback.className = 'newsletter-feedback success';
-          feedback.textContent = 'Thank you for subscribing to Kandelia news! Check your inbox soon.';
+          feedback.textContent = 'Thank you for subscribing to Kandelia news! We are thrilled to stay connected.';
         }
-        if (emailInput) emailInput.value = '';
+        form.reset();
       });
     }
   }
