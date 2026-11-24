@@ -5840,3 +5840,112 @@ h5, h6, .subhead {
   line-height: 1.65 !important;
 }
 
+/* ==========================================================================
+   FINAL PIXEL-PERFECT UI/UX AUDIT POLISH PASS (Design QC Enforcement)
+   ========================================================================== */
+
+/* 1. Global Footer: Full-Width Logo Box (w-full, slightly larger) */
+.footer-brand .footer-logo-wrap {
+  width: 100% !important;
+  max-width: 280px !important;
+  background: #FFFFFF !important;
+  padding: 22px 28px !important;
+  border-radius: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.footer-brand .footer-logo-wrap img {
+  width: 100% !important;
+  max-width: 240px !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* 2. Equal-Height Cards (h-full flex column layout) & Horizontal CTA Alignment */
+.who-card-equal,
+.program-photo-card,
+.way-photo-card,
+.tier-card-clean,
+.section-ways-to-give .way-card,
+.staff-card,
+.board-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.who-card-equal .card-desc,
+.program-card-body .program-feature-list,
+.way-photo-body p,
+.tier-card-clean .tier-outcome,
+.section-ways-to-give .way-card .way-desc {
+  flex: 1 1 auto !important;
+}
+
+.who-card-equal .card-action,
+.program-photo-card .program-card-footer,
+.way-photo-card .way-photo-action,
+.section-ways-to-give .way-card .way-action {
+  margin-top: auto !important;
+}
+
+/* 3. Typography & Text Integrity (No clipped text, orphan line breaks) */
+h1, h2, h3, .hero-title, .event-title, .inner-hero-title, .section-header h2 {
+  text-wrap: balance !important;
+}
+
+.lead, .hero-lead, .inner-hero-lead, .section-header .lead {
+  text-wrap: pretty !important;
+  max-width: 720px !important;
+}
+
+.btn {
+  white-space: nowrap !important;
+}
+
+.footer-contact-info span {
+  white-space: nowrap !important;
+}
+
+/* 4. Single Centered Give Button Below 3 Cards */
+.single-give-cta-wrap {
+  text-align: center !important;
+  margin-top: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+/* 5. Standardized Spacing & Visual Rhythm Rhythm Across Viewports */
+@media (max-width: 768px) {
+  .section-who-we-help,
+  .section-about-teaser,
+  .section-stories-teaser,
+  .section-ways-teaser,
+  .section-newsletter,
+  .section-timeline,
+  .section-staff,
+  .section-board,
+  .section-careers,
+  .section-report,
+  .section-eligibility,
+  .section-testimonials,
+  .section-impact-tiers,
+  .section-ways-to-give,
+  .section-donation-faq,
+  section[style*="padding:80px 0"],
+  section[style*="padding:70px 0"] {
+    padding: 52px 0 !important;
+  }
+
+  .section-header,
+  .section-header-center {
+    margin-bottom: 28px !important;
+  }
+}
+
+

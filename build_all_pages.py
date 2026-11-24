@@ -122,8 +122,8 @@ def get_footer():
     <div class="w">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo-wrap">
-            <img src="assets/image_0.png" alt="Kandelia Logo" width="220" height="48">
+          <div class="footer-logo-wrap" style="width:100%; max-width:280px; background:#FFFFFF; padding:22px 28px; border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+            <img src="assets/image_0.png" alt="Kandelia Logo" width="240" height="52" style="width:100%; max-width:240px; height:auto; display:block;">
           </div>
           <div class="footer-tagline">
             Removing barriers to immigrant and refugee success.
@@ -586,7 +586,7 @@ about_html += f'''
     </section>
 
     <!-- BRAND VALUES PLATFORM (Brand Guide Page 3) -->
-    <section style="padding:70px 0; background-color:#FFFFFF;">
+    <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
           <span class="badge badge-teal" style="margin-bottom:12px;">Guiding Principles</span>
@@ -743,6 +743,12 @@ about_html += '''        </div>
     <!-- 2026 ANNUAL REPORT -->
     <section class="section-report" id="impact-report" style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px; text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span class="badge badge-teal" style="margin-bottom:12px;">Accountability & Impact</span>
+          <h2>2026 Community Impact Report</h2>
+          <p class="lead" style="text-align:center; margin:0 auto;">Our annual evaluation of student graduation rates, family economic mobility, and direct assistance distribution across King County.</p>
+        </div>
+
         <div class="pinned-report-card">
           <div class="report-cover-box" style="background:#1F22AA; border-radius:20px; padding:32px 24px; color:#FFFFFF; display:flex; flex-direction:column; justify-content:space-between; min-height:240px; box-shadow:0 10px 30px rgba(31,34,170,0.15);">
             <div>
@@ -1232,6 +1238,12 @@ stories_html += '''        </div>
     <!-- 2026 ANNUAL REPORT -->
     <section class="section-report" id="metrics" style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px; text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span class="badge badge-teal" style="margin-bottom:12px;">Measurable Impact</span>
+          <h2>2026 Community Impact Report</h2>
+          <p class="lead" style="text-align:center; margin:0 auto;">Transparent outcomes from our student graduation cohorts, emergency family fund, and adult digital literacy classes.</p>
+        </div>
+
         <div class="pinned-report-card">
           <div class="report-cover-box" style="background:#1F22AA; border-radius:20px; padding:32px 24px; color:#FFFFFF; display:flex; flex-direction:column; justify-content:space-between; min-height:240px; box-shadow:0 10px 30px rgba(31,34,170,0.15);">
             <div>
