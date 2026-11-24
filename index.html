@@ -81,18 +81,46 @@
             <a class="btn btn-outline btn-lg" href="/giving">Support Our Work</a>
           </div>
 
-          <!-- Trust & Impact Snapshot -->
-          <div class="hero-trust-bar" style="margin-top:36px;">
-            <div class="hero-stat-pill"><strong>570+</strong> Served Yearly</div>
-            <div class="hero-stat-pill"><strong>95%</strong> Graduation Rate</div>
-            <div class="hero-stat-pill"><strong>22</strong> Languages Spoken</div>
-            <div class="hero-stat-pill"><strong>$240K+</strong> Direct Relief</div>
+          <!-- Trust & Impact Snapshot (2x2 Grid Layout: 2 items per row, 2 rows) -->
+          <div class="hero-stats-2x2-grid">
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">570+</span> <span class="hero-stat-label">Served Yearly</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">95%</span> <span class="hero-stat-label">Graduation Rate</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">22</span> <span class="hero-stat-label">Languages Spoken</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">$240K+</span> <span class="hero-stat-label">Direct Relief</span>
+            </div>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-img-composition" style="border-radius: 36px 36px 110px 36px; overflow: hidden; box-shadow: 0 20px 48px rgba(30,34,170,0.12); border: 4px solid #FFFFFF; aspect-ratio: 4/3.4; width: 100%; max-width: 520px;">
-            <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" class="hero-main-img" style="width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; display: block; border-radius: inherit;">
+        <div class="hero-media-wrapper">
+          <div class="hero-organic-composition">
+            <!-- Decorative Scalloped / Dashed Ring Backdrop -->
+            <div class="hero-scallop-ring" aria-hidden="true"></div>
+
+            <!-- Floating Sticker Badge Top-Right (50 Years • Seattle Roots) -->
+            <div class="floating-sticker top-right">50 Years • Seattle Roots</div>
+
+            <!-- Main Image Frame with Organic Curve (Image 1) -->
+            <div class="hero-image-frame-enhanced">
+              <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" class="hero-main-img">
+            </div>
+
+            <!-- Floating Rounded Stat Card Bottom (95% Graduation Rate) -->
+            <div class="floating-stat-card">
+              <div class="floating-stat-badge" style="background:#E3F2D4; width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6615" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              </div>
+              <div class="floating-stat-text">
+                <b style="color:var(--navy); font-size:1.02rem; display:block; line-height:1.2;">95% Graduation Rate</b>
+                <span style="color:var(--text-muted); font-size:0.82rem; display:block; margin-top:2px;">Serving 570+ Students & Families</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -103,10 +131,11 @@
       <div class="w">
         <div class="event-card">
           <div class="event-2col-grid">
-            <!-- Left Column: Layered Seattle skyline image -->
+            <!-- Left Column: Layered Seattle skyline image with dashed cyan outline (Image 2) -->
             <div class="event-image-col">
-              <div class="event-photo-container">
-                <div class="event-photo-frame">
+              <div class="event-layered-image-wrap">
+                <div class="event-image-backing" aria-hidden="true"></div>
+                <div class="event-image-frame">
                   <img src="assets/image_2.jpeg" alt="Kandelia group looking out over the Seattle skyline" loading="lazy">
                 </div>
                 <div class="floating-sticker event-gala-pill">Milestone Gala</div>
