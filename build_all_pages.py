@@ -89,17 +89,14 @@ def get_header(active="home"):
   </header>'''
 
 def get_support_banner():
-    return '''    <!-- Support Our Work CTA Banner (Aligned Container Bounds) -->
+    return '''    <!-- Support Our Work CTA Banner (Restored Community Photo with rounded-2xl) -->
     <section class="section-support-banner" id="support-banner">
       <div class="w">
         <div class="support-banner-card">
-          <!-- Left Side Visual: Heart-Shaped Image Mask -->
-          <div class="support-heart-visual-col">
-            <div class="support-heart-composition">
-              <div class="support-heart-backdrop" aria-hidden="true"></div>
-              <div class="support-heart-main">
-                <img src="assets/image_1.jpeg" alt="Warm Kandelia community and refugee families" loading="lazy">
-              </div>
+          <!-- Left Side Visual: Community Photograph with soft rounded corners (rounded-2xl) -->
+          <div class="support-banner-photo-col">
+            <div class="support-banner-photo-frame">
+              <img src="assets/image_1.jpeg" alt="Warm Kandelia community and refugee families" loading="lazy">
             </div>
           </div>
 
@@ -237,8 +234,8 @@ home_html += f'''
         </div>
 
         <div class="hero-visual">
-          <div class="hero-img-composition">
-            <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" class="hero-main-img">
+          <div class="hero-img-composition" style="border-radius: 36px 36px 110px 36px; overflow: hidden; box-shadow: 0 20px 48px rgba(30,34,170,0.12); border: 4px solid #FFFFFF; aspect-ratio: 4/3.4; width: 100%; max-width: 520px;">
+            <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" class="hero-main-img" style="width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; display: block; border-radius: inherit;">
           </div>
         </div>
       </div>
@@ -495,12 +492,12 @@ home_html += f'''
     <!-- STAY IN THE LOOP (UPDATED NEWSLETTER SIGNUP FORM) -->
     <section class="section-newsletter" id="newsletter" style="padding:70px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
       <div class="w" style="max-width:920px; margin:0 auto;">
-        <div style="text-align:center; margin-bottom:28px;">
-          <span class="badge badge-blue" style="margin-bottom:10px;">Stay Connected</span>
-          <h2 style="font-size:clamp(1.8rem, 3.2vw, 2.4rem); color:var(--navy); margin-bottom:10px;">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 32px; text-align:center; display:flex; flex-direction:column; align-items:center;">
+          <span class="badge badge-blue" style="margin-bottom:12px;">Stay Connected</span>
+          <h2 style="font-size:clamp(1.8rem, 3.2vw, 2.4rem); color:var(--navy); margin-bottom:10px; text-align:center; width:100%;">
             Stay in the Loop with Kandelia
           </h2>
-          <p style="font-size:1.05rem; color:var(--text-body); max-width:640px; margin:0 auto; line-height:1.6;">
+          <p class="lead" style="font-size:1.05rem; color:var(--text-body); max-width:640px; margin:0 auto; line-height:1.6; text-align:center;">
             Receive updates on program outcomes, community stories, and event invitations a few times a year. No spam, ever.
           </p>
         </div>
@@ -912,10 +909,10 @@ help_html += f'''
     <!-- ELIGIBILITY & INTAKE SECTION -->
     <section class="section-eligibility" id="eligibility" style="padding:80px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
       <div class="w" style="max-width:880px; margin:0 auto;">
-        <div class="section-header text-center" style="margin-bottom:36px;">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 36px; text-align:center; display:flex; flex-direction:column; align-items:center;">
           <span class="badge badge-blue" style="margin-bottom:12px;">Simple & Barrier-Free</span>
           <h2>Program Eligibility Guidelines</h2>
-          <p class="lead">All Kandelia programs are 100% free of charge. We warmly welcome immigrants, refugees, asylees, and first-generation families.</p>
+          <p class="lead" style="text-align:center; margin:0 auto;">All Kandelia programs are 100% free of charge. We warmly welcome immigrants, refugees, asylees, and first-generation families.</p>
         </div>
 
         <div style="background:#FFFFFF; border-radius:24px; padding:36px 40px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 6px 20px rgba(30,34,170,0.04);">

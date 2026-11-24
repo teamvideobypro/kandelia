@@ -5493,3 +5493,186 @@ h5, h6, .subhead {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   TARGETED FIX 1: HERO IMAGE SOFT ORGANIC CURVED SHAPE (rounded-[32px] / curve)
+   ========================================================================== */
+.hero-visual {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+.hero-img-composition,
+.hero-image-frame {
+  position: relative !important;
+  border-radius: 36px 36px 110px 36px !important; /* Soft organic curved container shape */
+  overflow: hidden !important;
+  box-shadow: 0 20px 48px rgba(30, 34, 170, 0.12), 0 6px 16px rgba(0, 0, 0, 0.04) !important;
+  border: 4px solid #FFFFFF !important;
+  background: #F0FAF9 !important;
+  aspect-ratio: 4 / 3.4 !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  transition: transform var(--transition-smooth) !important;
+}
+
+.hero-img-composition img,
+.hero-image-frame img,
+.hero-main-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 60% 30% !important;
+  display: block !important;
+  border-radius: inherit !important;
+}
+
+.hero-img-composition:hover,
+.hero-image-frame:hover {
+  transform: translateY(-4px) !important;
+}
+
+/* ==========================================================================
+   TARGETED FIX 2: RESTORE MISSING COMMUNITY PHOTO IN "SUPPORT OUR WORK" BANNER
+   Two-column balanced layout with clean rounded-2xl corners
+   ========================================================================== */
+.support-banner-card {
+  background: linear-gradient(135deg, var(--navy) 0%, #12157A 100%) !important;
+  color: var(--bg-white) !important;
+  border-radius: var(--radius-card-lg) !important;
+  padding: 44px 48px !important;
+  box-shadow: 0 16px 40px rgba(18, 38, 58, 0.18) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  display: grid !important;
+  grid-template-columns: minmax(280px, 340px) 1fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+
+.support-banner-photo-col {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.support-banner-photo-frame {
+  width: 100% !important;
+  max-width: 340px !important;
+  aspect-ratio: 4 / 3 !important;
+  border-radius: 20px !important; /* rounded-2xl */
+  overflow: hidden !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28) !important;
+  border: 3px solid rgba(255, 255, 255, 0.22) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.support-banner-photo-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  display: block !important;
+  transition: transform var(--transition-smooth) !important;
+}
+
+.support-banner-card:hover .support-banner-photo-frame img {
+  transform: scale(1.04) !important;
+}
+
+/* Fallback override for previous heart wrapper */
+.support-heart-visual-col,
+.support-heart-composition,
+.support-heart-main {
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+.support-heart-backdrop {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .support-banner-card {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 36px 24px !important;
+    text-align: center !important;
+  }
+  .support-banner-photo-frame {
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+  .support-banner-content-col {
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+/* ==========================================================================
+   TARGETED FIX 3: STRICT CENTER-ALIGNMENT FOR ALL SECTION HEADERS
+   Applies to category pills, H2 titles, and lead subtitles across all pages
+   ========================================================================== */
+.text-center {
+  text-align: center !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.max-w-3xl {
+  max-width: 48rem !important; /* 768px */
+}
+
+.section-header,
+.section-header-center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 760px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-bottom: 40px !important;
+}
+
+.section-header .badge,
+.section-header-center .badge {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.section-header h2,
+.section-header h3,
+.section-header-center h2,
+.section-header-center h3 {
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.section-header .lead,
+.section-header p,
+.section-header-center .lead,
+.section-header-center p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 720px !important;
+  line-height: 1.65 !important;
+}
+
