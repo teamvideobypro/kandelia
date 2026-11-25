@@ -30,6 +30,11 @@ __pycache__/
 # Vercel project directory
 .vercel/
 
+# Heavy Drive raw logo archive
+drive_logos/
+drive_dump.html
+scratch_*.png
+
 # OS metadata
 .DS_Store
 Thumbs.db

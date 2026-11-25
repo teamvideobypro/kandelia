@@ -34,7 +34,8 @@ def get_head(title, description):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <link rel="icon" type="image/png" href="assets/image_0.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/kandelia_icon_mark.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -47,7 +48,7 @@ def get_header(active="home"):
   <header class="site-header" role="banner">
     <div class="w header-container">
       <a href="/" class="brand-link" aria-label="Kandelia Home">
-        <img src="assets/image_0.png" alt="Kandelia Logo" width="220" height="48">
+        <img src="assets/kandelia_logo_horizontal_rgb.png" alt="Kandelia Logo" class="brand-logo" width="220" height="70">
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -123,7 +124,7 @@ def get_footer():
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo-wrap" style="width:100%; max-width:280px; background:#FFFFFF; padding:22px 28px; border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,0.15);">
-            <img src="assets/image_0.png" alt="Kandelia Logo" width="240" height="52" style="width:100%; max-width:240px; height:auto; display:block;">
+            <img src="assets/kandelia_logo_horizontal_rgb.png" alt="Kandelia Logo" width="240" height="76" style="width:100%; max-width:240px; height:auto; display:block;">
           </div>
           <div class="footer-tagline">
             Removing barriers to immigrant and refugee success.
@@ -753,7 +754,9 @@ about_html += '''        </div>
               <span class="badge" style="margin-bottom:12px; border:none; background:rgba(255,255,255,0.2); color:#FFFFFF; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; padding:4px 12px; border-radius:20px; display:inline-block;">Annual Report</span>
               <div style="font-size:1.6rem; font-weight:700; line-height:1.2; color:#FFFFFF; margin-top:8px;">2026 Impact Report</div>
             </div>
-            <div style="font-size:1.05rem; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.02em;">Kandelia</div>
+            <div>
+              <img src="assets/kandelia_logo_horizontal_reverse.png" alt="Kandelia Logo" style="height:32px; width:auto; opacity:0.95; display:block;">
+            </div>
           </div>
 
           <div class="report-details-body">
@@ -1246,7 +1249,9 @@ stories_html += '''        </div>
               <span class="badge" style="margin-bottom:12px; border:none; background:rgba(255,255,255,0.2); color:#FFFFFF; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; padding:4px 12px; border-radius:20px; display:inline-block;">Annual Report</span>
               <div style="font-size:1.6rem; font-weight:700; line-height:1.2; color:#FFFFFF; margin-top:8px;">2026 Impact Report</div>
             </div>
-            <div style="font-size:1.05rem; font-weight:700; color:rgba(255,255,255,0.9); letter-spacing:0.02em;">Kandelia</div>
+            <div>
+              <img src="assets/kandelia_logo_horizontal_reverse.png" alt="Kandelia Logo" style="height:32px; width:auto; opacity:0.95; display:block;">
+            </div>
           </div>
 
           <div class="report-details-body">
