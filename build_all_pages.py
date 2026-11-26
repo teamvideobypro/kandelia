@@ -1,9 +1,10 @@
 import os
+import html
 import site_data
 
 print("=== Starting build_all_pages.py ===")
 
-# --- SVG ICONS (Clean, minimal, 24x24 viewBox, stroke-width 2) ---
+# --- SVG ICONS (Clean, minimal, 24x24 viewBox, stroke-width 2, no emojis) ---
 ICON_CALENDAR = '''<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;vertical-align:-3px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>'''
 ICON_MAP_PIN = '''<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;vertical-align:-3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>'''
 ICON_CLOCK = '''<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;vertical-align:-3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>'''
@@ -48,7 +49,7 @@ def get_header(active="home"):
   <header class="site-header" role="banner">
     <div class="w header-container">
       <a href="/" class="brand-link" aria-label="Kandelia Home">
-        <img src="assets/kandelia_logo_horizontal_rgb.png" alt="Kandelia Logo" class="brand-logo" width="220" height="70">
+        <img src="assets/kandelia_logo_header.png" alt="Kandelia" class="brand-logo" width="220" height="60" style="height:52px; width:auto; display:block;">
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -123,8 +124,9 @@ def get_footer():
     <div class="w">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo-wrap" style="width:100%; max-width:280px; background:#FFFFFF; padding:22px 28px; border-radius:18px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,0.15);">
-            <img src="assets/kandelia_logo_horizontal_rgb.png" alt="Kandelia Logo" width="240" height="76" style="width:100%; max-width:240px; height:auto; display:block;">
+          <!-- Plain white logo, unconstrained horizontal layout, transparent background -->
+          <div class="footer-logo-wrap-clean">
+            <img src="assets/kandelia_logo_footer.png" alt="Kandelia" width="240" height="66">
           </div>
           <div class="footer-tagline">
             Removing barriers to immigrant and refugee success.
@@ -172,13 +174,29 @@ def get_footer():
           <h4>Ways to Give</h4>
           <ul>
             <li><a href="/giving">Giving & Impact Tiers</a></li>
-            <li><a href="/ways-to-give#family-giving">Family & Youth Funds</a></li>
-            <li><a href="/giving#monthly-donor">Become a Monthly Donor</a></li>
+            <li><a href="/ways-to-give#give">Give to Kandelia</a></li>
+            <li><a href="/ways-to-give#volunteer">Volunteer With Us</a></li>
+            <li><a href="/ways-to-give#partner">Partner With Us</a></li>
             <li><a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer">Vehicle Donation (CARS)</a></li>
           </ul>
           <div style="margin-top:20px;">
             <a class="btn btn-coral btn-sm" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Donate</a>
           </div>
+        </div>
+      </div>
+
+      <!-- Stay in the Loop Newsletter Signup (Integrated at bottom of footer across all pages) -->
+      <div class="footer-stay-in-loop">
+        <div style="max-width:720px; margin:0 auto; text-align:center;">
+          <h4 style="font-size:1.35rem; color:#FFFFFF; margin-bottom:8px; font-weight:700;">Stay in the Loop with Kandelia</h4>
+          <p style="font-size:0.95rem; color:rgba(255,255,255,0.85); margin-bottom:18px; line-height:1.5;">Receive community updates, student stories, and event invitations a few times a year. No spam, ever.</p>
+          <form class="footer-stay-in-loop-form" onsubmit="event.preventDefault(); handleFooterNewsletter(this);">
+            <input type="text" name="fname" class="footer-stay-in-loop-input" placeholder="First Name" required>
+            <input type="text" name="lname" class="footer-stay-in-loop-input" placeholder="Last Name" required>
+            <input type="email" name="email" class="footer-stay-in-loop-input" placeholder="Email Address" required>
+            <button type="submit" class="btn btn-coral" style="border-radius:30px; padding:12px 28px; font-weight:700; cursor:pointer;">Subscribe</button>
+            <div class="footer-newsletter-feedback" role="alert" style="width:100%; text-align:center; margin-top:10px; font-size:0.92rem; min-height:22px;"></div>
+          </form>
         </div>
       </div>
 
@@ -194,25 +212,37 @@ def get_footer():
       </div>
     </div>
   </footer>
+
+  <!-- Global Modal Overlay (Accessible pop-ups for bios, stories, and videos) -->
+  <div class="modal-overlay" id="global-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-title">Modal Title</h3>
+        <button class="modal-close-btn" id="modal-close-button" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-content-area" style="padding: 28px 36px 36px;"></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>'''
 
+
 # ==============================================================================
-# 1. GENERATE index.html (HOME PAGE - TRIMMED HIGH-IMPACT TEASERS)
+# 1. GENERATE index.html (HOME PAGE - POLISHED ACCORDING TO CLIENT FEEDBACK)
 # ==============================================================================
 print("Generating index.html...")
-home_html = get_head("Kandelia | 50 Years of Immigrant & Refugee Belonging", "Kandelia removes barriers to immigrant and refugee success through holistic education, family navigation, and community equity.")
+home_html = get_head("Kandelia | Immigrant & Refugee Belonging in Seattle", "Kandelia removes barriers to immigrant and refugee success through holistic education, family navigation, and community equity in Seattle.")
 home_html += get_header("home")
 home_html += f'''
   <main id="main-content">
     {SVG_HEART_CLIP}
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (Trimmed: No badge line, No stats 2x2 row, No dotted moving ring) -->
     <section class="section-hero" id="hero">
       <div class="w hero-grid">
         <div class="hero-content">
-          <span class="badge badge-sage">50 Years of Immigrant & Refugee Belonging</span>
           <h1 class="hero-title">
             Removing Barriers to Immigrant and Refugee Success
           </h1>
@@ -224,29 +254,10 @@ home_html += f'''
             <a class="btn btn-primary btn-lg" href="/get-help">Get Help →</a>
             <a class="btn btn-outline btn-lg" href="/giving">Support Our Work</a>
           </div>
-
-          <!-- Trust & Impact Snapshot (2x2 Grid Layout: 2 items per row, 2 rows) -->
-          <div class="hero-stats-2x2-grid">
-            <div class="hero-stat-item">
-              <span class="hero-stat-number">570+</span> <span class="hero-stat-label">Served Yearly</span>
-            </div>
-            <div class="hero-stat-item">
-              <span class="hero-stat-number">95%</span> <span class="hero-stat-label">Graduation Rate</span>
-            </div>
-            <div class="hero-stat-item">
-              <span class="hero-stat-number">22</span> <span class="hero-stat-label">Languages Spoken</span>
-            </div>
-            <div class="hero-stat-item">
-              <span class="hero-stat-number">$240K+</span> <span class="hero-stat-label">Direct Relief</span>
-            </div>
-          </div>
         </div>
 
         <div class="hero-media-wrapper">
           <div class="hero-organic-composition">
-            <!-- Decorative Scalloped / Dashed Ring Backdrop -->
-            <div class="hero-scallop-ring" aria-hidden="true"></div>
-
             <!-- Floating Sticker Badge Top-Right (50 Years • Seattle Roots) -->
             <div class="floating-sticker top-right">50 Years • Seattle Roots</div>
 
@@ -330,8 +341,138 @@ home_html += f'''
       </div>
     </section>
 
+    <!-- CORE VALUES SECTION (5 VALUES IN BALANCED 3+2 LAYOUT - NO ORPHANED CARD) -->
+    <section class="section-values" id="values" style="padding:80px 0; background-color:#FFFFFF;">
+      <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-teal" style="margin-bottom:12px;">Guiding Principles</span>
+          <h2>Our Core Values</h2>
+          <p class="lead">These values drive our daily culture, educational cohorts, community advocacy, and strategic partnerships.</p>
+        </div>
+
+        <div class="values-even-flex">
+          <div class="value-card-item" style="background:#F0FAF9; border:1px solid rgba(42,210,201,0.25);">
+            <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">Inclusion</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              We embrace diversity and believe all people have value and the right to belong. We commit to active listening and questioning assumptions.
+            </p>
+          </div>
+          <div class="value-card-item" style="background:#FEECEE; border:1px solid rgba(244,54,76,0.22);">
+            <h3 style="font-size:1.25rem; color:var(--coral); margin-bottom:10px;">Heart</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              We measure our success by the real difference we make in people's lives. We act with care, empathy, kindness, and fun along the way.
+            </p>
+          </div>
+          <div class="value-card-item" style="background:#F4FBE8; border:1px solid rgba(151,215,0,0.25);">
+            <h3 style="font-size:1.25rem; color:#2A6615; margin-bottom:10px;">Equity</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              We believe in just and fair inclusion, identifying inequities and taking proactive responsibility for addressing them.
+            </p>
+          </div>
+          <div class="value-card-item" style="background:#ECEEFF; border:1px solid rgba(30,34,170,0.20);">
+            <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">Relationships</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              We build strong connections with each other, partners, and the communities we serve in the spirit of genuine collaboration.
+            </p>
+          </div>
+          <div class="value-card-item" style="background:#F0FAF9; border:1px solid rgba(42,210,201,0.25);">
+            <h3 style="font-size:1.25rem; color:#14857F; margin-bottom:10px;">Excellence</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              We strive to be the best we can be in all we do, applying discipline, organization, and professionalism to our daily work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO EMBED SECTION (PLACED EXACTLY BETWEEN CORE VALUES AND ABOUT SECTION) -->
+    <section class="section-video" id="video" style="padding:80px 0; background-color:#F0F2FA;">
+      <div class="w" style="max-width:960px; margin:0 auto;">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 36px;">
+          <span class="badge badge-coral" style="margin-bottom:12px;">50-Year Documentary Preview</span>
+          <h2>The Story of Kandelia</h2>
+          <p class="lead">Watch our commemorative milestone preview celebrating five decades of immigrant and refugee resilience across Seattle.</p>
+        </div>
+
+        <div class="video-embed-scalloped" id="kandelia-video-container" role="button" tabindex="0" aria-label="Watch video: The Story of Kandelia">
+          <img class="video-poster-img" src="assets/image_2.jpeg" alt="Video preview for The Story of Kandelia" style="width:100%; height:100%; object-fit:cover;">
+          <div class="video-play-overlay">
+            <div class="video-flower-play-btn">
+              <svg style="width:32px;height:32px;fill:currentColor;margin-left:4px;" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <div class="video-caption">
+              The Story of Kandelia: Deep Roots, Resilience & 50 Years of Mutual Aid
+            </div>
+            <span class="badge badge-sage" style="border:none; background:rgba(255,255,255,0.92); color:var(--navy); font-weight:700;">Click to Preview Gala Documentary (3:45)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT KANDELIA OVERVIEW TEASER -->
+    <section class="section-about-teaser" style="padding:80px 0; background-color:#FFFFFF;">
+      <div class="w" style="max-width:980px; margin:0 auto; text-align:center;">
+        <span class="badge badge-sage" style="margin-bottom:14px;">Our Mission & Purpose</span>
+        <blockquote style="font-size:clamp(1.35rem, 2.5vw, 1.85rem); line-height:1.45; color:var(--navy); font-weight:500; margin:0 0 24px; border:none; padding:0;">
+          "We remove barriers to opportunities so immigrant and refugee communities can flourish without compromising values, heritage or ethnicity."
+        </blockquote>
+        <p style="font-size:1.08rem; color:var(--text-body); max-width:760px; margin:0 auto 32px; line-height:1.65;">
+          Guided by our core values of Inclusion, Heart, Equity, Relationships, and Excellence, Kandelia has grown from a grassroots refugee mutual aid effort in 1978 to a regional pillar of community leadership.
+        </p>
+        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <a class="btn btn-outline" href="/about">Discover Our 50-Year Story & Team →</a>
+          <a class="btn btn-primary" href="/about#careers">Work With Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 50-YEAR MILESTONES (EXACTLY 4 EVENLY SPACED MILESTONES) -->
+    <section class="section-milestones" id="milestones" style="padding:80px 0; background-color:#F0FAF9;">
+      <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-sage" style="margin-bottom:12px;">Five Decades</span>
+          <h2>Milestones of Belonging (1978–2028)</h2>
+          <p class="lead">Key inflection points across fifty years of community empowerment and refugee solidarity in King County.</p>
+        </div>
+
+        <div class="milestones-4grid">
+          <div class="milestone-card-clean">
+            <span class="milestone-year-pill">1978</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">Founded in Mutual Aid</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Established as the Southeast Asian Refugee Support network to provide direct translation, emergency relief, and community orientation for arriving families.
+            </p>
+          </div>
+
+          <div class="milestone-card-clean">
+            <span class="milestone-year-pill">1995</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">Public Schools Partnership</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Formed after-school tutoring programs inside public high schools, ensuring bilingual homework help and credit recovery for newly arrived ELL students.
+            </p>
+          </div>
+
+          <div class="milestone-card-clean">
+            <span class="milestone-year-pill">2020</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">Direct Relief & Digital Access</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Disbursed over $240,000 in emergency rental relief and distributed hundreds of cellular-connected laptops to bridge digital inequities.
+            </p>
+          </div>
+
+          <div class="milestone-card-clean" style="border-color:var(--teal); box-shadow:0 6px 18px rgba(42,210,201,0.15);">
+            <span class="milestone-year-pill" style="color:var(--coral);">May 2027</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">50th Anniversary Gala</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Gathering five decades of alumni, families, educators, and community champions at the Seattle Center Pavilion for our landmark celebration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- WHO WE HELP SECTION (EQUAL-HEIGHT BALANCED CARDS) -->
-    <section class="section-who-we-help" id="who-we-help" style="padding:80px 0;">
+    <section class="section-who-we-help" id="who-we-help" style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
           <span class="badge badge-teal" style="margin-bottom:12px;">Holistic Pathways</span>
@@ -391,56 +532,51 @@ home_html += f'''
       </div>
     </section>
 
-    <!-- ABOUT KANDELIA OVERVIEW TEASER -->
-    <section class="section-about-teaser" style="padding:80px 0; background-color:#FFFFFF;">
-      <div class="w" style="max-width:980px; margin:0 auto; text-align:center;">
-        <span class="badge badge-sage" style="margin-bottom:14px;">Our Mission & Purpose</span>
-        <blockquote style="font-size:clamp(1.35rem, 2.5vw, 1.85rem); line-height:1.45; color:var(--navy); font-weight:500; margin:0 0 24px; border:none; padding:0;">
-          "We remove barriers to opportunities so immigrant and refugee communities can flourish without compromising values, heritage or ethnicity."
-        </blockquote>
-        <p style="font-size:1.08rem; color:var(--text-body); max-width:760px; margin:0 auto 32px; line-height:1.65;">
-          Guided by our core values of Inclusion, Heart, Equity, Relationships, and Excellence, Kandelia has grown from a grassroots refugee mutual aid effort in 1978 to a regional pillar of community leadership.
-        </p>
-        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <a class="btn btn-outline" href="/about">Discover Our 50-Year Story & Team →</a>
-          <a class="btn btn-primary" href="/about#careers">Work With Us</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- STORIES & IMPACT PREVIEW (CLEAN 1:1 SQUARE BORDERLESS IMAGES) -->
+    <!-- STORIES & IMPACT PREVIEW (INTERACTIVE CARDS OPENING POP-UP MODAL) -->
     <section class="section-stories-teaser" style="padding:80px 0; background-color:#F0F2FA;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
           <span class="badge badge-teal" style="margin-bottom:12px;">Real Voices</span>
           <h2>Stories of Resilience & Belonging</h2>
-          <p class="lead">Every newcomer family has a journey of courage, strength, and aspiration. Here are just a few of our community members thriving across Seattle.</p>
+          <p class="lead">Every newcomer family has a journey of courage, strength, and aspiration. Click on any story to read their complete journey.</p>
         </div>
 
         <div class="story-square-grid">
-          <!-- Story 1: Patrick -->
-          <div class="story-square-card">
+          <!-- Story 1: Patrick (Interactive Modal Opener) -->
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="Patrick's Story"
+               data-subtitle="{site_data.STORIES[0]['subtitle']}"
+               data-quote="{site_data.STORIES[0]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[0]['full_text'])}">
             <div class="story-square-img-wrap">
               <img src="assets/image_5.jpeg" alt="Patrick's Story" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
               <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Youth Alumnus</span>
               <h3>Patrick's Story</h3>
-              <p>"Kandelia gave me mentors who understood my culture and believed in my dreams. Today, I'm completing college and giving back."</p>
-              <a href="/stories" class="card-link-btn" style="font-weight:700; color:var(--navy);">Read Full Story →</a>
+              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[0]['quote']}"</p>
+              <p>{site_data.STORIES[0]['short']}</p>
+              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
             </div>
           </div>
 
-          <!-- Story 2: Sunflower & Tulip -->
-          <div class="story-square-card">
+          <!-- Story 2: Sunflower & Tulip (Interactive Modal Opener) -->
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="Sunflower & Tulip's Story"
+               data-subtitle="{site_data.STORIES[1]['subtitle']}"
+               data-quote="{site_data.STORIES[1]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[1]['full_text'])}">
             <div class="story-square-img-wrap">
               <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
               <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Sisters & Scholars</span>
               <h3>Sunflower & Tulip</h3>
-              <p>"In the after-school program, we found more than homework help—we found a safe community where we belonged from day one."</p>
-              <a href="/stories" class="card-link-btn" style="font-weight:700; color:var(--navy);">Read Full Story →</a>
+              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[1]['quote']}"</p>
+              <p>{site_data.STORIES[1]['short']}</p>
+              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
             </div>
           </div>
         </div>
@@ -471,7 +607,7 @@ home_html += f'''
               <h3>Family Flourishing Fund</h3>
               <p>Directly support adult digital literacy classes, family rental assistance, and bilingual school navigation.</p>
               <div class="way-photo-action">
-                <a href="/ways-to-give#family-giving" class="btn btn-outline btn-sm">Support Families →</a>
+                <a href="/ways-to-give#give" class="btn btn-outline btn-sm">Support Families →</a>
               </div>
             </div>
           </div>
@@ -486,7 +622,7 @@ home_html += f'''
               <h3>Youth Mentorship & Education</h3>
               <p>Fund after-school tutoring, high school graduation pathways, and paid youth leadership internships.</p>
               <div class="way-photo-action">
-                <a href="/ways-to-give#youth-giving" class="btn btn-outline btn-sm">Support Youth →</a>
+                <a href="/ways-to-give#give" class="btn btn-outline btn-sm">Support Youth →</a>
               </div>
             </div>
           </div>
@@ -516,44 +652,6 @@ home_html += f'''
     </section>
 
     {get_support_banner()}
-
-    <!-- STAY IN THE LOOP (UPDATED NEWSLETTER SIGNUP FORM) -->
-    <section class="section-newsletter" id="newsletter" style="padding:70px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
-      <div class="w" style="max-width:920px; margin:0 auto;">
-        <div class="section-header text-center" style="max-width:760px; margin:0 auto 32px; text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <span class="badge badge-blue" style="margin-bottom:12px;">Stay Connected</span>
-          <h2 style="font-size:clamp(1.8rem, 3.2vw, 2.4rem); color:var(--navy); margin-bottom:10px; text-align:center; width:100%;">
-            Stay in the Loop with Kandelia
-          </h2>
-          <p class="lead" style="font-size:1.05rem; color:var(--text-body); max-width:640px; margin:0 auto; line-height:1.6; text-align:center;">
-            Receive updates on program outcomes, community stories, and event invitations a few times a year. No spam, ever.
-          </p>
-        </div>
-
-        <form id="newsletter-signup-form" novalidate>
-          <div class="newsletter-form-grid">
-            <div>
-              <label for="newsletter-fname" class="sr-only">First Name</label>
-              <input class="newsletter-input-field" id="newsletter-fname" name="FNAME" type="text" placeholder="First Name" required>
-            </div>
-            <div>
-              <label for="newsletter-lname" class="sr-only">Last Name</label>
-              <input class="newsletter-input-field" id="newsletter-lname" name="LNAME" type="text" placeholder="Last Name" required>
-            </div>
-            <div>
-              <label for="newsletter-email" class="sr-only">Email Address</label>
-              <input class="newsletter-input-field" id="newsletter-email" name="EMAIL" type="email" placeholder="Email Address" required>
-            </div>
-            <div>
-              <button class="newsletter-submit-btn" type="submit">
-                Subscribe
-              </button>
-            </div>
-          </div>
-          <div id="newsletter-feedback-msg" class="newsletter-feedback" role="alert" style="text-align:center; margin-top:12px;"></div>
-        </form>
-      </div>
-    </section>
   </main>
 '''
 home_html += get_footer()
@@ -564,7 +662,7 @@ print("index.html written successfully!")
 
 
 # ==============================================================================
-# 2. GENERATE about.html (ABOUT US, MISSION, HISTORY, STAFF, BOARD, REPORT, CAREERS)
+# 2. GENERATE about.html (ABOUT US, VALUES, 4 MILESTONES, STAFF PHOTO, 2 LEADERS, 9 BOARD PHOTOS, CAREERS)
 # ==============================================================================
 print("Generating about.html...")
 about_html = get_head("About Kandelia | 50 Years of Immigrant & Refugee Belonging", "Learn about Kandelia's 50-year history, mission platform, staff leadership, board of directors, and career opportunities in Seattle.")
@@ -584,7 +682,7 @@ about_html += f'''
       </div>
     </section>
 
-    <!-- BRAND VALUES PLATFORM (Brand Guide Page 3) -->
+    <!-- BRAND VALUES PLATFORM (5 VALUES IN BALANCED 3+2 LAYOUT) -->
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
@@ -593,32 +691,32 @@ about_html += f'''
           <p class="lead">These values drive our daily culture, hiring practices, community advocacy, and strategic decisions.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px;">
-          <div style="background:#F0FAF9; border-radius:18px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25);">
+        <div class="values-even-flex">
+          <div class="value-card-item" style="background:#F0FAF9; border:1px solid rgba(42,210,201,0.25);">
             <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">Inclusion</h3>
             <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
               We embrace diversity and believe all people have value and the right to belong. We commit to active listening and questioning assumptions.
             </p>
           </div>
-          <div style="background:#FEECEE; border-radius:18px; padding:28px 24px; border:1px solid rgba(244,54,76,0.22);">
+          <div class="value-card-item" style="background:#FEECEE; border:1px solid rgba(244,54,76,0.22);">
             <h3 style="font-size:1.25rem; color:var(--coral); margin-bottom:10px;">Heart</h3>
             <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
               We measure our success by the real difference we make in people's lives. We act with care, empathy, kindness, and fun along the way.
             </p>
           </div>
-          <div style="background:#F4FBE8; border-radius:18px; padding:28px 24px; border:1px solid rgba(151,215,0,0.25);">
+          <div class="value-card-item" style="background:#F4FBE8; border:1px solid rgba(151,215,0,0.25);">
             <h3 style="font-size:1.25rem; color:#2A6615; margin-bottom:10px;">Equity</h3>
             <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
               We believe in just and fair inclusion, identifying inequities and taking proactive responsibility for addressing them.
             </p>
           </div>
-          <div style="background:#ECEEFF; border-radius:18px; padding:28px 24px; border:1px solid rgba(30,34,170,0.20);">
+          <div class="value-card-item" style="background:#ECEEFF; border:1px solid rgba(30,34,170,0.20);">
             <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">Relationships</h3>
             <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
               We build strong connections with each other, partners, and the communities we serve in the spirit of genuine collaboration.
             </p>
           </div>
-          <div style="background:#F0FAF9; border-radius:18px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25);">
+          <div class="value-card-item" style="background:#F0FAF9; border:1px solid rgba(42,210,201,0.25);">
             <h3 style="font-size:1.25rem; color:#14857F; margin-bottom:10px;">Excellence</h3>
             <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
               We strive to be the best we can be in all we do, applying discipline, organization, and professionalism to our daily work.
@@ -628,7 +726,7 @@ about_html += f'''
       </div>
     </section>
 
-    <!-- 50-YEAR TIMELINE -->
+    <!-- 50-YEAR MILESTONES (EXACTLY 4 EVENLY SPACED MILESTONES) -->
     <section class="section-timeline" id="history" style="padding:80px 0; background-color:#F0F2FA;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
@@ -637,83 +735,117 @@ about_html += f'''
           <p class="lead">Fifty years of immigrant and refugee leadership in South Seattle and across King County.</p>
         </div>
 
-        <div class="timeline-container" style="max-width:880px; margin:0 auto;">
-          <div class="timeline-item">
-            <div class="timeline-shape-badge">1978</div>
-            <div class="timeline-content">
-              <h3>Founded in Mutual Aid</h3>
-              <p>Established as the Southeast Asian Refugee Support network to provide direct translation, emergency relief, and community orientation for families arriving in Seattle.</p>
-            </div>
+        <div class="milestones-4grid">
+          <div class="milestone-card-clean">
+            <span class="milestone-year-pill">1978</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">Founded in Mutual Aid</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Established as the Southeast Asian Refugee Support network to provide direct translation, emergency relief, and community orientation for arriving families.
+            </p>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-shape-badge">1995</div>
-            <div class="timeline-content">
-              <h3>Seattle Public Schools Partnership</h3>
-              <p>Formed formal after-school tutoring partnerships inside high schools, ensuring bilingual homework help and credit recovery for newly arrived ELL students.</p>
-            </div>
+          <div class="milestone-card-clean">
+            <span class="milestone-year-pill">1995</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">Public Schools Partnership</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Formed formal after-school tutoring partnerships inside high schools, ensuring bilingual homework help and credit recovery for newly arrived ELL students.
+            </p>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-shape-badge">2000</div>
-            <div class="timeline-content">
-              <h3>Pan-Immigrant & Refugee Expansion</h3>
-              <p>Broadened organizational charter to welcome newcomer families from East Africa, Latin America, the Middle East, and Eastern Europe.</p>
-            </div>
+          <div class="milestone-card-clean">
+            <span class="milestone-year-pill">2020</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">Direct Relief & Digital Access</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Rapidly mobilized over $240,000 in direct emergency assistance, distributed hundreds of cellular-connected laptops, and established virtual support circles.
+            </p>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-shape-badge">2012</div>
-            <div class="timeline-content">
-              <h3>Whole-Family Wraparound Services</h3>
-              <p>Launched adult digital literacy labs, job readiness workshops, and youth leadership summer programs to support multi-generational flourishing.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-shape-badge">2020</div>
-            <div class="timeline-content">
-              <h3>Direct Emergency Relief & Digital Access</h3>
-              <p>Rapidly mobilized over $240,000 in direct emergency assistance, distributed hundreds of cellular-connected laptops, and established virtual support circles.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-shape-badge">2027</div>
-            <div class="timeline-content">
-              <h3>50th Anniversary Gala Celebration</h3>
-              <p>Gathering five decades of alumni, families, educators, and community partners at the Seattle Center Pavilion for our landmark milestone celebration.</p>
-            </div>
+          <div class="milestone-card-clean" style="border-color:var(--teal); box-shadow:0 6px 18px rgba(42,210,201,0.15);">
+            <span class="milestone-year-pill" style="color:var(--coral);">May 2027</span>
+            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:8px;">50th Anniversary Gala</h3>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin:0;">
+              Gathering five decades of alumni, families, educators, and community champions at the Seattle Center Pavilion for our landmark celebration.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STAFF LEADERSHIP ROSTER -->
+    <!-- STAFF PHOTO SECTION (LARGE GROUP PHOTO WITH "Kandelia staff" CAPTION DIRECTLY BELOW) -->
     <section class="section-staff" id="team" style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
-        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
           <span class="badge badge-teal" style="margin-bottom:12px;">Our Team</span>
-          <h2>Staff Leadership</h2>
+          <h2>Kandelia Staff & Leadership</h2>
           <p class="lead">Experienced educators, youth advocates, and community organizers with deep roots in King County.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:28px;">
-'''
+        <!-- Large Staff Group Photograph with Caption -->
+        <div style="max-width:960px; margin:0 auto 56px;">
+          <div style="border-radius:24px; overflow:hidden; box-shadow:0 12px 36px rgba(30,34,170,0.08); border:1px solid rgba(42,210,201,0.25);">
+            <img src="assets/image_9.jpeg" alt="Kandelia staff team gathering together" style="width:100%; height:auto; display:block;">
+          </div>
+          <p style="font-size:1.05rem; font-weight:600; color:var(--navy); margin-top:14px; text-align:center;">Kandelia staff</p>
+        </div>
 
-for staff in site_data.STAFF_LEADERSHIP:
-    about_html += f'''          <div class="staff-card" style="background:#F0FAF9; border-radius:20px; padding:28px; border:1px solid rgba(42,210,201,0.25);">
-            <h3 style="font-size:1.3rem; color:var(--navy); margin-bottom:4px;">{staff['name']}</h3>
-            <div style="font-size:0.95rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">{staff['role']}</div>
-            <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">Languages: {staff['languages']}</div>
-            <div style="font-size:0.9rem; color:var(--text-body); line-height:1.5;">{staff['bio']}</div>
-          </div>\n'''
+        <!-- EXECUTIVE DIRECTORS (ONLY TWO CARDS WITH REAL PHOTOS & MODAL BIO EXPANSION) -->
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 32px;">
+          <h3 style="font-size:1.5rem; color:var(--navy);">Executive Leadership</h3>
+        </div>
 
-about_html += '''        </div>
+        <div class="leadership-2grid">
+          <!-- Leader 1: Tram Lam, MNPL -->
+          <div class="leader-card-featured">
+            <div class="leader-photo-wrap">
+              <img src="assets/leader_tram.jpg" alt="Tram Lam, MNPL - Executive Director">
+            </div>
+            <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:4px;">Tram Lam, MNPL</h3>
+            <div style="font-size:0.96rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Executive Director</div>
+            <div style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">Languages: English, Vietnamese</div>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
+              Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage.
+            </p>
+            <div style="margin-top:auto;">
+              <button class="btn btn-outline btn-sm open-leader-bio"
+                      data-name="Tram Lam, MNPL"
+                      data-role="Executive Director"
+                      data-photo="assets/leader_tram.jpg"
+                      data-languages="English, Vietnamese"
+                      data-bio="Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage, overseeing regional community partnerships, long-term sustainability endowment, and systemic advocacy."
+                      data-quote="Our work is about tending to deep roots. Just like the mangrove tree that gives Kandelia its name, we provide a secure, nurturing ecosystem so youth and families can stand strong through any storm.">
+                Read Full Bio →
+              </button>
+            </div>
+          </div>
+
+          <!-- Leader 2: Khadar Abdi -->
+          <div class="leader-card-featured">
+            <div class="leader-photo-wrap">
+              <img src="assets/leader_khadar.jpg" alt="Khadar Abdi - Director of Youth Programs">
+            </div>
+            <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:4px;">Khadar Abdi</h3>
+            <div style="font-size:0.96rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Director of Youth Programs</div>
+            <div style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">Languages: English, Somali, Swahili</div>
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
+              Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways.
+            </p>
+            <div style="margin-top:auto;">
+              <button class="btn btn-outline btn-sm open-leader-bio"
+                      data-name="Khadar Abdi"
+                      data-role="Director of Youth Programs"
+                      data-photo="assets/leader_khadar.jpg"
+                      data-languages="English, Somali, Swahili"
+                      data-bio="Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways across King County public schools. Having arrived in Seattle as a newcomer himself, he brings authentic lived experience to youth empowerment."
+                      data-quote="Over 90% of our staff have lived the immigrant and refugee journey themselves. When a family walks through our doors, they are met with shared language, shared empathy, and unconditional dignity.">
+                Read Full Bio →
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- BOARD OF DIRECTORS -->
+    <!-- BOARD OF DIRECTORS (ALL 9 MEMBERS WITH REAL PHOTOS & MODAL BIO EXPANSION) -->
     <section class="section-board" id="board" style="padding:80px 0; background-color:#F0F2FA;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
@@ -722,20 +854,32 @@ about_html += '''        </div>
           <p class="lead">Passionate educators, legal advocates, finance executives, and alumni providing strategic fiduciary governance.</p>
         </div>
 
-        <div class="board-grid">
+        <div class="board-grid-enhanced">
 '''
 
-for board in site_data.BOARD_MEMBERS:
-    about_html += f'''          <div class="board-card" style="background:#FFFFFF; border-radius:18px; padding:24px; border:1px solid rgba(30,34,170,0.12); box-shadow:0 4px 14px rgba(30,34,170,0.03);">
-            <div style="width:48px; height:48px; border-radius:50%; background:#ECEEFF; color:var(--navy); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; margin-bottom:14px;">
-              {board['initials']}
+board_photos = [f"assets/board_{i}.jpg" for i in range(1, 10)]
+
+for idx, board in enumerate(site_data.BOARD_MEMBERS):
+    photo_src = board_photos[idx] if idx < len(board_photos) else "assets/board_1.jpg"
+    about_html += f'''          <div class="board-card-enhanced">
+            <div class="board-member-photo-frame">
+              <img src="{photo_src}" alt="{board['name']}" loading="lazy">
             </div>
-            <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:4px;">{board['name']}</h3>
-            <div style="font-size:0.9rem; font-weight:700; color:var(--teal-dark); margin-bottom:8px;">{board['role']}</div>
-            <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.45;">{board.get('tenure', '')}</div>
+            <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:4px;">{board['name']}</h3>
+            <div style="font-size:0.88rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">{board['role']}</div>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">{board.get('tenure', '')}</div>
+            <button class="btn btn-outline btn-sm open-board-bio"
+                    data-name="{board['name']}"
+                    data-role="{board['role']}"
+                    data-tenure="{board.get('tenure', '')}"
+                    data-bio="{board['bio']}"
+                    data-quote="{board.get('quote', '')}"
+                    data-photo="{photo_src}">
+              Read Bio →
+            </button>
           </div>\n'''
 
-about_html += '''        </div>
+about_html += f'''        </div>
       </div>
     </section>
 
@@ -778,7 +922,7 @@ about_html += '''        </div>
       </div>
     </section>
 
-    <!-- CAREERS & LEADERSHIP (WORK WITH US) -->
+    <!-- CAREERS & LEADERSHIP (WORK WITH US - 4 DISTINCT GROUPS AS REQUESTED) -->
     <section class="section-careers" id="careers" style="padding:80px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
@@ -787,30 +931,127 @@ about_html += '''        </div>
           <p class="lead">Build meaningful careers advancing equity, youth belonging, and refugee solidarity across King County.</p>
         </div>
 
-        <div style="display:flex; flex-direction:column; gap:20px; max-width:920px; margin:0 auto;">
+        <div style="max-width:920px; margin:0 auto; display:flex; flex-direction:column; gap:40px;">
+          <!-- Group 1: Staff Positions -->
+          <div class="careers-group">
+            <div style="margin-bottom:16px;">
+              <span class="badge badge-teal">Staff Positions</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:18px;">
 '''
 
-for cat, job_list in site_data.CAREERS.items():
-    for job in job_list:
-        about_html += f'''          <div class="job-card" style="background:#FFFFFF; border-radius:18px; padding:28px 32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.03);">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
-              <div>
-                <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:6px;">{job['title']}</h3>
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                  <span class="badge badge-sage">{job['type']}</span>
-                  <span class="badge">{job['location']}</span>
-                  <span class="badge badge-blue">{job['compensation']}</span>
+for job in site_data.CAREERS.get('staff', []):
+    about_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:18px; padding:28px 32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.03);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                  <div>
+                    <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:6px;">{job['title']}</h3>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm">Apply Now →</a>
                 </div>
-              </div>
-              <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm">Apply Now →</a>
-            </div>
-            <p style="font-size:0.98rem; color:var(--text-body); line-height:1.6; margin-bottom:10px;">{job['description']}</p>
-            <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:3px solid var(--navy); padding:8px 14px; border-radius:0 8px 8px 0; line-height:1.5;">
-              <strong>Qualifications:</strong> {job['qualifications']}
-            </div>
-          </div>\n'''
+                <p style="font-size:0.98rem; color:var(--text-body); line-height:1.6; margin-bottom:10px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:3px solid var(--navy); padding:8px 14px; border-radius:0 8px 8px 0; line-height:1.5;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
 
-about_html += f'''        </div>
+about_html += '''            </div>
+          </div>
+
+          <!-- Group 2: Board Positions -->
+          <div class="careers-group">
+            <div style="margin-bottom:16px;">
+              <span class="badge badge-sage">Board Positions</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:18px;">
+'''
+
+for job in site_data.CAREERS.get('board', []):
+    about_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:18px; padding:28px 32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.03);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                  <div>
+                    <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:6px;">{job['title']}</h3>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm">Apply Now →</a>
+                </div>
+                <p style="font-size:0.98rem; color:var(--text-body); line-height:1.6; margin-bottom:10px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:3px solid var(--navy); padding:8px 14px; border-radius:0 8px 8px 0; line-height:1.5;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+about_html += '''            </div>
+          </div>
+
+          <!-- Group 3: Contracted Positions -->
+          <div class="careers-group">
+            <div style="margin-bottom:16px;">
+              <span class="badge badge-blue">Contracted Positions</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:18px;">
+'''
+
+for job in site_data.CAREERS.get('contract', []):
+    about_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:18px; padding:28px 32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.03);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                  <div>
+                    <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:6px;">{job['title']}</h3>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm">Apply Now →</a>
+                </div>
+                <p style="font-size:0.98rem; color:var(--text-body); line-height:1.6; margin-bottom:10px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:3px solid var(--navy); padding:8px 14px; border-radius:0 8px 8px 0; line-height:1.5;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+about_html += '''            </div>
+          </div>
+
+          <!-- Group 4: Youth Leadership Roles -->
+          <div class="careers-group">
+            <div style="margin-bottom:16px;">
+              <span class="badge badge-coral">Youth Leadership Roles</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:18px;">
+'''
+
+for job in site_data.CAREERS.get('youth', []):
+    about_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:18px; padding:28px 32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.03);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                  <div>
+                    <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:6px;">{job['title']}</h3>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm">Apply Now →</a>
+                </div>
+                <p style="font-size:0.98rem; color:var(--text-body); line-height:1.6; margin-bottom:10px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:3px solid var(--navy); padding:8px 14px; border-radius:0 8px 8px 0; line-height:1.5;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+about_html += f'''            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -825,10 +1066,10 @@ print("about.html written successfully!")
 
 
 # ==============================================================================
-# 3. GENERATE get-help.html (GET HELP - FULL PROGRAMS WITH DISTINCT TOP PHOTOS)
+# 3. GENERATE get-help.html (TWO PILLARS: YOUTH & FAMILY, NO BUTTONS ON PILLARS, MAIN BUTTON ON ELIGIBILITY, NO SUPPORT BANNER)
 # ==============================================================================
 print("Generating get-help.html...")
-help_html = get_head("Get Help & Programs | Kandelia", "Explore Kandelia's culturally responsive youth, family, digital literacy, and emergency relief programs in King County.")
+help_html = get_head("Get Help & Programs | Kandelia", "Explore Kandelia's culturally responsive youth and family programs in King County.")
 help_html += get_header("get-help")
 help_html += f'''
   <main id="main-content">
@@ -840,109 +1081,61 @@ help_html += f'''
         <span class="badge badge-teal">Community Support</span>
         <h1 class="inner-hero-title">Get Support at Kandelia</h1>
         <p class="inner-hero-lead">
-          We partner with newly arrived immigrant and refugee youth, adult learners, and families across King County with free, culturally affirming educational, digital, and emergency navigation programs.
+          We partner with newly arrived immigrant and refugee youth and families across King County with free, culturally affirming educational, digital, and emergency navigation programs.
         </p>
       </div>
     </section>
 
-    <!-- 4 PROGRAM CARDS EACH WITH DISTINCT TOP PHOTOGRAPH -->
+    <!-- TWO PILLARS: YOUTH & FAMILY (IMAGE ON TOP, DESCRIPTION BELOW, NO BUTTONS ON CARDS) -->
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
-        <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
-          <span class="badge badge-sage" style="margin-bottom:12px;">Our Four Pillars</span>
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-sage" style="margin-bottom:12px;">Our Two Core Pillars</span>
           <h2>Comprehensive Support Programs</h2>
           <p class="lead">Every program is designed around active listening, language access, and whole-family empowerment.</p>
         </div>
 
-        <div class="program-cards-grid">
-          <!-- Program 1: High School Pathways (Photo: Classroom Students) -->
-          <div class="program-photo-card" id="high-school">
-            <div class="program-photo-wrap">
-              <img src="assets/image_3.jpeg" alt="Kandelia high school students smiling in a classroom" loading="lazy">
-            </div>
-            <div class="program-card-body">
-              <span class="badge badge-sage" style="width:fit-content;">Ages 14–21</span>
-              <h3>High School Pathways & Youth Leadership</h3>
-              <p>Dedicated after-school tutoring, ELL credit recovery, bilingual homework clubs, and post-secondary planning inside King County public high schools.</p>
-              <ul class="program-feature-list">
+        <div class="pillars-2grid">
+          <!-- Pillar 1: Youth Success & High School Pathways -->
+          <div class="pillar-2card" id="high-school">
+            <img src="assets/image_3.jpeg" alt="Kandelia high school students smiling in a classroom" class="pillar-2card-img" loading="lazy">
+            <div class="pillar-2card-body">
+              <span class="badge badge-sage" style="width:fit-content; margin-bottom:8px;">Ages 14–21</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:12px;">Youth Success & High School Pathways</h3>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.6; margin-bottom:16px;">
+                Dedicated after-school tutoring, ELL credit recovery, bilingual homework clubs, and post-secondary planning inside King County public high schools.
+              </p>
+              <ul class="program-feature-list" style="margin-bottom:0;">
                 <li>{ICON_CHECK} 1-on-1 academic mentoring & English conversation practice</li>
-                <li>{ICON_CHECK} Graduation audit & college / vocational application support</li>
+                <li>{ICON_CHECK} Graduation audit & college / vocational application guidance</li>
                 <li>{ICON_CHECK} Paid summer youth leadership stipends and community projects</li>
+                <li>{ICON_CHECK} Culturally responsive peer mentoring and career exploration</li>
               </ul>
-              <div class="program-card-footer">
-                <a href="#eligibility" class="btn btn-primary btn-sm">Enroll Student →</a>
-                <span style="font-size:0.9rem; color:var(--text-muted);">Free for public school students</span>
-              </div>
             </div>
           </div>
 
-          <!-- Program 2: Family Digital Workshops (Photo: Family Gathering) -->
-          <div class="program-photo-card" id="family">
-            <div class="program-photo-wrap">
-              <img src="assets/image_4.jpeg" alt="Kandelia family gathering in a collaborative workshop" loading="lazy">
-            </div>
-            <div class="program-card-body">
-              <span class="badge badge-teal" style="width:fit-content;">Parents & Adults</span>
-              <h3>Family Digital Literacy & Tech Navigation</h3>
-              <p>Hands-on computer workshops designed for adult caregivers to navigate school district portals (The Source), email, digital banking, and job applications.</p>
-              <ul class="program-feature-list">
+          <!-- Pillar 2: Family Flourishing & Digital Literacy -->
+          <div class="pillar-2card" id="family">
+            <img src="assets/image_4.jpeg" alt="Kandelia family gathering in a collaborative workshop" class="pillar-2card-img" loading="lazy">
+            <div class="pillar-2card-body">
+              <span class="badge badge-teal" style="width:fit-content; margin-bottom:8px;">Parents & Adults</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:12px;">Family Flourishing & Digital Literacy</h3>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.6; margin-bottom:16px;">
+                Hands-on computer workshops designed for adult caregivers to navigate school district portals (The Source), email, digital banking, and job applications.
+              </p>
+              <ul class="program-feature-list" style="margin-bottom:0;">
                 <li>{ICON_CHECK} Free Wi-Fi hotspots and subsidized home computer setups</li>
-                <li>{ICON_CHECK} Multilingual adult ESL cohorts in evening and Saturday sessions</li>
-                <li>{ICON_CHECK} Internet safety, parent advocacy, and healthcare navigation</li>
+                <li>{ICON_CHECK} Multilingual adult ESL cohorts in evening and weekend sessions</li>
+                <li>{ICON_CHECK} Direct emergency family rental assistance and utility stabilization</li>
+                <li>{ICON_CHECK} Healthcare navigation, tenant rights, and school system orientation</li>
               </ul>
-              <div class="program-card-footer">
-                <a href="#eligibility" class="btn btn-primary btn-sm">Join Family Workshop →</a>
-                <span style="font-size:0.9rem; color:var(--text-muted);">Bilingual instructors</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Program 3: Emergency Relief (Photo: Mutual Aid / Community) -->
-          <div class="program-photo-card" id="community">
-            <div class="program-photo-wrap">
-              <img src="assets/image_9.jpeg" alt="Community partners collaborating at Kandelia" loading="lazy">
-            </div>
-            <div class="program-card-body">
-              <span class="badge badge-coral" style="width:fit-content;">Direct Aid</span>
-              <h3>Emergency Relief & Housing Stabilization</h3>
-              <p>Rapid, barrier-free direct cash assistance, emergency rental relief, and grocery support helping families maintain stability during unexpected hardship.</p>
-              <ul class="program-feature-list">
-                <li>{ICON_CHECK} Over $240,000 disbursed directly to local newcomer households</li>
-                <li>{ICON_CHECK} Eviction prevention, utility assistance, and winter clothing aid</li>
-                <li>{ICON_CHECK} Confidential referral coordination with no documentation barriers</li>
-              </ul>
-              <div class="program-card-footer">
-                <a href="#eligibility" class="btn btn-primary btn-sm">Request Relief Aid →</a>
-                <span style="font-size:0.9rem; color:var(--text-muted);">Confidential intake</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Program 4: Mental Health & Healing Circles (Photo: Youth Group) -->
-          <div class="program-photo-card" id="circles">
-            <div class="program-photo-wrap">
-              <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" loading="lazy">
-            </div>
-            <div class="program-card-body">
-              <span class="badge badge-blue" style="width:fit-content;">Wellness & Voice</span>
-              <h3>Healing Circles & Cultural Affirmation</h3>
-              <p>Safe, supportive community circles where youth and caregivers explore identity, navigate resettlement stress, and celebrate cultural traditions together.</p>
-              <ul class="program-feature-list">
-                <li>{ICON_CHECK} Culturally responsive peer mentoring and storytelling spaces</li>
-                <li>{ICON_CHECK} Creative arts, cultural celebrations, and civic advocacy</li>
-                <li>{ICON_CHECK} Connection to licensed trauma-informed multilingual therapists</li>
-              </ul>
-              <div class="program-card-footer">
-                <a href="#eligibility" class="btn btn-primary btn-sm">Join a Healing Circle →</a>
-                <span style="font-size:0.9rem; color:var(--text-muted);">Warm, welcoming spaces</span>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ELIGIBILITY & INTAKE SECTION -->
+    <!-- ELIGIBILITY & INTAKE SECTION (HOLDS MAIN ACTION BUTTON TO ENROLL/CONTACT) -->
     <section class="section-eligibility" id="eligibility" style="padding:80px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
       <div class="w" style="max-width:880px; margin:0 auto;">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 36px; text-align:center; display:flex; flex-direction:column; align-items:center;">
@@ -953,25 +1146,26 @@ help_html += f'''
 
         <div style="background:#FFFFFF; border-radius:24px; padding:36px 40px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 6px 20px rgba(30,34,170,0.04);">
           <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:14px;">You are eligible for our programs if:</h3>
-          <ul style="list-style-type:disc; padding-left:24px; margin-bottom:24px; font-size:1.02rem; color:var(--text-body); line-height:1.7;">
+          <ul style="list-style-type:disc; padding-left:24px; margin-bottom:28px; font-size:1.02rem; color:var(--text-body); line-height:1.7;">
             <li>You or a family member are an immigrant, refugee, asylee, or humanitarian parolee residing in King County.</li>
             <li>For youth programs: You are between the ages of 14 and 21 and enrolled in a King County middle or high school.</li>
             <li>For adult workshops: You are a parent, caregiver, or adult seeking English language or digital literacy skills.</li>
             <li>All languages, countries of origin, and immigration documentation statuses are embraced without barrier or disclosure requirements.</li>
           </ul>
 
-          <div style="background:#F0F2FA; border-radius:16px; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div style="background:#F0F2FA; border-radius:18px; padding:24px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
             <div>
-              <strong style="color:var(--navy); font-size:1.05rem; display:block;">Need assistance or have questions?</strong>
-              <span style="font-size:0.94rem; color:var(--text-muted);">Call our intake line at <strong>206-760-1573</strong> or email <a href="mailto:help@kandelia.org" style="color:var(--navy); font-weight:700;">help@kandelia.org</a>.</span>
+              <strong style="color:var(--navy); font-size:1.1rem; display:block; margin-bottom:4px;">Ready to enroll or have questions?</strong>
+              <span style="font-size:0.95rem; color:var(--text-muted);">Call our intake line at <strong>206-760-1573</strong> or connect with an advocate directly.</span>
             </div>
-            <a href="mailto:help@kandelia.org?subject=Intake Request for Kandelia Programs" class="btn btn-primary btn-sm">Contact an Intake Advocate →</a>
+            <!-- Main Action Button to Enroll / Contact -->
+            <a href="mailto:help@kandelia.org?subject=Intake Request for Kandelia Programs" class="btn btn-primary btn-lg" style="font-weight:700;">
+              Enroll Student or Contact an Intake Advocate →
+            </a>
           </div>
         </div>
       </div>
     </section>
-
-    {get_support_banner()}
   </main>
 '''
 help_html += get_footer()
@@ -982,10 +1176,10 @@ print("get-help.html written successfully!")
 
 
 # ==============================================================================
-# 4. GENERATE ways-to-give.html (WAYS TO GIVE - FAMILY/YOUTH PHOTOS, VEHICLE CARD)
+# 4. GENERATE ways-to-give.html (EXACTLY THREE CARDS: GIVE, VOLUNTEER, PARTNER)
 # ==============================================================================
 print("Generating ways-to-give.html...")
-ways_html = get_head("Ways to Give | Kandelia", "Explore flexible pathways to support Kandelia: monthly giving, family funds, youth education, employer matching, and vehicle donations.")
+ways_html = get_head("Ways to Give | Kandelia", "Explore flexible pathways to support Kandelia: direct giving, volunteering, and institutional partnerships.")
 ways_html += get_header("ways-to-give")
 ways_html += f'''
   <main id="main-content">
@@ -997,108 +1191,67 @@ ways_html += f'''
         <span class="badge badge-green">Impact & Generosity</span>
         <h1 class="inner-hero-title">Ways to Give to Kandelia</h1>
         <p class="inner-hero-lead">
-          Your tax-deductible partnership ensures immigrant and refugee youth stay on track to graduate, while equipping newcomer parents with the tools to build economic resilience.
+          Your partnership ensures immigrant and refugee youth stay on track to graduate, while equipping newcomer parents with the tools to build economic resilience.
         </p>
       </div>
     </section>
 
-    <!-- 6 GIVING PATHWAYS (FAMILY & YOUTH PHOTOS + DEDICATED VEHICLE DONATION CARD) -->
+    <!-- EXACTLY THREE CARDS: GIVE, VOLUNTEER, PARTNER -->
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
-        <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
-          <span class="badge badge-teal" style="margin-bottom:12px;">Diverse Giving Options</span>
-          <h2>Flexible Pathways to Support Our Mission</h2>
-          <p class="lead">Choose the giving pathway that fits your philanthropic goals and fuels real community transformation.</p>
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-teal" style="margin-bottom:12px;">Meaningful Partnership</span>
+          <h2>Three Meaningful Ways to Support Our Mission</h2>
+          <p class="lead">Choose the pathway that fits your passion and fuels lasting community transformation across Seattle.</p>
         </div>
 
-        <div class="ways-photo-grid">
-          <!-- 1. Family Giving (With distinct high-quality family photo) -->
-          <div class="way-photo-card" id="family-giving">
-            <div class="way-photo-wrap">
-              <img src="assets/image_4.jpeg" alt="Kandelia family gathering in a collaborative workshop" loading="lazy">
-            </div>
-            <div class="way-photo-body">
-              <span class="badge badge-teal" style="width:fit-content;">Family Stability</span>
-              <h3>Family Flourishing Fund</h3>
-              <p>Directly support adult digital literacy classes, family rental assistance, and bilingual school navigation so newcomer households stay housed and connected.</p>
-              <div class="way-photo-action">
-                <a href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Support Families →</a>
+        <div class="ways-3card-grid">
+          <!-- Card 1: Give -->
+          <div class="way-3card" id="give">
+            <img src="assets/image_4.jpeg" alt="Kandelia family gathering in a collaborative workshop" class="way-3card-img" loading="lazy">
+            <div class="way-3card-body">
+              <span class="badge badge-teal" style="width:fit-content; margin-bottom:8px;">Financial & Fund Support</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:12px;">Give to Kandelia</h3>
+              <p>
+                Your tax-deductible contributions directly fund high school tutoring, adult digital workshops, and emergency family relief funds. Choose from flexible one-time, monthly, or fund-designated gifts.
+              </p>
+              <div style="margin-top:auto;">
+                <a href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener" class="btn btn-coral" style="width:100%; text-align:center;">
+                  Donate Online Now →
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- 2. Youth Giving (With distinct high-quality youth photo) -->
-          <div class="way-photo-card" id="youth-giving">
-            <div class="way-photo-wrap">
-              <img src="assets/image_3.jpeg" alt="Kandelia high school students smiling in a classroom" loading="lazy">
-            </div>
-            <div class="way-photo-body">
-              <span class="badge badge-sage" style="width:fit-content;">Youth Education</span>
-              <h3>Youth Mentorship & Education</h3>
-              <p>Fund after-school tutoring, high school graduation pathways, and paid youth leadership internships for newcomer high school students.</p>
-              <div class="way-photo-action">
-                <a href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Support Youth →</a>
+          <!-- Card 2: Volunteer -->
+          <div class="way-3card" id="volunteer">
+            <img src="assets/image_3.jpeg" alt="Kandelia high school students smiling with tutors" class="way-3card-img" loading="lazy">
+            <div class="way-3card-body">
+              <span class="badge badge-sage" style="width:fit-content; margin-bottom:8px;">Mentorship & Tutoring</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:12px;">Volunteer With Us</h3>
+              <p>
+                Share your skills, professional experience, and cultural empathy. Volunteer as an after-school tutor, career mentor, digital literacy coach, or event volunteer for our May 2027 50th Anniversary Gala.
+              </p>
+              <div style="margin-top:auto;">
+                <a href="mailto:volunteer@kandelia.org?subject=Volunteer with Kandelia" class="btn btn-primary" style="width:100%; text-align:center;">
+                  Sign Up to Volunteer →
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- 3. Monthly Sustaining Giving (With community photo) -->
-          <div class="way-photo-card" id="monthly-giving">
-            <div class="way-photo-wrap">
-              <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students celebrating community roots" loading="lazy">
-            </div>
-            <div class="way-photo-body">
-              <span class="badge badge-coral" style="width:fit-content;">Recurring Impact</span>
-              <h3>Flourishing Circle (Monthly Giving)</h3>
-              <p>Predictable monthly contributions create dependable funding that keeps classrooms staffed, tutoring active, and emergency funds open 365 days a year.</p>
-              <div class="way-photo-action">
-                <a href="/giving#monthly-donor" class="btn btn-primary btn-sm">Join Monthly Circle →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Employer Gift Matching (With corporate partnership photo) -->
-          <div class="way-photo-card" id="employer-matching">
-            <div class="way-photo-wrap">
-              <img src="assets/image_9.jpeg" alt="Community and corporate partners collaborating in a workshop" loading="lazy">
-            </div>
-            <div class="way-photo-body">
-              <span class="badge badge-green" style="width:fit-content;">Corporate Match</span>
-              <h3>Employer Matching Gifts</h3>
-              <p>Double your impact! Major employers (Microsoft, Boeing, Starbucks, Google, Gates Foundation) match charitable gifts 1:1. Request a match through your company portal.</p>
-              <div class="way-photo-action">
-                <a href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Check Match →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. DAFs & Appreciated Stock (With Seattle skyline photo) -->
-          <div class="way-photo-card" id="daf-giving">
-            <div class="way-photo-wrap">
-              <img src="assets/image_2.jpeg" alt="Youth looking out towards the Seattle skyline from the water" loading="lazy">
-            </div>
-            <div class="way-photo-body">
-              <span class="badge badge-teal" style="width:fit-content;">Tax-Advantaged</span>
-              <h3>Donor-Advised Funds & Stock</h3>
-              <p>Recommend a grant from your DAF (Seattle Foundation, Fidelity, Schwab, Vanguard) or make direct institutional wire transfers to maximize your philanthropic legacy.</p>
-              <div class="way-photo-action">
-                <a href="mailto:info@kandelia.org?subject=DAF or Stock Giving Inquiries" class="btn btn-outline btn-sm">Give via DAF / Wire →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. Dedicated Vehicle Donation Card (With vehicle photo + Official CARS Copy) -->
-          <div class="way-photo-card" id="vehicle-donation" style="border:2px solid rgba(42,210,201,0.40); box-shadow:0 8px 24px rgba(42,210,201,0.10);">
-            <div class="way-photo-wrap">
-              <img src="assets/vehicle_donation.jpg" alt="Charity vehicle donation supporting Kandelia" loading="lazy">
-            </div>
-            <div class="way-photo-body">
-              <span class="badge badge-blue" style="width:fit-content;">Turn Wheels into Impact</span>
-              <h3>Vehicle Donation Program (CARS)</h3>
-              <p>The proceeds from your vehicle will directly benefit Kandelia's programs. Both Kandelia and CARS are 501(c)(3) nonprofit organizations, and donations through this program are tax deductible. Click the link below to fuel brighter futures!</p>
-              <div class="way-photo-action">
-                <a href="https://careasy.org/kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-sm">
-                  CARS Donation →
+          <!-- Card 3: Partner -->
+          <div class="way-3card" id="partner">
+            <img src="assets/image_9.jpeg" alt="Community and corporate partners collaborating at Kandelia" class="way-3card-img" loading="lazy">
+            <div class="way-3card-body">
+              <span class="badge badge-blue" style="width:fit-content; margin-bottom:8px;">Institutional Alliances</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:12px;">Partner With Us</h3>
+              <p>
+                School districts, corporate employers, and regional foundations partner with Kandelia through institutional grants, corporate matching gifts, community sponsorships, and paid youth internship placements.
+              </p>
+              <div style="margin-top:auto;">
+                <a href="mailto:partnerships@kandelia.org?subject=Institutional Partnership Inquiry" class="btn btn-outline" style="width:100%; text-align:center;">
+                  Explore Partnerships →
                 </a>
               </div>
             </div>
@@ -1122,7 +1275,7 @@ print("ways-to-give.html written successfully!")
 
 
 # ==============================================================================
-# 5. GENERATE stories.html (STORIES & IMPACT - CLEAN 1:1 SQUARE BORDERLESS IMAGES)
+# 5. GENERATE stories.html (STORIES POPUP MODAL WORKING + TESTIMONIALS MOVING CAROUSEL)
 # ==============================================================================
 print("Generating stories.html...")
 stories_html = get_head("Stories & Impact | Kandelia", "Read authentic immigrant and refugee stories, client testimonials, and 2026 impact outcomes from Kandelia in Seattle.")
@@ -1142,18 +1295,23 @@ stories_html += f'''
       </div>
     </section>
 
-    <!-- 4 IMMIGRANT STORIES - BORDERLESS 1:1 SQUARE IMAGES -->
+    <!-- 4 IMMIGRANT STORIES - INTERACTIVE POP-UP MODAL FUNCTIONALITY -->
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
           <span class="badge badge-sage" style="margin-bottom:12px;">Participant Journeys</span>
           <h2>Roots & Routes Stories</h2>
-          <p class="lead">First-person reflections of perseverance, leadership, and belonging in Seattle.</p>
+          <p class="lead">Click on any story card to read the full first-person narrative in detail.</p>
         </div>
 
         <div class="story-square-grid">
           <!-- Story 1: Patrick -->
-          <div class="story-square-card">
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="{site_data.STORIES[0]['title']}"
+               data-subtitle="{site_data.STORIES[0]['subtitle']}"
+               data-quote="{site_data.STORIES[0]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[0]['full_text'])}">
             <div class="story-square-img-wrap">
               <img src="assets/image_5.jpeg" alt="Patrick's Story" class="story-img-square" loading="lazy">
             </div>
@@ -1162,11 +1320,17 @@ stories_html += f'''
               <h3>Patrick's Story</h3>
               <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[0]['quote']}"</p>
               <p>{site_data.STORIES[0]['short']}</p>
+              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
             </div>
           </div>
 
           <!-- Story 2: Sunflower & Tulip -->
-          <div class="story-square-card">
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="{site_data.STORIES[1]['title']}"
+               data-subtitle="{site_data.STORIES[1]['subtitle']}"
+               data-quote="{site_data.STORIES[1]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[1]['full_text'])}">
             <div class="story-square-img-wrap">
               <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
             </div>
@@ -1175,11 +1339,17 @@ stories_html += f'''
               <h3>Sunflower & Tulip's Story</h3>
               <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[1]['quote']}"</p>
               <p>{site_data.STORIES[1]['short']}</p>
+              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
             </div>
           </div>
 
           <!-- Story 3: A Mother's Story -->
-          <div class="story-square-card">
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="{site_data.STORIES[2]['title']}"
+               data-subtitle="{site_data.STORIES[2]['subtitle']}"
+               data-quote="{site_data.STORIES[2]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[2]['full_text'])}">
             <div class="story-square-img-wrap">
               <img src="assets/image_7.jpeg" alt="A Mother's Story" class="story-img-square" loading="lazy">
             </div>
@@ -1188,11 +1358,17 @@ stories_html += f'''
               <h3>A Mother's Story</h3>
               <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[2]['quote']}"</p>
               <p>{site_data.STORIES[2]['short']}</p>
+              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
             </div>
           </div>
 
           <!-- Story 4: Vidia's Story -->
-          <div class="story-square-card">
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="{site_data.STORIES[3]['title']}"
+               data-subtitle="{site_data.STORIES[3]['subtitle']}"
+               data-quote="{site_data.STORIES[3]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[3]['full_text'])}">
             <div class="story-square-img-wrap">
               <img src="assets/image_8.jpeg" alt="Vidia's Story" class="story-img-square" loading="lazy">
             </div>
@@ -1201,13 +1377,14 @@ stories_html += f'''
               <h3>Vidia's Story</h3>
               <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[3]['quote']}"</p>
               <p>{site_data.STORIES[3]['short']}</p>
+              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS - MOVING INTERACTIVE CAROUSEL -->
     <section class="section-testimonials" id="testimonials" style="padding:80px 0; background-color:#F4FBE8;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
@@ -1216,21 +1393,41 @@ stories_html += f'''
           <p class="lead">What students, parents, school counselors, and community leaders say about Kandelia.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px;">
+        <!-- Moving Interactive Carousel Container -->
+        <div class="carousel-container" id="testimonials-carousel" aria-label="Community Testimonials Carousel">
+          <div class="carousel-track-wrapper">
 '''
 
-for test in site_data.TESTIMONIALS:
-    stories_html += f'''          <div style="background:#FFFFFF; border-radius:20px; padding:32px 28px; border:1px solid rgba(151,215,0,0.30); box-shadow:0 4px 14px rgba(30,34,170,0.03); display:flex; flex-direction:column; justify-content:space-between;">
-            <p style="font-size:1.02rem; color:var(--text-body); line-height:1.65; margin-bottom:18px; font-style:italic;">
-              "{test['quote']}"
-            </p>
-            <div>
-              <strong style="color:var(--navy); font-size:1.05rem; display:block;">{test['author']}</strong>
-              <span style="font-size:0.9rem; color:var(--teal-dark); font-weight:600;">{test['role']}</span>
-            </div>
-          </div>\n'''
+for idx, test in enumerate(site_data.TESTIMONIALS):
+    initials = "".join([part[0] for part in test['author'].split() if part[0].isalpha()])[:2]
+    stories_html += f'''            <div class="carousel-slide {'active' if idx==0 else ''}" role="group" aria-roledescription="slide" aria-label="Testimonial {idx+1} of {len(site_data.TESTIMONIALS)}">
+              <blockquote class="testimonial-quote">
+                "{test['quote']}"
+              </blockquote>
+              <div class="testimonial-author-block">
+                <div class="author-avatar">{initials}</div>
+                <div class="author-info">
+                  <b>{test['author']}</b>
+                  <span>{test['role']} • {test['category']}</span>
+                </div>
+              </div>
+            </div>\n'''
 
-stories_html += '''        </div>
+stories_html += f'''          </div>
+
+          <!-- Carousel Navigation Controls -->
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonial">&#8592;</button>
+            <div class="carousel-dots">
+'''
+
+for idx in range(len(site_data.TESTIMONIALS)):
+    stories_html += f'''              <button class="carousel-dot {'active' if idx==0 else ''}" data-index="{idx}" aria-label="Go to testimonial {idx+1}"></button>\n'''
+
+stories_html += f'''            </div>
+            <button class="carousel-btn carousel-btn-next" aria-label="Next testimonial">&#8594;</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1284,7 +1481,7 @@ print("stories.html written successfully!")
 
 
 # ==============================================================================
-# 6. GENERATE giving.html (3 GIVING CARDS + SINGLE GIVE BUTTON, MONTHLY DONOR, CARS, FAQ)
+# 6. GENERATE giving.html (3 GIVING CARDS + SINGLE GIVE BUTTON, MONTHLY DONOR, NO MONTHLY IN MORE WAYS, NO SUPPORT BANNER)
 # ==============================================================================
 print("Generating giving.html...")
 giving_html = get_head("Giving & Impact Tiers | Kandelia", "Support Kandelia's immigrant and refugee programs with transparent giving tiers, monthly donor membership, and vehicle donations.")
@@ -1362,7 +1559,7 @@ giving_html += f'''
       </div>
     </section>
 
-    <!-- MONTHLY DONOR! HIGHLIGHT SECTION (REPLACES CUSTOM AMOUNT) -->
+    <!-- MONTHLY DONOR! HIGHLIGHT SECTION -->
     <section class="section-monthly-donor" id="monthly-donor">
       <div class="w">
         <div class="monthly-donor-card">
@@ -1382,7 +1579,7 @@ giving_html += f'''
       </div>
     </section>
 
-    <!-- WAYS TO GIVE (INCLUDING DEDICATED VEHICLE DONATION CARD) -->
+    <!-- MORE MEANINGFUL WAYS TO SUPPORT KANDELIA (REMOVED MONTHLY GIVING AS REQUESTED) -->
     <section class="section-ways-to-give" style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
@@ -1391,42 +1588,37 @@ giving_html += f'''
           <p class="lead">From workplace matching gifts to vehicle donations, there are many flexible pathways to advance refugee and immigrant equity.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px;">
-          <!-- Option 1: Monthly Sustaining -->
-          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.04);">
-            <div class="way-icon-bubble" style="background:#FEECEE; color:#F4364C; width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
-              {ICON_HEART}
-            </div>
-            <h3 class="way-title" style="font-size:1.2rem; color:var(--navy); margin-bottom:10px;">Monthly Sustaining Giving</h3>
-            <p class="way-desc" style="font-size:0.95rem; color:var(--text-body); line-height:1.6;">
-              Joining our monthly Flourishing Circle creates reliable funding that keeps classrooms staffed and emergency funds active year-round.
-            </p>
-          </div>
-
-          <!-- Option 2: Employer Gift Matching -->
-          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.04);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+          <!-- Option 1: Employer Gift Matching -->
+          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.04); display:flex; flex-direction:column;">
             <div class="way-icon-bubble" style="background:#F4FBE8; color:#2A6615; width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
               {ICON_GIFT}
             </div>
             <h3 class="way-title" style="font-size:1.2rem; color:var(--navy); margin-bottom:10px;">Employer Matching Gifts</h3>
-            <p class="way-desc" style="font-size:0.95rem; color:var(--text-body); line-height:1.6;">
-              Double or triple your impact! Major employers (Microsoft, Boeing, Starbucks, Google) match charitable gifts 1:1.
+            <p class="way-desc" style="font-size:0.95rem; color:var(--text-body); line-height:1.6; margin-bottom:16px;">
+              Double or triple your impact! Major employers (Microsoft, Boeing, Starbucks, Google) match charitable gifts 1:1. Request a match through your company portal.
             </p>
+            <div style="margin-top:auto;">
+              <a href="https://kandelia-bloom.kindful.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Check Match →</a>
+            </div>
           </div>
 
-          <!-- Option 3: DAFs & Stock -->
-          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.04);">
+          <!-- Option 2: DAFs & Stock -->
+          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.04); display:flex; flex-direction:column;">
             <div class="way-icon-bubble" style="background:#E6FAF9; color:#14857F; width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
               {ICON_BANK}
             </div>
             <h3 class="way-title" style="font-size:1.2rem; color:var(--navy); margin-bottom:10px;">Donor-Advised Funds (DAF)</h3>
-            <p class="way-desc" style="font-size:0.95rem; color:var(--text-body); line-height:1.6;">
+            <p class="way-desc" style="font-size:0.95rem; color:var(--text-body); line-height:1.6; margin-bottom:16px;">
               Recommend a grant from your DAF or make direct wire transfers to receive optimal tax benefits while uplifting our communities.
             </p>
+            <div style="margin-top:auto;">
+              <a href="mailto:info@kandelia.org?subject=DAF or Stock Giving Inquiries" class="btn btn-outline btn-sm">Give via DAF / Wire →</a>
+            </div>
           </div>
 
-          <!-- Option 4: Dedicated Vehicle Donation Card -->
-          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:2px solid rgba(42,210,201,0.40); box-shadow:0 8px 20px rgba(42,210,201,0.08);">
+          <!-- Option 3: Dedicated Vehicle Donation Card -->
+          <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:2px solid rgba(42,210,201,0.40); box-shadow:0 8px 20px rgba(42,210,201,0.08); display:flex; flex-direction:column;">
             <div class="way-icon-bubble" style="background:#ECEEFF; color:var(--teal); width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
               {ICON_CAR}
             </div>
@@ -1444,7 +1636,7 @@ giving_html += f'''
       </div>
     </section>
 
-    <!-- DONATION & STEWARDSHIP FAQ ACCORDION -->
+    <!-- DONATION & STEWARDSHIP FAQ ACCORDION (NO INTERNAL NOTES) -->
     <section class="section-donation-faq" id="faq" style="padding:80px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
@@ -1547,8 +1739,6 @@ giving_html += f'''
         </div>
       </div>
     </section>
-
-    {get_support_banner()}
   </main>
 '''
 giving_html += get_footer()

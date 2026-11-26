@@ -322,34 +322,70 @@
       }
     });
 
+    // Attach to Leader bio buttons
+    document.querySelectorAll('.open-leader-bio').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = btn.getAttribute('data-name');
+        const role = btn.getAttribute('data-role');
+        const photo = btn.getAttribute('data-photo');
+        const bio = btn.getAttribute('data-bio');
+        const languages = btn.getAttribute('data-languages');
+        const quote = btn.getAttribute('data-quote') || '';
+
+        const content = `
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
+            ${photo ? `<div style="width:84px;height:84px;border-radius:9999px;overflow:hidden;flex-shrink:0;border:3px solid var(--teal);"><img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;"></div>` : ''}
+            <div>
+              <h4 style="font-size:1.4rem;color:var(--navy);margin-bottom:4px;">${name}</h4>
+              <p style="color:var(--coral);font-weight:700;margin-bottom:2px;">${role}</p>
+              ${languages ? `<span style="font-size:0.88rem;color:var(--text-muted);">Languages: ${languages}</span>` : ''}
+            </div>
+          </div>
+          <div style="font-size:1.05rem;line-height:1.7;color:var(--text-body);margin-bottom:20px;">
+            <p>${bio}</p>
+          </div>
+          ${quote ? `
+          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.5;">
+            "${quote}"
+          </blockquote>` : ''}
+        `;
+        openModal(name, content);
+      });
+    });
+
     // Attach to Board bio buttons
     document.querySelectorAll('.open-board-bio').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const name = btn.getAttribute('data-name');
         const role = btn.getAttribute('data-role');
         const tenure = btn.getAttribute('data-tenure');
         const bio = btn.getAttribute('data-bio');
         const quote = btn.getAttribute('data-quote');
-        const initials = btn.getAttribute('data-initials');
-        const color = btn.getAttribute('data-color') || '#12263A';
+        const photo = btn.getAttribute('data-photo');
+        const initials = btn.getAttribute('data-initials') || '';
+        const color = btn.getAttribute('data-color') || 'var(--navy)';
 
         const content = `
           <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
+            ${photo ? `<div style="width:76px;height:76px;border-radius:9999px;overflow:hidden;flex-shrink:0;border:3px solid var(--teal);"><img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;"></div>` : `
             <div style="width:72px;height:72px;border-radius:9999px;background:${color};color:#fff;display:grid;place-items:center;font-size:1.6rem;font-weight:700;flex-shrink:0;">
               ${initials}
-            </div>
+            </div>`}
             <div>
-              <h4 style="font-size:1.4rem;color:#12263A;margin-bottom:4px;">${name}</h4>
-              <p style="color:#D94532;font-weight:700;margin-bottom:2px;">${role}</p>
-              <span style="font-size:0.88rem;color:#64748B;">${tenure}</span>
+              <h4 style="font-size:1.4rem;color:var(--navy);margin-bottom:4px;">${name}</h4>
+              <p style="color:var(--coral);font-weight:700;margin-bottom:2px;">${role}</p>
+              <span style="font-size:0.88rem;color:var(--text-muted);">${tenure}</span>
             </div>
           </div>
-          <div style="font-size:1.05rem;line-height:1.7;color:#334155;margin-bottom:24px;">
+          <div style="font-size:1.05rem;line-height:1.7;color:var(--text-body);margin-bottom:24px;">
             <p>${bio}</p>
           </div>
-          <blockquote style="background:#FAF7F2;border-left:5px solid #8DC73F;padding:18px 24px;border-radius:12px;font-style:italic;color:#12263A;font-size:1.1rem;line-height:1.5;">
+          ${quote ? `
+          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.5;">
             "${quote}"
-          </blockquote>
+          </blockquote>` : ''}
         `;
         openModal(name, content);
       });
@@ -358,22 +394,23 @@
     // Attach to Story cards
     document.querySelectorAll('.open-story-reader').forEach(card => {
       card.addEventListener('click', () => {
-        const title = card.getAttribute('data-title');
-        const subtitle = card.getAttribute('data-subtitle');
-        const quote = card.getAttribute('data-quote');
-        const fullHtml = card.getAttribute('data-story-html');
-        const imgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
+        const title = card.getAttribute('data-title') || card.querySelector('h3')?.textContent || 'Community Story';
+        const subtitle = card.getAttribute('data-subtitle') || '';
+        const quote = card.getAttribute('data-quote') || '';
+        const fullHtml = card.getAttribute('data-story-html') || '';
+        const img = card.querySelector('img');
+        const imgSrc = img ? img.src : '';
 
         const content = `
           <div style="margin-bottom:20px;">
             <span class="badge badge-sage" style="margin-bottom:10px;">Roots & Routes: Immigrant Stories</span>
-            <p style="font-size:1.1rem;color:#D94532;font-weight:700;">${subtitle}</p>
+            ${subtitle ? `<p style="font-size:1.1rem;color:var(--coral);font-weight:700;">${subtitle}</p>` : ''}
           </div>
           ${imgSrc ? `<div style="border-radius:20px;overflow:hidden;margin-bottom:24px;aspect-ratio:16/9;max-height:300px;"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;"></div>` : ''}
-          <blockquote style="background:#FAF7F2;border-left:5px solid #D94532;padding:18px 24px;border-radius:12px;font-style:italic;color:#12263A;font-size:1.15rem;line-height:1.5;margin-bottom:24px;">
+          ${quote ? `<blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.15rem;line-height:1.5;margin-bottom:24px;">
             "${quote}"
-          </blockquote>
-          <div class="story-full-body" style="font-size:1.08rem;line-height:1.75;color:#334155;">
+          </blockquote>` : ''}
+          <div class="story-full-body" style="font-size:1.05rem;line-height:1.75;color:var(--text-body);">
             ${fullHtml}
           </div>
         `;
@@ -573,6 +610,26 @@
       });
     });
   }
+
+  // =========================================================================
+  // 7. Global Footer Newsletter Handler (Every Page)
+  // =========================================================================
+  window.handleFooterNewsletter = function(form) {
+    const feedback = form.querySelector('.footer-newsletter-feedback');
+    const email = form.querySelector('input[name="email"]')?.value.trim();
+    if (!email || !email.includes('@')) {
+      if (feedback) {
+        feedback.style.color = '#F43640';
+        feedback.textContent = 'Please enter a valid email address.';
+      }
+      return;
+    }
+    if (feedback) {
+      feedback.style.color = '#97D700';
+      feedback.textContent = 'Thank you for subscribing to Kandelia news! We are thrilled to stay connected.';
+    }
+    form.reset();
+  };
 
   // =========================================================================
   // Initialize Everything on DOMContentLoaded
