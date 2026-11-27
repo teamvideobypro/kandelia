@@ -1309,10 +1309,10 @@ ways_html += f'''
               <span class="badge badge-blue" style="width:fit-content; margin-bottom:8px;">Institutional Alliances</span>
               <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:12px;">Partner With Us</h3>
               <p>
-                School districts, corporate employers, and regional foundations partner with Kandelia through institutional grants, corporate matching gifts, community sponsorships, and paid youth internship placements.
+                School districts, corporate employers, and regional foundations partner with Kandelia through institutional grants, corporate matching gifts, community sponsorships, and paid youth internship placements. Reach our team directly at <a href="mailto:Info@kandelia.org" style="color:var(--teal-dark); font-weight:700; text-decoration:underline;">Info@kandelia.org</a>.
               </p>
               <div style="margin-top:auto;">
-                <a href="mailto:Info@kandelia.org?subject=Partnership Inquiry with Kandelia" class="btn btn-outline">
+                <a href="mailto:Info@kandelia.org" class="btn btn-outline" style="width:100%; text-align:center; display:flex; justify-content:center; align-items:center;" aria-label="Email Info@kandelia.org to partner with us">
                   Partner With Us →
                 </a>
               </div>
