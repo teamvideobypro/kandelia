@@ -1272,7 +1272,7 @@ ways_html += f'''
                 Your tax-deductible contributions directly fund high school tutoring, adult digital workshops, and emergency family relief funds. Choose from flexible one-time, monthly, or fund-designated gifts.
               </p>
               <div style="margin-top:auto;">
-                <a href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener" class="btn btn-coral" style="width:100%; text-align:center;">
+                <a href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener noreferrer" class="btn btn-coral">
                   Donate Online Now →
                 </a>
               </div>
@@ -1289,8 +1289,8 @@ ways_html += f'''
                 Share your skills, professional experience, and cultural empathy. Volunteer as an after-school tutor, career mentor, digital literacy coach, or event volunteer for our May 2027 50th Anniversary Gala.
               </p>
               <div style="margin-top:auto;">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXxISZyibWTeAGMH7MU5rUYerKFk0--B1PB0rmNZNR4c20HQ/viewform" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; text-align:center;">
-                  Sign Up to Volunteer (Google Form) →
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXxISZyibWTeAGMH7MU5rUYerKFk0--B1PB0rmNZNR4c20HQ/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  Sign Up to Volunteer →
                 </a>
               </div>
             </div>
@@ -1306,8 +1306,8 @@ ways_html += f'''
                 School districts, corporate employers, and regional foundations partner with Kandelia through institutional grants, corporate matching gifts, community sponsorships, and paid youth internship placements.
               </p>
               <div style="margin-top:auto;">
-                <a href="mailto:Info@kandelia.org?subject=Partnership Inquiry with Kandelia" class="btn btn-outline" style="width:100%; text-align:center;">
-                  Contact Info@kandelia.org →
+                <a href="mailto:Info@kandelia.org?subject=Partnership Inquiry with Kandelia" class="btn btn-outline">
+                  Partner With Us →
                 </a>
               </div>
             </div>

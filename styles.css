@@ -6197,6 +6197,23 @@ h1, h2, h3, .hero-title, .event-title, .inner-hero-title, .section-header h2 {
   flex-grow: 1;
 }
 
+.way-3card-body .btn {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 13px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: normal;
+  border-radius: var(--radius-pill);
+  margin-top: auto;
+}
+
 /* 9. 2-Pillar Grid for Get Help Page */
 .pillars-2grid {
   display: grid;
