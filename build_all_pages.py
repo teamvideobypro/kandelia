@@ -914,10 +914,10 @@ for idx, board in enumerate(site_data.BOARD_MEMBERS):
             <div class="board-member-photo-frame">
               <img src="{photo_src}" alt="{escaped_name}" loading="lazy">
             </div>
-            <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:4px;">{escaped_name}</h3>
-            <div style="font-size:0.88rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">{escaped_role}</div>
-            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">{escaped_subline}</div>
-            <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <h3 class="board-member-name">{escaped_name}</h3>
+            <div class="board-member-role">{escaped_role}</div>
+            <div class="board-member-meta">{escaped_subline}</div>
+            <div class="board-member-actions">
               <button class="btn btn-outline btn-sm open-board-bio"
                       data-name="{escaped_name}"
                       data-role="{escaped_role}"
@@ -927,7 +927,7 @@ for idx, board in enumerate(site_data.BOARD_MEMBERS):
                       data-photo="{photo_src}">
                 Read Bio →
               </button>
-              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.82rem; color:var(--teal-dark); font-weight:600;">Directory ↗</a>
+              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener">Directory ↗</a>
             </div>
           </div>\n'''
 
