@@ -838,10 +838,10 @@ about_html += f'''
           <!-- Leader 1: Tram Lam, MNPL -->
           <div class="leader-card-featured">
             <div class="leader-photo-wrap">
-              <img src="assets/leader_tram.jpg" alt="Tram Lam, MNPL - Executive Director">
+              <img src="assets/tram_lam_headshot_studio.jpg" alt="Tram Lam, MNPL - Co-Executive Director">
             </div>
             <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:4px;">Tram Lam, MNPL</h3>
-            <div style="font-size:0.96rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Executive Director</div>
+            <div style="font-size:0.96rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Co-Executive Director</div>
             <div style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">Languages: English, Vietnamese</div>
             <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
               Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage.
@@ -849,24 +849,24 @@ about_html += f'''
             <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
               <button class="btn btn-outline btn-sm open-leader-bio"
                       data-name="Tram Lam, MNPL"
-                      data-role="Executive Director"
-                      data-photo="assets/leader_tram.jpg"
+                      data-role="Co-Executive Director"
+                      data-photo="assets/tram_lam_headshot_studio.jpg"
                       data-languages="English, Vietnamese"
                       data-bio="Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage, overseeing regional community partnerships, long-term sustainability endowment, and systemic advocacy."
                       data-quote="Our work is about tending to deep roots. Just like the mangrove tree that gives Kandelia its name, we provide a secure, nurturing ecosystem so youth and families can stand strong through any storm.">
-                Read Full Bio →
+                View Bio & Credentials →
               </button>
-              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Profile ↗</a>
+              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Directory ↗</a>
             </div>
           </div>
 
           <!-- Leader 2: Khadar Abdi -->
           <div class="leader-card-featured">
             <div class="leader-photo-wrap">
-              <img src="assets/leader_khadar.jpg" alt="Khadar Abdi - Director of Youth Programs">
+              <img src="assets/khadar_abdi_headshot.jpg" alt="Khadar Abdi - Co-Executive Director">
             </div>
             <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:4px;">Khadar Abdi</h3>
-            <div style="font-size:0.96rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Director of Youth Programs</div>
+            <div style="font-size:0.96rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Co-Executive Director</div>
             <div style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">Languages: English, Somali, Swahili</div>
             <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
               Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways.
@@ -874,14 +874,14 @@ about_html += f'''
             <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
               <button class="btn btn-outline btn-sm open-leader-bio"
                       data-name="Khadar Abdi"
-                      data-role="Director of Youth Programs"
-                      data-photo="assets/leader_khadar.jpg"
+                      data-role="Co-Executive Director"
+                      data-photo="assets/khadar_abdi_headshot.jpg"
                       data-languages="English, Somali, Swahili"
                       data-bio="Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways across King County public schools. Having arrived in Seattle as a newcomer himself, he brings authentic lived experience to youth empowerment."
                       data-quote="Over 90% of our staff have lived the immigrant and refugee journey themselves. When a family walks through our doors, they are met with shared language, shared empathy, and unconditional dignity.">
-                Read Full Bio →
+                View Bio & Credentials →
               </button>
-              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Profile ↗</a>
+              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Directory ↗</a>
             </div>
           </div>
         </div>
@@ -980,8 +980,9 @@ about_html += f'''        </div>
         <div style="max-width:920px; margin:0 auto; display:flex; flex-direction:column; gap:40px;">
           <!-- Group 1: Staff Positions -->
           <div class="careers-group">
-            <div style="margin-bottom:16px;">
-              <span class="badge badge-teal">Staff Positions</span>
+            <div class="careers-group-header" style="margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid rgba(42,210,201,0.3); display:flex; align-items:center; gap:12px;">
+              <span class="badge badge-teal" style="font-weight:700; font-size:0.88rem;">Group 1</span>
+              <h3 style="font-size:1.45rem; color:var(--navy); margin:0;">Staff Positions</h3>
             </div>
             <div style="display:flex; flex-direction:column; gap:18px;">
 '''
@@ -1010,8 +1011,9 @@ about_html += '''            </div>
 
           <!-- Group 2: Board Positions -->
           <div class="careers-group">
-            <div style="margin-bottom:16px;">
-              <span class="badge badge-sage">Board Positions</span>
+            <div class="careers-group-header" style="margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid rgba(151,215,0,0.35); display:flex; align-items:center; gap:12px;">
+              <span class="badge badge-green" style="font-weight:700; font-size:0.88rem;">Group 2</span>
+              <h3 style="font-size:1.45rem; color:var(--navy); margin:0;">Board Positions</h3>
             </div>
             <div style="display:flex; flex-direction:column; gap:18px;">
 '''
@@ -1038,10 +1040,11 @@ for job in site_data.CAREERS.get('board', []):
 about_html += '''            </div>
           </div>
 
-          <!-- Group 3: Contracted Positions -->
+          <!-- Group 3: Contracted Opportunities -->
           <div class="careers-group">
-            <div style="margin-bottom:16px;">
-              <span class="badge badge-blue">Contracted Positions</span>
+            <div class="careers-group-header" style="margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid rgba(31,34,170,0.25); display:flex; align-items:center; gap:12px;">
+              <span class="badge badge-blue" style="font-weight:700; font-size:0.88rem;">Group 3</span>
+              <h3 style="font-size:1.45rem; color:var(--navy); margin:0;">Contracted Opportunities</h3>
             </div>
             <div style="display:flex; flex-direction:column; gap:18px;">
 '''
@@ -1068,10 +1071,11 @@ for job in site_data.CAREERS.get('contract', []):
 about_html += '''            </div>
           </div>
 
-          <!-- Group 4: Youth Leadership Roles -->
+          <!-- Group 4: Youth Leadership -->
           <div class="careers-group">
-            <div style="margin-bottom:16px;">
-              <span class="badge badge-coral">Youth Leadership Roles</span>
+            <div class="careers-group-header" style="margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid rgba(244,54,76,0.25); display:flex; align-items:center; gap:12px;">
+              <span class="badge badge-coral" style="font-weight:700; font-size:0.88rem;">Group 4</span>
+              <h3 style="font-size:1.45rem; color:var(--navy); margin:0;">Youth Leadership</h3>
             </div>
             <div style="display:flex; flex-direction:column; gap:18px;">
 '''

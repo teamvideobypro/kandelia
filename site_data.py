@@ -252,20 +252,20 @@ STORIES = [
 CAREERS = {
     "staff": [
         {
-            "title": "Bilingual Youth Case Manager",
+            "title": "Education Program Manager",
             "type": "Full-Time • 40 hrs/wk",
-            "location": "South Seattle & King County High Schools",
-            "compensation": "$62,000 – $68,000 / year + Comprehensive Benefits",
-            "description": "Provide dedicated 1-on-1 academic navigation, social-emotional support, and credit recovery planning for immigrant and refugee high school students. Partner closely with school counselors and families.",
-            "qualifications": "Bilingual in Somali, Spanish, Vietnamese, or Arabic required. Passion for youth empowerment and cultural humility."
+            "location": "South Seattle & King County Public Schools",
+            "compensation": "$68,000 – $75,000 / year + Comprehensive Benefits",
+            "description": "Lead and expand Kandelia's after-school tutoring, high school cohort models, and graduation pathway initiatives for immigrant and refugee students across King County public schools.",
+            "qualifications": "Bilingual in Somali, Spanish, Vietnamese, or Arabic preferred. 3+ years experience in educational programming and youth empowerment."
         },
         {
-            "title": "Family Resource Navigator",
+            "title": "Bilingual Family Support Specialist",
             "type": "Full-Time • 40 hrs/wk",
             "location": "Kandelia Community Hub & Partner Centers",
             "compensation": "$60,000 – $66,000 / year + Full Healthcare & 401(k)",
-            "description": "Lead whole-family intake, digital literacy lab facilitation, housing stabilization referrals, and community resource workshops for newcomer parents.",
-            "qualifications": "Experience in community navigation, case management, or social work. Multilingual candidates strongly encouraged."
+            "description": "Lead whole-family intake, digital literacy lab facilitation, housing stabilization referrals, and community resource navigation for newcomer parents.",
+            "qualifications": "Experience in community navigation, case management, or social work. Multilingual fluency strongly preferred."
         }
     ],
     "board": [
@@ -278,30 +278,30 @@ CAREERS = {
             "qualifications": "Lived experience as an immigrant/refugee or strong community ties across King County. Email hr@kandelia.org with interest."
         },
         {
-            "title": "Board of Directors – Treasurer & Finance Chair",
+            "title": "Board Treasurer & Finance Lead",
             "type": "Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)",
             "location": "Seattle, WA (Hybrid Meetings)",
             "compensation": "Volunteer Leadership Position",
-            "description": "Provide fiduciary oversight, review annual budgets, advise on endowment strategy, and chair the board Finance & Audit Committee.",
+            "description": "Provide fiduciary oversight, review annual financial statements, advise on endowment strategy, and chair the board Finance & Audit Committee.",
             "qualifications": "Background in finance, accounting, or non-profit fiscal management. Passion for immigrant and refugee equity."
         }
     ],
     "contract": [
         {
-            "title": "Adult ESL Lead Instructor",
-            "type": "Part-Time Contract • 8–12 hrs/wk",
-            "location": "Evening & Weekend Cohorts (In-Person / Hybrid)",
-            "compensation": "$45 – $55 / hour",
-            "description": "Deliver interactive, culturally responsive adult English language instruction tailored to working parents and multi-generational learners.",
-            "qualifications": "TESOL / TEFL certification or equivalent teaching experience with adult multilingual learners."
+            "title": "Bilingual Curriculum Consultant",
+            "type": "Part-Time Contract • 10–15 hrs/wk",
+            "location": "Seattle, WA (Hybrid / Remote)",
+            "compensation": "$50 – $65 / hour",
+            "description": "Co-design culturally responsive English learning and digital literacy curriculum modules tailored to adult working parents and multi-generational learners.",
+            "qualifications": "Curriculum development background with adult ELL or high school newcomers. Fluency in Spanish, Vietnamese, or Somali required."
         },
         {
-            "title": "Digital Skills Lab Facilitator",
-            "type": "Contract • 6 hrs/wk (Saturday mornings)",
-            "location": "Rainier Beach Community Computer Lab",
-            "compensation": "$40 – $48 / hour",
-            "description": "Facilitate hands-on computer workshops covering email, internet safety, school district portals, and basic workplace software.",
-            "qualifications": "Strong interpersonal skills, patience, and fluency in English plus Spanish or Vietnamese."
+            "title": "Interpretation & Translation Specialist",
+            "type": "Contract • Flexible On-Call",
+            "location": "Seattle, WA (Community Workshops & Remote)",
+            "compensation": "$45 – $55 / hour",
+            "description": "Provide real-time interpretation for community meetings and translate vital school, legal, and resource guides into Spanish, Somali, Vietnamese, Amharic, or Arabic.",
+            "qualifications": "Professional translation or interpretation credentials with commitment to cultural accuracy and immigrant rights."
         }
     ],
     "youth": [
@@ -314,11 +314,11 @@ CAREERS = {
             "qualifications": "Former Seattle Public Schools Multilingual Learner (post-2020). Passion for community advocacy and immigrant youth empowerment."
         },
         {
-            "title": "Summer Youth Ambassador",
-            "type": "Paid Youth Internship • 20 hrs/wk (8 weeks summer)",
+            "title": "Youth Leadership Intern",
+            "type": "Paid Youth Internship • 20 hrs/wk (Summer Cohort)",
             "location": "King County Partner Sites",
             "compensation": "$20.50 / hour stipend",
-            "description": "Paid summer leadership opportunity for immigrant and refugee high school students to co-design community outreach, plan cultural events, and shadow nonprofit leaders.",
+            "description": "Paid summer leadership opportunity for immigrant and refugee high school students to co-design community outreach, plan cultural events, and shadow nonprofit directors.",
             "qualifications": "Open to rising 10th–12th grade students enrolled in King County high schools."
         }
     ]

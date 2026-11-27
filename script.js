@@ -349,6 +349,9 @@
           <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.5;">
             "${quote}"
           </blockquote>` : ''}
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
+            <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Directory Profile on Kandelia.org ↗</a>
+          </div>
         `;
         openModal(name, content);
       });
@@ -386,6 +389,9 @@
           <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.5;">
             "${quote}"
           </blockquote>` : ''}
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
+            <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Directory Profile on Kandelia.org ↗</a>
+          </div>
         `;
         openModal(name, content);
       });
@@ -412,6 +418,10 @@
           </blockquote>` : ''}
           <div class="story-full-body" style="font-size:1.05rem;line-height:1.75;color:var(--text-body);">
             ${fullHtml}
+          </div>
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <span style="font-size:0.9rem;color:var(--text-muted);">Source: Kandelia Storytelling Archive</span>
+            <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Explore All Stories on Kandelia.org ↗</a>
           </div>
         `;
         openModal(title, content);
