@@ -401,6 +401,69 @@ js_content = """/**
         openModal("Kandelia Documentary & May 2027 Gala Preview", content);
       });
     }
+
+    // Attach to Partner With Us modal buttons
+    document.querySelectorAll('.open-partner-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:20px;">
+            <span class="badge badge-blue" style="margin-bottom:10px;">Institutional Alliances & Sponsorships</span>
+            <p style="font-size:1.05rem;line-height:1.65;color:var(--text-body);margin-top:8px;">
+              Thank you for your interest in partnering with Kandelia! We welcome collaborations with school districts, corporate employers, philanthropic foundations, and community allies to expand educational and economic opportunities for immigrant and refugee communities.
+            </p>
+          </div>
+
+          <!-- Official Email Box with 1-Click Copy -->
+          <div style="background:#F0FAF9;border:1.5px solid var(--teal);border-radius:16px;padding:20px 24px;margin-bottom:22px;">
+            <div style="font-size:0.82rem;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Official Partnerships Email</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+              <span style="font-size:1.35rem;font-weight:700;color:var(--navy);font-family:monospace;">Info@kandelia.org</span>
+              <button class="btn btn-primary btn-sm" id="copy-partner-email-btn" onclick="
+                navigator.clipboard.writeText('Info@kandelia.org').then(() => {
+                  this.textContent = 'Copied! ✓';
+                  setTimeout(() => { this.textContent = 'Copy Email Address'; }, 3000);
+                });
+              " style="border-radius:20px;padding:7px 16px;">Copy Email Address</button>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:10px;margin-bottom:0;">
+              Our institutional partnerships team responds to all foundation, employer, and civic inquiries within 1-2 business days.
+            </p>
+          </div>
+
+          <!-- Direct Actions: Email App vs Web Gmail -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:12px;margin-bottom:24px;">
+            <a href="mailto:Info@kandelia.org?subject=Partnership%20Inquiry%20with%20Kandelia" class="btn btn-outline" style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px 18px;font-size:0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Open in Default Email App →
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Info@kandelia.org&su=Partnership%20Inquiry%20with%20Kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral" style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px 18px;font-size:0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+              Compose in Web Gmail ↗
+            </a>
+          </div>
+
+          <!-- Key Partnership Areas -->
+          <div style="background:#F8FAFC;border-radius:14px;padding:16px 20px;margin-bottom:20px;border:1px solid #E2E8F0;">
+            <h5 style="font-size:0.95rem;color:var(--navy);font-weight:700;margin-bottom:8px;">Ways to Partner with Kandelia:</h5>
+            <ul style="font-size:0.9rem;color:var(--text-body);line-height:1.6;margin:0;padding-left:18px;">
+              <li><strong>Institutional & Foundation Grants:</strong> Multi-year operational and programmatic support.</li>
+              <li><strong>Corporate Matching & Sponsorships:</strong> Workplace giving, employee match programs, and gala sponsors.</li>
+              <li><strong>Youth Internships & Mentorship:</strong> Host paid high school student interns in STEM, arts, and business.</li>
+            </ul>
+          </div>
+
+          <!-- Organization & Phone Details -->
+          <div style="padding-top:14px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.88rem;color:var(--text-muted);">
+            <span>📞 Phone: <a href="tel:2064525200" style="color:var(--teal-dark);font-weight:600;">(206) 452-5200</a></span>
+            <span>📍 3829B S. Edmunds St. Box 9, Seattle, WA 98118</span>
+          </div>
+        `;
+        openModal("Partner With Kandelia", content);
+      });
+    });
   }
 
   // =========================================================================

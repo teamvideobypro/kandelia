@@ -22,8 +22,6 @@
       'family_prog': 'Family Programs',
       'get_involved': 'Get Involved',
       'give': 'Give',
-      'giving': 'Giving',
-      'giving_impact': 'Giving & Impact Tiers',
       'volunteer': 'Volunteer',
       'partner': 'Partner',
       'stories_impact': 'Stories & Impact',
@@ -322,76 +320,34 @@
       }
     });
 
-    // Attach to Leader bio buttons
-    document.querySelectorAll('.open-leader-bio').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const name = btn.getAttribute('data-name');
-        const role = btn.getAttribute('data-role');
-        const photo = btn.getAttribute('data-photo');
-        const bio = btn.getAttribute('data-bio');
-        const languages = btn.getAttribute('data-languages');
-        const quote = btn.getAttribute('data-quote') || '';
-
-        const content = `
-          <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
-            ${photo ? `<div style="width:84px;height:84px;border-radius:9999px;overflow:hidden;flex-shrink:0;border:3px solid var(--teal);"><img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;"></div>` : ''}
-            <div>
-              <h4 style="font-size:1.4rem;color:var(--navy);margin-bottom:4px;">${name}</h4>
-              <p style="color:var(--coral);font-weight:700;margin-bottom:2px;">${role}</p>
-              ${languages ? `<span style="font-size:0.88rem;color:var(--text-muted);">Languages: ${languages}</span>` : ''}
-            </div>
-          </div>
-          <div style="font-size:1.05rem;line-height:1.7;color:var(--text-body);margin-bottom:20px;">
-            <p>${bio}</p>
-          </div>
-          ${quote ? `
-          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.5;">
-            "${quote}"
-          </blockquote>` : ''}
-          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
-            <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Directory Profile on Kandelia.org ↗</a>
-          </div>
-        `;
-        openModal(name, content);
-      });
-    });
-
     // Attach to Board bio buttons
     document.querySelectorAll('.open-board-bio').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
+      btn.addEventListener('click', () => {
         const name = btn.getAttribute('data-name');
         const role = btn.getAttribute('data-role');
         const tenure = btn.getAttribute('data-tenure');
         const bio = btn.getAttribute('data-bio');
         const quote = btn.getAttribute('data-quote');
-        const photo = btn.getAttribute('data-photo');
-        const initials = btn.getAttribute('data-initials') || '';
-        const color = btn.getAttribute('data-color') || 'var(--navy)';
+        const initials = btn.getAttribute('data-initials');
+        const color = btn.getAttribute('data-color') || '#12263A';
 
         const content = `
           <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
-            ${photo ? `<div style="width:76px;height:76px;border-radius:9999px;overflow:hidden;flex-shrink:0;border:3px solid var(--teal);"><img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;"></div>` : `
             <div style="width:72px;height:72px;border-radius:9999px;background:${color};color:#fff;display:grid;place-items:center;font-size:1.6rem;font-weight:700;flex-shrink:0;">
               ${initials}
-            </div>`}
+            </div>
             <div>
-              <h4 style="font-size:1.4rem;color:var(--navy);margin-bottom:4px;">${name}</h4>
-              <p style="color:var(--coral);font-weight:700;margin-bottom:2px;">${role}</p>
-              <span style="font-size:0.88rem;color:var(--text-muted);">${tenure}</span>
+              <h4 style="font-size:1.4rem;color:#12263A;margin-bottom:4px;">${name}</h4>
+              <p style="color:#D94532;font-weight:700;margin-bottom:2px;">${role}</p>
+              <span style="font-size:0.88rem;color:#64748B;">${tenure}</span>
             </div>
           </div>
-          <div style="font-size:1.05rem;line-height:1.7;color:var(--text-body);margin-bottom:24px;">
+          <div style="font-size:1.05rem;line-height:1.7;color:#334155;margin-bottom:24px;">
             <p>${bio}</p>
           </div>
-          ${quote ? `
-          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.5;">
+          <blockquote style="background:#FAF7F2;border-left:5px solid #8DC73F;padding:18px 24px;border-radius:12px;font-style:italic;color:#12263A;font-size:1.1rem;line-height:1.5;">
             "${quote}"
-          </blockquote>` : ''}
-          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
-            <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Directory Profile on Kandelia.org ↗</a>
-          </div>
+          </blockquote>
         `;
         openModal(name, content);
       });
@@ -400,28 +356,23 @@
     // Attach to Story cards
     document.querySelectorAll('.open-story-reader').forEach(card => {
       card.addEventListener('click', () => {
-        const title = card.getAttribute('data-title') || card.querySelector('h3')?.textContent || 'Community Story';
-        const subtitle = card.getAttribute('data-subtitle') || '';
-        const quote = card.getAttribute('data-quote') || '';
-        const fullHtml = card.getAttribute('data-story-html') || '';
-        const img = card.querySelector('img');
-        const imgSrc = img ? img.src : '';
+        const title = card.getAttribute('data-title');
+        const subtitle = card.getAttribute('data-subtitle');
+        const quote = card.getAttribute('data-quote');
+        const fullHtml = card.getAttribute('data-story-html');
+        const imgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
 
         const content = `
           <div style="margin-bottom:20px;">
             <span class="badge badge-sage" style="margin-bottom:10px;">Roots & Routes: Immigrant Stories</span>
-            ${subtitle ? `<p style="font-size:1.1rem;color:var(--coral);font-weight:700;">${subtitle}</p>` : ''}
+            <p style="font-size:1.1rem;color:#D94532;font-weight:700;">${subtitle}</p>
           </div>
           ${imgSrc ? `<div style="border-radius:20px;overflow:hidden;margin-bottom:24px;aspect-ratio:16/9;max-height:300px;"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;"></div>` : ''}
-          ${quote ? `<blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.15rem;line-height:1.5;margin-bottom:24px;">
+          <blockquote style="background:#FAF7F2;border-left:5px solid #D94532;padding:18px 24px;border-radius:12px;font-style:italic;color:#12263A;font-size:1.15rem;line-height:1.5;margin-bottom:24px;">
             "${quote}"
-          </blockquote>` : ''}
-          <div class="story-full-body" style="font-size:1.05rem;line-height:1.75;color:var(--text-body);">
+          </blockquote>
+          <div class="story-full-body" style="font-size:1.08rem;line-height:1.75;color:#334155;">
             ${fullHtml}
-          </div>
-          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-            <span style="font-size:0.9rem;color:var(--text-muted);">Source: Kandelia Storytelling Archive</span>
-            <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Explore All Stories on Kandelia.org ↗</a>
           </div>
         `;
         openModal(title, content);
@@ -449,6 +400,69 @@
         openModal("Kandelia Documentary & May 2027 Gala Preview", content);
       });
     }
+
+    // Attach to Partner With Us modal buttons
+    document.querySelectorAll('.open-partner-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:20px;">
+            <span class="badge badge-blue" style="margin-bottom:10px;">Institutional Alliances & Sponsorships</span>
+            <p style="font-size:1.05rem;line-height:1.65;color:var(--text-body);margin-top:8px;">
+              Thank you for your interest in partnering with Kandelia! We welcome collaborations with school districts, corporate employers, philanthropic foundations, and community allies to expand educational and economic opportunities for immigrant and refugee communities.
+            </p>
+          </div>
+
+          <!-- Official Email Box with 1-Click Copy -->
+          <div style="background:#F0FAF9;border:1.5px solid var(--teal);border-radius:16px;padding:20px 24px;margin-bottom:22px;">
+            <div style="font-size:0.82rem;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Official Partnerships Email</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+              <span style="font-size:1.35rem;font-weight:700;color:var(--navy);font-family:monospace;">Info@kandelia.org</span>
+              <button class="btn btn-primary btn-sm" id="copy-partner-email-btn" onclick="
+                navigator.clipboard.writeText('Info@kandelia.org').then(() => {
+                  this.textContent = 'Copied! ✓';
+                  setTimeout(() => { this.textContent = 'Copy Email Address'; }, 3000);
+                });
+              " style="border-radius:20px;padding:7px 16px;">Copy Email Address</button>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:10px;margin-bottom:0;">
+              Our institutional partnerships team responds to all foundation, employer, and civic inquiries within 1-2 business days.
+            </p>
+          </div>
+
+          <!-- Direct Actions: Email App vs Web Gmail -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:12px;margin-bottom:24px;">
+            <a href="mailto:Info@kandelia.org?subject=Partnership%20Inquiry%20with%20Kandelia" class="btn btn-outline" style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px 18px;font-size:0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Open in Default Email App →
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Info@kandelia.org&su=Partnership%20Inquiry%20with%20Kandelia" target="_blank" rel="noopener noreferrer" class="btn btn-coral" style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px 18px;font-size:0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+              Compose in Web Gmail ↗
+            </a>
+          </div>
+
+          <!-- Key Partnership Areas -->
+          <div style="background:#F8FAFC;border-radius:14px;padding:16px 20px;margin-bottom:20px;border:1px solid #E2E8F0;">
+            <h5 style="font-size:0.95rem;color:var(--navy);font-weight:700;margin-bottom:8px;">Ways to Partner with Kandelia:</h5>
+            <ul style="font-size:0.9rem;color:var(--text-body);line-height:1.6;margin:0;padding-left:18px;">
+              <li><strong>Institutional & Foundation Grants:</strong> Multi-year operational and programmatic support.</li>
+              <li><strong>Corporate Matching & Sponsorships:</strong> Workplace giving, employee match programs, and gala sponsors.</li>
+              <li><strong>Youth Internships & Mentorship:</strong> Host paid high school student interns in STEM, arts, and business.</li>
+            </ul>
+          </div>
+
+          <!-- Organization & Phone Details -->
+          <div style="padding-top:14px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.88rem;color:var(--text-muted);">
+            <span>📞 Phone: <a href="tel:2064525200" style="color:var(--teal-dark);font-weight:600;">(206) 452-5200</a></span>
+            <span>📍 3829B S. Edmunds St. Box 9, Seattle, WA 98118</span>
+          </div>
+        `;
+        openModal("Partner With Kandelia", content);
+      });
+    });
   }
 
   // =========================================================================
@@ -458,34 +472,34 @@
     const captchaBox = document.getElementById('human-captcha-box');
     const feedback = document.getElementById('newsletter-feedback-msg');
     const form = document.getElementById('newsletter-signup-form');
-    let isHuman = !captchaBox;
+    let isHuman = false;
 
-    if (captchaBox) {
-      captchaBox.addEventListener('click', () => {
-        if (isHuman) return;
+    if (!captchaBox) return;
 
-        captchaBox.classList.add('verifying');
-        setTimeout(() => {
-          captchaBox.classList.remove('verifying');
-          captchaBox.classList.add('verified');
-          captchaBox.innerHTML = `
-            <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:3.5;" viewBox="0 0 24 24">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          `;
-          isHuman = true;
-          if (feedback) {
-            feedback.className = 'newsletter-feedback';
-            feedback.textContent = '';
-          }
-        }, 500);
-      });
-    }
+    captchaBox.addEventListener('click', () => {
+      if (isHuman) return;
+
+      captchaBox.classList.add('verifying');
+      setTimeout(() => {
+        captchaBox.classList.remove('verifying');
+        captchaBox.classList.add('verified');
+        captchaBox.innerHTML = `
+          <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:3.5;" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+        isHuman = true;
+        if (feedback) {
+          feedback.className = 'newsletter-feedback';
+          feedback.textContent = '';
+        }
+      }, 500);
+    });
 
     if (form) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const emailInput = document.getElementById('newsletter-email') || document.getElementById('newsletter-email-input');
+        const emailInput = document.getElementById('newsletter-email-input');
         const email = emailInput ? emailInput.value.trim() : '';
 
         if (!email || !email.includes('@')) {
@@ -507,9 +521,9 @@
         // Success!
         if (feedback) {
           feedback.className = 'newsletter-feedback success';
-          feedback.textContent = 'Thank you for subscribing to Kandelia news! We are thrilled to stay connected.';
+          feedback.textContent = '🎉 Thank you for subscribing to Kandelia news! Check your inbox soon.';
         }
-        form.reset();
+        if (emailInput) emailInput.value = '';
       });
     }
   }
@@ -552,7 +566,7 @@
       mobileBtn.addEventListener('click', () => {
         const isOpen = mobileDrawer.classList.toggle('open');
         mobileBtn.setAttribute('aria-expanded', isOpen);
-        mobileBtn.innerHTML = isOpen ? '<svg class="icon close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Close' : 'Menu <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        mobileBtn.innerHTML = isOpen ? '✕ Close' : 'Menu ☰';
       });
 
       // Close drawer on link click
@@ -560,7 +574,7 @@
         link.addEventListener('click', () => {
           mobileDrawer.classList.remove('open');
           mobileBtn.setAttribute('aria-expanded', 'false');
-          mobileBtn.innerHTML = 'Menu <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+          mobileBtn.innerHTML = 'Menu ☰';
         });
       });
     }
@@ -581,78 +595,16 @@
     }
   }
 
-
-  // =========================================================================
-  // 6. Interactive Donation FAQ Accordion
-  // =========================================================================
-  function initFaqAccordion() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    if (!faqItems.length) return;
-
-    faqItems.forEach(item => {
-      const questionBtn = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      if (!questionBtn || !answer) return;
-
-      questionBtn.addEventListener('click', () => {
-        const isExpanded = questionBtn.getAttribute('aria-expanded') === 'true';
-
-        // Close all other accordion items for clean accordion UX
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.classList.remove('active');
-            const otherBtn = otherItem.querySelector('.faq-question');
-            const otherAns = otherItem.querySelector('.faq-answer');
-            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-            if (otherAns) otherAns.style.maxHeight = null;
-          }
-        });
-
-        if (isExpanded) {
-          questionBtn.setAttribute('aria-expanded', 'false');
-          item.classList.remove('active');
-          answer.style.maxHeight = null;
-        } else {
-          questionBtn.setAttribute('aria-expanded', 'true');
-          item.classList.add('active');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        }
-      });
-    });
-  }
-
-  // =========================================================================
-  // 7. Global Footer Newsletter Handler (Every Page)
-  // =========================================================================
-  window.handleFooterNewsletter = function(form) {
-    const feedback = form.querySelector('.footer-newsletter-feedback');
-    const email = form.querySelector('input[name="email"]')?.value.trim();
-    if (!email || !email.includes('@')) {
-      if (feedback) {
-        feedback.style.color = '#F43640';
-        feedback.textContent = 'Please enter a valid email address.';
-      }
-      return;
-    }
-    if (feedback) {
-      feedback.style.color = '#97D700';
-      feedback.textContent = 'Thank you for subscribing to Kandelia news! We are thrilled to stay connected.';
-    }
-    form.reset();
-  };
-
   // =========================================================================
   // Initialize Everything on DOMContentLoaded
   // =========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initCarousel(document.getElementById('testimonials-carousel'), 5500);
-    initCarousel(document.getElementById('giving-testimonials-carousel'), 5500);
     initCarousel(document.getElementById('staff-board-carousel'), 6500);
     initModals();
     initCaptcha();
     initTabs();
-    initFaqAccordion();
     console.log("Kandelia Redesign 2026 initialized successfully!");
   });
 
