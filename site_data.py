@@ -3,95 +3,105 @@
 BOARD_MEMBERS = [
     {
         "id": "board-1",
-        "name": "Dr. Bao Nguyen",
-        "role": "Board President",
-        "tenure": "Serving since 2019",
-        "initials": "BN",
-        "color": "#2D6A4F",
-        "bio": "Dr. Nguyen is an educator, community advocate, and former refugee from Vietnam. He holds a Ph.D. in Educational Leadership from the University of Washington and has dedicated 25 years to advancing bilingual education and equity for newcomer immigrant youth across King County.",
-        "quote": "Kandelia honors the lineage of community mutual aid that welcomed my family in 1978 while championing the brilliance of today's young leaders."
+        "name": "Anne Gerry",
+        "role": "Chair",
+        "languages": "She/Her | Languages: English, French, Japanese",
+        "photo": "assets/board_1.jpg",
+        "bio": "I was born in New York to immigrants from South Korea. I have a degree in Classics from Yale University and a J.D. from Yale Law School. In my previous life, I was a corporate attorney, and more recently I have had the privilege of being a stay-at-home parent to two wonderful children. During our time living on both coasts of the U.S. and abroad in Japan, I have supported our surrounding communities through deep involvement in local schools, teams, and other organizations, and have also engaged in pro bono legal work and philanthropic activities. I passionately believe that exposure to other cultures broadens our perspectives, increases our humility and respect for others, and helps us live in community with each other. I also have faith in the unique power of education to transform lives. I am inspired by the work that Kandelia does to honor the many cultures of the communities that it serves, while providing young students with the tools to succeed through its programs at the Seattle World School. I am honored to assist with Kandelia’s mission.",
+        "quote": "I passionately believe that exposure to other cultures broadens our perspectives, increases our humility and respect for others, and helps us live in community with each other.",
+        "fun_fact": "Fun fact: I can do 40 push-ups in a minute and once participated in a stair-climbing competition."
     },
     {
         "id": "board-2",
-        "name": "Fadumo Warsame, MSW",
-        "role": "Vice President",
-        "tenure": "Serving since 2021",
-        "initials": "FW",
-        "color": "#B56576",
-        "bio": "Fadumo is a licensed clinical social worker and healthcare administrator specializing in culturally grounded mental health and trauma-informed care for East African refugee women and youth. She brings deep community relationships and expertise in whole-family wellness.",
-        "quote": "True integration means families can thrive and lead without shedding their cultural pride, faith, or mother tongue."
+        "name": "Allison Arena",
+        "role": "Vice Chair",
+        "languages": "She/Her | Languages: English, Spanish",
+        "photo": "assets/board_2.jpg",
+        "bio": "Allison grew up in Chicago and brings a strong foundation in community engagement, economic development, and strategic planning to Kandelia’s Board of Directors. While studying at Indiana University, Allison partnered with local nonprofits to support underserved communities, sparking a lifelong commitment to equity and impact. After graduation, she joined the Chicago Mayor’s Office, focusing on small business support during COVID in South and West-side neighborhoods. Her career then took her into strategy consulting, where she helped organizations solve complex challenges across sectors. Today, she serves in a strategic role at the Gates Foundation, continuing her focus on driving systemic change. Passionate about creating opportunities for immigrant and refugee communities to thrive, Allison is excited to support Kandelia’s mission.",
+        "quote": "Passionate about creating opportunities for immigrant and refugee communities to thrive, Allison is excited to support Kandelia’s mission.",
+        "fun_fact": "Fun fact: Allison loves to travel and took her first trip to Vietnam last fall!"
     },
     {
         "id": "board-3",
-        "name": "Alejandro Morales, CPA",
-        "role": "Treasurer & Finance Chair",
-        "tenure": "Serving since 2020",
-        "initials": "AM",
-        "color": "#1D3A58",
-        "bio": "Alejandro is a Senior Finance Director at a Pacific Northwest clean energy firm and a first-generation immigrant from Michoacán, Mexico. He oversees Kandelia's financial stewardship, fiscal audits, and long-term sustainability endowment planning.",
-        "quote": "Every dollar invested in Kandelia creates multi-generational economic mobility for families building their lives here."
+        "name": "Chris Nguyen",
+        "role": "Treasurer",
+        "languages": "He/Him | Languages: English, Vietnamese, Spanish",
+        "photo": "assets/board_3.jpg",
+        "bio": "Chris has held executive roles in companies including Robert Half, Randstad, Tatum, and Adecco Group. He is now part-owner and Managing Partner of NextDeavor, a certified minority-owned recruitment firm, and co-founder of its Executive Search and Consulting practice. Chris received his BA from California State University–Los Angeles and his MBA at City University Seattle with a focus in Human Resources and Finance. Chris’ parents were refugees who found a home in a farming community of Salinas, California where Chris was born and raised. Chris learned English as a second language and Spanish as a third, growing up with different systemic challenges — further strengthening his passion for socially responsible organizations early in life.",
+        "quote": "Growing up with systemic challenges strengthened my passion for socially responsible organizations early in life.",
+        "fun_fact": "Fun fact: Chris is a father of two kids who take up most of his free time."
     },
     {
         "id": "board-4",
-        "name": "Hana Al-Mansoor, Esq.",
-        "role": "Secretary & Governance Chair",
-        "tenure": "Serving since 2022",
-        "initials": "HA",
-        "color": "#6B705C",
-        "bio": "Hana is a civil rights attorney focusing on immigration defense, asylum advocacy, and civic empowerment. Arriving as an asylum seeker from Iraq in 2008, she serves as a tireless legal champion for immigrant families across the Puget Sound region.",
-        "quote": "Kandelia stands as an essential sanctuary where newcomers find not just emergency navigation, but institutional belonging."
+        "name": "Sherene Thomas",
+        "role": "Secretary",
+        "languages": "She/Her | Languages: English",
+        "photo": "assets/board_4.jpg",
+        "bio": "Sherene Thomas is the proud daughter of Jamaican immigrants and a nonprofit leader with experience advancing social justice through cross-sector partnerships. She currently serves as Corporate & Foundation Relations Manager at Mercy Housing, where she cultivates strategic relationships to support affordable housing and community-based services. Sherene brings a deep commitment to immigrant justice and equity-driven systems change. Her previous roles include managing a national legal fellowship program and donor engagement at Equal Justice Works, and leading development initiatives at DC Affordable Law Firm. She began her career as an Administrative Law Judge for the State of Florida and later served as Outreach Director for a senior member of Congress. She has served on the boards of the ACLU of Florida, ACLU of Central Florida, Ms. JD, the Greater Washington, D.C. Florida State University Alumni Chapter, and the National Congress of Black Women. Sherene holds a J.D. from Barry University School of Law, a Master of Public Administration from Florida State University, and dual Bachelor of Science degrees in Psychology and Criminology.",
+        "quote": "Sherene brings a deep commitment to immigrant justice and equity-driven systems change.",
+        "fun_fact": ""
     },
     {
         "id": "board-5",
-        "name": "Marcus Thorne",
-        "role": "Development & Gala Chair",
-        "tenure": "Serving since 2023",
-        "initials": "MT",
-        "color": "#6D597A",
-        "bio": "Marcus is a philanthropic advisor and community partnerships executive with two decades of experience connecting regional foundations and corporate benefactors to grassroots equity movements.",
-        "quote": "Our 50-year milestone in May 2027 is a celebration of community self-determination and lasting philanthropic alliance."
+        "name": "Nausheen Rajan-Jinnah",
+        "role": "Member at Large",
+        "languages": "She/Her | Languages: English, Urdu, Hindi",
+        "photo": "assets/board_5.jpg",
+        "bio": "Nausheen is the daughter of immigrants from Karachi, Pakistan. She is currently Chief of Staff at Seattle City Council. Prior to this, she served as a Policy Advisor for the city of Seattle’s Mayor’s office, where her portfolio covered transportation, parks, and climate action. Nausheen has also worked at Kinetic West, a Seattle-based social impact consulting firm, where she worked with clients on workforce development programming and community stakeholder development for public sector entities across the country. Her experience also includes being on the Economic Development Team at Bloomberg Associates, where she advised clients on improving economic mobility outcomes in cities such as Phoenix, Tampa, London, Newark, and New York.",
+        "quote": "In 2020, Nausheen co-founded an initiative to increase generational voter participation and civic engagement in her Muslim community.",
+        "fun_fact": "Fun fact: In 2020, Nausheen co-founded an initiative to increase generational voter participation and civic engagement in her Muslim community by training over 150 community members how to relationally organize, reaching close to 10,000 individuals."
     },
     {
         "id": "board-6",
-        "name": "Linh Tran, MBA",
-        "role": "Community Representative",
-        "tenure": "Serving since 2021",
-        "initials": "LT",
-        "color": "#E05A47",
-        "bio": "Linh is a tech operations manager, daughter of Vietnamese boat people, and longtime Rainier Valley community organizer. She bridges digital equity initiatives between the private technology sector and local community centers.",
-        "quote": "Technology and digital fluency are human rights. Kandelia equips parents with the tools to guide their children's future."
+        "name": "Ruel Olanday Jr",
+        "role": "Member at Large",
+        "languages": "He/Him | Languages: English, Tagalog",
+        "photo": "assets/board_6.jpg",
+        "bio": "Since 2004, Ruel Olanday Jr has held various roles in the public sector in support of youth, that include community organizer, educator, social worker, philanthropic advisor, executive director, and community volunteer. He is currently the Public Policy and Community Development Director at Open Doors for Multicultural Families. Recognized for being an innovative, purpose-driven leader with a steadfast commitment to the empowerment of youth and communities impacted by racial inequity. He is a sought-after expert on community-led racial justice, youth development, and policy/systems navigation/change with a proven history of building bridges across sectors, community organizations, philanthropy, and the education system. Not only leveraging his professional background, but also his lived experience as a 1st gen Filipino American, he has contributed deeply to the impact of projects across local city to nation-wide efforts.",
+        "quote": "Recognized for being an innovative, purpose-driven leader with a steadfast commitment to the empowerment of youth and communities impacted by racial inequity.",
+        "fun_fact": "Fun fact: When not out hustlin’ for the community, you can find him reading fiction, playing with his two pups, hanging out his wife, helping out his huge extended family, or throwin down in the kitchen!"
     },
     {
         "id": "board-7",
-        "name": "Amina Farah",
-        "role": "Youth Alumni Representative",
-        "tenure": "Serving since 2024",
-        "initials": "AF",
-        "color": "#D4A373",
-        "bio": "Amina graduated from Kandelia's High School Mentorship Program in 2018 and recently earned her Bachelor's in Public Policy from Seattle University. She ensures the voices and lived experiences of youth directly shape organizational strategy.",
-        "quote": "Having sat in those classroom tutoring seats, I know firsthand how a dedicated mentor can transform an entire life."
+        "name": "Chanin Kelly-Rae",
+        "role": "Member at Large",
+        "languages": "She/Her",
+        "photo": "assets/board_7.jpg",
+        "bio": "Chanin Kelly-Rae is a nationally respected expert in Diversity, Equity, Inclusion, and Belonging (DEIB) and the Founder & CEO of Chanin Kelly-Rae Consulting. She partners with leaders across government, philanthropy, nonprofit, and corporate sectors to assess organizational health, align intent with measurable outcomes, and build accountable systems that foster belonging and sustainable change. A former public-school educator and coach, Chanin began her career in Milwaukee, where her commitment to equitable access became her life’s work. Her approach blends strategic insight, data, and authentic storytelling to move teams from intention to action—guided by the principle, 'Build nothing for them, without them.' Clients value her honesty, practical frameworks, and ability to translate complex challenges into clear, people-centered solutions. Originally from Milwaukee, she now lives in Washington State with her husband and their dog, Max, and is the proud mom of two college students. She continues to serve communities through mentorship, philanthropy, and pro bono advisory work.",
+        "quote": "Her approach blends strategic insight, data, and authentic storytelling to move teams from intention to action—guided by the principle, 'Build nothing for them, without them.'",
+        "fun_fact": "Fun Fact: While teaching high school in Milwaukee, I organized after-school $25 sports physicals—covering costs for students who couldn’t pay—so they could play, stay in school, and keep a 2.0 GPA."
     },
     {
         "id": "board-8",
-        "name": "Carlos Gomez",
-        "role": "Board Member at Large",
-        "tenure": "Serving since 2022",
-        "initials": "CG",
-        "color": "#3D5A80",
-        "bio": "Carlos is a Seattle Public Schools bilingual educator and restorative justice facilitator. He has worked for 14 years in South Seattle high schools supporting newcomer multilingual learners and immigrant student councils.",
-        "quote": "Classroom educators cannot do this alone. Kandelia is the trusted village that surrounds and uplifts our students."
+        "name": "Jordan Wong",
+        "role": "Member at Large",
+        "languages": "He/Him | Languages: English, Cantonese",
+        "photo": "assets/board_8.jpg",
+        "bio": "Jordan is the son of Chinese immigrants, born in New Orleans and raised in Bay St. Louis, Mississippi and San Diego, California. He is currently a Strategy Officer at the Gates Foundation, where he supports global development and social impact initiatives. Prior to joining the Gates Foundation, Jordan led strategy roles at Humana, CVS Health, and Accenture, working across public and private sectors to expand access to care and advance health equity. His early work included public health roles at the Centers for Disease Control and Prevention (CDC). Jordan holds a B.A. in International Development Studies from UCLA and brings a deep commitment to building inclusive systems that reflect the communities they serve.",
+        "quote": "Jordan brings a deep commitment to building inclusive systems that reflect the communities they serve.",
+        "fun_fact": "Fun fact: Jordan has been to 20 national parks so far!"
     },
     {
         "id": "board-9",
-        "name": "Soraya Khoury",
-        "role": "Strategic Planning Chair",
-        "tenure": "Serving since 2023",
-        "initials": "SK",
-        "color": "#588157",
-        "bio": "Soraya is an organizational strategist and human rights advocate who has led community-centered design initiatives for international NGOs and Pacific Northwest non-profit alliances.",
-        "quote": "Kandelia's root system is built for the future: adaptable, compassionate, and unwavering in solidarity."
+        "name": "Marcela Diaz",
+        "role": "Member at Large",
+        "languages": "She/Her | Languages: Spanish, English",
+        "photo": "assets/board_9.jpg",
+        "bio": "Marcela was born in Mexico and was raised there until age 8. Her family then migrated to Washington state where she was raised in Kirkland. She began schooling in 4th grade with no English and surrounded by predominantly white peers. Her experience with the lack of support coupled with the culture shock around her, shaped and guided her path towards her profession and life work. For over 20 years she has been an advocate for immigrant rights and preserving of cultures with various community-based organizations where she is better known as Mara. She is the Director of Equity and Social Justice for a local communications firm where she bridges advocacy work with agencies by building strategies and practices that increase access for diverse communities. As a circle keeper she works to bring healing methodologies to systems and teams. She is honored to use her skills and life experience to support Kandelia in this new role.",
+        "quote": "For over 20 years she has been an advocate for immigrant rights and preserving cultures with various community-based organizations.",
+        "fun_fact": "Fun fact: Marcela finds healing and restoration through music and movement, so she is a habit dancer in various genres."
     }
 ]
+
+FORMER_CHAIR = {
+    "name": "Mary Emile-Wagler",
+    "role": "Former Chair",
+    "languages": "She/Her | Languages: English, French, Arabic",
+    "photo": "assets/mary_emile_wagler.jpeg",
+    "bio": "Mary was born in Egypt and spent the first 10 years of her life in Syria before moving to rural Kansas. Seeing her childhood home become the site of the largest ongoing refugee crisis has instilled in Mary a deep passion for working with refugee and immigrant communities. Mary is excited to bring her experience in education, strategy, and philanthropy to the board and to play a small part in supporting Kandelia achieve its mission.",
+    "quote": "Seeing my childhood home become the site of the ongoing refugee crisis instilled in me a deep passion for working with refugee and immigrant communities.",
+    "fun_fact": "Fun fact: Mary loves to cook and is always looking for new recipes to try (recommendations always welcomed!)"
+}
 
 STAFF_LEADERSHIP = [
     {
@@ -166,8 +176,8 @@ STAFF_BOARD_QUOTES = [
     },
     {
         "quote": "As board members, our duty is to ensure Kandelia remains fiercely community-owned, financially resilient, and courageous in advocating for systemic change.",
-        "author": "Dr. Bao Nguyen",
-        "title": "Board President"
+        "author": "Anne Gerry",
+        "title": "Board Chair"
     },
     {
         "quote": "Watching a high school senior receive their high school diploma and become the first in their family to attend college is why we show up every single morning.",

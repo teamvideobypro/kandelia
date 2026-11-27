@@ -903,21 +903,27 @@ about_html += f'''
 board_photos = [f"assets/board_{i}.jpg" for i in range(1, 10)]
 
 for idx, board in enumerate(site_data.BOARD_MEMBERS):
-    photo_src = board_photos[idx] if idx < len(board_photos) else "assets/board_1.jpg"
+    photo_src = board.get('photo', board_photos[idx] if idx < len(board_photos) else "assets/board_1.jpg")
+    subline = board.get('languages') or board.get('tenure', '')
+    escaped_name = html.escape(board['name'])
+    escaped_role = html.escape(board['role'])
+    escaped_subline = html.escape(subline)
+    escaped_bio = html.escape(board['bio'])
+    escaped_quote = html.escape(board.get('quote', ''))
     about_html += f'''          <div class="board-card-enhanced">
             <div class="board-member-photo-frame">
-              <img src="{photo_src}" alt="{board['name']}" loading="lazy">
+              <img src="{photo_src}" alt="{escaped_name}" loading="lazy">
             </div>
-            <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:4px;">{board['name']}</h3>
-            <div style="font-size:0.88rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">{board['role']}</div>
-            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">{board.get('tenure', '')}</div>
+            <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:4px;">{escaped_name}</h3>
+            <div style="font-size:0.88rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">{escaped_role}</div>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">{escaped_subline}</div>
             <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
               <button class="btn btn-outline btn-sm open-board-bio"
-                      data-name="{board['name']}"
-                      data-role="{board['role']}"
-                      data-tenure="{board.get('tenure', '')}"
-                      data-bio="{board['bio']}"
-                      data-quote="{board.get('quote', '')}"
+                      data-name="{escaped_name}"
+                      data-role="{escaped_role}"
+                      data-tenure="{escaped_subline}"
+                      data-bio="{escaped_bio}"
+                      data-quote="{escaped_quote}"
                       data-photo="{photo_src}">
                 Read Bio →
               </button>
