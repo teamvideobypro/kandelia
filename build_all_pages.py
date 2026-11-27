@@ -576,51 +576,57 @@ home_html += f'''
           <!-- Story 1: Sunflower & Tulip -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
+               aria-label="Read full story: {site_data.STORIES[0]['title']}"
                data-title="{site_data.STORIES[0]['title']}"
                data-subtitle="{site_data.STORIES[0]['subtitle']}"
+               data-image="{site_data.STORIES[0]['image']}"
                data-quote="{site_data.STORIES[0]['quote']}"
                data-story-html="{html.escape(site_data.STORIES[0]['full_text'])}">
             <div class="story-square-img-wrap">
-              <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
+              <img src="{site_data.STORIES[0]['image']}" alt="{site_data.STORIES[0]['title']}" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
               <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
-              <h3>Sunflower & Tulip's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[0]['quote']}"</p>
-              <p>{site_data.STORIES[0]['short']}</p>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
-                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-                <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:8px;">{site_data.STORIES[0]['title']}</h3>
+              <p style="font-style:italic; margin-bottom:8px; color:var(--coral); font-weight:600;">"{site_data.STORIES[0]['quote']}"</p>
+              <p style="color:var(--text-body); line-height:1.6; font-size:0.98rem;">{site_data.STORIES[0]['short']}</p>
+              <div style="display:flex; justify-content:flex-start; align-items:center; margin-top:16px; padding-top:12px; border-top:1px solid #F0F2FA;">
+                <button class="card-link-btn" type="button" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy); font-size:1rem; display:inline-flex; align-items:center; gap:6px;">
+                  Read Full Story <span aria-hidden="true">→</span>
+                </button>
               </div>
             </div>
           </div>
 
-          <!-- Story 2: Ana's Story -->
+          <!-- Story 2: Patrick's Story -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
+               aria-label="Read full story: {site_data.STORIES[1]['title']}"
                data-title="{site_data.STORIES[1]['title']}"
                data-subtitle="{site_data.STORIES[1]['subtitle']}"
+               data-image="{site_data.STORIES[1]['image']}"
                data-quote="{site_data.STORIES[1]['quote']}"
                data-story-html="{html.escape(site_data.STORIES[1]['full_text'])}">
             <div class="story-square-img-wrap">
-              <img src="assets/image_7.jpeg" alt="Ana's Story" class="story-img-square" loading="lazy">
+              <img src="{site_data.STORIES[1]['image']}" alt="{site_data.STORIES[1]['title']}" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
-              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
-              <h3>Ana's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[1]['quote']}"</p>
-              <p>{site_data.STORIES[1]['short']}</p>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
-                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-                <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:8px;">{site_data.STORIES[1]['title']}</h3>
+              <p style="font-style:italic; margin-bottom:8px; color:var(--coral); font-weight:600;">"{site_data.STORIES[1]['quote']}"</p>
+              <p style="color:var(--text-body); line-height:1.6; font-size:0.98rem;">{site_data.STORIES[1]['short']}</p>
+              <div style="display:flex; justify-content:flex-start; align-items:center; margin-top:16px; padding-top:12px; border-top:1px solid #F0F2FA;">
+                <button class="card-link-btn" type="button" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy); font-size:1rem; display:inline-flex; align-items:center; gap:6px;">
+                  Read Full Story <span aria-hidden="true">→</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
 
         <div style="text-align:center; margin-top:36px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <a class="btn btn-outline" href="/stories">Read All Community Stories on Kandelia →</a>
-          <a class="btn btn-primary" href="https://www.kandelia.org/stories/" target="_blank" rel="noopener">Official Stories Archive ↗</a>
+          <a class="btn btn-primary" href="/stories">Read All 9 Roots & Routes Stories →</a>
+          <a class="btn btn-outline" href="/giving">Support Our Storytellers</a>
         </div>
       </div>
     </section>
@@ -1412,47 +1418,54 @@ stories_html += f'''
     </section>
 
     <!-- AUTHENTIC IMMIGRANT STORIES (MATCHING KANDELIA.ORG ROOTS & ROUTES) -->
-    <section style="padding:80px 0; background-color:#FFFFFF;">
+    <section style="padding:80px 0; background-color:#FFFFFF;" id="stories-grid-container">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
           <span class="badge badge-sage" style="margin-bottom:12px;">Participant Journeys • Roots & Routes</span>
           <h2>Roots & Routes Stories</h2>
-          <p class="lead">Click on any story card to read the full first-person narrative in detail, or read directly on Kandelia.org.</p>
+          <p class="lead">Click on any story card to read the full first-person narrative directly on this page.</p>
         </div>
 
         <div class="story-square-grid">
 '''
 
 for idx, story in enumerate(site_data.STORIES):
-    img_num = (idx % 4) + 5
     stories_html += f'''          <!-- Story: {story['title']} -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
+               aria-label="Read full story: {story['title']}"
                data-title="{story['title']}"
                data-subtitle="{story['subtitle']}"
+               data-image="{story['image']}"
                data-quote="{story['quote']}"
                data-story-html="{html.escape(story['full_text'])}">
             <div class="story-square-img-wrap">
-              <img src="assets/image_{img_num}.jpeg" alt="{story['title']}" class="story-img-square" loading="lazy">
+              <img src="{story['image']}" alt="{story['title']}" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
               <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
-              <h3>{story['title']}</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{story['quote']}"</p>
-              <p>{story['short']}</p>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
-                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-                <a href="{story.get('external_url', 'https://www.kandelia.org/stories/')}" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:8px;">{story['title']}</h3>
+              <p style="font-style:italic; margin-bottom:8px; color:var(--coral); font-weight:600;">"{story['quote']}"</p>
+              <p style="color:var(--text-body); line-height:1.6; font-size:0.98rem;">{story['short']}</p>
+              <div style="display:flex; justify-content:flex-start; align-items:center; margin-top:16px; padding-top:12px; border-top:1px solid #F0F2FA;">
+                <button class="card-link-btn" type="button" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy); font-size:1rem; display:inline-flex; align-items:center; gap:6px;">
+                  Read Full Story <span aria-hidden="true">→</span>
+                </button>
               </div>
             </div>
           </div>\n'''
 
 stories_html += f'''        </div>
 
-        <div style="text-align:center; margin-top:40px;">
-          <a class="btn btn-outline" href="https://www.kandelia.org/stories/" target="_blank" rel="noopener">
-            Explore All Roots & Routes Stories on Kandelia.org ↗
-          </a>
+        <div style="text-align:center; margin-top:48px; background:#F0FAF9; border-radius:20px; padding:36px 24px; border:1px solid rgba(42,210,201,0.3); max-width:840px; margin-left:auto; margin-right:auto;">
+          <h3 style="font-size:1.4rem; color:var(--navy); margin-bottom:10px;">Empowering Every Journey</h3>
+          <p style="font-size:1.05rem; color:var(--text-body); max-width:640px; margin:0 auto 20px; line-height:1.6;">
+            These authentic stories reflect the resilience and determination of our participants. Partner with Kandelia to ensure every newly arrived immigrant and refugee has the tools, education, and community to flourish.
+          </p>
+          <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="/giving">Donate to Support Stories →</a>
+            <a class="btn btn-outline" href="/get-help">Request Community Support</a>
+          </div>
         </div>
       </div>
     </section>

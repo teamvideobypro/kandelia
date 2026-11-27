@@ -415,29 +415,48 @@ js_content = """/**
       });
     });
 
-    // Attach to Story cards
+    // Attach to Story cards (In-page modal reader with authentic text, quotes, and imagery)
     document.querySelectorAll('.open-story-reader').forEach(card => {
-      card.addEventListener('click', () => {
-        const title = card.getAttribute('data-title');
-        const subtitle = card.getAttribute('data-subtitle');
-        const quote = card.getAttribute('data-quote');
-        const fullHtml = card.getAttribute('data-story-html');
-        const imgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
+      function triggerStoryModal(e) {
+        if (e) {
+          e.preventDefault();
+        }
+        const title = card.getAttribute('data-title') || 'Roots & Routes Story';
+        const subtitle = card.getAttribute('data-subtitle') || '';
+        const quote = card.getAttribute('data-quote') || '';
+        const fullHtml = card.getAttribute('data-story-html') || '';
+        const imgSrc = card.getAttribute('data-image') || (card.querySelector('img') ? card.querySelector('img').src : '');
 
         const content = `
-          <div style="margin-bottom:20px;">
-            <span class="badge badge-sage" style="margin-bottom:10px;">Roots & Routes: Immigrant Stories</span>
-            <p style="font-size:1.1rem;color:#D94532;font-weight:700;">${subtitle}</p>
+          <div style="margin-bottom:18px;">
+            <span class="badge badge-coral" style="margin-bottom:10px;display:inline-block;">Roots & Routes: Immigrant Stories</span>
+            <p style="font-size:1.15rem;color:var(--coral);font-weight:700;margin:6px 0 0;">${subtitle}</p>
           </div>
-          ${imgSrc ? `<div style="border-radius:20px;overflow:hidden;margin-bottom:24px;aspect-ratio:16/9;max-height:300px;"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;"></div>` : ''}
-          <blockquote style="background:#FAF7F2;border-left:5px solid #D94532;padding:18px 24px;border-radius:12px;font-style:italic;color:#12263A;font-size:1.15rem;line-height:1.5;margin-bottom:24px;">
+          ${imgSrc ? `<div style="border-radius:16px;overflow:hidden;margin-bottom:24px;aspect-ratio:16/9;max-height:340px;box-shadow:0 6px 20px rgba(0,0,0,0.08);"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>` : ''}
+          ${quote ? `
+          <blockquote style="background:#FAF7F2;border-left:5px solid var(--coral);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.12rem;line-height:1.55;margin-bottom:24px;">
             "${quote}"
-          </blockquote>
-          <div class="story-full-body" style="font-size:1.08rem;line-height:1.75;color:#334155;">
+          </blockquote>` : ''}
+          <div class="story-full-body" style="font-size:1.06rem;line-height:1.8;color:var(--text-body);">
             ${fullHtml}
+          </div>
+          <div style="margin-top:32px;padding-top:20px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <a href="/giving" class="btn btn-primary btn-sm" style="border-radius:20px;padding:8px 20px;">
+              Support Immigrant Youth →
+            </a>
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('modal-close-button').click();" style="border-radius:20px;padding:8px 24px;cursor:pointer;">
+              Close Story
+            </button>
           </div>
         `;
         openModal(title, content);
+      }
+
+      card.addEventListener('click', triggerStoryModal);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          triggerStoryModal(e);
+        }
       });
     });
 
