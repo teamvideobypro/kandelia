@@ -67,6 +67,9 @@ def get_header(active="home"):
           <a href="/stories" class="nav-link {'active' if active=='stories' else ''}">Stories & Impact</a>
         </div>
         <div class="nav-item">
+          <a href="/careers" class="nav-link {'active' if active=='careers' else ''}">Careers</a>
+        </div>
+        <div class="nav-item">
           <a href="/giving" class="nav-link {'active' if active=='giving' else ''}">Giving</a>
         </div>
       </nav>
@@ -85,6 +88,7 @@ def get_header(active="home"):
       <a href="/get-help" class="{'active' if active=='get-help' else ''}">Get Help</a>
       <a href="/ways-to-give" class="{'active' if active=='ways-to-give' else ''}">Ways to Give</a>
       <a href="/stories" class="{'active' if active=='stories' else ''}">Stories & Impact</a>
+      <a href="/careers" class="{'active' if active=='careers' else ''}">Careers</a>
       <a href="/giving" class="{'active' if active=='giving' else ''}">Giving & Impact Tiers</a>
       <a class="btn btn-coral btn-donate" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Donate</a>
     </nav>
@@ -156,7 +160,7 @@ def get_footer():
             <li><a href="/about#history">50-Year Milestones</a></li>
             <li><a href="/about#team">Our Team (Staff & Board)</a></li>
             <li><a href="/about#impact-report">2026 Impact Report</a></li>
-            <li><a href="/about#careers">Work With Us (Careers)</a></li>
+            <li><a href="/careers">Work With Us (Careers)</a></li>
           </ul>
         </div>
 
@@ -452,7 +456,7 @@ home_html += f'''
         </p>
         <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
           <a class="btn btn-outline" href="/about">Discover Our 50-Year Story & Team →</a>
-          <a class="btn btn-primary" href="/about#careers">Work With Us</a>
+          <a class="btn btn-primary" href="/careers">Work With Us →</a>
         </div>
       </div>
     </section>
@@ -598,23 +602,23 @@ home_html += f'''
             </div>
           </div>
 
-          <!-- Story 2: Patrick's Story -->
+          <!-- Story 2: Ana's Story -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
-               aria-label="Read full story: {site_data.STORIES[1]['title']}"
-               data-title="{site_data.STORIES[1]['title']}"
-               data-subtitle="{site_data.STORIES[1]['subtitle']}"
-               data-image="{site_data.STORIES[1]['image']}"
-               data-quote="{site_data.STORIES[1]['quote']}"
-               data-story-html="{html.escape(site_data.STORIES[1]['full_text'])}">
+               aria-label="Read full story: {site_data.STORIES[2]['title']}"
+               data-title="{site_data.STORIES[2]['title']}"
+               data-subtitle="{site_data.STORIES[2]['subtitle']}"
+               data-image="{site_data.STORIES[2]['image']}"
+               data-quote="{site_data.STORIES[2]['quote']}"
+               data-story-html="{html.escape(site_data.STORIES[2]['full_text'])}">
             <div class="story-square-img-wrap">
-              <img src="{site_data.STORIES[1]['image']}" alt="{site_data.STORIES[1]['title']}" class="story-img-square" loading="lazy">
+              <img src="{site_data.STORIES[2]['image']}" alt="{site_data.STORIES[2]['title']}" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
-              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
-              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:8px;">{site_data.STORIES[1]['title']}</h3>
-              <p style="font-style:italic; margin-bottom:8px; color:var(--coral); font-weight:600;">"{site_data.STORIES[1]['quote']}"</p>
-              <p style="color:var(--text-body); line-height:1.6; font-size:0.98rem;">{site_data.STORIES[1]['short']}</p>
+              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3 style="font-size:1.35rem; color:var(--navy); margin-bottom:8px;">{site_data.STORIES[2]['title']}</h3>
+              <p style="font-style:italic; margin-bottom:8px; color:var(--teal-dark); font-weight:600;">"{site_data.STORIES[2]['quote']}"</p>
+              <p style="color:var(--text-body); line-height:1.6; font-size:0.98rem;">{site_data.STORIES[2]['short']}</p>
               <div style="display:flex; justify-content:flex-start; align-items:center; margin-top:16px; padding-top:12px; border-top:1px solid #F0F2FA;">
                 <button class="card-link-btn" type="button" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy); font-size:1rem; display:inline-flex; align-items:center; gap:6px;">
                   Read Full Story <span aria-hidden="true">→</span>
@@ -625,8 +629,8 @@ home_html += f'''
         </div>
 
         <div style="text-align:center; margin-top:36px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="/stories">Read All 9 Roots & Routes Stories →</a>
-          <a class="btn btn-outline" href="/giving">Support Our Storytellers</a>
+          <a class="btn btn-outline" href="/stories">Read All Community Stories on Kandelia →</a>
+          <a class="btn btn-primary" href="/stories">Official Stories Archive →</a>
         </div>
       </div>
     </section>
@@ -1168,9 +1172,9 @@ for job in site_data.CAREERS.get('youth', []):
 about_html += f'''            </div>
           </div>
 
-          <div style="text-align:center; margin-top:20px;">
-            <a href="https://www.kandelia.org/about/careers/" target="_blank" rel="noopener" class="btn btn-outline">
-              Visit Official Kandelia Careers Page ↗
+          <div style="text-align:center; margin-top:32px;">
+            <a href="/careers" class="btn btn-primary btn-lg">
+              Explore Our Dedicated Careers Page & Benefits →
             </a>
           </div>
         </div>
@@ -1791,4 +1795,327 @@ with open('giving.html', 'w', encoding='utf-8') as f:
     f.write(giving_html)
 print("giving.html written successfully!")
 
-print("=== All 6 pages built successfully! ===")
+
+# ==============================================================================
+# 7. GENERATE careers.html (DEDICATED CAREERS PAGE WITH CULTURE, BENEFITS, OPEN ROLES & AYAB)
+# ==============================================================================
+print("Generating careers.html...")
+careers_html = get_head("Careers & Opportunities | Kandelia", "Explore staff, board, contracted, and youth leadership opportunities at Kandelia in Seattle. Help remove barriers for immigrant and refugee communities.")
+careers_html += get_header("careers")
+careers_html += f'''
+  <main id="main-content">
+    {SVG_HEART_CLIP}
+
+    <!-- PAGE HERO -->
+    <section class="inner-hero" id="overview">
+      <div class="w inner-hero-content">
+        <span class="badge badge-teal">Join Our Team • Flourish Together</span>
+        <h1 class="inner-hero-title">Careers at Kandelia</h1>
+        <p class="inner-hero-lead">
+          Do you want to help break down barriers so that immigrant and refugee communities can thrive? Build a purposeful career advancing holistic education, systemic navigation, and cultural belonging across Seattle and King County.
+        </p>
+        <div style="display:flex; gap:14px; justify-content:center; margin-top:24px; flex-wrap:wrap;">
+          <a href="#open-positions" class="btn btn-primary btn-lg">View Open Positions ↓</a>
+          <a href="#culture" class="btn btn-outline btn-lg">Why Work With Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CULTURE, MISSION & BENEFITS -->
+    <section id="culture" style="padding:80px 0; background-color:#FFFFFF;">
+      <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-sage" style="margin-bottom:12px;">Workplace Culture & Wellness</span>
+          <h2>Why Work at Kandelia</h2>
+          <p class="lead">
+            We are an immigrant-led, multicultural organization dedicated to equity, heart, and mutual respect. We invest deeply in our team members with competitive compensation, robust wellness benefits, and meaningful opportunities for growth.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; margin-bottom:56px;">
+          <!-- Benefit 1 -->
+          <div style="background:#F0FAF9; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25);">
+            <div style="width:48px; height:48px; border-radius:12px; background:#14857F; color:#fff; display:grid; place-items:center; margin-bottom:18px;">
+              <svg style="width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2;" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">Comprehensive Healthcare</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              100% employer-covered options for comprehensive medical, dental, and vision insurance for full-time staff, with generous dependent support.
+            </p>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div style="background:#FEECEE; border-radius:20px; padding:32px; border:1px solid rgba(244,54,76,0.22);">
+            <div style="width:48px; height:48px; border-radius:12px; background:var(--coral); color:#fff; display:grid; place-items:center; margin-bottom:18px;">
+              <svg style="width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <h3 style="font-size:1.25rem; color:var(--coral); margin-bottom:10px;">Generous Paid Time Off</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              15+ paid vacation days, 12 recognized holidays, personal wellness days, and an annual paid winter break closure so our team can rest and recharge.
+            </p>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div style="background:#ECEEFF; border-radius:20px; padding:32px; border:1px solid rgba(30,34,170,0.20);">
+            <div style="width:48px; height:48px; border-radius:12px; background:var(--navy); color:#fff; display:grid; place-items:center; margin-bottom:18px;">
+              <svg style="width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2;" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">401(k) Retirement Match</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              Retirement plan with organizational matching contributions to empower long-term financial security and retirement readiness for our employees.
+            </p>
+          </div>
+
+          <!-- Benefit 4 -->
+          <div style="background:#F4FBE8; border-radius:20px; padding:32px; border:1px solid rgba(151,215,0,0.25);">
+            <div style="width:48px; height:48px; border-radius:12px; background:#2A6615; color:#fff; display:grid; place-items:center; margin-bottom:18px;">
+              <svg style="width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; color:#2A6615; margin-bottom:10px;">Culturally Affirming Space</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              Over 22 languages spoken across our team. We celebrate lived immigrant experience, community wisdom, and cultural heritage as true professional assets.
+            </p>
+          </div>
+
+          <!-- Benefit 5 -->
+          <div style="background:#F0FAF9; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25);">
+            <div style="width:48px; height:48px; border-radius:12px; background:#14857F; color:#fff; display:grid; place-items:center; margin-bottom:18px;">
+              <svg style="width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2;" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; color:var(--navy); margin-bottom:10px;">Professional Growth</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              Annual professional development budgets, leadership coaching, conference sponsorships, and clear internal career progression pathways.
+            </p>
+          </div>
+
+          <!-- Benefit 6 -->
+          <div style="background:#FEECEE; border-radius:20px; padding:32px; border:1px solid rgba(244,54,76,0.22);">
+            <div style="width:48px; height:48px; border-radius:12px; background:var(--coral); color:#fff; display:grid; place-items:center; margin-bottom:18px;">
+              <svg style="width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3 style="font-size:1.25rem; color:var(--coral); margin-bottom:10px;">Flexible & Hybrid Scheduling</h3>
+            <p style="font-size:0.96rem; color:var(--text-body); line-height:1.6; margin:0;">
+              Hybrid scheduling, supportive remote-work allowances, and fully subsidized regional transit (ORCA) passes for sustainable commuting.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mission Quote Callout -->
+        <div style="background:linear-gradient(135deg, #1E22AA 0%, #12263A 100%); border-radius:24px; padding:44px 36px; color:#FFFFFF; text-align:center; max-width:880px; margin:0 auto; box-shadow:0 12px 36px rgba(30,34,170,0.18);">
+          <blockquote style="font-size:clamp(1.2rem, 2vw, 1.55rem); line-height:1.5; font-style:italic; margin:0 0 16px; border:none; padding:0; color:#FFFFFF;">
+            "We remove barriers to opportunities so immigrant and refugee communities can flourish without compromising values, heritage or ethnicity."
+          </blockquote>
+          <span style="font-size:0.95rem; opacity:0.85; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Kandelia Mission Statement</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN POSITIONS (4 DISTINCT GROUPS) -->
+    <section id="open-positions" style="padding:80px 0; background-color:#F0F2FA; border-top:1px solid rgba(42,210,201,0.2);">
+      <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-blue" style="margin-bottom:12px;">Explore Opportunities</span>
+          <h2>Open Positions & Leadership Roles</h2>
+          <p class="lead">
+            Join our mission across four distinct engagement pathways: full-time staff, volunteer board governance, specialized consultants, and youth leadership fellowships.
+          </p>
+        </div>
+
+        <div style="max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:48px;">
+          <!-- Group 1: Staff Positions -->
+          <div class="careers-group">
+            <div class="careers-group-header" style="margin-bottom:20px; padding-bottom:14px; border-bottom:3px solid var(--teal); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span class="badge badge-teal" style="font-weight:700; font-size:0.88rem;">Staff Positions</span>
+                <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Full-Time Program & Operations</h3>
+              </div>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+'''
+
+for job in site_data.CAREERS.get('staff', []):
+    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
+                  <div>
+                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-primary btn-sm" style="border-radius:20px; padding:8px 22px;">Apply Now →</a>
+                </div>
+                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid var(--navy); padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+careers_html += '''            </div>
+          </div>
+
+          <!-- Group 2: Board Positions -->
+          <div class="careers-group">
+            <div class="careers-group-header" style="margin-bottom:20px; padding-bottom:14px; border-bottom:3px solid #2A6615; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span class="badge badge-green" style="font-weight:700; font-size:0.88rem;">Board of Directors</span>
+                <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Governance & Fiduciary Leadership</h3>
+              </div>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+'''
+
+for job in site_data.CAREERS.get('board', []):
+    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
+                  <div>
+                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm" style="border-radius:20px; padding:8px 22px;">Inquire / Apply →</a>
+                </div>
+                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid #2A6615; padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+careers_html += '''            </div>
+          </div>
+
+          <!-- Group 3: Contracted Opportunities -->
+          <div class="careers-group">
+            <div class="careers-group-header" style="margin-bottom:20px; padding-bottom:14px; border-bottom:3px solid var(--navy); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span class="badge badge-blue" style="font-weight:700; font-size:0.88rem;">Contracted Roles</span>
+                <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Specialists, Tutors & Translators</h3>
+              </div>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+'''
+
+for job in site_data.CAREERS.get('contract', []):
+    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
+                  <div>
+                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-sage">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm" style="border-radius:20px; padding:8px 22px;">Apply Now →</a>
+                </div>
+                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid var(--navy); padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+careers_html += '''            </div>
+          </div>
+
+          <!-- Group 4: Youth Leadership & AYAB -->
+          <div class="careers-group">
+            <div class="careers-group-header" style="margin-bottom:20px; padding-bottom:14px; border-bottom:3px solid var(--coral); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span class="badge badge-coral" style="font-weight:700; font-size:0.88rem;">Youth Leadership</span>
+                <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Fellowships, Internships & AYAB</h3>
+              </div>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+'''
+
+for job in site_data.CAREERS.get('youth', []):
+    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
+                  <div>
+                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <span class="badge badge-coral">{job['type']}</span>
+                      <span class="badge">{job['location']}</span>
+                      <span class="badge badge-blue">{job['compensation']}</span>
+                    </div>
+                  </div>
+                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-primary btn-sm" style="border-radius:20px; padding:8px 22px;">Apply Now →</a>
+                </div>
+                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
+                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid var(--coral); padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
+                  <strong>Qualifications:</strong> {job['qualifications']}
+                </div>
+              </div>\n'''
+
+careers_html += f'''            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALUMNI YOUTH ADVISORY BOARD (AYAB) FEATURED SPOTLIGHT -->
+    <section style="padding:80px 0; background-color:#FFFFFF;">
+      <div class="w" style="max-width:960px; margin:0 auto;">
+        <div style="background:linear-gradient(135deg, #F0FAF9 0%, #FFFFFF 100%); border:2px solid var(--teal); border-radius:24px; padding:44px 36px; box-shadow:0 10px 30px rgba(42,210,201,0.12);">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <span class="badge badge-teal" style="font-size:0.85rem; text-transform:uppercase; font-weight:700;">Featured Leadership Initiative</span>
+            <span class="badge badge-coral">$400 Stipend</span>
+          </div>
+          <h3 style="font-size:1.75rem; color:var(--navy); margin-bottom:12px; font-weight:700;">
+            Kandelia Alumni Youth Advisory Board (AYAB) — Now Accepting Members
+          </h3>
+          <p style="font-size:1.05rem; color:var(--text-body); line-height:1.7; margin-bottom:18px;">
+            Kandelia is launching its first-ever Alumni Youth Advisory Board, bringing together a dedicated cohort of young adults who attended Seattle Public Schools as Multilingual Learners after 2020. This is a powerful opportunity to share your lived experience, voice your community perspectives, and directly shape the programs and systemic partnerships that support newcomer youth today.
+          </p>
+          <div style="background:#FFFFFF; border-radius:14px; padding:18px 22px; border:1px solid rgba(42,210,201,0.3); margin-bottom:24px;">
+            <p style="margin:0; font-size:0.95rem; color:var(--navy); font-weight:600;">
+              🗓️ <strong>Cohort Schedule:</strong> Advisory Board members meet once a month from October through April (6 total sessions; no meeting in December).
+            </p>
+          </div>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+            <a href="mailto:careers@kandelia.org?subject=AYAB Application Interest" class="btn btn-primary btn-lg">
+              Express Interest in AYAB →
+            </a>
+            <span style="font-size:0.92rem; color:var(--text-muted);">Questions? Reach out to <a href="mailto:info@kandelia.org" style="color:var(--teal-dark); font-weight:700; text-decoration:underline;">info@kandelia.org</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLUNTEER SECTION -->
+    <section id="volunteer" style="padding:80px 0; background-color:#F0F2FA; border-top:1px solid #E5E7EB;">
+      <div class="w" style="max-width:960px; margin:0 auto; text-align:center;">
+        <span class="badge badge-green" style="margin-bottom:12px;">Give Your Time</span>
+        <h2 style="font-size:2rem; color:var(--navy); margin-bottom:16px;">Interested in Volunteering?</h2>
+        <p style="font-size:1.1rem; color:var(--text-body); line-height:1.7; max-width:700px; margin:0 auto 28px;">
+          Not looking for employment but eager to empower immigrant and refugee communities? Volunteer as an after-school tutor, career mentor, digital literacy coach, or event coordinator for our landmark 50th Anniversary Gala in May 2027.
+        </p>
+        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXxISZyibWTeAGMH7MU5rUYerKFk0--B1PB0rmNZNR4c20HQ/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            Complete Volunteer Interest Form (Google Form) →
+          </a>
+          <a href="/ways-to-give" class="btn btn-outline btn-lg">
+            Explore All Ways to Give
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {get_support_banner()}
+  </main>
+'''
+careers_html += get_footer()
+
+with open('careers.html', 'w', encoding='utf-8') as f:
+    f.write(careers_html)
+print("careers.html written successfully!")
+
+print("=== All 7 pages built successfully! ===")
