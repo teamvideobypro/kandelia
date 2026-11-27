@@ -67,9 +67,6 @@ def get_header(active="home"):
           <a href="/stories" class="nav-link {'active' if active=='stories' else ''}">Stories & Impact</a>
         </div>
         <div class="nav-item">
-          <a href="/careers" class="nav-link {'active' if active=='careers' else ''}">Careers</a>
-        </div>
-        <div class="nav-item">
           <a href="/giving" class="nav-link {'active' if active=='giving' else ''}">Giving</a>
         </div>
       </nav>
@@ -88,7 +85,6 @@ def get_header(active="home"):
       <a href="/get-help" class="{'active' if active=='get-help' else ''}">Get Help</a>
       <a href="/ways-to-give" class="{'active' if active=='ways-to-give' else ''}">Ways to Give</a>
       <a href="/stories" class="{'active' if active=='stories' else ''}">Stories & Impact</a>
-      <a href="/careers" class="{'active' if active=='careers' else ''}">Careers</a>
       <a href="/giving" class="{'active' if active=='giving' else ''}">Giving & Impact Tiers</a>
       <a class="btn btn-coral btn-donate" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Donate</a>
     </nav>
