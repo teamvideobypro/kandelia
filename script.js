@@ -637,6 +637,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initCarousel(document.getElementById('testimonials-carousel'), 5500);
+    initCarousel(document.getElementById('giving-testimonials-carousel'), 5500);
     initCarousel(document.getElementById('staff-board-carousel'), 6500);
     initModals();
     initCaptcha();

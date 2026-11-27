@@ -16,7 +16,7 @@
   <header class="site-header" role="banner">
     <div class="w header-container">
       <a href="/" class="brand-link" aria-label="Kandelia Home">
-        <img src="assets/kandelia_logo_header.png" alt="Kandelia" class="brand-logo" width="220" height="60" style="height:52px; width:auto; display:block;">
+        <img src="assets/kandelia_logo_horizontal_no_tag_rgb.png" alt="Kandelia" class="brand-logo" width="220" height="60" style="height:52px; width:auto; display:block;">
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -65,7 +65,7 @@
     </defs>
   </svg>
 
-    <!-- HERO SECTION (Trimmed: No badge line, No stats 2x2 row, No dotted moving ring) -->
+    <!-- HERO SECTION (CLEAN: No top badge line, No stats 2x2 row, No moving dotted ring, No floating badges on photo) -->
     <section class="section-hero" id="hero">
       <div class="w hero-grid">
         <div class="hero-content">
@@ -84,38 +84,23 @@
 
         <div class="hero-media-wrapper">
           <div class="hero-organic-composition">
-            <!-- Floating Sticker Badge Top-Right (50 Years • Seattle Roots) -->
-            <div class="floating-sticker top-right">50 Years • Seattle Roots</div>
-
-            <!-- Main Image Frame with Organic Curve (Image 1) -->
+            <!-- Main Image Frame with Organic Curve (Clean photo with no floating stats or badges) -->
             <div class="hero-image-frame-enhanced">
-              <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" class="hero-main-img">
-            </div>
-
-            <!-- Floating Rounded Stat Card Bottom (95% Graduation Rate) -->
-            <div class="floating-stat-card">
-              <div class="floating-stat-badge" style="background:#E3F2D4; width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6615" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-              </div>
-              <div class="floating-stat-text">
-                <b style="color:var(--navy); font-size:1.02rem; display:block; line-height:1.2;">95% Graduation Rate</b>
-                <span style="color:var(--text-muted); font-size:0.82rem; display:block; margin-top:2px;">Serving 570+ Students & Families</span>
-              </div>
+              <img src="assets/image_1.jpeg" alt="Smiling Kandelia students outside their school in Seattle" class="hero-main-img">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 50TH ANNIVERSARY CELEBRATION (MAY 2027) -->
+    <!-- 50TH ANNIVERSARY CELEBRATION (MAY 2027) - CLEAN SOLID PHOTO FRAME WITHOUT DOTTED/DASHED BORDER -->
     <section class="event-banner-section" id="milestone-gala">
       <div class="w">
         <div class="event-card">
           <div class="event-2col-grid">
-            <!-- Left Column: Layered Seattle skyline image with dashed cyan outline (Image 2) -->
+            <!-- Left Column: Seattle skyline image with clean solid frame (No dotted/dashed lines) -->
             <div class="event-image-col">
-              <div class="event-layered-image-wrap">
-                <div class="event-image-backing" aria-hidden="true"></div>
+              <div class="event-layered-image-wrap" style="position:relative;">
                 <div class="event-image-frame">
                   <img src="assets/image_2.jpeg" alt="Kandelia group looking out over the Seattle skyline" loading="lazy">
                 </div>
@@ -358,65 +343,72 @@
       </div>
     </section>
 
-    <!-- STORIES & IMPACT PREVIEW (INTERACTIVE CARDS OPENING POP-UP MODAL) -->
+    <!-- STORIES & IMPACT PREVIEW (AUTHENTIC STORIES LINKED TO KANDELIA.ORG & MODAL POPUP) -->
     <section class="section-stories-teaser" style="padding:80px 0; background-color:#F0F2FA;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
-          <span class="badge badge-teal" style="margin-bottom:12px;">Real Voices</span>
+          <span class="badge badge-teal" style="margin-bottom:12px;">Real Voices • Roots & Routes</span>
           <h2>Stories of Resilience & Belonging</h2>
-          <p class="lead">Every newcomer family has a journey of courage, strength, and aspiration. Click on any story to read their complete journey.</p>
+          <p class="lead">Personal journeys of courage, perseverance, and belonging from Kandelia's storytelling archive in Seattle.</p>
         </div>
 
         <div class="story-square-grid">
-          <!-- Story 1: Patrick (Interactive Modal Opener) -->
-          <div class="story-square-card open-story-reader"
-               role="button" tabindex="0"
-               data-title="Patrick's Story"
-               data-subtitle="Finding Footing, Discovering Voice, and Guiding Others"
-               data-quote="Kandelia showed me that being an immigrant isn't a deficit—it's a reservoir of resilience."
-               data-story-html="
-            &lt;p&gt;When Patrick arrived in South Seattle in the winter of 2021, the world outside felt cold, fast-paced, and foreign. Enrolled at Foster High School, he sat quietly in classrooms where lessons moved at speeds he couldn&#x27;t yet follow. Despite his deep curiosity and work ethic, language barriers made him feel invisible.&lt;/p&gt;
-            &lt;p&gt;Through Kandelia&#x27;s after-school tutoring and mentorship cohort, Patrick found a dedicated space where teachers and mentors spoke his native language, understood the shock of cultural transition, and believed in his intellectual gifts. His mentor, a software developer who had also arrived in Seattle as an immigrant teen, met with Patrick weekly to practice conversational English, review algebra homework, and map out college aspirations.&lt;/p&gt;
-            &lt;p&gt;Within two years, Patrick&#x27;s GPA soared from 2.4 to 3.8. He joined the Kandelia Youth Leadership Council, helping organize peer tutoring sessions for newly arrived younger students from Ukraine, Venezuela, and Afghanistan. Today, Patrick is pursuing a degree in Computer Science at the University of Washington while serving as a volunteer weekend mentor at Kandelia.&lt;/p&gt;
-        ">
-            <div class="story-square-img-wrap">
-              <img src="assets/image_5.jpeg" alt="Patrick's Story" class="story-img-square" loading="lazy">
-            </div>
-            <div class="story-square-body">
-              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Youth Alumnus</span>
-              <h3>Patrick's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"Kandelia showed me that being an immigrant isn't a deficit—it's a reservoir of resilience."</p>
-              <p>How a quiet high school newcomer found mentorship, graduated with honors, and returned to inspire the next generation of refugee youth.</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-            </div>
-          </div>
-
-          <!-- Story 2: Sunflower & Tulip (Interactive Modal Opener) -->
+          <!-- Story 1: Sunflower & Tulip -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
                data-title="Sunflower & Tulip's Story"
-               data-subtitle="Two Sisters, One Unshakable Dream"
-               data-quote="Together, with Kandelia beside us, we felt like we could climb any mountain."
+               data-subtitle="Finding Belonging & Community from Central Asia to Seattle"
+               data-quote="Together, with Kandelia beside us, we felt like we could climb any mountain and truly belong."
                data-story-html="
-            &lt;p&gt;Sisters Sunflower and Tulip arrived in King County with their mother after fleeing regional instability. Thrust into an unfamiliar American high school environment, the sisters clung to each other in the hallways, communicating in hushed whispers and feeling disconnected from school activities.&lt;/p&gt;
-            &lt;p&gt;When their school counselor introduced them to Kandelia&#x27;s youth programs, everything changed. Sunflower enrolled in the Job Readiness cohort, mastering resume building and workplace etiquette, while Tulip joined the English Language and Creative Arts circles. For the first time, their lived experiences were treated as assets, not obstacles.&lt;/p&gt;
-            &lt;p&gt;The sisters completed paid summer internships organized through Kandelia&#x27;s corporate partnership network. Sunflower interned at a regional healthcare clinic, while Tulip supported digital communications for a neighborhood arts alliance. In June 2024, both sisters crossed the graduation stage hand-in-hand, receiving standing ovations from family and their Kandelia counselors.&lt;/p&gt;
+            &lt;p&gt;Arriving in King County from Astana, Kazakhstan with her mother, Sunflower faced initial cultural disorientation, wet dark winters, and the challenge of navigating an unfamiliar American high school.&lt;/p&gt;
+            &lt;p&gt;When their school counselor introduced them to Kandelia&#x27;s youth programs, everything changed. Sunflower enrolled in the Job Readiness cohort, mastering resume building and workplace etiquette, while Tulip joined the English Language and Creative Arts circles. For the first time, their lived experiences and cultural heritage were celebrated as assets, not obstacles.&lt;/p&gt;
+            &lt;p&gt;Today, Sunflower and Tulip are leaders in their high school community, mentoring younger newcomer students and actively speaking out for immigrant youth belonging across Seattle.&lt;/p&gt;
         ">
             <div class="story-square-img-wrap">
               <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
-              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Sisters & Scholars</span>
-              <h3>Sunflower & Tulip</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"Together, with Kandelia beside us, we felt like we could climb any mountain."</p>
-              <p>Two sisters navigating high school in a new country, supporting each other and building community leadership through youth programs.</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3>Sunflower & Tulip's Story</h3>
+              <p style="font-style:italic; margin-bottom:8px;">"Together, with Kandelia beside us, we felt like we could climb any mountain and truly belong."</p>
+              <p>Two close friends from Astana, Kazakhstan navigating high school in Seattle, supporting each other and building community leadership through youth circles.</p>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+                <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 2: Ana's Story -->
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="Ana's Story"
+               data-subtitle="Courage, Culture, and Career Readiness"
+               data-quote="Kandelia gave me the confidence to believe in my intellect, speak up, and prepare for a rewarding career."
+               data-story-html="
+            &lt;p&gt;When Ana relocated from San Pedro el Alto in Oaxaca, Mexico to join her mother and brothers in Seattle, the transition required immense courage. Leaving her home, cultural traditions, and father behind, she enrolled in high school determined to master English and excel in math and chemistry.&lt;/p&gt;
+            &lt;p&gt;Through Kandelia&#x27;s Job Readiness Training (JRT) cohort, Ana gained hands-on professional skills, practiced mock interviews, and explored career pathways in Seattle&#x27;s thriving healthcare and technology sectors.&lt;/p&gt;
+            &lt;p&gt;Supported by bilingual tutors who validated her cultural roots, Ana gained the confidence to navigate college admissions and pursue higher education in STEM.&lt;/p&gt;
+        ">
+            <div class="story-square-img-wrap">
+              <img src="assets/image_7.jpeg" alt="Ana's Story" class="story-img-square" loading="lazy">
+            </div>
+            <div class="story-square-body">
+              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3>Ana's Story</h3>
+              <p style="font-style:italic; margin-bottom:8px;">"Kandelia gave me the confidence to believe in my intellect, speak up, and prepare for a rewarding career."</p>
+              <p>A 19-year-old student from San Pedro el Alto, Oaxaca, Mexico who moved to Seattle to join family, finding strength in STEM classes and Kandelia's Job Readiness Training.</p>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+                <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div style="text-align:center; margin-top:36px;">
-          <a class="btn btn-outline" href="/stories">Read All Community Stories & Reports →</a>
+        <div style="text-align:center; margin-top:36px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <a class="btn btn-outline" href="/stories">Read All Community Stories on Kandelia →</a>
+          <a class="btn btn-primary" href="https://www.kandelia.org/stories/" target="_blank" rel="noopener">Official Stories Archive ↗</a>
         </div>
       </div>
     </section>
@@ -517,9 +509,9 @@
     <div class="w">
       <div class="footer-grid">
         <div class="footer-brand">
-          <!-- Plain white logo, unconstrained horizontal layout, transparent background -->
+          <!-- Plain white logo as shared by Xochilt (Google Drive: 1rX6tPUveHnbeSscp83D18zBBQDMcJrO2), unconstrained horizontal layout, transparent background -->
           <div class="footer-logo-wrap-clean">
-            <img src="assets/kandelia_logo_footer.png" alt="Kandelia" width="240" height="66">
+            <img src="assets/kandelia_logo_horizontal_no_tag_reverse.png" alt="Kandelia" width="240" height="66" style="width:100%; max-width:240px; height:auto; display:block;">
           </div>
           <div class="footer-tagline">
             Removing barriers to immigrant and refugee success.
@@ -584,8 +576,8 @@
           <h4 style="font-size:1.35rem; color:#FFFFFF; margin-bottom:8px; font-weight:700;">Stay in the Loop with Kandelia</h4>
           <p style="font-size:0.95rem; color:rgba(255,255,255,0.85); margin-bottom:18px; line-height:1.5;">Receive community updates, student stories, and event invitations a few times a year. No spam, ever.</p>
           <form class="footer-stay-in-loop-form" onsubmit="event.preventDefault(); handleFooterNewsletter(this);">
-            <input type="text" name="fname" class="footer-stay-in-loop-input" placeholder="First Name" required>
-            <input type="text" name="lname" class="footer-stay-in-loop-input" placeholder="Last Name" required>
+            <input type="text" name="first_name" class="footer-stay-in-loop-input" placeholder="First Name" required>
+            <input type="text" name="last_name" class="footer-stay-in-loop-input" placeholder="Last Name" required>
             <input type="email" name="email" class="footer-stay-in-loop-input" placeholder="Email Address" required>
             <button type="submit" class="btn btn-coral" style="border-radius:30px; padding:12px 28px; font-weight:700; cursor:pointer;">Subscribe</button>
             <div class="footer-newsletter-feedback" role="alert" style="width:100%; text-align:center; margin-top:10px; font-size:0.92rem; min-height:22px;"></div>

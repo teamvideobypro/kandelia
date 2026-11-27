@@ -341,16 +341,15 @@ svg.icon, .icon {
   border: 1px solid rgba(244, 54, 76, 0.25) !important;
 }
 
-/* Event section image backing */
+/* Event section image backing - Dotted/dashed lines removed as per client feedback */
 .event-image-backing {
-  background: #E6FAF9 !important;
-  border: 2px dashed #2AD2C9 !important;
-  border-radius: 28px !important;
+  display: none !important;
+  border: none !important;
 }
 
 .event-hero-image-wrap {
-  border: 2px dashed #2AD2C9 !important;
-  background: #E6FAF9 !important;
+  border: none !important;
+  background: transparent !important;
   border-radius: 28px !important;
 }
 
@@ -5600,18 +5599,12 @@ h5, h6, .subhead {
 }
 
 .event-image-backing {
-  position: absolute !important;
-  inset: -12px !important;
-  background: rgba(42, 210, 201, 0.06) !important;
-  border: 2px dashed #2AD2C9 !important; /* Brand Turquoise cyan dashed border as in Image 2 */
-  border-radius: 26px !important;
-  z-index: 0 !important;
-  transform: rotate(-2deg) !important;
-  transition: transform var(--transition-base) !important;
+  display: none !important;
+  border: none !important;
 }
 
 .event-layered-image-wrap:hover .event-image-backing {
-  transform: rotate(1.5deg) scale(1.02) !important;
+  display: none !important;
 }
 
 .event-image-frame {

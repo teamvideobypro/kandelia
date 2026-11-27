@@ -122,6 +122,12 @@ STAFF_LEADERSHIP = [
 
 TESTIMONIALS = [
     {
+        "quote": "Before Kandelia's digital literacy classes, I couldn't log into the school portal or schedule doctor appointments for my children. Now I submit homework check-ins, email teachers, and even help other mothers in my apartment complex.",
+        "author": "Maria & Carlos R.",
+        "role": "Parents & Workshop Graduates",
+        "category": "Family Programs"
+    },
+    {
         "quote": "The most important thing is that they love us like family. It doesn't matter where we come from or who we are. They don't see that. They treat us all incredibly well and they are great, unique people.",
         "author": "Luis Madrazo",
         "role": "Community Member & Program Participant",
@@ -132,12 +138,6 @@ TESTIMONIALS = [
         "author": "Amina K.",
         "role": "Youth Program Alumna & University Scholar",
         "category": "Youth Programs"
-    },
-    {
-        "quote": "Before Kandelia's digital literacy classes, I couldn't log into the school portal or schedule doctor appointments for my children. Now I submit homework check-ins, email teachers, and even help other mothers in my apartment complex.",
-        "author": "Maria & Carlos R.",
-        "role": "Parents & Workshop Graduates",
-        "category": "Family Programs"
     },
     {
         "quote": "Kandelia is the bridge between isolation and community power. When students walk through their doors, they don't have to leave their culture or identity behind. They are celebrated for exactly who they are.",
@@ -178,55 +178,73 @@ STAFF_BOARD_QUOTES = [
 
 STORIES = [
     {
-        "id": "patrick",
-        "title": "Patrick's Story",
-        "subtitle": "Finding Footing, Discovering Voice, and Guiding Others",
-        "image_key": "patrick",
-        "short": "How a quiet high school newcomer found mentorship, graduated with honors, and returned to inspire the next generation of refugee youth.",
-        "quote": "Kandelia showed me that being an immigrant isn't a deficit—it's a reservoir of resilience.",
-        "full_text": """
-            <p>When Patrick arrived in South Seattle in the winter of 2021, the world outside felt cold, fast-paced, and foreign. Enrolled at Foster High School, he sat quietly in classrooms where lessons moved at speeds he couldn't yet follow. Despite his deep curiosity and work ethic, language barriers made him feel invisible.</p>
-            <p>Through Kandelia's after-school tutoring and mentorship cohort, Patrick found a dedicated space where teachers and mentors spoke his native language, understood the shock of cultural transition, and believed in his intellectual gifts. His mentor, a software developer who had also arrived in Seattle as an immigrant teen, met with Patrick weekly to practice conversational English, review algebra homework, and map out college aspirations.</p>
-            <p>Within two years, Patrick's GPA soared from 2.4 to 3.8. He joined the Kandelia Youth Leadership Council, helping organize peer tutoring sessions for newly arrived younger students from Ukraine, Venezuela, and Afghanistan. Today, Patrick is pursuing a degree in Computer Science at the University of Washington while serving as a volunteer weekend mentor at Kandelia.</p>
-        """
-    },
-    {
         "id": "sunflower-tulip",
         "title": "Sunflower & Tulip's Story",
-        "subtitle": "Two Sisters, One Unshakable Dream",
+        "subtitle": "Finding Belonging & Community from Central Asia to Seattle",
         "image_key": "sunflower",
-        "short": "Two sisters navigating high school in a new country, supporting each other and building community leadership through youth programs.",
-        "quote": "Together, with Kandelia beside us, we felt like we could climb any mountain.",
+        "short": "Two close friends from Astana, Kazakhstan navigating high school in Seattle, supporting each other and building community leadership through youth circles.",
+        "quote": "Together, with Kandelia beside us, we felt like we could climb any mountain and truly belong.",
+        "external_url": "https://www.kandelia.org/stories/",
         "full_text": """
-            <p>Sisters Sunflower and Tulip arrived in King County with their mother after fleeing regional instability. Thrust into an unfamiliar American high school environment, the sisters clung to each other in the hallways, communicating in hushed whispers and feeling disconnected from school activities.</p>
-            <p>When their school counselor introduced them to Kandelia's youth programs, everything changed. Sunflower enrolled in the Job Readiness cohort, mastering resume building and workplace etiquette, while Tulip joined the English Language and Creative Arts circles. For the first time, their lived experiences were treated as assets, not obstacles.</p>
-            <p>The sisters completed paid summer internships organized through Kandelia's corporate partnership network. Sunflower interned at a regional healthcare clinic, while Tulip supported digital communications for a neighborhood arts alliance. In June 2024, both sisters crossed the graduation stage hand-in-hand, receiving standing ovations from family and their Kandelia counselors.</p>
+            <p>Arriving in King County from Astana, Kazakhstan with her mother, Sunflower faced initial cultural disorientation, wet dark winters, and the challenge of navigating an unfamiliar American high school.</p>
+            <p>When their school counselor introduced them to Kandelia's youth programs, everything changed. Sunflower enrolled in the Job Readiness cohort, mastering resume building and workplace etiquette, while Tulip joined the English Language and Creative Arts circles. For the first time, their lived experiences and cultural heritage were celebrated as assets, not obstacles.</p>
+            <p>Today, Sunflower and Tulip are leaders in their high school community, mentoring younger newcomer students and actively speaking out for immigrant youth belonging across Seattle.</p>
         """
     },
     {
-        "id": "mothers-story",
-        "title": "A Mother's Story",
-        "subtitle": "Rebuilding Home, Security, and Hope for My Children",
-        "image_key": "mother",
-        "short": "A brave mother's journey from displacement to becoming an active digital leader, community volunteer, and school advocate.",
-        "quote": "They didn't just give me resources; they gave me back my confidence as a parent.",
+        "id": "ana",
+        "title": "Ana's Story",
+        "subtitle": "Courage, Culture, and Career Readiness",
+        "image_key": "ana",
+        "short": "A 19-year-old student from San Pedro el Alto, Oaxaca, Mexico who moved to Seattle to join family, finding strength in STEM classes and Kandelia's Job Readiness Training.",
+        "quote": "Kandelia gave me the confidence to believe in my intellect, speak up, and prepare for a rewarding career.",
+        "external_url": "https://www.kandelia.org/stories/",
         "full_text": """
-            <p>As a mother of three young children arriving in Seattle with very limited English and zero digital experience, every routine interaction felt daunting. Enrolling her children in school, accessing food assistance, and scheduling pediatric care required navigating complicated English-only online portals.</p>
-            <p>A neighbor recommended Kandelia's Family Programs. In our warm, child-friendly community space, she joined a 12-week bilingual Digital Literacy Cohort. She received a refurbished laptop, learned how to set up an email address, mastered 'The Source' school portal, and learned how to review her children's homework assignments directly.</p>
-            <p>Beyond digital fluency, Kandelia connected her family to emergency rental assistance during a medical crisis and supported her through tenant rights workshops. Today, she is a vibrant member of our Family Advisory Council, welcoming newly arrived mothers and showing them how to navigate the city with heads held high.</p>
+            <p>When Ana relocated from San Pedro el Alto in Oaxaca, Mexico to join her mother and brothers in Seattle, the transition required immense courage. Leaving her home, cultural traditions, and father behind, she enrolled in high school determined to master English and excel in math and chemistry.</p>
+            <p>Through Kandelia's Job Readiness Training (JRT) cohort, Ana gained hands-on professional skills, practiced mock interviews, and explored career pathways in Seattle's thriving healthcare and technology sectors.</p>
+            <p>Supported by bilingual tutors who validated her cultural roots, Ana gained the confidence to navigate college admissions and pursue higher education in STEM.</p>
         """
     },
     {
         "id": "vidia",
         "title": "Vidia's Story",
-        "subtitle": "From ESL Student to Community Health Navigator",
+        "subtitle": "Perseverance from Resettlement to Running Start",
         "image_key": "vidia",
-        "short": "How English classes and career coaching helped Vidia transition from an isolated newcomer to a certified public health worker.",
+        "short": "After years in resettlement from Iran through Turkey, Vidia arrived in Seattle, conquered transit barriers, and is now completing Running Start college courses aiming for law school.",
         "quote": "When someone believes in your potential before you can even speak the language, you can achieve the impossible.",
+        "external_url": "https://www.kandelia.org/stories/",
         "full_text": """
-            <p>When Vidia arrived in Seattle, she had years of nursing training in her home country that was not recognized in the United States. Working long shifts at a commercial laundry facility, she felt exhausted and separated from her life's calling to heal and care for others.</p>
-            <p>Vidia enrolled in Kandelia's Evening Adult English classes. Recognizing her deep medical knowledge and passion, our adult career navigators helped her enroll in an accelerated medical translation and Community Health Worker certification program at South Seattle College.</p>
-            <p>With Kandelia providing flexible childcare assistance and financial transit stipends, Vidia completed her certification with honors. Today, she works full-time as a bilingual Community Health Navigator at a Rainier Valley community clinic, serving immigrant families every day in three languages.</p>
+            <p>Vidia and her family spent years navigating the difficult resettlement journey from Iran through Turkey before arriving in Seattle. In her early high school days, simple tasks like navigating Seattle's bus system felt overwhelming without English proficiency.</p>
+            <p>With dedicated guidance from Kandelia's youth case managers and a warm host family, Vidia received academic tutoring, public transit passes, and encouragement to enroll in advanced coursework.</p>
+            <p>Today, Vidia is a high-achieving high school senior enrolled in Running Start college classes, serves on student government, and is actively preparing to attend law school to advocate for civil rights and newcomer families.</p>
+        """
+    },
+    {
+        "id": "patrick",
+        "title": "Patrick's Story",
+        "subtitle": "Mentorship, Honors Graduation, and Paying it Forward",
+        "image_key": "patrick",
+        "short": "How a quiet high school newcomer at Foster High found mentorship, raised his GPA from 2.4 to 3.8, and returned to inspire the next generation of refugee youth.",
+        "quote": "Kandelia showed me that being an immigrant isn't a deficit—it's a reservoir of resilience.",
+        "external_url": "https://www.kandelia.org/stories/",
+        "full_text": """
+            <p>When Patrick arrived in South Seattle in the winter of 2021, the world outside felt cold, fast-paced, and foreign. Enrolled at Foster High School, he sat quietly in classrooms where lessons moved at speeds he couldn't yet follow.</p>
+            <p>Through Kandelia's after-school tutoring and mentorship cohort, Patrick found a dedicated space where teachers and mentors spoke his native language, understood the shock of cultural transition, and believed in his intellectual gifts. His mentor met with Patrick weekly to practice conversational English, review algebra homework, and map out college aspirations.</p>
+            <p>Within two years, Patrick's GPA soared from 2.4 to 3.8. He joined the Kandelia Youth Leadership Council, helping organize peer tutoring sessions for younger students. Today, Patrick is pursuing a degree in Computer Science at the University of Washington while serving as a volunteer mentor at Kandelia.</p>
+        """
+    },
+    {
+        "id": "mothers-story",
+        "title": "A Mother's Story",
+        "subtitle": "Digital Fluency, Family Leadership, and Dignity",
+        "image_key": "mother",
+        "short": "A brave mother's journey from displacement to becoming an active digital leader, community volunteer, and school advocate.",
+        "quote": "They didn't just give me resources; they gave me back my confidence as a parent.",
+        "external_url": "https://www.kandelia.org/stories/",
+        "full_text": """
+            <p>As a mother of three young children arriving in Seattle with very limited English and zero digital experience, every routine interaction felt daunting. Enrolling her children in school, accessing food assistance, and scheduling pediatric care required navigating complicated English-only online portals.</p>
+            <p>A neighbor recommended Kandelia's Family Programs. In our warm community space, she joined a 12-week bilingual Digital Literacy Cohort. She received a refurbished laptop, learned how to set up an email address, mastered 'The Source' school portal, and learned how to review her children's homework assignments directly.</p>
+            <p>Beyond digital fluency, Kandelia connected her family to emergency rental assistance during a medical crisis. Today, she is a vibrant member of our Family Advisory Council, welcoming newly arrived mothers and showing them how to navigate the city with dignity.</p>
         """
     }
 ]
@@ -250,6 +268,24 @@ CAREERS = {
             "qualifications": "Experience in community navigation, case management, or social work. Multilingual candidates strongly encouraged."
         }
     ],
+    "board": [
+        {
+            "title": "Board of Directors – Member at Large",
+            "type": "Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)",
+            "location": "Seattle, WA (Hybrid Meetings)",
+            "compensation": "Volunteer Leadership Position",
+            "description": "Kandelia is actively seeking applicants for at-large positions on its Board of Directors committed to supporting immigrant and refugee communities during a period of transition and growth. Provide governance, strategic direction, and fiduciary stewardship.",
+            "qualifications": "Lived experience as an immigrant/refugee or strong community ties across King County. Email hr@kandelia.org with interest."
+        },
+        {
+            "title": "Board of Directors – Treasurer & Finance Chair",
+            "type": "Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)",
+            "location": "Seattle, WA (Hybrid Meetings)",
+            "compensation": "Volunteer Leadership Position",
+            "description": "Provide fiduciary oversight, review annual budgets, advise on endowment strategy, and chair the board Finance & Audit Committee.",
+            "qualifications": "Background in finance, accounting, or non-profit fiscal management. Passion for immigrant and refugee equity."
+        }
+    ],
     "contract": [
         {
             "title": "Adult ESL Lead Instructor",
@@ -270,38 +306,20 @@ CAREERS = {
     ],
     "youth": [
         {
+            "title": "Alumni Youth Advisory Board (AYAB) Member",
+            "type": "Youth Leadership Fellowship • Flexible",
+            "location": "Seattle, WA (Hybrid Meetings)",
+            "compensation": "Stipend Provided",
+            "description": "Kandelia accepts members for its Alumni Youth Advisory Board—open to young adults who attended Seattle Public Schools as Multilingual Learners after 2020. Provide vital youth perspective to leadership, guide program decisions, and co-design community initiatives.",
+            "qualifications": "Former Seattle Public Schools Multilingual Learner (post-2020). Passion for community advocacy and immigrant youth empowerment."
+        },
+        {
             "title": "Summer Youth Ambassador",
             "type": "Paid Youth Internship • 20 hrs/wk (8 weeks summer)",
             "location": "King County Partner Sites",
             "compensation": "$20.50 / hour stipend",
             "description": "Paid summer leadership opportunity for immigrant and refugee high school students to co-design community outreach, plan cultural events, and shadow nonprofit leaders.",
             "qualifications": "Open to rising 10th–12th grade students enrolled in King County high schools."
-        },
-        {
-            "title": "High School Peer Academic Mentor",
-            "type": "Part-Time Academic Year • 6 hrs/wk",
-            "location": "After-School Tutoring Centers",
-            "compensation": "$20.50 / hour",
-            "description": "Support younger newcomer students with homework help, English conversation practice, and school navigation.",
-            "qualifications": "Current high school junior or senior with strong school engagement."
-        }
-    ],
-    "board": [
-        {
-            "title": "Board of Directors – Treasurer & Audit Committee",
-            "type": "Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)",
-            "location": "Seattle, WA (Hybrid Meetings)",
-            "compensation": "Volunteer Leadership Position",
-            "description": "Provide fiduciary oversight, review annual budgets, advise on endowment strategy, and chair the board Finance & Audit Committee.",
-            "qualifications": "Background in finance, accounting, or non-profit fiscal management. Passion for immigrant and refugee equity."
-        },
-        {
-            "title": "Board of Directors – Community Advocacy & Governance",
-            "type": "Volunteer Board Term • 3 Years (approx. 4–6 hrs/month)",
-            "location": "Seattle, WA (Hybrid Meetings)",
-            "compensation": "Volunteer Leadership Position",
-            "description": "Guide organizational policies, ensure community voice informs strategic decisions, and assist with fundraising and donor cultivation for our May 2027 milestone.",
-            "qualifications": "Lived experience as an immigrant/refugee or strong community ties across South Seattle & King County."
         }
     ]
 }

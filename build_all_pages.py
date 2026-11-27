@@ -49,7 +49,7 @@ def get_header(active="home"):
   <header class="site-header" role="banner">
     <div class="w header-container">
       <a href="/" class="brand-link" aria-label="Kandelia Home">
-        <img src="assets/kandelia_logo_header.png" alt="Kandelia" class="brand-logo" width="220" height="60" style="height:52px; width:auto; display:block;">
+        <img src="assets/kandelia_logo_horizontal_no_tag_rgb.png" alt="Kandelia" class="brand-logo" width="220" height="60" style="height:52px; width:auto; display:block;">
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -124,9 +124,9 @@ def get_footer():
     <div class="w">
       <div class="footer-grid">
         <div class="footer-brand">
-          <!-- Plain white logo, unconstrained horizontal layout, transparent background -->
+          <!-- Plain white logo as shared by Xochilt (Google Drive: 1rX6tPUveHnbeSscp83D18zBBQDMcJrO2), unconstrained horizontal layout, transparent background -->
           <div class="footer-logo-wrap-clean">
-            <img src="assets/kandelia_logo_footer.png" alt="Kandelia" width="240" height="66">
+            <img src="assets/kandelia_logo_horizontal_no_tag_reverse.png" alt="Kandelia" width="240" height="66" style="width:100%; max-width:240px; height:auto; display:block;">
           </div>
           <div class="footer-tagline">
             Removing barriers to immigrant and refugee success.
@@ -191,8 +191,8 @@ def get_footer():
           <h4 style="font-size:1.35rem; color:#FFFFFF; margin-bottom:8px; font-weight:700;">Stay in the Loop with Kandelia</h4>
           <p style="font-size:0.95rem; color:rgba(255,255,255,0.85); margin-bottom:18px; line-height:1.5;">Receive community updates, student stories, and event invitations a few times a year. No spam, ever.</p>
           <form class="footer-stay-in-loop-form" onsubmit="event.preventDefault(); handleFooterNewsletter(this);">
-            <input type="text" name="fname" class="footer-stay-in-loop-input" placeholder="First Name" required>
-            <input type="text" name="lname" class="footer-stay-in-loop-input" placeholder="Last Name" required>
+            <input type="text" name="first_name" class="footer-stay-in-loop-input" placeholder="First Name" required>
+            <input type="text" name="last_name" class="footer-stay-in-loop-input" placeholder="Last Name" required>
             <input type="email" name="email" class="footer-stay-in-loop-input" placeholder="Email Address" required>
             <button type="submit" class="btn btn-coral" style="border-radius:30px; padding:12px 28px; font-weight:700; cursor:pointer;">Subscribe</button>
             <div class="footer-newsletter-feedback" role="alert" style="width:100%; text-align:center; margin-top:10px; font-size:0.92rem; min-height:22px;"></div>
@@ -228,9 +228,55 @@ def get_footer():
 </body>
 </html>'''
 
+def get_testimonial_carousel_html(carousel_id="testimonials-carousel"):
+    out = f'''    <!-- MOVING TESTIMONIALS CAROUSEL (Image 4 Design: Green bar, Avatar MC, Nav dots & arrows) -->
+    <section class="section-testimonials" id="{carousel_id}-section" style="padding:80px 0; background-color:#F4FBE8;">
+      <div class="w">
+        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
+          <span class="badge badge-green" style="margin-bottom:12px;">Community Perspectives</span>
+          <h2>Voices of Trust & Gratitude</h2>
+          <p class="lead">What students, parents, school counselors, and community leaders say about Kandelia.</p>
+        </div>
+
+        <div class="carousel-container" id="{carousel_id}" aria-label="Community Testimonials Carousel">
+          <div class="carousel-track-wrapper">
+'''
+    for idx, test in enumerate(site_data.TESTIMONIALS):
+        initials = "".join([part[0] for part in test['author'].split() if part[0].isalpha()])[:2]
+        out += f'''            <div class="carousel-slide {'active' if idx==0 else ''}" role="group" aria-roledescription="slide" aria-label="Testimonial {idx+1} of {len(site_data.TESTIMONIALS)}">
+              <blockquote class="testimonial-quote">
+                "{test['quote']}"
+              </blockquote>
+              <div class="testimonial-author-block">
+                <div class="author-avatar">{initials}</div>
+                <div class="author-info">
+                  <b>{test['author']}</b>
+                  <span>{test['role']} • {test['category']}</span>
+                </div>
+              </div>
+            </div>\n'''
+
+    out += f'''          </div>
+
+          <!-- Carousel Navigation Controls with arrows and elongated center dots pill -->
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonial">&#8592;</button>
+            <div class="carousel-dots">
+'''
+    for idx in range(len(site_data.TESTIMONIALS)):
+        out += f'''              <button class="carousel-dot {'active' if idx==0 else ''}" data-index="{idx}" aria-label="Go to testimonial {idx+1}"></button>\n'''
+
+    out += f'''            </div>
+            <button class="carousel-btn carousel-btn-next" aria-label="Next testimonial">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>'''
+    return out
+
 
 # ==============================================================================
-# 1. GENERATE index.html (HOME PAGE - POLISHED ACCORDING TO CLIENT FEEDBACK)
+# 1. GENERATE index.html (HOME PAGE - CLEAN HERO WITH ZERO FLOATING BADGES/STATS/DOTS)
 # ==============================================================================
 print("Generating index.html...")
 home_html = get_head("Kandelia | Immigrant & Refugee Belonging in Seattle", "Kandelia removes barriers to immigrant and refugee success through holistic education, family navigation, and community equity in Seattle.")
@@ -239,7 +285,7 @@ home_html += f'''
   <main id="main-content">
     {SVG_HEART_CLIP}
 
-    <!-- HERO SECTION (Trimmed: No badge line, No stats 2x2 row, No dotted moving ring) -->
+    <!-- HERO SECTION (CLEAN: No top badge line, No stats 2x2 row, No moving dotted ring, No floating badges on photo) -->
     <section class="section-hero" id="hero">
       <div class="w hero-grid">
         <div class="hero-content">
@@ -258,38 +304,23 @@ home_html += f'''
 
         <div class="hero-media-wrapper">
           <div class="hero-organic-composition">
-            <!-- Floating Sticker Badge Top-Right (50 Years • Seattle Roots) -->
-            <div class="floating-sticker top-right">50 Years • Seattle Roots</div>
-
-            <!-- Main Image Frame with Organic Curve (Image 1) -->
+            <!-- Main Image Frame with Organic Curve (Clean photo with no floating stats or badges) -->
             <div class="hero-image-frame-enhanced">
-              <img src="assets/image_1.jpeg" alt="Two smiling Kandelia students outside their school in Seattle" class="hero-main-img">
-            </div>
-
-            <!-- Floating Rounded Stat Card Bottom (95% Graduation Rate) -->
-            <div class="floating-stat-card">
-              <div class="floating-stat-badge" style="background:#E3F2D4; width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6615" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-              </div>
-              <div class="floating-stat-text">
-                <b style="color:var(--navy); font-size:1.02rem; display:block; line-height:1.2;">95% Graduation Rate</b>
-                <span style="color:var(--text-muted); font-size:0.82rem; display:block; margin-top:2px;">Serving 570+ Students & Families</span>
-              </div>
+              <img src="assets/image_1.jpeg" alt="Smiling Kandelia students outside their school in Seattle" class="hero-main-img">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 50TH ANNIVERSARY CELEBRATION (MAY 2027) -->
+    <!-- 50TH ANNIVERSARY CELEBRATION (MAY 2027) - CLEAN SOLID PHOTO FRAME WITHOUT DOTTED/DASHED BORDER -->
     <section class="event-banner-section" id="milestone-gala">
       <div class="w">
         <div class="event-card">
           <div class="event-2col-grid">
-            <!-- Left Column: Layered Seattle skyline image with dashed cyan outline (Image 2) -->
+            <!-- Left Column: Seattle skyline image with clean solid frame (No dotted/dashed lines) -->
             <div class="event-image-col">
-              <div class="event-layered-image-wrap">
-                <div class="event-image-backing" aria-hidden="true"></div>
+              <div class="event-layered-image-wrap" style="position:relative;">
                 <div class="event-image-frame">
                   <img src="assets/image_2.jpeg" alt="Kandelia group looking out over the Seattle skyline" loading="lazy">
                 </div>
@@ -532,57 +563,64 @@ home_html += f'''
       </div>
     </section>
 
-    <!-- STORIES & IMPACT PREVIEW (INTERACTIVE CARDS OPENING POP-UP MODAL) -->
+    <!-- STORIES & IMPACT PREVIEW (AUTHENTIC STORIES LINKED TO KANDELIA.ORG & MODAL POPUP) -->
     <section class="section-stories-teaser" style="padding:80px 0; background-color:#F0F2FA;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
-          <span class="badge badge-teal" style="margin-bottom:12px;">Real Voices</span>
+          <span class="badge badge-teal" style="margin-bottom:12px;">Real Voices • Roots & Routes</span>
           <h2>Stories of Resilience & Belonging</h2>
-          <p class="lead">Every newcomer family has a journey of courage, strength, and aspiration. Click on any story to read their complete journey.</p>
+          <p class="lead">Personal journeys of courage, perseverance, and belonging from Kandelia's storytelling archive in Seattle.</p>
         </div>
 
         <div class="story-square-grid">
-          <!-- Story 1: Patrick (Interactive Modal Opener) -->
+          <!-- Story 1: Sunflower & Tulip -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
-               data-title="Patrick's Story"
+               data-title="{site_data.STORIES[0]['title']}"
                data-subtitle="{site_data.STORIES[0]['subtitle']}"
                data-quote="{site_data.STORIES[0]['quote']}"
                data-story-html="{html.escape(site_data.STORIES[0]['full_text'])}">
             <div class="story-square-img-wrap">
-              <img src="assets/image_5.jpeg" alt="Patrick's Story" class="story-img-square" loading="lazy">
+              <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
-              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Youth Alumnus</span>
-              <h3>Patrick's Story</h3>
+              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3>Sunflower & Tulip's Story</h3>
               <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[0]['quote']}"</p>
               <p>{site_data.STORIES[0]['short']}</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+                <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              </div>
             </div>
           </div>
 
-          <!-- Story 2: Sunflower & Tulip (Interactive Modal Opener) -->
+          <!-- Story 2: Ana's Story -->
           <div class="story-square-card open-story-reader"
                role="button" tabindex="0"
-               data-title="Sunflower & Tulip's Story"
+               data-title="{site_data.STORIES[1]['title']}"
                data-subtitle="{site_data.STORIES[1]['subtitle']}"
                data-quote="{site_data.STORIES[1]['quote']}"
                data-story-html="{html.escape(site_data.STORIES[1]['full_text'])}">
             <div class="story-square-img-wrap">
-              <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
+              <img src="assets/image_7.jpeg" alt="Ana's Story" class="story-img-square" loading="lazy">
             </div>
             <div class="story-square-body">
-              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Sisters & Scholars</span>
-              <h3>Sunflower & Tulip</h3>
+              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3>Ana's Story</h3>
               <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[1]['quote']}"</p>
               <p>{site_data.STORIES[1]['short']}</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+                <a href="https://www.kandelia.org/stories/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div style="text-align:center; margin-top:36px;">
-          <a class="btn btn-outline" href="/stories">Read All Community Stories & Reports →</a>
+        <div style="text-align:center; margin-top:36px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <a class="btn btn-outline" href="/stories">Read All Community Stories on Kandelia →</a>
+          <a class="btn btn-primary" href="https://www.kandelia.org/stories/" target="_blank" rel="noopener">Official Stories Archive ↗</a>
         </div>
       </div>
     </section>
@@ -781,11 +819,14 @@ about_html += f'''
         </div>
 
         <!-- Large Staff Group Photograph with Caption -->
-        <div style="max-width:960px; margin:0 auto 56px;">
+        <div style="max-width:960px; margin:0 auto 48px;">
           <div style="border-radius:24px; overflow:hidden; box-shadow:0 12px 36px rgba(30,34,170,0.08); border:1px solid rgba(42,210,201,0.25);">
             <img src="assets/image_9.jpeg" alt="Kandelia staff team gathering together" style="width:100%; height:auto; display:block;">
           </div>
           <p style="font-size:1.05rem; font-weight:600; color:var(--navy); margin-top:14px; text-align:center;">Kandelia staff</p>
+          <div style="text-align:center; margin-top:8px;">
+            <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.92rem; color:var(--teal-dark); font-weight:600;">View Staff & Board on Kandelia.org ↗</a>
+          </div>
         </div>
 
         <!-- EXECUTIVE DIRECTORS (ONLY TWO CARDS WITH REAL PHOTOS & MODAL BIO EXPANSION) -->
@@ -805,7 +846,7 @@ about_html += f'''
             <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
               Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage.
             </p>
-            <div style="margin-top:auto;">
+            <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
               <button class="btn btn-outline btn-sm open-leader-bio"
                       data-name="Tram Lam, MNPL"
                       data-role="Executive Director"
@@ -815,6 +856,7 @@ about_html += f'''
                       data-quote="Our work is about tending to deep roots. Just like the mangrove tree that gives Kandelia its name, we provide a secure, nurturing ecosystem so youth and families can stand strong through any storm.">
                 Read Full Bio →
               </button>
+              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Profile ↗</a>
             </div>
           </div>
 
@@ -829,7 +871,7 @@ about_html += f'''
             <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
               Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways.
             </p>
-            <div style="margin-top:auto;">
+            <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
               <button class="btn btn-outline btn-sm open-leader-bio"
                       data-name="Khadar Abdi"
                       data-role="Director of Youth Programs"
@@ -839,6 +881,7 @@ about_html += f'''
                       data-quote="Over 90% of our staff have lived the immigrant and refugee journey themselves. When a family walks through our doors, they are met with shared language, shared empathy, and unconditional dignity.">
                 Read Full Bio →
               </button>
+              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Profile ↗</a>
             </div>
           </div>
         </div>
@@ -868,15 +911,18 @@ for idx, board in enumerate(site_data.BOARD_MEMBERS):
             <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:4px;">{board['name']}</h3>
             <div style="font-size:0.88rem; font-weight:700; color:var(--teal-dark); margin-bottom:6px;">{board['role']}</div>
             <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">{board.get('tenure', '')}</div>
-            <button class="btn btn-outline btn-sm open-board-bio"
-                    data-name="{board['name']}"
-                    data-role="{board['role']}"
-                    data-tenure="{board.get('tenure', '')}"
-                    data-bio="{board['bio']}"
-                    data-quote="{board.get('quote', '')}"
-                    data-photo="{photo_src}">
-              Read Bio →
-            </button>
+            <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+              <button class="btn btn-outline btn-sm open-board-bio"
+                      data-name="{board['name']}"
+                      data-role="{board['role']}"
+                      data-tenure="{board.get('tenure', '')}"
+                      data-bio="{board['bio']}"
+                      data-quote="{board.get('quote', '')}"
+                      data-photo="{photo_src}">
+                Read Bio →
+              </button>
+              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.82rem; color:var(--teal-dark); font-weight:600;">Directory ↗</a>
+            </div>
           </div>\n'''
 
 about_html += f'''        </div>
@@ -1051,6 +1097,12 @@ for job in site_data.CAREERS.get('youth', []):
 
 about_html += f'''            </div>
           </div>
+
+          <div style="text-align:center; margin-top:20px;">
+            <a href="https://www.kandelia.org/about/careers/" target="_blank" rel="noopener" class="btn btn-outline">
+              Visit Official Kandelia Careers Page ↗
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1176,7 +1228,7 @@ print("get-help.html written successfully!")
 
 
 # ==============================================================================
-# 4. GENERATE ways-to-give.html (EXACTLY THREE CARDS: GIVE, VOLUNTEER, PARTNER)
+# 4. GENERATE ways-to-give.html (EXACTLY THREE CARDS: GIVE, VOLUNTEER, PARTNER WITH UPDATED LINKS)
 # ==============================================================================
 print("Generating ways-to-give.html...")
 ways_html = get_head("Ways to Give | Kandelia", "Explore flexible pathways to support Kandelia: direct giving, volunteering, and institutional partnerships.")
@@ -1196,7 +1248,7 @@ ways_html += f'''
       </div>
     </section>
 
-    <!-- EXACTLY THREE CARDS: GIVE, VOLUNTEER, PARTNER -->
+    <!-- EXACTLY THREE CARDS: GIVE, VOLUNTEER, PARTNER (WITH UPDATED CLIENT LINKS) -->
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
@@ -1223,7 +1275,7 @@ ways_html += f'''
             </div>
           </div>
 
-          <!-- Card 2: Volunteer -->
+          <!-- Card 2: Volunteer (Google Form Link as requested) -->
           <div class="way-3card" id="volunteer">
             <img src="assets/image_3.jpeg" alt="Kandelia high school students smiling with tutors" class="way-3card-img" loading="lazy">
             <div class="way-3card-body">
@@ -1233,14 +1285,14 @@ ways_html += f'''
                 Share your skills, professional experience, and cultural empathy. Volunteer as an after-school tutor, career mentor, digital literacy coach, or event volunteer for our May 2027 50th Anniversary Gala.
               </p>
               <div style="margin-top:auto;">
-                <a href="mailto:volunteer@kandelia.org?subject=Volunteer with Kandelia" class="btn btn-primary" style="width:100%; text-align:center;">
-                  Sign Up to Volunteer →
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXxISZyibWTeAGMH7MU5rUYerKFk0--B1PB0rmNZNR4c20HQ/viewform" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; text-align:center;">
+                  Sign Up to Volunteer (Google Form) →
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Card 3: Partner -->
+          <!-- Card 3: Partner (Email to Info@kandelia.org as requested) -->
           <div class="way-3card" id="partner">
             <img src="assets/image_9.jpeg" alt="Community and corporate partners collaborating at Kandelia" class="way-3card-img" loading="lazy">
             <div class="way-3card-body">
@@ -1250,8 +1302,8 @@ ways_html += f'''
                 School districts, corporate employers, and regional foundations partner with Kandelia through institutional grants, corporate matching gifts, community sponsorships, and paid youth internship placements.
               </p>
               <div style="margin-top:auto;">
-                <a href="mailto:partnerships@kandelia.org?subject=Institutional Partnership Inquiry" class="btn btn-outline" style="width:100%; text-align:center;">
-                  Explore Partnerships →
+                <a href="mailto:Info@kandelia.org?subject=Partnership Inquiry with Kandelia" class="btn btn-outline" style="width:100%; text-align:center;">
+                  Contact Info@kandelia.org →
                 </a>
               </div>
             </div>
@@ -1275,7 +1327,7 @@ print("ways-to-give.html written successfully!")
 
 
 # ==============================================================================
-# 5. GENERATE stories.html (STORIES POPUP MODAL WORKING + TESTIMONIALS MOVING CAROUSEL)
+# 5. GENERATE stories.html (AUTHENTIC STORIES + MOVING TESTIMONIALS CAROUSEL)
 # ==============================================================================
 print("Generating stories.html...")
 stories_html = get_head("Stories & Impact | Kandelia", "Read authentic immigrant and refugee stories, client testimonials, and 2026 impact outcomes from Kandelia in Seattle.")
@@ -1295,141 +1347,53 @@ stories_html += f'''
       </div>
     </section>
 
-    <!-- 4 IMMIGRANT STORIES - INTERACTIVE POP-UP MODAL FUNCTIONALITY -->
+    <!-- AUTHENTIC IMMIGRANT STORIES (MATCHING KANDELIA.ORG ROOTS & ROUTES) -->
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w">
         <div class="section-header text-center" style="max-width:760px; margin:0 auto 40px;">
-          <span class="badge badge-sage" style="margin-bottom:12px;">Participant Journeys</span>
+          <span class="badge badge-sage" style="margin-bottom:12px;">Participant Journeys • Roots & Routes</span>
           <h2>Roots & Routes Stories</h2>
-          <p class="lead">Click on any story card to read the full first-person narrative in detail.</p>
+          <p class="lead">Click on any story card to read the full first-person narrative in detail, or read directly on Kandelia.org.</p>
         </div>
 
         <div class="story-square-grid">
-          <!-- Story 1: Patrick -->
-          <div class="story-square-card open-story-reader"
-               role="button" tabindex="0"
-               data-title="{site_data.STORIES[0]['title']}"
-               data-subtitle="{site_data.STORIES[0]['subtitle']}"
-               data-quote="{site_data.STORIES[0]['quote']}"
-               data-story-html="{html.escape(site_data.STORIES[0]['full_text'])}">
-            <div class="story-square-img-wrap">
-              <img src="assets/image_5.jpeg" alt="Patrick's Story" class="story-img-square" loading="lazy">
-            </div>
-            <div class="story-square-body">
-              <span class="badge badge-sage" style="width:fit-content; margin-bottom:6px;">Youth Alumnus</span>
-              <h3>Patrick's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[0]['quote']}"</p>
-              <p>{site_data.STORIES[0]['short']}</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-            </div>
-          </div>
-
-          <!-- Story 2: Sunflower & Tulip -->
-          <div class="story-square-card open-story-reader"
-               role="button" tabindex="0"
-               data-title="{site_data.STORIES[1]['title']}"
-               data-subtitle="{site_data.STORIES[1]['subtitle']}"
-               data-quote="{site_data.STORIES[1]['quote']}"
-               data-story-html="{html.escape(site_data.STORIES[1]['full_text'])}">
-            <div class="story-square-img-wrap">
-              <img src="assets/image_6.jpeg" alt="Sunflower & Tulip's Story" class="story-img-square" loading="lazy">
-            </div>
-            <div class="story-square-body">
-              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Sisters & Scholars</span>
-              <h3>Sunflower & Tulip's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[1]['quote']}"</p>
-              <p>{site_data.STORIES[1]['short']}</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-            </div>
-          </div>
-
-          <!-- Story 3: A Mother's Story -->
-          <div class="story-square-card open-story-reader"
-               role="button" tabindex="0"
-               data-title="{site_data.STORIES[2]['title']}"
-               data-subtitle="{site_data.STORIES[2]['subtitle']}"
-               data-quote="{site_data.STORIES[2]['quote']}"
-               data-story-html="{html.escape(site_data.STORIES[2]['full_text'])}">
-            <div class="story-square-img-wrap">
-              <img src="assets/image_7.jpeg" alt="A Mother's Story" class="story-img-square" loading="lazy">
-            </div>
-            <div class="story-square-body">
-              <span class="badge badge-teal" style="width:fit-content; margin-bottom:6px;">Parent Advocate</span>
-              <h3>A Mother's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[2]['quote']}"</p>
-              <p>{site_data.STORIES[2]['short']}</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-            </div>
-          </div>
-
-          <!-- Story 4: Vidia's Story -->
-          <div class="story-square-card open-story-reader"
-               role="button" tabindex="0"
-               data-title="{site_data.STORIES[3]['title']}"
-               data-subtitle="{site_data.STORIES[3]['subtitle']}"
-               data-quote="{site_data.STORIES[3]['quote']}"
-               data-story-html="{html.escape(site_data.STORIES[3]['full_text'])}">
-            <div class="story-square-img-wrap">
-              <img src="assets/image_8.jpeg" alt="Vidia's Story" class="story-img-square" loading="lazy">
-            </div>
-            <div class="story-square-body">
-              <span class="badge badge-blue" style="width:fit-content; margin-bottom:6px;">Peer Leader</span>
-              <h3>Vidia's Story</h3>
-              <p style="font-style:italic; margin-bottom:8px;">"{site_data.STORIES[3]['quote']}"</p>
-              <p>{site_data.STORIES[3]['short']}</p>
-              <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS - MOVING INTERACTIVE CAROUSEL -->
-    <section class="section-testimonials" id="testimonials" style="padding:80px 0; background-color:#F4FBE8;">
-      <div class="w">
-        <div class="section-header text-center" style="max-width:760px; margin:0 auto 48px;">
-          <span class="badge badge-green" style="margin-bottom:12px;">Community Perspectives</span>
-          <h2>Voices of Trust & Gratitude</h2>
-          <p class="lead">What students, parents, school counselors, and community leaders say about Kandelia.</p>
-        </div>
-
-        <!-- Moving Interactive Carousel Container -->
-        <div class="carousel-container" id="testimonials-carousel" aria-label="Community Testimonials Carousel">
-          <div class="carousel-track-wrapper">
 '''
 
-for idx, test in enumerate(site_data.TESTIMONIALS):
-    initials = "".join([part[0] for part in test['author'].split() if part[0].isalpha()])[:2]
-    stories_html += f'''            <div class="carousel-slide {'active' if idx==0 else ''}" role="group" aria-roledescription="slide" aria-label="Testimonial {idx+1} of {len(site_data.TESTIMONIALS)}">
-              <blockquote class="testimonial-quote">
-                "{test['quote']}"
-              </blockquote>
-              <div class="testimonial-author-block">
-                <div class="author-avatar">{initials}</div>
-                <div class="author-info">
-                  <b>{test['author']}</b>
-                  <span>{test['role']} • {test['category']}</span>
-                </div>
+for idx, story in enumerate(site_data.STORIES):
+    img_num = (idx % 4) + 5
+    stories_html += f'''          <!-- Story: {story['title']} -->
+          <div class="story-square-card open-story-reader"
+               role="button" tabindex="0"
+               data-title="{story['title']}"
+               data-subtitle="{story['subtitle']}"
+               data-quote="{story['quote']}"
+               data-story-html="{html.escape(story['full_text'])}">
+            <div class="story-square-img-wrap">
+              <img src="assets/image_{img_num}.jpeg" alt="{story['title']}" class="story-img-square" loading="lazy">
+            </div>
+            <div class="story-square-body">
+              <span class="badge badge-coral" style="width:fit-content; margin-bottom:6px;">Roots & Routes</span>
+              <h3>{story['title']}</h3>
+              <p style="font-style:italic; margin-bottom:8px;">"{story['quote']}"</p>
+              <p>{story['short']}</p>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                <button class="card-link-btn" style="background:none; border:none; padding:0; cursor:pointer; font-weight:700; color:var(--navy);">Read Full Story →</button>
+                <a href="{story.get('external_url', 'https://www.kandelia.org/stories/')}" target="_blank" rel="noopener" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;" onclick="event.stopPropagation();">Kandelia.org ↗</a>
               </div>
-            </div>\n'''
+            </div>
+          </div>\n'''
 
-stories_html += f'''          </div>
+stories_html += f'''        </div>
 
-          <!-- Carousel Navigation Controls -->
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-btn-prev" aria-label="Previous testimonial">&#8592;</button>
-            <div class="carousel-dots">
-'''
-
-for idx in range(len(site_data.TESTIMONIALS)):
-    stories_html += f'''              <button class="carousel-dot {'active' if idx==0 else ''}" data-index="{idx}" aria-label="Go to testimonial {idx+1}"></button>\n'''
-
-stories_html += f'''            </div>
-            <button class="carousel-btn carousel-btn-next" aria-label="Next testimonial">&#8594;</button>
-          </div>
+        <div style="text-align:center; margin-top:40px;">
+          <a class="btn btn-outline" href="https://www.kandelia.org/stories/" target="_blank" rel="noopener">
+            Explore All Roots & Routes Stories on Kandelia.org ↗
+          </a>
         </div>
       </div>
     </section>
+
+    {get_testimonial_carousel_html("testimonials-carousel")}
 
     <!-- 2026 ANNUAL REPORT -->
     <section class="section-report" id="metrics" style="padding:80px 0; background-color:#FFFFFF;">
@@ -1481,7 +1445,7 @@ print("stories.html written successfully!")
 
 
 # ==============================================================================
-# 6. GENERATE giving.html (3 GIVING CARDS + SINGLE GIVE BUTTON, MONTHLY DONOR, NO MONTHLY IN MORE WAYS, NO SUPPORT BANNER)
+# 6. GENERATE giving.html (GIVING TIERS, MONTHLY DONOR, MOVING TESTIMONIALS CAROUSEL, NO SUPPORT BANNER)
 # ==============================================================================
 print("Generating giving.html...")
 giving_html = get_head("Giving & Impact Tiers | Kandelia", "Support Kandelia's immigrant and refugee programs with transparent giving tiers, monthly donor membership, and vehicle donations.")
@@ -1635,6 +1599,9 @@ giving_html += f'''
         </div>
       </div>
     </section>
+
+    <!-- MOVING TESTIMONIALS CAROUSEL (ALSO ON GIVING PAGE AS REQUESTED) -->
+    {get_testimonial_carousel_html("giving-testimonials-carousel")}
 
     <!-- DONATION & STEWARDSHIP FAQ ACCORDION (NO INTERNAL NOTES) -->
     <section class="section-donation-faq" id="faq" style="padding:80px 0; background-color:#F0FAF9; border-top:1px solid rgba(42,210,201,0.2);">
