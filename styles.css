@@ -6021,12 +6021,19 @@ h1, h2, h3, .hero-title, .event-title, .inner-hero-title, .section-header h2 {
   border: 1px solid rgba(42, 210, 201, 0.3);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
 }
 
 .leader-card-featured:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(42, 210, 201, 0.15);
+  box-shadow: 0 12px 28px rgba(42, 210, 201, 0.2);
+}
+
+.leader-card-featured:focus-visible,
+.board-card-enhanced:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
 }
 
 .leader-photo-wrap {
@@ -6064,6 +6071,7 @@ h1, h2, h3, .hero-title, .event-title, .inner-hero-title, .section-header h2 {
   height: 100%;
   box-sizing: border-box;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
 }
 
 .board-card-enhanced:hover {

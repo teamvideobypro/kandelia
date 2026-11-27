@@ -321,36 +321,97 @@ js_content = """/**
       }
     });
 
-    // Attach to Board bio buttons
-    document.querySelectorAll('.open-board-bio').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        const role = btn.getAttribute('data-role');
-        const tenure = btn.getAttribute('data-tenure');
-        const bio = btn.getAttribute('data-bio');
-        const quote = btn.getAttribute('data-quote');
-        const initials = btn.getAttribute('data-initials');
-        const color = btn.getAttribute('data-color') || '#12263A';
+    // Attach to Leader bio cards & buttons
+    document.querySelectorAll('.open-leader-bio').forEach(el => {
+      function triggerLeaderModal(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        const name = el.getAttribute('data-name');
+        const role = el.getAttribute('data-role');
+        const photo = el.getAttribute('data-photo');
+        const languages = el.getAttribute('data-languages');
+        const bio = el.getAttribute('data-bio');
+        const quote = el.getAttribute('data-quote') || '';
 
         const content = `
-          <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;">
-            <div style="width:72px;height:72px;border-radius:9999px;background:${color};color:#fff;display:grid;place-items:center;font-size:1.6rem;font-weight:700;flex-shrink:0;">
-              ${initials}
-            </div>
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:22px;">
+            ${photo ? `<div style="width:84px;height:84px;border-radius:9999px;overflow:hidden;flex-shrink:0;border:3px solid var(--teal);box-shadow:0 4px 12px rgba(42,210,201,0.25);"><img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>` : ''}
             <div>
-              <h4 style="font-size:1.4rem;color:#12263A;margin-bottom:4px;">${name}</h4>
-              <p style="color:#D94532;font-weight:700;margin-bottom:2px;">${role}</p>
-              <span style="font-size:0.88rem;color:#64748B;">${tenure}</span>
+              <h4 style="font-size:1.45rem;color:var(--navy);margin-bottom:4px;font-weight:700;">${name}</h4>
+              <p style="color:var(--teal-dark);font-weight:700;margin-bottom:2px;font-size:1.05rem;">${role}</p>
+              ${languages ? `<span style="font-size:0.88rem;color:var(--text-muted);">${languages}</span>` : ''}
             </div>
           </div>
-          <div style="font-size:1.05rem;line-height:1.7;color:#334155;margin-bottom:24px;">
-            <p>${bio}</p>
+          <div style="font-size:1.05rem;line-height:1.75;color:var(--text-body);margin-bottom:20px;">
+            <p style="margin-bottom:14px;white-space:pre-line;">${bio}</p>
           </div>
-          <blockquote style="background:#FAF7F2;border-left:5px solid #8DC73F;padding:18px 24px;border-radius:12px;font-style:italic;color:#12263A;font-size:1.1rem;line-height:1.5;">
+          ${quote ? `
+          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 22px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.55;margin-bottom:18px;">
             "${quote}"
-          </blockquote>
+          </blockquote>` : ''}
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('modal-close-button').click();" style="border-radius:20px;padding:8px 24px;cursor:pointer;">
+              Close Bio
+            </button>
+          </div>
         `;
         openModal(name, content);
+      }
+
+      el.addEventListener('click', triggerLeaderModal);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          triggerLeaderModal(e);
+        }
+      });
+    });
+
+    // Attach to Board bio cards & buttons
+    document.querySelectorAll('.open-board-bio').forEach(el => {
+      function triggerBoardModal(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        const name = el.getAttribute('data-name');
+        const role = el.getAttribute('data-role');
+        const tenure = el.getAttribute('data-tenure');
+        const photo = el.getAttribute('data-photo');
+        const bio = el.getAttribute('data-bio');
+        const quote = el.getAttribute('data-quote') || '';
+
+        const content = `
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:22px;">
+            ${photo ? `<div style="width:84px;height:84px;border-radius:9999px;overflow:hidden;flex-shrink:0;border:3px solid var(--teal);box-shadow:0 4px 12px rgba(42,210,201,0.25);"><img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>` : ''}
+            <div>
+              <h4 style="font-size:1.45rem;color:var(--navy);margin-bottom:4px;font-weight:700;">${name}</h4>
+              <p style="color:var(--teal-dark);font-weight:700;margin-bottom:2px;font-size:1.05rem;">${role}</p>
+              ${tenure ? `<span style="font-size:0.88rem;color:var(--text-muted);">${tenure}</span>` : ''}
+            </div>
+          </div>
+          <div style="font-size:1.05rem;line-height:1.75;color:var(--text-body);margin-bottom:20px;">
+            <p style="margin-bottom:14px;white-space:pre-line;">${bio}</p>
+          </div>
+          ${quote ? `
+          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 22px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.55;margin-bottom:18px;">
+            "${quote}"
+          </blockquote>` : ''}
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('modal-close-button').click();" style="border-radius:20px;padding:8px 24px;cursor:pointer;">
+              Close Bio
+            </button>
+          </div>
+        `;
+        openModal(name, content);
+      }
+
+      el.addEventListener('click', triggerBoardModal);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          triggerBoardModal(e);
+        }
       });
     });
 

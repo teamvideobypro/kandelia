@@ -823,10 +823,7 @@ about_html += f'''
           <div style="border-radius:24px; overflow:hidden; box-shadow:0 12px 36px rgba(30,34,170,0.08); border:1px solid rgba(42,210,201,0.25);">
             <img src="assets/image_9.jpeg" alt="Kandelia staff team gathering together" style="width:100%; height:auto; display:block;">
           </div>
-          <p style="font-size:1.05rem; font-weight:600; color:var(--navy); margin-top:14px; text-align:center;">Kandelia staff</p>
-          <div style="text-align:center; margin-top:8px;">
-            <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener" style="font-size:0.92rem; color:var(--teal-dark); font-weight:600;">View Staff & Board on Kandelia.org ↗</a>
-          </div>
+          <p style="font-size:1.05rem; font-weight:600; color:var(--navy); margin-top:14px; text-align:center;">Kandelia dedicated staff & leadership team</p>
         </div>
 
         <!-- EXECUTIVE DIRECTORS (ONLY TWO CARDS WITH REAL PHOTOS & MODAL BIO EXPANSION) -->
@@ -836,7 +833,15 @@ about_html += f'''
 
         <div class="leadership-2grid">
           <!-- Leader 1: Tram Lam, MNPL -->
-          <div class="leader-card-featured">
+          <div class="leader-card-featured open-leader-bio"
+               role="button"
+               tabindex="0"
+               data-name="Tram Lam, MNPL"
+               data-role="Co-Executive Director"
+               data-photo="assets/tram_lam_headshot_studio.jpg"
+               data-languages="English, Vietnamese"
+               data-bio="Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage, overseeing regional community partnerships, long-term sustainability endowment, and systemic advocacy across Washington State."
+               data-quote="Our work is about tending to deep roots. Just like the mangrove tree that gives Kandelia its name, we provide a secure, nurturing ecosystem so youth and families can stand strong through any storm.">
             <div class="leader-photo-wrap">
               <img src="assets/tram_lam_headshot_studio.jpg" alt="Tram Lam, MNPL - Co-Executive Director">
             </div>
@@ -846,22 +851,26 @@ about_html += f'''
             <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
               Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage.
             </p>
-            <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
-              <button class="btn btn-outline btn-sm open-leader-bio"
-                      data-name="Tram Lam, MNPL"
-                      data-role="Co-Executive Director"
-                      data-photo="assets/tram_lam_headshot_studio.jpg"
-                      data-languages="English, Vietnamese"
-                      data-bio="Tram has dedicated over 18 years to non-profit management, immigrant rights, and educational justice in King County. She guides Kandelia's strategic vision with deep reverence for our 50-year mutual aid heritage, overseeing regional community partnerships, long-term sustainability endowment, and systemic advocacy."
-                      data-quote="Our work is about tending to deep roots. Just like the mangrove tree that gives Kandelia its name, we provide a secure, nurturing ecosystem so youth and families can stand strong through any storm.">
+            <div style="margin-top:auto; width:100%;">
+              <button class="btn btn-outline btn-sm"
+                      type="button"
+                      style="width:100%; text-align:center; display:flex; justify-content:center; align-items:center;"
+                      tabindex="-1">
                 View Bio & Credentials →
               </button>
-              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Directory ↗</a>
             </div>
           </div>
 
           <!-- Leader 2: Khadar Abdi -->
-          <div class="leader-card-featured">
+          <div class="leader-card-featured open-leader-bio"
+               role="button"
+               tabindex="0"
+               data-name="Khadar Abdi"
+               data-role="Co-Executive Director"
+               data-photo="assets/khadar_abdi_headshot.jpg"
+               data-languages="English, Somali, Swahili"
+               data-bio="Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways across King County public schools. Having arrived in Seattle as a newcomer himself, he brings authentic lived experience to youth empowerment."
+               data-quote="Over 90% of our staff have lived the immigrant and refugee journey themselves. When a family walks through our doors, they are met with shared language, shared empathy, and unconditional dignity.">
             <div class="leader-photo-wrap">
               <img src="assets/khadar_abdi_headshot.jpg" alt="Khadar Abdi - Co-Executive Director">
             </div>
@@ -871,17 +880,58 @@ about_html += f'''
             <p style="font-size:0.95rem; color:var(--text-body); line-height:1.55; margin-bottom:18px;">
               Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways.
             </p>
-            <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
-              <button class="btn btn-outline btn-sm open-leader-bio"
-                      data-name="Khadar Abdi"
-                      data-role="Co-Executive Director"
-                      data-photo="assets/khadar_abdi_headshot.jpg"
-                      data-languages="English, Somali, Swahili"
-                      data-bio="Khadar spearheads our high school cohort models, paid summer internships, and youth leadership initiatives, focusing on culturally affirming mentorship and college-and-career pathways across King County public schools. Having arrived in Seattle as a newcomer himself, he brings authentic lived experience to youth empowerment."
-                      data-quote="Over 90% of our staff have lived the immigrant and refugee journey themselves. When a family walks through our doors, they are met with shared language, shared empathy, and unconditional dignity.">
+            <div style="margin-top:auto; width:100%;">
+              <button class="btn btn-outline btn-sm"
+                      type="button"
+                      style="width:100%; text-align:center; display:flex; justify-content:center; align-items:center;"
+                      tabindex="-1">
                 View Bio & Credentials →
               </button>
-              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem; color:var(--teal-dark); font-weight:600;">Directory ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- All Staff Team & Program Coordinators (Direct from kandelia.org) -->
+        <div style="max-width:960px; margin:40px auto 0;">
+          <div style="background:#FFFFFF; border-radius:18px; padding:28px 32px; border:1px solid rgba(30,34,170,0.12); box-shadow:0 4px 14px rgba(30,34,170,0.04);">
+            <div style="text-align:center; margin-bottom:20px;">
+              <span class="badge badge-teal" style="margin-bottom:8px;">Program Staff & Coordinators</span>
+              <h4 style="font-size:1.3rem; color:var(--navy); font-weight:700; margin:0;">
+                Our Dedicated Staff Team
+              </h4>
+              <p style="font-size:0.92rem; color:var(--text-muted); margin-top:6px; margin-bottom:0;">
+                Our multilingual team coordinates high school tutoring, adult education, and community assistance across King County.
+              </p>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px;">
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Carolina</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Administrative Coordinator</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Gaugdy</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Family Program Coordinator</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Gustavo</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Youth Program Coordinator</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Kelebet</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Youth Program Manager</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Sieng</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Community Engagement Manager</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Thu</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Family Program Manager</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Xochilt</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Development Coordinator</div>
+              </div>
             </div>
           </div>
         </div>
@@ -910,7 +960,15 @@ for idx, board in enumerate(site_data.BOARD_MEMBERS):
     escaped_subline = html.escape(subline)
     escaped_bio = html.escape(board['bio'])
     escaped_quote = html.escape(board.get('quote', ''))
-    about_html += f'''          <div class="board-card-enhanced">
+    about_html += f'''          <div class="board-card-enhanced open-board-bio"
+               role="button"
+               tabindex="0"
+               data-name="{escaped_name}"
+               data-role="{escaped_role}"
+               data-tenure="{escaped_subline}"
+               data-bio="{escaped_bio}"
+               data-quote="{escaped_quote}"
+               data-photo="{photo_src}">
             <div class="board-member-photo-frame">
               <img src="{photo_src}" alt="{escaped_name}" loading="lazy">
             </div>
@@ -918,16 +976,12 @@ for idx, board in enumerate(site_data.BOARD_MEMBERS):
             <div class="board-member-role">{escaped_role}</div>
             <div class="board-member-meta">{escaped_subline}</div>
             <div class="board-member-actions">
-              <button class="btn btn-outline btn-sm open-board-bio"
-                      data-name="{escaped_name}"
-                      data-role="{escaped_role}"
-                      data-tenure="{escaped_subline}"
-                      data-bio="{escaped_bio}"
-                      data-quote="{escaped_quote}"
-                      data-photo="{photo_src}">
+              <button class="btn btn-outline btn-sm"
+                      type="button"
+                      style="width:100%; text-align:center; display:flex; justify-content:center; align-items:center;"
+                      tabindex="-1">
                 Read Bio →
               </button>
-              <a href="https://www.kandelia.org/about/staff-and-board/" target="_blank" rel="noopener">Directory ↗</a>
             </div>
           </div>\n'''
 
