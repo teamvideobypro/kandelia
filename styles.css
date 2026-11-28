@@ -7182,3 +7182,82 @@ select {
     font-size: 0.84rem !important;
   }
 }
+
+/* ==========================================================================
+   EDITORIAL STORYTYPING & LONG-FORM ARTICLE READABILITY SYSTEM
+   Reusable component classes for story modals and full-story sections
+   ========================================================================== */
+.story-editorial-article {
+  max-width: 68ch;
+  margin: 0 auto;
+  text-align: left;
+  color: #1E293B;
+  font-size: 1.06rem;
+  line-height: 1.78;
+}
+
+.story-editorial-article p {
+  margin-bottom: 1.5rem;
+  color: #1E293B;
+  text-align: left;
+  line-height: 1.78;
+}
+
+.story-editorial-article p:last-child {
+  margin-bottom: 0;
+}
+
+.story-lead-in {
+  font-size: 1.12rem !important;
+  line-height: 1.68 !important;
+  color: var(--navy) !important;
+  background: #F0FAF9;
+  border-left: 4px solid var(--teal);
+  padding: 14px 18px;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 1.75rem !important;
+  font-weight: 500;
+}
+
+.story-dropcap-para::first-letter {
+  float: left;
+  font-size: 3.15rem;
+  line-height: 0.86;
+  padding-right: 10px;
+  padding-top: 4px;
+  font-weight: 700;
+  color: var(--coral);
+}
+
+.story-pull-quote {
+  margin: 1.75rem 0 !important;
+  padding: 18px 22px !important;
+  background: #FAF7F2;
+  border-left: 4px solid var(--coral);
+  border-radius: 0 14px 14px 0;
+  font-style: italic;
+  font-size: 1.15rem !important;
+  line-height: 1.6 !important;
+  color: var(--navy) !important;
+  font-weight: 500;
+}
+
+.story-highlight {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+@media (max-width: 767px) {
+  .story-editorial-article {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+  .story-lead-in {
+    font-size: 1.04rem !important;
+    padding: 12px 14px;
+  }
+  .story-pull-quote {
+    padding: 14px 14px !important;
+    font-size: 1.06rem !important;
+  }
+}
