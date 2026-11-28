@@ -6313,18 +6313,14 @@ h1, h2, h3, .hero-title, .event-title, .inner-hero-title, .section-header h2 {
   flex-direction: column;
 }
 
-
-
-
-
 /* ==========================================================================
    MOBILE-NATIVE & STRICT RESPONSIVE ARCHITECTURE
    Enforces:
-   1. Strict relative spacing & fluid clamp() padding across all sections
-   2. Clean standardized breakpoints: Desktop (1024px+), Tablet (768px-1023px), Mobile (<768px), Small Mobile (<480px)
-   3. Graceful single-column layout restacking on mobile viewports
-   4. Absolutely zero horizontal scrolling (overflow-x: hidden on root/body)
-   5. Fluid typography scaling and strict 44x44px touch targets on interactive controls
+   1. Clean Desktop (1024px+), Tablet (768px-1023px), Mobile (<768px), Small Mobile (<480px)
+   2. Zero desktop header clutter (mobile-toggle strictly hidden on desktop)
+   3. Zero horizontal scrolling (overflow-x: hidden on html/body + minmax(0, 1fr) grids)
+   4. Wrapping buttons on mobile so no CTA ever overflows a card or viewport
+   5. Fluid clamp() spacing, typography, and >= 44x44px touch targets
    ========================================================================== */
 
 /* --- 1. Global Box-Sizing & Overflow Guardrails --- */
@@ -6345,16 +6341,22 @@ body {
 
 *, *::before, *::after {
   box-sizing: inherit;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
-img, video, iframe, canvas, svg {
+img, video, iframe, canvas {
   max-width: 100%;
   height: auto;
 }
 
-/* --- 2. Fluid Section Spacing (Desktop & Global Baseline) --- */
+svg {
+  max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6, .lead {
+  overflow-wrap: break-word;
+}
+
+/* --- 2. Fluid Section Spacing --- */
 .section,
 section,
 .section-hero,
@@ -6404,7 +6406,8 @@ h4 {
   line-height: 1.6 !important;
 }
 
-/* --- 4. Minimum Touch Target Enforcement (>= 44x44px) --- */
+/* --- 4. Minimum Touch Target Enforcement (>= 44x44px) & Avatar Guard --- */
+/* Note: .mobile-toggle is intentionally NOT here so it stays display:none on desktop */
 .btn,
 .btn-sm,
 .btn-primary,
@@ -6417,7 +6420,6 @@ h4 {
 .event-ticket-btn,
 .event-sponsor-btn,
 .footer-stay-in-loop-btn,
-.mobile-toggle,
 .open-story-reader-btn {
   min-height: 44px !important;
   min-width: 44px;
@@ -6426,6 +6428,7 @@ h4 {
   justify-content: center !important;
   box-sizing: border-box !important;
   touch-action: manipulation;
+  max-width: 100%;
 }
 
 .btn-sm {
@@ -6444,6 +6447,7 @@ h4 {
   align-items: center !important;
   justify-content: center !important;
   touch-action: manipulation;
+  flex-shrink: 0 !important;
 }
 
 .modal-close-btn {
@@ -6456,6 +6460,16 @@ h4 {
   justify-content: center !important;
   border-radius: 50% !important;
   touch-action: manipulation;
+  flex-shrink: 0 !important;
+}
+
+/* Keep testimonial avatar strictly circular */
+.author-avatar {
+  flex-shrink: 0 !important;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
 }
 
 /* Accessible tap target for carousel dots */
@@ -6486,7 +6500,6 @@ select {
   box-sizing: border-box !important;
 }
 
-/* Nav links mobile hit target */
 .mobile-nav-link {
   min-height: 44px !important;
   display: flex !important;
@@ -6515,6 +6528,68 @@ select {
 }
 
 /* ==========================================================================
+   BREAKPOINT: DESKTOP (961px+)
+   Strictly hides mobile toggle and drawer
+   ========================================================================== */
+@media (min-width: 961px) {
+  .mobile-toggle {
+    display: none !important;
+  }
+  .mobile-nav-drawer {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT: TABLET & COMPACT HEADER (<= 960px)
+   Switches desktop nav to clean mobile toggle + compact Donate CTA
+   ========================================================================== */
+@media (max-width: 960px) {
+  .main-nav {
+    display: none !important;
+  }
+
+  .header-container {
+    height: 72px !important;
+    gap: 10px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .brand-logo {
+    height: 36px !important;
+    width: auto !important;
+    max-width: 140px !important;
+    object-fit: contain !important;
+  }
+
+  .site-header .btn-coral,
+  .site-header .btn-donate {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    font-size: 0.88rem !important;
+    min-height: 40px !important;
+    min-width: auto !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 8px 14px !important;
+    font-size: 0.9rem !important;
+    min-height: 44px !important;
+    min-width: 44px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    touch-action: manipulation;
+  }
+}
+
+/* ==========================================================================
    BREAKPOINT: TABLET (768px - 1023px)
    Balances 3- and 4-column desktop grids into clean 2-column structures
    ========================================================================== */
@@ -6524,38 +6599,18 @@ select {
     padding-right: 24px !important;
   }
 
-  .board-grid-enhanced {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
-  }
-
-  .milestones-4grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
-  }
-
-  .who-we-help-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
-  }
-
-  .ways-3card-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 24px !important;
-  }
-
-  .giving-tiers-3grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
-  }
-
+  .board-grid-enhanced,
+  .milestones-4grid,
+  .who-we-help-grid,
+  .ways-3card-grid,
+  .giving-tiers-3grid,
   .staff-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 20px !important;
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 36px !important;
   }
 
@@ -6567,18 +6622,16 @@ select {
 
 /* ==========================================================================
    BREAKPOINT: MOBILE (< 768px)
-   Full graceful collapse to 1 column, fluid touch spacing, zero horizontal overflow
+   Full graceful collapse to 1 column (minmax(0, 1fr)), wrapped buttons, zero overflow
    ========================================================================== */
 @media (max-width: 767px) {
-  /* Container breathing room */
   .container, .w, .w-narrow {
-    padding-left: 18px !important;
-    padding-right: 18px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* Section Spacing */
   .section,
   section,
   .section-hero,
@@ -6590,18 +6643,41 @@ select {
   .section-careers,
   .section-involved,
   .section-pillars {
-    padding-top: clamp(2rem, 5vw, 3.5rem) !important;
-    padding-bottom: clamp(2rem, 5vw, 3.5rem) !important;
+    padding-top: clamp(2rem, 5vw, 3.25rem) !important;
+    padding-bottom: clamp(2rem, 5vw, 3.25rem) !important;
   }
 
-  /* Section Headers */
   .section-header {
     margin-bottom: 28px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
 
-  /* Full 1-Column Grid Collapse */
+  /* Allow long CTA buttons to wrap cleanly inside mobile viewports & cards */
+  .btn,
+  .btn-lg,
+  .btn-outline,
+  .btn-primary,
+  .btn-teal,
+  .support-donate-pill-btn {
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    height: auto !important;
+    max-width: 100% !important;
+    padding: 12px 20px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Keep header Donate button single-line */
+  .site-header .btn-coral,
+  .site-header .btn-donate {
+    white-space: nowrap !important;
+    padding: 8px 14px !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* Strict minmax(0, 1fr) collapse so no child ever blows out a grid column */
   .hero-grid,
   .event-2col-grid,
   .who-we-help-grid,
@@ -6632,13 +6708,22 @@ select {
   .who-grid,
   .who-grid-staggered,
   .support-anchor-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 20px !important;
   }
 
-  /* Hero adjustments */
+  .hero-grid > *,
+  .support-banner-card > *,
+  .pinned-report-card > *,
+  .story-square-card > *,
+  .footer-grid > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Hero section & organic image alignment */
   .hero-grid {
-    gap: 32px !important;
+    gap: 28px !important;
     text-align: center;
   }
 
@@ -6647,33 +6732,138 @@ select {
     max-width: 100% !important;
   }
 
-  .hero-organic-composition,
-  .hero-image-frame-enhanced,
+  .hero-organic-composition {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 8px auto 0 !important;
+  }
+
+  .hero-scallop-ring {
+    inset: -8px !important;
+  }
+
+  .hero-image-frame-enhanced {
+    width: 100% !important;
+    max-width: 300px !important;
+    border-radius: 36% 64% 52% 48% / 44% 46% 54% 56% !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-image-frame-enhanced img,
+  .hero-image-frame-enhanced .hero-main-img {
+    object-position: center 20% !important;
+  }
+
+  .floating-sticker.top-right {
+    top: -6px !important;
+    right: 0 !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+
   .event-layered-image-wrap {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
   }
 
-  /* 2x2 Stats Grid on Mobile: Clean 2 columns with centered layout */
+  /* 2x2 Stats Grid on Mobile */
   .hero-stats-2x2-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
     justify-content: center !important;
     margin: 20px auto 0 !important;
-    max-width: 380px !important;
+    max-width: 360px !important;
   }
 
   .hero-stats-2x2-grid .stat-badge-pill {
-    padding: 10px 14px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* Support Banner Card fix */
+  .support-banner-card {
+    padding: 28px 18px !important;
+    gap: 24px !important;
+    text-align: center !important;
+  }
+
+  .support-banner-photo-col,
+  .support-banner-content-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .support-banner-photo-frame {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  .support-heading-badge-wrap {
+    justify-content: center !important;
+  }
+
+  .support-banner-action,
+  .support-donate-pill-btn {
+    width: 100% !important;
+  }
+
+  /* Pinned Report Card fix */
+  .pinned-report-card {
+    padding: 20px 16px !important;
+    gap: 20px !important;
+  }
+
+  .report-cover-box,
+  .report-details-body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Monthly Donor Card fix */
+  .monthly-donor-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 24px 18px !important;
+    gap: 20px !important;
+  }
+
+  .monthly-donor-content {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .monthly-donor-action,
+  .monthly-donor-action .btn {
+    width: 100% !important;
+    flex-shrink: 1 !important;
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    padding: 24px 18px !important;
+  }
+
+  .testimonial-quote {
+    padding-left: 16px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .testimonial-author-block {
+    padding-left: 16px !important;
+    gap: 12px !important;
   }
 
   /* Story Cards on Mobile */
   .story-square-card {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 16px !important;
     text-align: left !important;
-    padding: 20px !important;
+    padding: 20px 16px !important;
   }
 
   .story-square-img-wrap {
@@ -6684,20 +6874,16 @@ select {
     margin: 0 auto !important;
   }
 
-  /* Pillar & Ways Cards Images */
+  /* Pillar & Ways Cards */
   .pillar-2card-img,
   .way-3card-img {
     height: 200px !important;
   }
 
   .pillar-2card-body,
-  .way-3card-body {
-    padding: 22px 18px !important;
-  }
-
-  /* Board Cards */
+  .way-3card-body,
   .board-card-enhanced {
-    padding: 22px 18px !important;
+    padding: 20px 16px !important;
   }
 
   /* Values Flex Collapse */
@@ -6714,10 +6900,30 @@ select {
   }
 
   /* Footer Mobile Restack */
+  .site-footer {
+    padding: 48px 0 28px !important;
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
     text-align: left !important;
+    margin-bottom: 32px !important;
+  }
+
+  .footer-col a {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 36px !important;
+  }
+
+  .footer-contact-info span {
+    white-space: normal !important;
+  }
+
+  .footer-stay-in-loop {
+    padding-top: 28px !important;
+    margin-top: 28px !important;
   }
 
   .footer-stay-in-loop-form {
@@ -6726,13 +6932,16 @@ select {
     gap: 12px !important;
   }
 
-  .footer-stay-in-loop-input {
+  .footer-stay-in-loop-input,
+  .footer-stay-in-loop-btn {
     width: 100% !important;
     flex: none !important;
   }
 
-  .footer-stay-in-loop-btn {
-    width: 100% !important;
+  .footer-bottom-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
   }
 
   /* In-Page Modal Responsive Behavior */
@@ -6748,12 +6957,11 @@ select {
 
 /* ==========================================================================
    BREAKPOINT: SMALL MOBILE (< 480px)
-   Compact edge-to-edge spatial balance for 320px - 479px devices
    ========================================================================== */
 @media (max-width: 479px) {
   .container, .w, .w-narrow {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 
   .section,
@@ -6771,7 +6979,6 @@ select {
     padding-bottom: 2rem !important;
   }
 
-  /* Hero Buttons Stack Vertically */
   .hero-cta-group,
   .hero-actions {
     flex-direction: column !important;
@@ -6784,17 +6991,24 @@ select {
     width: 100% !important;
   }
 
-  /* Cards Padding Optimization */
-  .pillar-2card-body,
-  .way-3card-body,
-  .board-card-enhanced,
-  .story-square-card {
-    padding: 18px 16px !important;
-  }
-
-  /* Modal Full-Width Feel */
   .modal-dialog {
     width: 96vw !important;
     padding: 20px 14px !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .brand-logo {
+    height: 30px !important;
+    max-width: 115px !important;
+  }
+  .site-header .btn-coral,
+  .site-header .btn-donate {
+    padding: 7px 11px !important;
+    font-size: 0.82rem !important;
+  }
+  .mobile-toggle {
+    padding: 7px 11px !important;
+    font-size: 0.84rem !important;
   }
 }
