@@ -7243,8 +7243,8 @@ select {
 }
 
 .story-highlight {
-  font-weight: 700;
-  color: var(--navy);
+  font-weight: 600;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
