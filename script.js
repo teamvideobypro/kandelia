@@ -431,7 +431,7 @@
             <span class="badge badge-coral" style="margin-bottom:10px;display:inline-block;">Roots & Routes: Immigrant Stories</span>
             <p style="font-size:1.15rem;color:var(--coral);font-weight:700;margin:6px 0 0;">${subtitle}</p>
           </div>
-          ${imgSrc ? `<div style="border-radius:16px;overflow:hidden;margin-bottom:20px;background:#F8FAFC;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);"><img src="${imgSrc}" alt="${title}" style="width:100%;height:auto;max-height:420px;object-fit:contain;display:block;margin:0 auto;"></div>` : ''}
+          ${imgSrc ? `<div class="story-modal-hero-img-wrap"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>` : ''}
           ${quote ? `
           <blockquote style="background:#FAF7F2;border-left:5px solid var(--coral);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.12rem;line-height:1.55;margin-bottom:24px;">
             "${quote}"

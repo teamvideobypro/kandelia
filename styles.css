@@ -7247,7 +7247,28 @@ select {
   color: inherit;
 }
 
+.story-modal-hero-img-wrap {
+  width: 100%;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.story-modal-hero-img-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
 @media (max-width: 767px) {
+  .story-modal-hero-img-wrap {
+    height: 240px;
+    margin-bottom: 18px;
+  }
   .story-editorial-article {
     font-size: 1rem;
     line-height: 1.72;
