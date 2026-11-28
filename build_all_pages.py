@@ -2118,7 +2118,7 @@ print("careers.html written successfully!")
 # 8. IMPACT REPORT 2026 PAGE (impact-report-2026.html)
 # ==============================================================================
 print("Generating impact-report-2026.html...")
-impact_html = get_header("impact", "2026 Impact Report | Deep Roots, Lasting Flourish | Kandelia")
+impact_html = get_header("impact")
 impact_html += '''
   <main id="main-content">
     <section class="hero-inner-section" style="padding:72px 0 56px; background:linear-gradient(135deg, #F0FAF9 0%, #FFFFFF 100%); border-bottom:1px solid rgba(42,210,201,0.2);">
