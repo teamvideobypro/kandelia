@@ -909,7 +909,7 @@ about_html += f'''
                 Our multilingual team coordinates high school tutoring, adult education, and community assistance across King County.
               </p>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px;">
+            <div class="staff-directory-grid">
               <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
                 <div style="font-weight:700; color:var(--navy); font-size:1rem;">Carolina</div>
                 <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Administrative Coordinator</div>
@@ -1629,7 +1629,7 @@ giving_html += f'''
           <p class="lead">From workplace matching gifts to vehicle donations, there are many flexible pathways to advance refugee and immigrant equity.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div class="giving-options-grid">
           <!-- Option 1: Employer Gift Matching -->
           <div class="way-card" style="background:#FFFFFF; border-radius:20px; padding:28px 24px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 14px rgba(30,34,170,0.04); display:flex; flex-direction:column;">
             <div class="way-icon-bubble" style="background:#F4FBE8; color:#2A6615; width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">
@@ -1828,7 +1828,7 @@ careers_html += f'''
           </p>
         </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; margin-bottom:56px;">
+        <div class="careers-benefits-grid">
           <!-- Benefit 1 -->
           <div style="background:#F0FAF9; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25);">
             <div style="width:48px; height:48px; border-radius:12px; background:#14857F; color:#fff; display:grid; place-items:center; margin-bottom:18px;">

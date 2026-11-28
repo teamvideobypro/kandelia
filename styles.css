@@ -6315,3 +6315,486 @@ h1, h2, h3, .hero-title, .event-title, .inner-hero-title, .section-header h2 {
 
 
 
+
+
+/* ==========================================================================
+   MOBILE-NATIVE & STRICT RESPONSIVE ARCHITECTURE
+   Enforces:
+   1. Strict relative spacing & fluid clamp() padding across all sections
+   2. Clean standardized breakpoints: Desktop (1024px+), Tablet (768px-1023px), Mobile (<768px), Small Mobile (<480px)
+   3. Graceful single-column layout restacking on mobile viewports
+   4. Absolutely zero horizontal scrolling (overflow-x: hidden on root/body)
+   5. Fluid typography scaling and strict 44x44px touch targets on interactive controls
+   ========================================================================== */
+
+/* --- 1. Global Box-Sizing & Overflow Guardrails --- */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- 2. Fluid Section Spacing (Desktop & Global Baseline) --- */
+.section,
+section,
+.section-hero,
+.section-about,
+.section-who-we-help,
+.section-stories,
+.section-giving,
+.section-support,
+.section-careers,
+.section-involved,
+.section-pillars {
+  padding-top: clamp(2.5rem, 6vw, 5rem) !important;
+  padding-bottom: clamp(2.5rem, 6vw, 5rem) !important;
+}
+
+.inner-hero,
+.hero-inner-section {
+  padding-top: clamp(2.25rem, 5.5vw, 4.25rem) !important;
+  padding-bottom: clamp(2.25rem, 5.5vw, 4.25rem) !important;
+}
+
+/* --- 3. Fluid Typography Scaling --- */
+h1, .hero-title, .inner-hero-title {
+  font-size: clamp(2rem, 5.5vw + 0.25rem, 3.25rem) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em !important;
+}
+
+h2, .section-header h2 {
+  font-size: clamp(1.6rem, 3.5vw + 0.25rem, 2.5rem) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.015em !important;
+}
+
+h3, .card-title, .way-title, .pillar-title {
+  font-size: clamp(1.2rem, 2.5vw + 0.15rem, 1.65rem) !important;
+  line-height: 1.3 !important;
+}
+
+h4 {
+  font-size: clamp(1.05rem, 2vw + 0.1rem, 1.35rem) !important;
+  line-height: 1.35 !important;
+}
+
+.lead, .hero-lead, .inner-hero-lead {
+  font-size: clamp(1rem, 1.5vw + 0.2rem, 1.2rem) !important;
+  line-height: 1.6 !important;
+}
+
+/* --- 4. Minimum Touch Target Enforcement (>= 44x44px) --- */
+.btn,
+.btn-sm,
+.btn-primary,
+.btn-outline,
+.btn-teal,
+.btn-coral,
+.card-link-btn,
+.story-read-link,
+.support-donate-pill-btn,
+.event-ticket-btn,
+.event-sponsor-btn,
+.footer-stay-in-loop-btn,
+.mobile-toggle,
+.open-story-reader-btn {
+  min-height: 44px !important;
+  min-width: 44px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  touch-action: manipulation;
+}
+
+.btn-sm {
+  padding: 10px 18px !important;
+  min-height: 44px !important;
+  font-size: 0.95rem !important;
+}
+
+.social-circle-btn {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  touch-action: manipulation;
+}
+
+.modal-close-btn {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  touch-action: manipulation;
+}
+
+/* Accessible tap target for carousel dots */
+.carousel-dot {
+  position: relative !important;
+  touch-action: manipulation;
+}
+.carousel-dot::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+
+/* Form inputs: min 44px height and font-size 16px to prevent iOS auto-zoom */
+.footer-stay-in-loop-input,
+.form-control,
+input[type="text"],
+input[type="email"],
+select {
+  min-height: 44px !important;
+  font-size: 16px !important;
+  box-sizing: border-box !important;
+}
+
+/* Nav links mobile hit target */
+.mobile-nav-link {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 18px !important;
+}
+
+/* --- 5. Base Classes for Extracted Inline Grids --- */
+.staff-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 14px;
+}
+
+.giving-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+}
+
+.careers-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 28px;
+  margin-bottom: 56px;
+}
+
+/* ==========================================================================
+   BREAKPOINT: TABLET (768px - 1023px)
+   Balances 3- and 4-column desktop grids into clean 2-column structures
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container, .w, .w-narrow {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .board-grid-enhanced {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .milestones-4grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .who-we-help-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .ways-3card-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .giving-tiers-3grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .staff-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 36px !important;
+  }
+
+  .hero-organic-composition,
+  .event-layered-image-wrap {
+    max-width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT: MOBILE (< 768px)
+   Full graceful collapse to 1 column, fluid touch spacing, zero horizontal overflow
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Container breathing room */
+  .container, .w, .w-narrow {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Section Spacing */
+  .section,
+  section,
+  .section-hero,
+  .section-about,
+  .section-who-we-help,
+  .section-stories,
+  .section-giving,
+  .section-support,
+  .section-careers,
+  .section-involved,
+  .section-pillars {
+    padding-top: clamp(2rem, 5vw, 3.5rem) !important;
+    padding-bottom: clamp(2rem, 5vw, 3.5rem) !important;
+  }
+
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 28px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Full 1-Column Grid Collapse */
+  .hero-grid,
+  .event-2col-grid,
+  .who-we-help-grid,
+  .story-square-grid,
+  .milestones-4grid,
+  .leadership-2grid,
+  .board-grid,
+  .board-grid-enhanced,
+  .ways-3card-grid,
+  .pillars-2grid,
+  .giving-tiers-3grid,
+  .giving-tiers-grid,
+  .ways-photo-grid,
+  .ways-to-give-grid,
+  .support-banner-card,
+  .our-work-grid,
+  .programs-4grid,
+  .involved-3grid,
+  .stories-grid,
+  .staff-grid,
+  .staff-directory-grid,
+  .giving-options-grid,
+  .careers-benefits-grid,
+  .timeline-container,
+  .newsletter-form-grid,
+  .newsletter-card,
+  .pinned-report-card,
+  .who-grid,
+  .who-grid-staggered,
+  .support-anchor-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Hero adjustments */
+  .hero-grid {
+    gap: 32px !important;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  .hero-organic-composition,
+  .hero-image-frame-enhanced,
+  .event-layered-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* 2x2 Stats Grid on Mobile: Clean 2 columns with centered layout */
+  .hero-stats-2x2-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    justify-content: center !important;
+    margin: 20px auto 0 !important;
+    max-width: 380px !important;
+  }
+
+  .hero-stats-2x2-grid .stat-badge-pill {
+    padding: 10px 14px !important;
+  }
+
+  /* Story Cards on Mobile */
+  .story-square-card {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    text-align: left !important;
+    padding: 20px !important;
+  }
+
+  .story-square-img-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  /* Pillar & Ways Cards Images */
+  .pillar-2card-img,
+  .way-3card-img {
+    height: 200px !important;
+  }
+
+  .pillar-2card-body,
+  .way-3card-body {
+    padding: 22px 18px !important;
+  }
+
+  /* Board Cards */
+  .board-card-enhanced {
+    padding: 22px 18px !important;
+  }
+
+  /* Values Flex Collapse */
+  .values-even-flex {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+  }
+
+  .values-even-flex .value-card-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  /* Footer Mobile Restack */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: left !important;
+  }
+
+  .footer-stay-in-loop-form {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .footer-stay-in-loop-input {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  .footer-stay-in-loop-btn {
+    width: 100% !important;
+  }
+
+  /* In-Page Modal Responsive Behavior */
+  .modal-dialog {
+    width: min(94vw, 680px) !important;
+    margin: 16px auto !important;
+    padding: 24px 18px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT: SMALL MOBILE (< 480px)
+   Compact edge-to-edge spatial balance for 320px - 479px devices
+   ========================================================================== */
+@media (max-width: 479px) {
+  .container, .w, .w-narrow {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .section,
+  section,
+  .section-hero,
+  .section-about,
+  .section-who-we-help,
+  .section-stories,
+  .section-giving,
+  .section-support,
+  .section-careers,
+  .section-involved,
+  .section-pillars {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Hero Buttons Stack Vertically */
+  .hero-cta-group,
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hero-cta-group .btn,
+  .hero-actions .btn {
+    width: 100% !important;
+  }
+
+  /* Cards Padding Optimization */
+  .pillar-2card-body,
+  .way-3card-body,
+  .board-card-enhanced,
+  .story-square-card {
+    padding: 18px 16px !important;
+  }
+
+  /* Modal Full-Width Feel */
+  .modal-dialog {
+    width: 96vw !important;
+    padding: 20px 14px !important;
+  }
+}
