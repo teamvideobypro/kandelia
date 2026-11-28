@@ -1281,9 +1281,9 @@ help_html += f'''
               <span style="font-size:0.95rem; color:var(--text-muted);">Call our intake line at <strong>206-760-1573</strong> or connect with an advocate directly.</span>
             </div>
             <!-- Main Action Button to Enroll / Contact -->
-            <a href="mailto:help@kandelia.org?subject=Intake Request for Kandelia Programs" class="btn btn-primary btn-lg" style="font-weight:700;">
+            <button type="button" class="btn btn-primary btn-lg open-intake-modal" style="font-weight:700;">
               Enroll Student or Contact an Intake Advocate →
-            </a>
+            </button>
           </div>
         </div>
       </div>

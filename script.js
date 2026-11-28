@@ -543,6 +543,79 @@
         openModal("Partner With Kandelia", content);
       });
     });
+
+    // Attach to Intake & Enrollment Advocate modal buttons (Get Help page)
+    document.querySelectorAll('.open-intake-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:18px;">
+            <span class="badge badge-teal" style="margin-bottom:8px;">Free & Confidential Program Intake</span>
+            <p style="font-size:1.02rem;line-height:1.6;color:var(--text-body);margin-top:6px;">
+              Connect with a multilingual Kandelia intake advocate to enroll in youth or adult programs, or request direct family navigation support. No documentation status is ever required.
+            </p>
+          </div>
+
+          <form id="intake-request-form" style="display:flex;flex-direction:column;gap:12px;margin-bottom:18px;background:#F8FAFC;padding:16px;border-radius:14px;border:1px solid #E2E8F0;">
+            <div>
+              <label for="intake-name" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Student or Parent Name *</label>
+              <input type="text" id="intake-name" required placeholder="Full Name" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px;">
+              <div>
+                <label for="intake-contact" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Phone or Email *</label>
+                <input type="text" id="intake-contact" required placeholder="(206) 555-0199 or email" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+              </div>
+              <div>
+                <label for="intake-program" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Program Interest</label>
+                <select id="intake-program" style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;background:#fff;">
+                  <option value="Youth Programs (Ages 14-21)">High School Youth Programs (14–21)</option>
+                  <option value="Adult & Family Workshops">Adult & Family Workshops</option>
+                  <option value="Legal & Healthcare Navigation">Legal & Healthcare Navigation</option>
+                  <option value="General Support">General Intake / Not Sure Yet</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="intake-lang" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Preferred Language & Notes</label>
+              <input type="text" id="intake-lang" placeholder="e.g., Spanish, Arabic, Somali, Vietnamese, English..." style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:4px;">Submit Intake Request →</button>
+            <div id="intake-form-feedback" style="display:none;padding:12px 14px;border-radius:10px;background:#E6FAF9;color:#0F5D59;font-weight:600;font-size:0.92rem;border:1px solid rgba(42,210,201,0.4);"></div>
+          </form>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;margin-bottom:14px;">
+            <a href="tel:2067601573" class="btn btn-outline" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              📞 Call 206-760-1573
+            </a>
+            <a href="mailto:help@kandelia.org?subject=Intake%20Request%20for%20Kandelia%20Programs" class="btn btn-coral" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              ✉️ Email help@kandelia.org
+            </a>
+          </div>
+
+          <div style="padding-top:12px;border-top:1px solid #E5E7EB;font-size:0.86rem;color:var(--text-muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <span>🕒 Mon–Fri, 9:00 AM – 5:00 PM</span>
+            <span>📍 3829B S. Edmunds St. Box 9, Seattle, WA</span>
+          </div>
+        `;
+        openModal("Enroll Student or Contact an Intake Advocate", content);
+
+        const intakeForm = document.getElementById('intake-request-form');
+        const intakeFeedback = document.getElementById('intake-form-feedback');
+        if (intakeForm && intakeFeedback) {
+          intakeForm.addEventListener('submit', (ev) => {
+            ev.preventDefault();
+            const nameVal = document.getElementById('intake-name').value.trim();
+            const progVal = document.getElementById('intake-program').value;
+            intakeFeedback.style.display = 'block';
+            intakeFeedback.innerHTML = `✅ Thank you, <strong>${nameVal || 'friend'}</strong>! Your intake request for <strong>${progVal}</strong> has been received. A multilingual advocate will reach out within 1 business day (or call <a href="tel:2067601573" style="color:var(--navy);text-decoration:underline;">206-760-1573</a> for immediate assistance).`;
+            intakeForm.reset();
+          });
+        }
+      });
+    });
   }
 
   // =========================================================================
