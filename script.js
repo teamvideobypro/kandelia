@@ -343,11 +343,11 @@
               ${languages ? `<span style="font-size:0.88rem;color:var(--text-muted);">${languages}</span>` : ''}
             </div>
           </div>
-          <div style="font-size:1.05rem;line-height:1.75;color:var(--text-body);margin-bottom:20px;">
-            <p style="margin-bottom:14px;white-space:pre-line;">${bio}</p>
+          <div class="bio-editorial-body">
+            ${bio.trim().startsWith('<p') ? bio : `<p style="white-space:pre-line;">${bio}</p>`}
           </div>
           ${quote ? `
-          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 22px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.55;margin-bottom:18px;">
+          <blockquote class="bio-quote-callout">
             "${quote}"
           </blockquote>` : ''}
           <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
@@ -390,11 +390,11 @@
               ${tenure ? `<span style="font-size:0.88rem;color:var(--text-muted);">${tenure}</span>` : ''}
             </div>
           </div>
-          <div style="font-size:1.05rem;line-height:1.75;color:var(--text-body);margin-bottom:20px;">
-            <p style="margin-bottom:14px;white-space:pre-line;">${bio}</p>
+          <div class="bio-editorial-body">
+            ${bio.trim().startsWith('<p') ? bio : `<p style="white-space:pre-line;">${bio}</p>`}
           </div>
           ${quote ? `
-          <blockquote style="background:#F0FAF9;border-left:5px solid var(--teal);padding:18px 22px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.05rem;line-height:1.55;margin-bottom:18px;">
+          <blockquote class="bio-quote-callout">
             "${quote}"
           </blockquote>` : ''}
           <div style="margin-top:24px;padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:flex-end;">
