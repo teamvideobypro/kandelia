@@ -927,6 +927,44 @@
   }
 
   // =========================================================================
+  // 6. Interactive FAQ Accordion
+  // =========================================================================
+  function initFaqAccordions() {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        if (!item) return;
+        const answer = item.querySelector('.faq-answer');
+        const isActive = item.classList.contains('active');
+
+        // Close sibling items in the same wrapper for clean accordion focus
+        const wrapper = item.closest('.faq-wrapper');
+        if (wrapper) {
+          wrapper.querySelectorAll('.faq-item.active').forEach(openItem => {
+            if (openItem !== item) {
+              openItem.classList.remove('active');
+              const openBtn = openItem.querySelector('.faq-question');
+              const openAns = openItem.querySelector('.faq-answer');
+              if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+              if (openAns) openAns.style.maxHeight = '0px';
+            }
+          });
+        }
+
+        if (isActive) {
+          item.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+          if (answer) answer.style.maxHeight = '0px';
+        } else {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+          if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  // =========================================================================
   // Initialize Everything on DOMContentLoaded
   // =========================================================================
   document.addEventListener('DOMContentLoaded', () => {
@@ -937,6 +975,7 @@
     initModals();
     initCaptcha();
     initTabs();
+    initFaqAccordions();
     console.log("Kandelia Redesign 2026 initialized successfully!");
   });
 

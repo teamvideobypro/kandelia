@@ -4555,6 +4555,10 @@ p {
   padding: 0 28px;
 }
 
+.faq-item.active .faq-answer {
+  max-height: 600px;
+}
+
 .faq-answer-inner {
   padding-bottom: 24px;
   font-size: 1rem;
