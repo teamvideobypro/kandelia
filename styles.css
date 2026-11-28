@@ -5269,7 +5269,7 @@ h5, h6, .subhead {
   height: 100%;
   aspect-ratio: 16 / 10 !important;
   object-fit: cover !important;
-  object-position: center 30% !important;
+  object-position: center 15% !important;
   display: block;
   border: none !important;
   outline: none !important;
@@ -6453,6 +6453,16 @@ h4 {
   font-size: 0.95rem !important;
 }
 
+.btn-coral,
+.btn-donate,
+a.btn-coral,
+a.btn-donate,
+.mobile-nav-drawer a.btn-donate,
+.mobile-nav-drawer a.btn-coral,
+.footer-col a.btn-coral {
+  color: #FFFFFF !important;
+}
+
 .social-circle-btn {
   width: 44px !important;
   height: 44px !important;
@@ -6958,6 +6968,34 @@ select {
   .testimonial-author-block {
     padding-left: 16px !important;
     gap: 12px !important;
+  }
+
+  /* Eligibility Card & Intake CTA on Mobile (tight 12px padding, clean 1-2 line button) */
+  .eligibility-card {
+    padding: 18px 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .eligibility-cta-box {
+    padding: 16px 12px !important;
+    gap: 14px !important;
+  }
+
+  .eligibility-cta-box .open-intake-modal {
+    width: 100% !important;
+    font-size: 0.92rem !important;
+    padding: 12px 14px !important;
+  }
+
+  /* Ensure ALL red coral/donate buttons have crisp white text */
+  .btn-coral,
+  .btn-donate,
+  a.btn-coral,
+  a.btn-donate,
+  .mobile-nav-drawer a.btn-donate,
+  .mobile-nav-drawer a.btn-coral,
+  .footer-col a.btn-coral {
+    color: #FFFFFF !important;
   }
 
   /* Story Cards on Mobile (full-bleed top image, max 12px body padding) */
