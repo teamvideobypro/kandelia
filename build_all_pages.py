@@ -2061,7 +2061,7 @@ careers_html += f'''            </div>
     <section style="padding:80px 0; background-color:#FFFFFF;">
       <div class="w" style="max-width:960px; margin:0 auto;">
         <div style="background:linear-gradient(135deg, #F0FAF9 0%, #FFFFFF 100%); border:2px solid var(--teal); border-radius:24px; padding:44px 36px; box-shadow:0 10px 30px rgba(42,210,201,0.12);">
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <div style="display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
             <span class="badge badge-teal" style="font-size:0.85rem; text-transform:uppercase; font-weight:700;">Featured Leadership Initiative</span>
             <span class="badge badge-coral">$400 Stipend</span>
           </div>

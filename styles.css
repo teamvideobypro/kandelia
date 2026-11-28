@@ -6626,8 +6626,8 @@ select {
    ========================================================================== */
 @media (max-width: 767px) {
   .container, .w, .w-narrow {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
     width: 100% !important;
     max-width: 100% !important;
   }
@@ -6643,14 +6643,100 @@ select {
   .section-careers,
   .section-involved,
   .section-pillars {
-    padding-top: clamp(2rem, 5vw, 3.25rem) !important;
-    padding-bottom: clamp(2rem, 5vw, 3.25rem) !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
   }
 
   .section-header {
-    margin-bottom: 28px !important;
+    margin-bottom: 20px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+
+  /* Compact Single-Line Badges & Pills */
+  .badge {
+    font-size: 0.78rem !important;
+    padding: 5px 12px !important;
+    line-height: 1.25 !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+  }
+
+  /* Video Documentary Preview Container: Fill 100% & Prevent Play/CTA Clipping */
+  .video-embed-container,
+  .video-embed-scalloped {
+    aspect-ratio: auto !important;
+    min-height: 270px !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 28px !important;
+  }
+
+  .video-poster-img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .video-play-overlay {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    padding: 24px 14px !important;
+    gap: 12px !important;
+    background: rgba(18, 21, 122, 0.32) !important;
+  }
+
+  .video-flower-play-btn,
+  .play-circle {
+    width: 56px !important;
+    height: 56px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .video-caption {
+    font-size: 1.05rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .video-play-overlay .badge {
+    white-space: normal !important;
+    text-align: center !important;
+    padding: 8px 14px !important;
+    font-size: 0.84rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Careers Group Header & Job Cards */
+  .careers-group-header {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .careers-group-header .badge {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .job-card {
+    padding: 18px 12px !important;
+  }
+
+  .job-card .badge {
+    white-space: normal !important;
+    text-align: left !important;
+    font-size: 0.78rem !important;
+    padding: 5px 11px !important;
+  }
+
+  .job-card .btn-sm {
+    width: 100% !important;
+    margin-top: 6px !important;
   }
 
   /* Allow long CTA buttons to wrap cleanly inside mobile viewports & cards */
@@ -6858,12 +6944,12 @@ select {
     gap: 12px !important;
   }
 
-  /* Story Cards on Mobile */
+  /* Story Cards on Mobile (max 12px left/right padding, tighter vertical spacing) */
   .story-square-card {
     grid-template-columns: minmax(0, 1fr) !important;
-    gap: 16px !important;
+    gap: 14px !important;
     text-align: left !important;
-    padding: 20px 16px !important;
+    padding: 16px 12px !important;
   }
 
   .story-square-img-wrap {
@@ -6883,14 +6969,14 @@ select {
   .pillar-2card-body,
   .way-3card-body,
   .board-card-enhanced {
-    padding: 20px 16px !important;
+    padding: 16px 12px !important;
   }
 
   /* Values Flex Collapse */
   .values-even-flex {
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 16px !important;
+    gap: 14px !important;
   }
 
   .values-even-flex .value-card-item {
@@ -6901,14 +6987,14 @@ select {
 
   /* Footer Mobile Restack */
   .site-footer {
-    padding: 48px 0 28px !important;
+    padding: 40px 0 24px !important;
   }
 
   .footer-grid {
     grid-template-columns: minmax(0, 1fr) !important;
-    gap: 28px !important;
+    gap: 24px !important;
     text-align: left !important;
-    margin-bottom: 32px !important;
+    margin-bottom: 28px !important;
   }
 
   .footer-col a {
@@ -6922,8 +7008,8 @@ select {
   }
 
   .footer-stay-in-loop {
-    padding-top: 28px !important;
-    margin-top: 28px !important;
+    padding-top: 24px !important;
+    margin-top: 24px !important;
   }
 
   .footer-stay-in-loop-form {
@@ -6944,14 +7030,34 @@ select {
     gap: 12px !important;
   }
 
-  /* In-Page Modal Responsive Behavior */
+  /* In-Page Modal Responsive Behavior (max 12px outer & inner left/right spacing) */
+  .modal-overlay {
+    padding: 10px !important;
+  }
+
   .modal-dialog {
-    width: min(94vw, 680px) !important;
-    margin: 16px auto !important;
-    padding: 24px 18px !important;
+    width: calc(100vw - 20px) !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     max-height: 90vh !important;
     overflow-y: auto !important;
-    border-radius: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .modal-header {
+    padding: 14px 12px !important;
+  }
+
+  .modal-body,
+  #modal-content-area {
+    padding: 14px 12px 18px !important;
+  }
+
+  .modal-body blockquote,
+  #modal-content-area blockquote {
+    padding: 12px !important;
+    margin: 12px 0 !important;
   }
 }
 
@@ -6960,8 +7066,8 @@ select {
    ========================================================================== */
 @media (max-width: 479px) {
   .container, .w, .w-narrow {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 
   .section,
@@ -6975,8 +7081,8 @@ select {
   .section-careers,
   .section-involved,
   .section-pillars {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
   }
 
   .hero-cta-group,
@@ -6991,9 +7097,13 @@ select {
     width: 100% !important;
   }
 
+  .modal-overlay {
+    padding: 8px !important;
+  }
+
   .modal-dialog {
-    width: 96vw !important;
-    padding: 20px 14px !important;
+    width: calc(100vw - 16px) !important;
+    padding: 0 !important;
   }
 }
 
