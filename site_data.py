@@ -228,11 +228,23 @@ STORIES = [
             <p class="story-lead-in">Now a soon-to-be graduate of the University of Washington, Patrick reflects on arriving in Seattle from Kenya at 16 and building community through Kandelia.</p>
             <p class="story-dropcap-para">We met <strong class="story-highlight">Patrick</strong> when he was 16 years old and had just moved to <strong class="story-highlight">Seattle</strong> from <strong class="story-highlight">Kenya</strong>. After enrolling at <strong class="story-highlight">Seattle World School</strong> (SWS), he got connected with Kandelia and started building a community for himself here. Today, he shares his journey, the support that helped him along the way, and his plans to give back to the city he loves.</p>
             <p>Patrick’s journey to Seattle began when his mother, who had come to the U.S. as a refugee in 2008, sponsored him to join her in 2014. Adjusting to life in a new country came with its challenges and moments of discovery. For Patrick, one of the first surprises was the bathrooms. He laughed, recalling his initial reaction: “This is so sustainable! You just flush, just like that! This is so easy!”</p>
+            <figure class="story-interstitial-figure">
+              <img src="assets/story_patrick_2.jpg" alt="Patrick working on a woodworking project during high school in Seattle" class="story-interstitial-img" loading="lazy">
+              <figcaption class="story-interstitial-caption">Hands-on learning during Patrick’s high school years in Seattle.</figcaption>
+            </figure>
             <p>Although Patrick arrived with a basic understanding of English, he noted that many people often spoke too fast. “I knew how to say ‘hi’, ‘how are you?’, but sometimes I would miss what people were saying because they were talking too fast. I would struggle with complex words.”</p>
             <blockquote class="story-pull-quote">“For me, that’s how I connected to the school when I was here—through Kandelia. Kandelia brings the community. Sometimes it’s very hard to feel that belonging, but with Kandelia you feel like there is a sense of community.”</blockquote>
             <p>Enrolling at Seattle World School, a public school designed for newcomers, meant Patrick was surrounded by other students who were newly arrived and learning English. It also meant he found Kandelia, where he became involved in every program he could: soccer, homework help, field trips, and Saturday school, to name a few.</p>
             <p>Patrick quickly grew to love Seattle. “Oh my god, Seattle is my favorite! I love the rain—people hate the rain, I love rain. I think all four seasons are beautiful,” he shared. “Seattle is just unique. It feels like home, because it’s the home I’ve known since coming to the U.S.” Now completing a degree in Community, Environment, and Planning at the <strong class="story-highlight">University of Washington</strong>, he hopes to work with the Department of Transportation and already volunteers with Kandelia’s Food Access Program.</p>
+            <figure class="story-interstitial-figure">
+              <img src="assets/story_patrick_3.jpg" alt="Patrick volunteering with Kandelia's Food Access Program" class="story-interstitial-img" loading="lazy">
+              <figcaption class="story-interstitial-caption">Patrick volunteering with Kandelia’s Food Access Program, packing fresh produce for local families.</figcaption>
+            </figure>
             <p>Amidst all the new experiences in the U.S., Patrick has held on to his Kenyan roots. Christmas is especially meaningful to him and his family, who cook traditional dishes like chapati and mukimo during the holiday season.</p>
+            <figure class="story-interstitial-figure">
+              <img src="assets/story_patrick_4.jpg" alt="Patrick studying at the University of Washington library" class="story-interstitial-img" loading="lazy">
+              <figcaption class="story-interstitial-caption">Patrick studying at the University of Washington as he prepares to graduate in Community, Environment, and Planning.</figcaption>
+            </figure>
             <p>Patrick’s journey from Kenya to Seattle has helped shape his passions and goals. As he looks forward to his future, he is eager to continue making a positive impact on the community that embraced him.</p>
           </div>
         """
