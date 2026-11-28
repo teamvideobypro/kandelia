@@ -111,7 +111,7 @@ def get_support_banner():
               Together, we can ensure every immigrant and refugee family has the resources, voice, and community to flourish.
             </p>
             <div class="support-banner-action">
-              <a class="btn btn-coral btn-lg support-donate-pill-btn" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Support Our Work — Donate Today →</a>
+              <a class="btn btn-coral btn-lg support-donate-pill-btn" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Support &amp; Donate Today&nbsp;→</a>
             </div>
           </div>
         </div>
@@ -451,7 +451,7 @@ home_html += f'''
           Guided by our core values of Inclusion, Heart, Equity, Relationships, and Excellence, Kandelia has grown from a grassroots refugee mutual aid effort in 1978 to a regional pillar of community leadership.
         </p>
         <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <a class="btn btn-outline" href="/about">Discover Our 50-Year Story & Team →</a>
+          <a class="btn btn-outline" href="/about">Our 50-Year Story &amp; Team&nbsp;→</a>
           <a class="btn btn-primary" href="/careers">Work With Us →</a>
         </div>
       </div>
@@ -625,7 +625,7 @@ home_html += f'''
         </div>
 
         <div style="text-align:center; margin-top:36px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <a class="btn btn-outline" href="/stories">Read All Community Stories on Kandelia →</a>
+          <a class="btn btn-outline" href="/stories">Read All Community Stories&nbsp;→</a>
           <a class="btn btn-primary" href="/stories">Official Stories Archive →</a>
         </div>
       </div>
@@ -690,7 +690,7 @@ home_html += f'''
         </div>
 
         <div style="text-align:center; margin-top:36px;">
-          <a class="btn btn-outline" href="/ways-to-give">Explore All Ways to Give & Donate →</a>
+          <a class="btn btn-outline" href="/ways-to-give">Explore Ways to Give &amp; Donate&nbsp;→</a>
         </div>
       </div>
     </section>
@@ -1026,7 +1026,7 @@ about_html += f'''        </div>
               <li><svg class="icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>1,200+ Hours</strong> of bilingual adult digital literacy training delivered</li>
             </ul>
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary open-impact-report-modal">Read the 2026 Impact Report →</button>
+              <button type="button" class="btn btn-primary open-impact-report-modal">Read 2026 Impact Report&nbsp;→</button>
               <button type="button" class="btn btn-outline open-request-pdf-modal">Request PDF Copy</button>
             </div>
           </div>
@@ -1170,7 +1170,7 @@ about_html += f'''            </div>
 
           <div style="text-align:center; margin-top:32px;">
             <a href="/careers" class="btn btn-primary btn-lg">
-              Explore Our Dedicated Careers Page & Benefits →
+              Explore Careers &amp; Benefits&nbsp;→
             </a>
           </div>
         </div>
@@ -1381,7 +1381,7 @@ ways_html += f'''
         </div>
 
         <div style="text-align:center; margin-top:48px;">
-          <a class="btn btn-primary btn-lg" href="/giving">View Specific Donation Tiers ($50, $100, $250) →</a>
+          <a class="btn btn-primary btn-lg" href="/giving">View Donation Tiers&nbsp;→</a>
         </div>
       </div>
     </section>
@@ -1503,7 +1503,7 @@ stories_html += f'''        </div>
               <li><svg class="icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>1,200+ Hours</strong> of bilingual adult digital literacy training delivered</li>
             </ul>
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary open-impact-report-modal">Read the 2026 Impact Report →</button>
+              <button type="button" class="btn btn-primary open-impact-report-modal">Read 2026 Impact Report&nbsp;→</button>
               <button type="button" class="btn btn-outline open-request-pdf-modal">Request PDF Copy</button>
             </div>
           </div>
@@ -2096,7 +2096,7 @@ careers_html += f'''            </div>
         </p>
         <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXxISZyibWTeAGMH7MU5rUYerKFk0--B1PB0rmNZNR4c20HQ/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-            Complete Volunteer Interest Form (Google Form) →
+            Complete Volunteer Interest Form&nbsp;→
           </a>
           <a href="/ways-to-give" class="btn btn-outline btn-lg">
             Explore All Ways to Give

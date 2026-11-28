@@ -6769,20 +6769,22 @@ select {
     margin-top: 6px !important;
   }
 
-  /* Allow long CTA buttons to wrap cleanly inside mobile viewports & cards */
+  /* Compact single-line friendly CTA buttons on mobile */
   .btn,
   .btn-lg,
   .btn-outline,
   .btn-primary,
   .btn-teal,
-  .support-donate-pill-btn {
+  .support-donate-pill-btn,
+  .event-ticket-btn,
+  .event-sponsor-btn {
     white-space: normal !important;
     text-align: center !important;
-    line-height: 1.3 !important;
+    line-height: 1.25 !important;
     height: auto !important;
     max-width: 100% !important;
-    padding: 12px 20px !important;
-    font-size: 0.95rem !important;
+    padding: 11px 16px !important;
+    font-size: 0.9rem !important;
   }
 
   /* Keep header Donate button single-line */
