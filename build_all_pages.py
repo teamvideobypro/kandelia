@@ -2105,6 +2105,28 @@ careers_html += f'''            </div>
       </div>
     </section>
 
+    <!-- HR & GENERAL JOB INQUIRIES CONTAINER -->
+    <section id="hr-contact" style="padding:64px 0; background-color:#FFFFFF; border-top:1px solid #E5E7EB;">
+      <div class="w" style="max-width:960px; margin:0 auto;">
+        <div class="hr-contact-card" style="background:linear-gradient(135deg, #F0F2FA 0%, #FFFFFF 100%); border:2px solid rgba(30,34,170,0.18); border-radius:24px; padding:40px 36px; text-align:center; box-shadow:0 8px 24px rgba(30,34,170,0.06);">
+          <span class="badge badge-blue" style="margin-bottom:14px;">Human Resources • General Applications</span>
+          <h2 style="font-size:1.85rem; color:var(--navy); margin-bottom:12px;">Interested in Future Job Opportunities?</h2>
+          <p style="font-size:1.06rem; color:var(--text-body); line-height:1.7; max-width:680px; margin:0 auto 24px;">
+            If you are interested in any job opportunities at Kandelia, please send your <strong>resume</strong> and <strong>cover letter</strong> directly to our Human Resources team at
+            <a href="mailto:hr@kandelia.org?subject=Job%20Opportunity%20Inquiry%20-%20Resume%20%26%20Cover%20Letter" style="color:var(--navy); font-weight:700; text-decoration:underline;">hr@kandelia.org</a>.
+          </p>
+          <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+            <a href="mailto:hr@kandelia.org?subject=Job%20Opportunity%20Inquiry%20-%20Resume%20%26%20Cover%20Letter" class="btn btn-primary btn-lg">
+              Send Resume &amp; Cover Letter →
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hr@kandelia.org&su=Job%20Opportunity%20Inquiry%20-%20Resume%20%26%20Cover%20Letter" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+              Compose in Web Gmail ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {get_support_banner()}
   </main>
 '''

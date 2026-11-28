@@ -7416,3 +7416,13 @@ svg.icon {
     gap: 10px;
   }
 }
+
+@media (max-width: 767px) {
+  .hr-contact-card {
+    padding: 24px 14px !important;
+    border-radius: 18px !important;
+  }
+  .hr-contact-card .btn {
+    width: 100% !important;
+  }
+}
