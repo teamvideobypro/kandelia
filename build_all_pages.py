@@ -927,8 +927,16 @@ about_html += f'''
                 <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Youth Program Manager</div>
               </div>
               <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Kristina</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Co-Executive Director</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
                 <div style="font-weight:700; color:var(--navy); font-size:1rem;">Sieng</div>
                 <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Community Engagement Manager</div>
+              </div>
+              <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
+                <div style="font-weight:700; color:var(--navy); font-size:1rem;">Tamthy</div>
+                <div style="font-size:0.86rem; color:var(--text-muted); margin-top:2px;">Co-Executive Director</div>
               </div>
               <div style="padding:14px 18px; background:#F8FAFC; border-radius:12px; border-left:4px solid var(--teal);">
                 <div style="font-weight:700; color:var(--navy); font-size:1rem;">Thu</div>

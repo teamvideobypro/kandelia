@@ -90,6 +90,16 @@ BOARD_MEMBERS = [
         "bio": "<p>Marcela was born in <strong class=\"bio-highlight\">Mexico</strong> and raised there until age 8 before migrating with her family to <strong class=\"bio-highlight\">Kirkland, Washington</strong>. Entering fourth grade without speaking English, her early experience navigating culture shock shaped her lifelong commitment to immigrant advocacy.</p><p>For over 20 years—often known in the community as Mara—she has championed immigrant rights and cultural preservation alongside community-based organizations, and serves as a <strong class=\"bio-highlight\">circle keeper</strong> bringing healing methodologies to systems and teams.</p><p>She is currently <strong class=\"bio-highlight\">Director of Equity and Social Justice</strong> for a local communications firm and is honored to bring her skills and lived experience to support <strong class=\"bio-highlight\">Kandelia</strong>.</p>",
         "quote": "For over 20 years she has been an advocate for immigrant rights and preserving cultures with various community-based organizations.",
         "fun_fact": "Fun fact: Marcela finds healing and restoration through music and movement, so she is a habit dancer in various genres."
+    },
+    {
+        "id": "board-10",
+        "name": "Mary Emile-Wagler",
+        "role": "Former Chair",
+        "languages": "She/Her | Languages: English, French, Arabic",
+        "photo": "assets/mary_emile_wagler.jpeg",
+        "bio": "<p>Mary was born in <strong class=\"bio-highlight\">Egypt</strong> and spent the first 10 years of her life in <strong class=\"bio-highlight\">Syria</strong> before moving to rural <strong class=\"bio-highlight\">Kansas</strong>.</p><p>Seeing her childhood home become the site of the largest ongoing refugee crisis instilled in Mary a deep passion for working alongside refugee and immigrant communities.</p><p>As <strong class=\"bio-highlight\">Former Chair</strong>, Mary brings extensive experience in <strong class=\"bio-highlight\">education</strong>, <strong class=\"bio-highlight\">strategy</strong>, and <strong class=\"bio-highlight\">philanthropy</strong> to support <strong class=\"bio-highlight\">Kandelia</strong> in achieving its mission.</p>",
+        "quote": "Seeing my childhood home become the site of the ongoing refugee crisis instilled in me a deep passion for working with refugee and immigrant communities.",
+        "fun_fact": "Fun fact: Mary loves to cook and is always looking for new recipes to try (recommendations always welcomed!)"
     }
 ]
 
