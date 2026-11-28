@@ -617,6 +617,131 @@
         }
       });
     });
+
+    // Attach to Request 2026 Impact Report PDF modal buttons
+    document.querySelectorAll('.open-request-pdf-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:18px;">
+            <span class="badge badge-green" style="margin-bottom:8px;">Annual Publication • 2026 Impact Report</span>
+            <p style="font-size:1.02rem;line-height:1.6;color:var(--text-body);margin-top:6px;">
+              Request a complimentary digital PDF copy of Kandelia’s <strong>2026 Impact Report: Deep Roots, Lasting Flourish</strong>, including audited financials and program outcomes.
+            </p>
+          </div>
+          <form id="pdf-request-form" style="display:flex;flex-direction:column;gap:12px;margin-bottom:18px;background:#F8FAFC;padding:16px;border-radius:14px;border:1px solid #E2E8F0;">
+            <div>
+              <label for="pdf-req-name" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Your Name *</label>
+              <input type="text" id="pdf-req-name" required placeholder="Full Name" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+            </div>
+            <div>
+              <label for="pdf-req-email" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Email Address *</label>
+              <input type="email" id="pdf-req-email" required placeholder="you@example.org" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send PDF Copy Request →</button>
+            <div id="pdf-req-feedback" style="display:none;padding:12px 14px;border-radius:10px;background:#E6FAF9;color:#0F5D59;font-weight:600;font-size:0.92rem;border:1px solid rgba(42,210,201,0.4);"></div>
+          </form>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
+            <a href="mailto:info@kandelia.org?subject=Request%202026%20Impact%20Report%20PDF" class="btn btn-outline" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              ✉️ Email info@kandelia.org
+            </a>
+            <a href="/impact-report-2026" class="btn btn-coral" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              Read Web Edition →
+            </a>
+          </div>
+        `;
+        openModal("Request 2026 Impact Report PDF", content);
+
+        const pdfForm = document.getElementById('pdf-req-feedback') ? document.getElementById('pdf-request-form') : null;
+        const pdfFeedback = document.getElementById('pdf-req-feedback');
+        if (pdfForm && pdfFeedback) {
+          pdfForm.addEventListener('submit', (ev) => {
+            ev.preventDefault();
+            const emailVal = document.getElementById('pdf-req-email').value.trim();
+            pdfFeedback.style.display = 'block';
+            pdfFeedback.innerHTML = `✅ Request confirmed! We will email the <strong>2026 Impact Report PDF</strong> to <strong>${emailVal}</strong> shortly.`;
+            pdfForm.reset();
+          });
+        }
+      });
+    });
+
+    // Attach to Gala Sponsorship modal buttons
+    document.querySelectorAll('.open-sponsor-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:18px;">
+            <span class="badge badge-blue" style="margin-bottom:8px;">50th Anniversary Gala • May 14, 2027</span>
+            <p style="font-size:1.02rem;line-height:1.6;color:var(--text-body);margin-top:6px;">
+              Partner with Kandelia as an institutional or corporate sponsor for our landmark 50th Anniversary "Sip &amp; Celebrate" Gala at Seattle Center Pavilion.
+            </p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px;margin-bottom:18px;">
+            <div style="background:#F0FAF9;padding:14px;border-radius:12px;border:1px solid rgba(42,210,201,0.3);">
+              <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Community Champion</div>
+              <div style="color:var(--teal-dark);font-weight:700;font-size:1.15rem;margin:4px 0;">$2,500</div>
+              <div style="font-size:0.84rem;color:var(--text-muted);">Table for 6 + program recognition</div>
+            </div>
+            <div style="background:#F0F2FA;padding:14px;border-radius:12px;border:1px solid rgba(30,34,170,0.2);">
+              <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Solidarity Partner</div>
+              <div style="color:var(--navy);font-weight:700;font-size:1.15rem;margin:4px 0;">$5,000</div>
+              <div style="font-size:0.84rem;color:var(--text-muted);">VIP table for 10 + stage acknowledgment</div>
+            </div>
+            <div style="background:#FEECEE;padding:14px;border-radius:12px;border:1px solid rgba(244,54,76,0.25);">
+              <div style="font-weight:700;color:var(--navy);font-size:0.95rem;">Presenting Sponsor</div>
+              <div style="color:var(--coral);font-weight:700;font-size:1.15rem;margin:4px 0;">$10,000</div>
+              <div style="font-size:0.84rem;color:var(--text-muted);">Premier branding + keynote recognition</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
+            <a href="mailto:gala@kandelia.org?subject=Become%20a%20Sponsor%20for%2050th%20Anniversary%20Gala" class="btn btn-primary" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              ✉️ Email gala@kandelia.org
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gala@kandelia.org&su=Become%20a%20Sponsor%20for%2050th%20Anniversary%20Gala" target="_blank" rel="noopener noreferrer" class="btn btn-coral" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              Compose in Web Gmail ↗
+            </a>
+          </div>
+        `;
+        openModal("Become a 50th Anniversary Gala Sponsor", content);
+      });
+    });
+
+    // Attach to DAF & Wire Transfer modal buttons
+    document.querySelectorAll('.open-daf-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:18px;">
+            <span class="badge badge-teal" style="margin-bottom:8px;">Tax-Deductible 501(c)(3) Giving</span>
+            <p style="font-size:1.02rem;line-height:1.6;color:var(--text-body);margin-top:6px;">
+              Recommend a grant through your Donor-Advised Fund (Fidelity Charitable, Schwab Charitable, Vanguard Charitable, Seattle Foundation) or initiate a direct wire/stock transfer.
+            </p>
+          </div>
+          <div style="background:#F8FAFC;border-radius:14px;padding:18px;border:1px solid #E2E8F0;margin-bottom:18px;font-size:0.95rem;line-height:1.65;">
+            <div style="margin-bottom:6px;"><strong>Legal Organization Name:</strong> Kandelia</div>
+            <div style="margin-bottom:6px;"><strong>Federal Tax ID (EIN):</strong> <code style="background:#E6FAF9;padding:2px 8px;border-radius:6px;font-weight:700;color:var(--navy);">91-1122532</code></div>
+            <div style="margin-bottom:6px;"><strong>Mailing Address:</strong> 3829B S. Edmunds St. Box 9, Seattle, WA 98118</div>
+            <div><strong>Wire / ACH &amp; Stock Instructions:</strong> Contact our finance &amp; development team at <a href="mailto:info@kandelia.org?subject=Wire%20or%20DAF%20Transfer%20Instructions" style="color:var(--teal-dark);font-weight:600;">info@kandelia.org</a> or <a href="tel:2064525200" style="color:var(--teal-dark);font-weight:600;">(206) 452-5200</a> for secure routing &amp; DTC numbers.</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
+            <a href="mailto:info@kandelia.org?subject=DAF%20or%20Wire%20Transfer%20Inquiry" class="btn btn-primary" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              ✉️ Request Wire Routing
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kandelia.org&su=DAF%20or%20Wire%20Transfer%20Inquiry" target="_blank" rel="noopener noreferrer" class="btn btn-coral" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              Compose in Web Gmail ↗
+            </a>
+          </div>
+        `;
+        openModal("Give via Donor-Advised Fund (DAF) or Wire", content);
+      });
+    });
   }
 
   // =========================================================================

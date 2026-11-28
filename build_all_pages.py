@@ -350,9 +350,9 @@ home_html += f'''
                 <a class="event-ticket-btn" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">
                   Get Tickets →
                 </a>
-                <a class="event-sponsor-btn" href="mailto:gala@kandelia.org?subject=Become a Sponsor for 50th Anniversary Gala">
+                <button type="button" class="event-sponsor-btn open-sponsor-modal">
                   Become a Sponsor
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1026,8 +1026,8 @@ about_html += f'''        </div>
               <li><svg class="icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>1,200+ Hours</strong> of bilingual adult digital literacy training delivered</li>
             </ul>
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <a class="btn btn-primary" href="#contact">Read the 2026 Impact Report →</a>
-              <a class="btn btn-outline" href="mailto:info@kandelia.org?subject=Request 2026 Impact Report PDF">Request PDF Copy</a>
+              <a class="btn btn-primary" href="/impact-report-2026">Read the 2026 Impact Report →</a>
+              <button type="button" class="btn btn-outline open-request-pdf-modal">Request PDF Copy</button>
             </div>
           </div>
         </div>
@@ -1503,8 +1503,8 @@ stories_html += f'''        </div>
               <li><svg class="icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>1,200+ Hours</strong> of bilingual adult digital literacy training delivered</li>
             </ul>
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <a class="btn btn-primary" href="#contact">Read the 2026 Impact Report →</a>
-              <a class="btn btn-outline" href="mailto:info@kandelia.org?subject=Request 2026 Impact Report PDF">Request PDF Copy</a>
+              <a class="btn btn-primary" href="/impact-report-2026">Read the 2026 Impact Report →</a>
+              <button type="button" class="btn btn-outline open-request-pdf-modal">Request PDF Copy</button>
             </div>
           </div>
         </div>
@@ -1654,7 +1654,7 @@ giving_html += f'''
               Recommend a grant from your DAF or make direct wire transfers to receive optimal tax benefits while uplifting our communities.
             </p>
             <div style="margin-top:auto;">
-              <a href="mailto:info@kandelia.org?subject=DAF or Stock Giving Inquiries" class="btn btn-outline btn-sm">Give via DAF / Wire →</a>
+              <button type="button" class="btn btn-outline btn-sm open-daf-modal">Give via DAF / Wire →</button>
             </div>
           </div>
 
@@ -2114,4 +2114,68 @@ with open('careers.html', 'w', encoding='utf-8') as f:
     f.write(careers_html)
 print("careers.html written successfully!")
 
-print("=== All 7 pages built successfully! ===")
+# ==============================================================================
+# 8. IMPACT REPORT 2026 PAGE (impact-report-2026.html)
+# ==============================================================================
+print("Generating impact-report-2026.html...")
+impact_html = get_header("impact", "2026 Impact Report | Deep Roots, Lasting Flourish | Kandelia")
+impact_html += '''
+  <main id="main-content">
+    <section class="hero-inner-section" style="padding:72px 0 56px; background:linear-gradient(135deg, #F0FAF9 0%, #FFFFFF 100%); border-bottom:1px solid rgba(42,210,201,0.2);">
+      <div class="w text-center" style="max-width:860px; margin:0 auto;">
+        <span class="badge badge-green" style="margin-bottom:14px;">Annual Publication • 2026 Impact Report</span>
+        <h1 style="color:var(--navy); margin-bottom:16px;">Deep Roots, Lasting Flourish</h1>
+        <p class="lead" style="margin:0 auto 28px;">
+          Our comprehensive evaluation of student graduation rates, family economic mobility, and direct emergency assistance distributed across King County.
+        </p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary open-request-pdf-modal">Request PDF Copy →</button>
+          <a href="/about" class="btn btn-outline">← Back to About Kandelia</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:64px 0; background:#FFFFFF;">
+      <div class="w" style="max-width:1040px; margin:0 auto;">
+        <div class="milestones-4grid" style="margin-bottom:48px;">
+          <div class="milestone-card-item" style="background:#F0FAF9; border:1px solid rgba(42,210,201,0.3); border-radius:20px; padding:28px 22px; text-align:center;">
+            <div style="font-size:2.4rem; font-weight:700; color:var(--navy); margin-bottom:6px;">570+</div>
+            <div style="font-weight:700; color:var(--teal-dark); margin-bottom:6px;">Newcomers Served</div>
+            <p style="font-size:0.92rem; color:var(--text-body); margin:0;">Guided through academic, language, and civic pathways.</p>
+          </div>
+          <div class="milestone-card-item" style="background:#F4FBE8; border:1px solid rgba(151,215,0,0.35); border-radius:20px; padding:28px 22px; text-align:center;">
+            <div style="font-size:2.4rem; font-weight:700; color:var(--navy); margin-bottom:6px;">95%</div>
+            <div style="font-weight:700; color:#2A6615; margin-bottom:6px;">Graduation Rate</div>
+            <p style="font-size:0.92rem; color:var(--text-body); margin:0;">Among cohort high school seniors at Seattle World School.</p>
+          </div>
+          <div class="milestone-card-item" style="background:#FEECEE; border:1px solid rgba(244,54,76,0.25); border-radius:20px; padding:28px 22px; text-align:center;">
+            <div style="font-size:2.4rem; font-weight:700; color:var(--navy); margin-bottom:6px;">$240K+</div>
+            <div style="font-weight:700; color:var(--coral); margin-bottom:6px;">Direct Family Relief</div>
+            <p style="font-size:0.92rem; color:var(--text-body); margin:0;">Distributed in emergency rental, food, and utility aid.</p>
+          </div>
+          <div class="milestone-card-item" style="background:#F0F2FA; border:1px solid rgba(30,34,170,0.2); border-radius:20px; padding:28px 22px; text-align:center;">
+            <div style="font-size:2.4rem; font-weight:700; color:var(--navy); margin-bottom:6px;">1,200+</div>
+            <div style="font-weight:700; color:var(--navy); margin-bottom:6px;">Digital Literacy Hours</div>
+            <p style="font-size:0.92rem; color:var(--text-body); margin:0;">Delivered in bilingual workshops for parents &amp; caregivers.</p>
+          </div>
+        </div>
+
+        <div class="story-editorial-article" style="background:#FFFFFF; border:1px solid rgba(42,210,201,0.25); border-radius:24px; padding:36px 32px; box-shadow:0 6px 24px rgba(30,34,170,0.04);">
+          <h2 style="color:var(--navy); margin-bottom:16px;">Executive Summary</h2>
+          <p>Over the past year, Kandelia deepened its commitment to holistic, culturally responsive support for newly arrived immigrant and refugee families across King County. Working hand-in-hand with educators at Seattle World School, multilingual family advocates, and community partners, we removed systemic barriers so students and parents could thrive together.</p>
+          <p>Through after-school tutoring, Running Start college readiness coaching, paid youth internships, and direct emergency relief, 95% of participating seniors graduated on time—many becoming the first in their families to enter university.</p>
+          <div style="margin-top:24px; padding-top:20px; border-top:1px solid #E5E7EB; display:flex; gap:14px; flex-wrap:wrap;">
+            <a class="btn btn-coral" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Support Our 2026–2027 Programs →</a>
+            <button type="button" class="btn btn-outline open-request-pdf-modal">Request Full PDF Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+'''
+impact_html += get_footer()
+
+with open('impact-report-2026.html', 'w', encoding='utf-8') as f:
+    f.write(impact_html)
+print("impact-report-2026.html written successfully!")
+print("=== All 8 pages built successfully! ===")
