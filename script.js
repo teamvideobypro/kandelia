@@ -753,8 +753,9 @@
   // =========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
-    initCarousel(document.getElementById('testimonials-carousel'), 5500);
-    initCarousel(document.getElementById('staff-board-carousel'), 6500);
+    document.querySelectorAll('.carousel-container').forEach(el => {
+      initCarousel(el, el.id === 'staff-board-carousel' ? 6500 : 5500);
+    });
     initModals();
     initCaptcha();
     initTabs();
