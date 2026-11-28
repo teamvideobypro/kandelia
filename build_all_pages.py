@@ -1933,31 +1933,11 @@ careers_html += f'''
                 <span class="badge badge-teal" style="font-weight:700; font-size:0.88rem;">Group 1</span>
                 <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Staff</h3>
               </div>
-              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">0 Open Positions</span>
             </div>
-            <div style="display:flex; flex-direction:column; gap:20px;">
-'''
-
-for job in site_data.CAREERS.get('staff', []):
-    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
-                  <div>
-                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
-                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                      <span class="badge badge-sage">{job['type']}</span>
-                      <span class="badge">{job['location']}</span>
-                      <span class="badge badge-blue">{job['compensation']}</span>
-                    </div>
-                  </div>
-                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-primary btn-sm" style="border-radius:20px; padding:8px 22px;">Apply Now →</a>
-                </div>
-                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
-                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid var(--navy); padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
-                  <strong>Qualifications:</strong> {job['qualifications']}
-                </div>
-              </div>\n'''
-
-careers_html += '''            </div>
+            <div class="careers-empty-state" style="background:#FFFFFF; border-radius:16px; padding:24px 28px; border:1px dashed rgba(30,34,170,0.18);">
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin:0;">There are currently no openings in this department. Please check back later.</p>
+            </div>
           </div>
 
           <!-- Group 2: Board Positions -->
@@ -1967,31 +1947,22 @@ careers_html += '''            </div>
                 <span class="badge badge-green" style="font-weight:700; font-size:0.88rem;">Group 2</span>
                 <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Board</h3>
               </div>
-              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">Accepting Applications</span>
             </div>
-            <div style="display:flex; flex-direction:column; gap:20px;">
-'''
-
-for job in site_data.CAREERS.get('board', []):
-    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
-                  <div>
-                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
-                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                      <span class="badge badge-sage">{job['type']}</span>
-                      <span class="badge">{job['location']}</span>
-                      <span class="badge badge-blue">{job['compensation']}</span>
-                    </div>
-                  </div>
-                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm" style="border-radius:20px; padding:8px 22px;">Inquire / Apply →</a>
-                </div>
-                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
-                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid #2A6615; padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
-                  <strong>Qualifications:</strong> {job['qualifications']}
-                </div>
-              </div>\n'''
-
-careers_html += '''            </div>
+            <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,102,21,0.22); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+                <span class="badge badge-sage">Board Governance</span>
+                <span class="badge">At-Large Positions</span>
+                <span class="badge badge-blue">Seattle / King County</span>
+              </div>
+              <h4 style="font-size:1.35rem; color:var(--navy); margin-bottom:14px; font-weight:700;">Open board positions:</h4>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.7; margin-bottom:14px;">
+                Kandelia is seeking applicants for at-large positions on our Board of Directors. We are at a point of transition and growth and are looking for individuals who are committed to serving immigrant and refugee communities, and who are aligned with our organizational values.
+              </p>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.7; margin-bottom:0;">
+                <a href="assets/2026-10-Kandelia-Board-Job-Description.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--navy); font-weight:700; text-decoration:underline;">Click here</a> to learn more, and reach out to <a href="mailto:hr@kandelia.org" style="color:var(--navy); font-weight:600; text-decoration:underline;">hr@kandelia.org</a> with any questions.
+              </p>
+            </div>
           </div>
 
           <!-- Group 3: Contracted Opportunities -->
@@ -2001,31 +1972,11 @@ careers_html += '''            </div>
                 <span class="badge badge-blue" style="font-weight:700; font-size:0.88rem;">Group 3</span>
                 <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Contracted</h3>
               </div>
-              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">0 Open Positions</span>
             </div>
-            <div style="display:flex; flex-direction:column; gap:20px;">
-'''
-
-for job in site_data.CAREERS.get('contract', []):
-    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
-                  <div>
-                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
-                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                      <span class="badge badge-sage">{job['type']}</span>
-                      <span class="badge">{job['location']}</span>
-                      <span class="badge badge-blue">{job['compensation']}</span>
-                    </div>
-                  </div>
-                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-outline btn-sm" style="border-radius:20px; padding:8px 22px;">Apply Now →</a>
-                </div>
-                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
-                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid var(--navy); padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
-                  <strong>Qualifications:</strong> {job['qualifications']}
-                </div>
-              </div>\n'''
-
-careers_html += '''            </div>
+            <div class="careers-empty-state" style="background:#FFFFFF; border-radius:16px; padding:24px 28px; border:1px dashed rgba(30,34,170,0.18);">
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin:0;">There are currently no openings in this department. Please check back later.</p>
+            </div>
           </div>
 
           <!-- Group 4: Youth Leadership & AYAB -->
@@ -2035,34 +1986,31 @@ careers_html += '''            </div>
                 <span class="badge badge-coral" style="font-weight:700; font-size:0.88rem;">Group 4</span>
                 <h3 style="font-size:1.5rem; color:var(--navy); margin:0;">Youth leadership</h3>
               </div>
-              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">2 Active Openings</span>
+              <span style="font-size:0.92rem; color:var(--text-muted); font-weight:600;">Now Accepting Members</span>
             </div>
-            <div style="display:flex; flex-direction:column; gap:20px;">
-'''
-
-for job in site_data.CAREERS.get('youth', []):
-    careers_html += f'''              <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(42,210,201,0.25); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:14px; margin-bottom:14px;">
-                  <div>
-                    <h4 style="font-size:1.4rem; color:var(--navy); margin-bottom:8px; font-weight:700;">{job['title']}</h4>
-                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                      <span class="badge badge-coral">{job['type']}</span>
-                      <span class="badge">{job['location']}</span>
-                      <span class="badge badge-blue">{job['compensation']}</span>
-                    </div>
-                  </div>
-                  <a href="mailto:careers@kandelia.org?subject=Application for {job['title']}" class="btn btn-primary btn-sm" style="border-radius:20px; padding:8px 22px;">Apply Now →</a>
-                </div>
-                <p style="font-size:1rem; color:var(--text-body); line-height:1.65; margin-bottom:14px;">{job['description']}</p>
-                <div class="job-qualifications" style="font-size:0.92rem; color:var(--text-dark); background:#F0F2FA; border-left:4px solid var(--coral); padding:10px 16px; border-radius:0 10px 10px 0; line-height:1.55;">
-                  <strong>Qualifications:</strong> {job['qualifications']}
-                </div>
-              </div>\n'''
-
-careers_html += f'''            </div>
+            <div class="job-card" style="background:#FFFFFF; border-radius:20px; padding:32px; border:1px solid rgba(254,48,68,0.22); box-shadow:0 4px 16px rgba(30,34,170,0.04);">
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+                <span class="badge badge-coral">Youth Leadership</span>
+                <span class="badge">$400 Stipend</span>
+                <span class="badge badge-blue">Oct 2026 – Apr 2027</span>
+              </div>
+              <h4 style="font-size:1.35rem; color:var(--navy); margin-bottom:14px; font-weight:700;">Kandelia Alumni Youth Advisory Board — Now Accepting Members</h4>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.7; margin-bottom:14px;">
+                Kandelia is launching its first-ever Alumni Youth Advisory Board, a small group of young adults who attended Seattle Public Schools as Multilingual Learners after 2020.
+              </p>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.7; margin-bottom:14px;">
+                Advisory Board members will meet once a month from October 2026 through April 2027 (no meeting in December) and are expected to attend six meetings. Members will receive $400 stipend for their participation.
+              </p>
+              <p style="font-size:1rem; color:var(--text-body); line-height:1.7; margin-bottom:18px;">
+                This is a chance to share your experience and perspective, and to help shape the programs and partnerships that support immigrant and refugee students today.
+              </p>
+              <a href="assets/Kandelia-Alumni-Youth-Advisory-Board-Posting.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--navy); font-weight:700; font-size:1rem; text-decoration:underline;">Click here to learn more!</a>
+            </div>
           </div>
         </div>
-      </div>
+'''
+
+careers_html += f'''      </div>
     </section>
 
     <!-- ALUMNI YOUTH ADVISORY BOARD (AYAB) FEATURED SPOTLIGHT -->
