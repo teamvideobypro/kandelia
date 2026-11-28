@@ -7430,3 +7430,20 @@ svg.icon {
     width: 100% !important;
   }
 }
+
+/* Mobile-Native Platform Polish */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+.carousel-container {
+  touch-action: pan-y;
+}
+
+.modal-dialog {
+  overscroll-behavior: contain;
+}

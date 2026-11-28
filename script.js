@@ -727,6 +727,32 @@
         e.preventDefault();
         e.stopPropagation();
         openRequestPdfModal();
+        return;
+      }
+      const privBtn = e.target.closest('.open-privacy-modal');
+      if (privBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        openModal("Privacy Policy", `
+          <div class="bio-editorial-body">
+            <p><strong>Kandelia</strong> respects your privacy and is committed to protecting the personal information of our students, families, volunteers, and donors.</p>
+            <p>Program intake inquiries are strictly confidential. Kandelia never requires or shares immigration documentation status. Donor transactions are processed securely through Kindful/Bloomerang with industry-standard encryption.</p>
+            <p>For privacy inquiries or data deletion requests, please contact <a href="mailto:info@kandelia.org" style="color:var(--teal-dark);font-weight:600;">info@kandelia.org</a> or call <a href="tel:2064525200" style="color:var(--teal-dark);font-weight:600;">(206) 452-5200</a>.</p>
+          </div>
+        `);
+        return;
+      }
+      const termsBtn = e.target.closest('.open-terms-modal');
+      if (termsBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        openModal("Terms of Use", `
+          <div class="bio-editorial-body">
+            <p>Welcome to the official website of <strong>Kandelia</strong>, a registered 501(c)(3) nonprofit organization (EIN: 91-1122532) based in Seattle, Washington.</p>
+            <p>All educational resources, community stories, and program information are provided for informational and community-support purposes. Community stories are shared with permission and names may be changed to protect student privacy.</p>
+            <p>Questions regarding these terms may be directed to <a href="mailto:info@kandelia.org" style="color:var(--teal-dark);font-weight:600;">info@kandelia.org</a>.</p>
+          </div>
+        `);
       }
     });
 
