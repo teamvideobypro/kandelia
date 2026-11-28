@@ -618,6 +618,58 @@
       });
     });
 
+    // Attach to Same-Page 2026 Impact Report Modal buttons
+    document.querySelectorAll('.open-impact-report-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const content = `
+          <div style="margin-bottom:18px;">
+            <span class="badge badge-green" style="margin-bottom:8px;">Annual Publication • 2026 Impact Report</span>
+            <h4 style="font-size:1.35rem;color:var(--navy);margin:6px 0 8px;font-weight:700;">Deep Roots, Lasting Flourish</h4>
+            <p style="font-size:0.98rem;line-height:1.6;color:var(--text-body);margin:0;">
+              Our annual evaluation of student graduation rates, family economic mobility, and direct assistance across King County.
+            </p>
+          </div>
+
+          <div class="report-modal-metrics-grid">
+            <div class="report-metric-tile" style="background:#F0FAF9;border-color:rgba(42,210,201,0.3);">
+              <div class="report-metric-num">570+</div>
+              <div class="report-metric-label" style="color:var(--teal-dark);">Newcomers Served</div>
+              <p>Guided through academic, language, and civic pathways.</p>
+            </div>
+            <div class="report-metric-tile" style="background:#F4FBE8;border-color:rgba(151,215,0,0.35);">
+              <div class="report-metric-num">95%</div>
+              <div class="report-metric-label" style="color:#2A6615;">Graduation Rate</div>
+              <p>Among cohort high school seniors at Seattle World School.</p>
+            </div>
+            <div class="report-metric-tile" style="background:#FEECEE;border-color:rgba(244,54,76,0.25);">
+              <div class="report-metric-num">$240K+</div>
+              <div class="report-metric-label" style="color:var(--coral);">Direct Family Relief</div>
+              <p>Distributed in emergency rental, food, and utility aid.</p>
+            </div>
+            <div class="report-metric-tile" style="background:#F0F2FA;border-color:rgba(30,34,170,0.2);">
+              <div class="report-metric-num">1,200+</div>
+              <div class="report-metric-label" style="color:var(--navy);">Digital Literacy Hours</div>
+              <p>Delivered in bilingual workshops for parents &amp; caregivers.</p>
+            </div>
+          </div>
+
+          <div class="bio-editorial-body" style="margin-bottom:18px;">
+            <p>Over the past year, Kandelia deepened its commitment to holistic, culturally responsive support for newly arrived immigrant and refugee families across King County—partnering closely with Seattle World School educators and multilingual family advocates.</p>
+            <p>Through after-school tutoring, Running Start college readiness coaching, paid youth internships, and direct emergency relief, 95% of participating seniors graduated on time—many becoming the first in their families to enter university.</p>
+          </div>
+
+          <div style="padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <a class="btn btn-coral btn-sm" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Support 2026 Programs →</a>
+            <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('modal-close-button').click();">Close Report</button>
+          </div>
+        `;
+        openModal("2026 Impact Report", content);
+      });
+    });
+
     // Attach to Request 2026 Impact Report PDF modal buttons
     document.querySelectorAll('.open-request-pdf-modal').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -647,9 +699,9 @@
             <a href="mailto:info@kandelia.org?subject=Request%202026%20Impact%20Report%20PDF" class="btn btn-outline" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
               ✉️ Email info@kandelia.org
             </a>
-            <a href="/impact-report-2026" class="btn btn-coral" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
-              Read Web Edition →
-            </a>
+            <button type="button" class="btn btn-coral open-impact-report-modal" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+              Read Report Summary →
+            </button>
           </div>
         `;
         openModal("Request 2026 Impact Report PDF", content);

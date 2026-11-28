@@ -138,13 +138,13 @@ def get_footer():
           </div>
           <div class="newsletter-social-icons" style="margin-top:14px;">
             <a href="https://linkedin.com/company/kandelia" target="_blank" rel="noopener" class="social-circle-btn" aria-label="LinkedIn">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
             <a href="https://facebook.com/kandelia" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Facebook">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
             </a>
             <a href="https://instagram.com/kandelia" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Instagram">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
           </div>
         </div>
@@ -1026,7 +1026,7 @@ about_html += f'''        </div>
               <li><svg class="icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>1,200+ Hours</strong> of bilingual adult digital literacy training delivered</li>
             </ul>
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <a class="btn btn-primary" href="/impact-report-2026">Read the 2026 Impact Report →</a>
+              <button type="button" class="btn btn-primary open-impact-report-modal">Read the 2026 Impact Report →</button>
               <button type="button" class="btn btn-outline open-request-pdf-modal">Request PDF Copy</button>
             </div>
           </div>
@@ -1503,7 +1503,7 @@ stories_html += f'''        </div>
               <li><svg class="icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;vertical-align:-2px;"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>1,200+ Hours</strong> of bilingual adult digital literacy training delivered</li>
             </ul>
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <a class="btn btn-primary" href="/impact-report-2026">Read the 2026 Impact Report →</a>
+              <button type="button" class="btn btn-primary open-impact-report-modal">Read the 2026 Impact Report →</button>
               <button type="button" class="btn btn-outline open-request-pdf-modal">Request PDF Copy</button>
             </div>
           </div>
