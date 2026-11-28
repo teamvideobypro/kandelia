@@ -210,19 +210,7 @@ STORIES = [
             <p>“She yapped and yapped,” Tulip remembers,” and eventually, I talked back.” They became close friends during a trip to Camp Orkila, a PNW favorite.</p>
             <p>Something the two have in common is being thrust into adult responsibilities that most teenagers never experience. They became translators, navigators, and primary support for their families—managing everything from green card applications to technology challenges. “I had to grow up fast,” Tulip explains. “Dealing with debit cards, transportation passes, phone plans—things I never thought about before.” While this was challenging, Tulip also feels proud and confident she’ll be able to take care of herself if she moves to another city for college. In addition to their at-home responsibilities, both Tulip and Sunflower take classes at Seattle World School and are part of the Running Start program.</p>
             <p>What advice would Sunflower and Tulip offer to someone moving to Seattle from another country? Brace yourself for challenges and believe that you can navigate them. Tulip acknowledges that starting fresh in a new environment is never easy, but she reminds others that it’s okay not to have everything figured out right away. “Starting a new life is super hard and you will struggle a lot. In time it will get better, and you will finally see that you’re doing so much better than you could have imagined.”</p>
-            <p>With your support, Kandelia helps students like Tulip and Sunflower find community and belonging in their new Seattle home.Donate todayto support Kandelia’s programs.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
+            <p>With your support, Kandelia helps students like Tulip and Sunflower find community and belonging in their new Seattle home.</p>
         """
     },
     {
@@ -241,18 +229,6 @@ STORIES = [
             <p>Amidst all the new experiences in the U.S., Patrick has held on to his Kenyan roots. Christmas is especially meaningful to him and his family, who cook traditional Kenyan dishes during the holiday season. “We love Christmas!” he says, smiling at the thought of the foods that bring his family together. “We cook a lot of Kenyan food during that time of year, like chapati and mukimo.”</p>
             <p>Patrick’s journey from Kenya to Seattle has helped shape his passions and goals. As he looks forward to his future in Seattle, he is eager to continue making a positive impact on the community that has embraced him.</p>
             <p>Donatenow to support Kandelia’s programs for newly arrived immigrant and refugee students and families.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
     {
@@ -272,19 +248,7 @@ STORIES = [
             <p>Ana finds comfort in the little things that remind her of home: the sound of rain, the trees, and even the storms, which feel familiar. However, she’s not a fan of Seattle’s early sunsets and dark winter days. And while she appreciates Seattle’s beauty, the visible homelessness near her neighborhood worries her, a sentiment shared by many of her newcomer peers.</p>
             <p>Despite these challenges, Ana remains hopeful. She’s slowly exploring the city—from downtown Seattle to the city’s many lakes—and discovering what it means to make a new place feel like home. Her advice for others moving to Seattle? “Get used to the food – especially the tamales, which aren’t very good,” she says with a laugh. On a more serious note, Ana shared that she feels like Seattle is a good place for immigrants. Her advice is if people are coming to the US and plan to go to California, for example, she would say, “no – come to Seattle instead. There is protection and support for immigrants in Seattle.”</p>
             <p>Ana’s Seattle chapter is just beginning, and as she adjusts to life in a new place, she’s finding her footing and discovering what it takes to build a life in a new place—one step at a time.</p>
-            <p>With your support, Kandelia helps students like Ana find community and belonging in their new Seattle home.Donate todayto support Kandelia’s programs.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
+            <p>With your support, Kandelia helps students like Ana find community and belonging in their new Seattle home.</p>
         """
     },
     {
@@ -304,18 +268,6 @@ STORIES = [
             <p>I am deeply grateful to God and my angels for giving us a new opportunity. Although I am not with my whole family, I have found an adoptive family here, which makes me feel safe and at home.</p>
             <p>Today I can say that I am a woman, a mother, a friend and a support for all those who, like me, had to leave their country of origin and be separated from their loved ones. I trust that God will hear my story and that more people will join me to become the angels that so many immigrant and refugee families need.</p>
             <p>Thank you and I hope more people will join indonating to Kandeliaso we can give light to more people in need.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
     {
@@ -334,18 +286,6 @@ STORIES = [
             <p>Now, a few years later, Vidia is busy working towards her future. A high school senior enrolled in Running Start, she spends her days balancing college courses, high school classes, and a part-time job. Vidia has big dreams for her life. She hopes to go to a good university and eventually to law school. “I just want to be a leader, you know,” she shares while talking about what’s next. She is already a leader at school, participating in student government for the past two years. Outside of school, Vidia shares that she enjoys at-home dance breaks and “the cozy vibes…getting hot chocolate…sleeping with the sound of rain,” embracing the comfort of small, simple things as a counterpoint to a life that’s been full of change.</p>
             <p>Seattle has offered a new beginning that has started to feel like home for Vidia. “The opportunities I have here… I can do Running Start, going to high school and also college, and have job opportunities,” she reflects. Kandelia programs reinforce this foundation, offering not just classes like English and job readiness training, but also opportunities for community building and connection.</p>
             <p>Like Vidia, all of our students deserve support and access to opportunities. Kandelia removes barriers for immigrant and refugee youth and their families, ensuring students like Vidia can pursue their education, discover their passions, and shape their futures. Pleasedonateto Kandelia to help make this work possible.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
     {
@@ -365,18 +305,6 @@ STORIES = [
             <p>Apart from high school and Kandelia programs, Vera also takes part in the Running Start program, taking college courses alongside his high school studies. When he can, he finds time for hobbies like gaming and watching K-dramas and anime.</p>
             <p>During Vera’s first months in Seattle, back home in the Philippines Ocho had to be put to sleep. The experience was heartbreaking for Vera, who had hoped to be able to see Ocho on his next visit. Losing such an important part of his life strengthened Vera’s commitment to becoming a veterinarian, so he can help other animals and their owners in similar situations.</p>
             <p>Like many newcomers, Vera’s first year in the U.S. was marked by loss, but also new experiences, new connections, and new possibilities. Navigating all of these changes is a little easier when students can connect to a supportive community. Yourdonationhelps make this possible. Thank you for supporting Kandelia, and students like Vera.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
     {
@@ -403,18 +331,6 @@ STORIES = [
             <p>A quienes hoy están escuchando, quiero decirles: nunca subestimen la fuerza que nace cuando se ama a la familia y cuando se sueña con un futuro diferente. Cada paso, incluso los más difíciles, nos acercan a una nueva oportunidad.</p>
             <p>To all who are listening today, I want to say this: never underestimate the strength that’s born when you love your family and when you dream of a different future. Each step, including the most difficult, moves us closer to a new opportunity.</p>
             <p>Muchas gracias.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
     {
@@ -435,18 +351,6 @@ STORIES = [
             <p>For now, Leslie is taking her time getting used to her new surroundings and figuring out what her life can look like here. Each week, she’s settling in a little more – finding routines, meeting new friends, and gaining confidence in the process. She may not have everything mapped out yet, but she’s built a solid start in the short time she’s been here.</p>
             <p>If Leslie could give advice to someone new coming to Seattle, she’d keep it simple:  “More than anything, don’t be afraid to come to a place you don’t know. Once you’ve arrived you’ll look back and realize you’ve learned more than you ever expected.” From her own experiences she knows that overcoming the challenges of moving to a new place will make you less afraid about the future.</p>
             <p>Leslie’s journey is still unfolding, but the support she’s received has already made a lasting difference. With yourdonation, Kandelia can continue offering opportunities and community for students who are finding their footing in a new place. Thank you for supporting this work!</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
     {
@@ -467,18 +371,6 @@ STORIES = [
             <p>Every year since Merida enrolled at Seattle World School she has participated in Kandelia’s summer program, where students earn credit towards graduation, practice English, and learn content for core classes. She says the program helped her be more outgoing and open up about things when she was new, and she appreciates that Kandelia staff are really warm and welcoming. The program, run in collaboration with school staff, also helped Merida get to know her teachers before the school year began. She especially valued learning from teachers who have lived the experiences they teach about. A history class about Africa, led by a teacher from the continent, gave her insights she hadn’t had before.</p>
             <p>Merida has come a long way since she first arrived in the “freezer” we Seattleites call home. While she’s not yet sure about the career path she plans to pursue after high school, she’s certain about one thing—the advice she’d offer to newcomers in Seattle. “Always have an umbrella or something waterproof.”</p>
             <p>With the help of Kandelia and the community she has found here, Merida is finding her way. With your gift, Kandelia can continue providing the classes, mentorship, and encouragement immigrant students need to work towards their dream future. Pleasedonate todayand help ensure more students have the support they deserve.</p>
-            <p>MailingAddress:</p>
-            <p>Mission, history & values</p>
-            <p>Staff & board</p>
-            <p>Careers</p>
-            <p>Overview</p>
-            <p>Youth</p>
-            <p>Family</p>
-            <p>Community Engagement</p>
-            <p>Donate</p>
-            <p>Events</p>
-            <p>Contact us</p>
-            <p>Email</p>
         """
     },
 ]
