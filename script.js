@@ -618,106 +618,116 @@
       });
     });
 
-    // Attach to Same-Page 2026 Impact Report Modal buttons
-    document.querySelectorAll('.open-impact-report-modal').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+    // Helper: Open Same-Page 2026 Impact Report Summary Modal
+    function openImpactReportModal() {
+      const content = `
+        <div style="margin-bottom:18px;">
+          <span class="badge badge-green" style="margin-bottom:8px;">Annual Publication • 2026 Impact Report</span>
+          <h4 style="font-size:1.35rem;color:var(--navy);margin:6px 0 8px;font-weight:700;">Deep Roots, Lasting Flourish</h4>
+          <p style="font-size:0.98rem;line-height:1.6;color:var(--text-body);margin:0;">
+            Our annual evaluation of student graduation rates, family economic mobility, and direct assistance across King County.
+          </p>
+        </div>
 
-        const content = `
-          <div style="margin-bottom:18px;">
-            <span class="badge badge-green" style="margin-bottom:8px;">Annual Publication • 2026 Impact Report</span>
-            <h4 style="font-size:1.35rem;color:var(--navy);margin:6px 0 8px;font-weight:700;">Deep Roots, Lasting Flourish</h4>
-            <p style="font-size:0.98rem;line-height:1.6;color:var(--text-body);margin:0;">
-              Our annual evaluation of student graduation rates, family economic mobility, and direct assistance across King County.
-            </p>
+        <div class="report-modal-metrics-grid">
+          <div class="report-metric-tile" style="background:#F0FAF9;border-color:rgba(42,210,201,0.3);">
+            <div class="report-metric-num">570+</div>
+            <div class="report-metric-label" style="color:var(--teal-dark);">Newcomers Served</div>
+            <p>Guided through academic, language, and civic pathways.</p>
           </div>
-
-          <div class="report-modal-metrics-grid">
-            <div class="report-metric-tile" style="background:#F0FAF9;border-color:rgba(42,210,201,0.3);">
-              <div class="report-metric-num">570+</div>
-              <div class="report-metric-label" style="color:var(--teal-dark);">Newcomers Served</div>
-              <p>Guided through academic, language, and civic pathways.</p>
-            </div>
-            <div class="report-metric-tile" style="background:#F4FBE8;border-color:rgba(151,215,0,0.35);">
-              <div class="report-metric-num">95%</div>
-              <div class="report-metric-label" style="color:#2A6615;">Graduation Rate</div>
-              <p>Among cohort high school seniors at Seattle World School.</p>
-            </div>
-            <div class="report-metric-tile" style="background:#FEECEE;border-color:rgba(244,54,76,0.25);">
-              <div class="report-metric-num">$240K+</div>
-              <div class="report-metric-label" style="color:var(--coral);">Direct Family Relief</div>
-              <p>Distributed in emergency rental, food, and utility aid.</p>
-            </div>
-            <div class="report-metric-tile" style="background:#F0F2FA;border-color:rgba(30,34,170,0.2);">
-              <div class="report-metric-num">1,200+</div>
-              <div class="report-metric-label" style="color:var(--navy);">Digital Literacy Hours</div>
-              <p>Delivered in bilingual workshops for parents &amp; caregivers.</p>
-            </div>
+          <div class="report-metric-tile" style="background:#F4FBE8;border-color:rgba(151,215,0,0.35);">
+            <div class="report-metric-num">95%</div>
+            <div class="report-metric-label" style="color:#2A6615;">Graduation Rate</div>
+            <p>Among cohort high school seniors at Seattle World School.</p>
           </div>
-
-          <div class="bio-editorial-body" style="margin-bottom:18px;">
-            <p>Over the past year, Kandelia deepened its commitment to holistic, culturally responsive support for newly arrived immigrant and refugee families across King County—partnering closely with Seattle World School educators and multilingual family advocates.</p>
-            <p>Through after-school tutoring, Running Start college readiness coaching, paid youth internships, and direct emergency relief, 95% of participating seniors graduated on time—many becoming the first in their families to enter university.</p>
+          <div class="report-metric-tile" style="background:#FEECEE;border-color:rgba(244,54,76,0.25);">
+            <div class="report-metric-num">$240K+</div>
+            <div class="report-metric-label" style="color:var(--coral);">Direct Family Relief</div>
+            <p>Distributed in emergency rental, food, and utility aid.</p>
           </div>
+          <div class="report-metric-tile" style="background:#F0F2FA;border-color:rgba(30,34,170,0.2);">
+            <div class="report-metric-num">1,200+</div>
+            <div class="report-metric-label" style="color:var(--navy);">Digital Literacy Hours</div>
+            <p>Delivered in bilingual workshops for parents &amp; caregivers.</p>
+          </div>
+        </div>
 
-          <div style="padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <div class="bio-editorial-body" style="margin-bottom:18px;">
+          <p>Over the past year, Kandelia deepened its commitment to holistic, culturally responsive support for newly arrived immigrant and refugee families across King County—partnering closely with Seattle World School educators and multilingual family advocates.</p>
+          <p>Through after-school tutoring, Running Start college readiness coaching, paid youth internships, and direct emergency relief, 95% of participating seniors graduated on time—many becoming the first in their families to enter university.</p>
+        </div>
+
+        <div style="padding-top:16px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <a class="btn btn-coral btn-sm" href="https://kandelia-bloom.kindful.com/embeds/75568458-194c-4924-8a1b-de2cd76e4f92" target="_blank" rel="noopener">Support 2026 Programs →</a>
-            <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('modal-close-button').click();">Close Report</button>
+            <button type="button" class="btn btn-outline btn-sm open-request-pdf-modal">Request PDF Copy</button>
           </div>
-        `;
-        openModal("2026 Impact Report", content);
-      });
-    });
+          <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('modal-close-button').click();">Close Report</button>
+        </div>
+      `;
+      openModal("2026 Impact Report", content);
+    }
 
-    // Attach to Request 2026 Impact Report PDF modal buttons
-    document.querySelectorAll('.open-request-pdf-modal').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    // Helper: Open Request 2026 Impact Report PDF Modal
+    function openRequestPdfModal() {
+      const content = `
+        <div style="margin-bottom:18px;">
+          <span class="badge badge-green" style="margin-bottom:8px;">Annual Publication • 2026 Impact Report</span>
+          <p style="font-size:1.02rem;line-height:1.6;color:var(--text-body);margin-top:6px;">
+            Request a complimentary digital PDF copy of Kandelia’s <strong>2026 Impact Report: Deep Roots, Lasting Flourish</strong>, including audited financials and program outcomes.
+          </p>
+        </div>
+        <form id="pdf-request-form" style="display:flex;flex-direction:column;gap:12px;margin-bottom:18px;background:#F8FAFC;padding:16px;border-radius:14px;border:1px solid #E2E8F0;">
+          <div>
+            <label for="pdf-req-name" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Your Name *</label>
+            <input type="text" id="pdf-req-name" required placeholder="Full Name" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+          </div>
+          <div>
+            <label for="pdf-req-email" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Email Address *</label>
+            <input type="email" id="pdf-req-email" required placeholder="you@example.org" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send PDF Copy Request →</button>
+          <div id="pdf-req-feedback" style="display:none;padding:12px 14px;border-radius:10px;background:#E6FAF9;color:#0F5D59;font-weight:600;font-size:0.92rem;border:1px solid rgba(42,210,201,0.4);"></div>
+        </form>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
+          <a href="mailto:info@kandelia.org?subject=Request%202026%20Impact%20Report%20PDF" class="btn btn-outline" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+            ✉️ Email info@kandelia.org
+          </a>
+          <button type="button" class="btn btn-coral open-impact-report-modal" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
+            Read Report Summary →
+          </button>
+        </div>
+      `;
+      openModal("Request 2026 Impact Report PDF", content);
+
+      const pdfForm = document.getElementById('pdf-request-form');
+      const pdfFeedback = document.getElementById('pdf-req-feedback');
+      if (pdfForm && pdfFeedback) {
+        pdfForm.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          const emailVal = document.getElementById('pdf-req-email').value.trim();
+          pdfFeedback.style.display = 'block';
+          pdfFeedback.innerHTML = `✅ Request confirmed! We will email the <strong>2026 Impact Report PDF</strong> to <strong>${emailVal}</strong> shortly.`;
+          pdfForm.reset();
+        });
+      }
+    }
+
+    // Event delegation so both static page buttons and dynamic in-modal buttons work seamlessly
+    document.addEventListener('click', (e) => {
+      const reportBtn = e.target.closest('.open-impact-report-modal');
+      if (reportBtn) {
         e.preventDefault();
         e.stopPropagation();
-
-        const content = `
-          <div style="margin-bottom:18px;">
-            <span class="badge badge-green" style="margin-bottom:8px;">Annual Publication • 2026 Impact Report</span>
-            <p style="font-size:1.02rem;line-height:1.6;color:var(--text-body);margin-top:6px;">
-              Request a complimentary digital PDF copy of Kandelia’s <strong>2026 Impact Report: Deep Roots, Lasting Flourish</strong>, including audited financials and program outcomes.
-            </p>
-          </div>
-          <form id="pdf-request-form" style="display:flex;flex-direction:column;gap:12px;margin-bottom:18px;background:#F8FAFC;padding:16px;border-radius:14px;border:1px solid #E2E8F0;">
-            <div>
-              <label for="pdf-req-name" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Your Name *</label>
-              <input type="text" id="pdf-req-name" required placeholder="Full Name" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
-            </div>
-            <div>
-              <label for="pdf-req-email" style="display:block;font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Email Address *</label>
-              <input type="email" id="pdf-req-email" required placeholder="you@example.org" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid #CBD5E1;font-size:0.95rem;">
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;">Send PDF Copy Request →</button>
-            <div id="pdf-req-feedback" style="display:none;padding:12px 14px;border-radius:10px;background:#E6FAF9;color:#0F5D59;font-weight:600;font-size:0.92rem;border:1px solid rgba(42,210,201,0.4);"></div>
-          </form>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
-            <a href="mailto:info@kandelia.org?subject=Request%202026%20Impact%20Report%20PDF" class="btn btn-outline" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
-              ✉️ Email info@kandelia.org
-            </a>
-            <button type="button" class="btn btn-coral open-impact-report-modal" style="justify-content:center;font-size:0.92rem;padding:10px 14px;">
-              Read Report Summary →
-            </button>
-          </div>
-        `;
-        openModal("Request 2026 Impact Report PDF", content);
-
-        const pdfForm = document.getElementById('pdf-req-feedback') ? document.getElementById('pdf-request-form') : null;
-        const pdfFeedback = document.getElementById('pdf-req-feedback');
-        if (pdfForm && pdfFeedback) {
-          pdfForm.addEventListener('submit', (ev) => {
-            ev.preventDefault();
-            const emailVal = document.getElementById('pdf-req-email').value.trim();
-            pdfFeedback.style.display = 'block';
-            pdfFeedback.innerHTML = `✅ Request confirmed! We will email the <strong>2026 Impact Report PDF</strong> to <strong>${emailVal}</strong> shortly.`;
-            pdfForm.reset();
-          });
-        }
-      });
+        openImpactReportModal();
+        return;
+      }
+      const pdfBtn = e.target.closest('.open-request-pdf-modal');
+      if (pdfBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        openRequestPdfModal();
+      }
     });
 
     // Attach to Gala Sponsorship modal buttons
