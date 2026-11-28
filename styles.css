@@ -7249,7 +7249,7 @@ select {
 
 .story-modal-hero-img-wrap {
   width: 100%;
-  height: 360px;
+  height: 460px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 24px;
@@ -7260,13 +7260,13 @@ select {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: center !important;
+  object-position: center 15%;
   display: block !important;
 }
 
 @media (max-width: 767px) {
   .story-modal-hero-img-wrap {
-    height: 240px;
+    height: 300px;
     margin-bottom: 18px;
   }
   .story-editorial-article {

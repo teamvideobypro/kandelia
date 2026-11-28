@@ -426,12 +426,13 @@
         const fullHtml = card.getAttribute('data-story-html') || '';
         const imgSrc = card.getAttribute('data-image') || (card.querySelector('img') ? card.querySelector('img').src : '');
 
+        const imgPos = (imgSrc.includes('story_ana') || imgSrc.includes('story_sunflower_tulip')) ? 'center' : 'center 15%';
         const content = `
           <div style="margin-bottom:18px;">
             <span class="badge badge-coral" style="margin-bottom:10px;display:inline-block;">Roots & Routes: Immigrant Stories</span>
             <p style="font-size:1.15rem;color:var(--coral);font-weight:700;margin:6px 0 0;">${subtitle}</p>
           </div>
-          ${imgSrc ? `<div class="story-modal-hero-img-wrap"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>` : ''}
+          ${imgSrc ? `<div class="story-modal-hero-img-wrap"><img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;object-position:${imgPos};display:block;"></div>` : ''}
           ${quote ? `
           <blockquote style="background:#FAF7F2;border-left:5px solid var(--coral);padding:18px 24px;border-radius:12px;font-style:italic;color:var(--navy);font-size:1.12rem;line-height:1.55;margin-bottom:24px;">
             "${quote}"
